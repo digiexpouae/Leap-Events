@@ -1,0 +1,161 @@
+"use client"
+import Image from "next/image";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+export default function CorporateEvents() {
+    const container = useRef()
+    useGSAP(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const cards = gsap.utils.toArray(".child")
+        gsap.set(cards, {
+            position: "absolute",
+            top: 0, left: 0, right: 0,
+            y: "200%"  // all hidden below
+        }); gsap.set(cards[0], { y: "0%", });
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: container.current,
+                pin: true,
+                scrub: 1,
+                pinSpacing: true,   // ✅ holds scroll space so animation completes
+
+                start: "top top",
+                end: `+=${cards.length * 600}`, // 600px
+
+            }
+        })
+        cards.forEach((card, i) => {
+            // current card slides UP and out
+            const isLast = i === cards.length - 1;
+            // next card slides IN first in timeline
+            if (cards[i + 1]) {
+                tl.to(cards[i + 1], {
+                    y: "0%",
+                    duration: 1,
+                    ease: "power1.in"
+                });
+            }
+
+            // current card exits AT SAME TIME as next enters — skip last
+            if (!isLast) {
+                tl.to(card, {
+                    y: "-100%",
+                }, "<+0.2"); // ← exits together with next card entering
+            }
+            else {
+                tl.to(card, {
+                    duration: 0.5
+                })
+            }
+
+
+            // current card slides OUT — skip only the last
+
+        });
+
+
+    })
+    const data = [{
+        title: 'Corporate Events', image: "/assets/home/7.png"
+    },
+    { title: "Mall Decor & Activation", image: "/assets/home/Malldecor.jpg" },
+    { title: "Wedding", image: "/assets/home/wedding.jpg" },
+    { title: "Digital Print & Branding", image: "/assets/home/digitalprint.jpg" },
+    { title: 'Exhibition', image: "/assets/home/event.jpg" },
+
+    { title: 'Entertainment', image: "/assets/entertainment.jpg" }
+        ,
+    ]
+    return (
+
+        <section
+            className="relative flex flex-col justify-between w-full h-screen overflow-hidden bg-[var(--color-bg-secondary)]"
+            ref={container}
+        >
+            < div
+                className="w-full px-5 sm:px-8 lg:px-12 py-10 sm:py-14"
+            >
+                <div className="mx-auto max-w-7xl text-white flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 pt-10 justify-between">
+                    <h3
+                        className="font-black uppercase text-white text-[clamp(1.8rem,5vw,3rem)] shrink-0"
+                    >
+                        What We Do
+                    </h3>
+                    <p
+                        className="text-base tracking-tighter sm:text-3xl "
+                    >
+                        Crafting More Than Events
+                    </p>
+                </div>
+            </div >
+            {/* This box is the visible 50vh window */}
+            <div
+                className="relative w-full h-2/3 overflow-hidden translate-y-1/3 md:translate-y-1/5 mx-auto max-w-7xl px-5 sm:px-8 lg:px-12"
+            // ✅ overflow-hidden only on inner box — clips cards cleanly
+            >
+                {data.map((elem, index) => (
+                    <EventCard key={index} title={elem.title} image={elem.image} />
+                ))}
+            </div>
+        </section>
+    );
+}
+
+function EventCard({
+    title,
+    image,
+    placeholder,
+}) {
+    return (
+        <div
+            className="child  relative w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-10 px-6 sm:px-10 py-4  rounded-2xl overflow-hidden hover:brightness-110"
+
+
+        >
+            {/* Subtle inner glow on hover */}
+            <div
+                className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+
+            />
+
+            {/* ── Title ── */}
+            <h3
+                className="relative z-10 font-black uppercase text-white leading-tight shrink-0 text-[clamp(1.1rem,4vw,2rem)]"
+                style={{ letterSpacing: "0.03em", maxWidth: "200px" }}
+            >
+                {title}
+            </h3>
+
+            {/* ── Image ── */}
+            <div
+                className="relative z-10 w-full sm:w-[48%] md:w-[42%] lg:w-[38%] shrink-0 overflow-hidden rounded-xl"
+                style={{ aspectRatio: "16/9" }}
+            >
+
+                {/* ── IMAGE PLACEHOLDER ──
+          Replace this block with your Next.js Image: */}
+
+                <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+
+
+                {/* Warm golden overlay hint — mimics the event lighting in the design */}
+                <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                        background:
+                            "radial-gradient(ellipse at 65% 50%, rgba(200,140,60,0.18) 0%, transparent 65%)",
+                    }}
+                />
+            </div>
+        </div>
+    );
+}

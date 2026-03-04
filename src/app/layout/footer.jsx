@@ -37,7 +37,7 @@ export default function Footer() {
                 style={{ background: "var(--color-bg-secondary, #0a1628)" }}
             >
                 {/* ── Main footer grid ── */}
-                <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16 pt-4  pb-10 sm:pb-14">
+                <div className="mx-auto max-w-6xl px-6 sm:px-10 lg:px-16 pt-4  pb-10 sm:pb-14">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
 
                         {/* ── Col 1: Brand ── */}
@@ -48,7 +48,7 @@ export default function Footer() {
                             </div>
 
                             {/* Tagline */}
-                            <p className="text-white/60 text-sm sm:text-base leading-relaxed">
+                            <p className="text-white text-sm sm:text-base ">
                                 We are organization of eclectic team of enthusiast with decade and
                                 more dedicated to event industries.
                             </p>
@@ -85,7 +85,7 @@ export default function Footer() {
                                     <li key={link.label}>
                                         <Link
                                             href={link.href}
-                                            className="text-white/70 text-sm sm:text-base hover:text-white transition-colors duration-200"
+                                            className="text-white text-sm sm:text-base hover:text-white transition-colors duration-200"
                                         >
                                             {link.label}
                                         </Link>
@@ -104,7 +104,7 @@ export default function Footer() {
                             <ul className="flex flex-col gap-3.5">
                                 {services.map((service) => (
                                     <li key={service}>
-                                        <span className="text-white/70 text-sm sm:text-base hover:text-white transition-colors duration-200 cursor-pointer">
+                                        <span className="text-white text-sm sm:text-base hover:text-white transition-colors duration-200 cursor-pointer">
                                             {service}
                                         </span>
                                     </li>
@@ -124,7 +124,7 @@ export default function Footer() {
                 {/* ── Copyright ── */}
                 <div className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16 py-5 text-center">
                     <p className="text-white text-xs sm:text-sm">
-                        Copyright © 2023 LeapEvent. All Rights Reserved.
+                        Copyright © 2026 LeapEvent. All Rights Reserved.
                     </p>
                 </div>
 

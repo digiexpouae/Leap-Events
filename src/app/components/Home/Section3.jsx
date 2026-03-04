@@ -42,7 +42,7 @@ export default function MomentsWeCreated() {
         <>
             {/* ── Moments We Created Section ── */}
             <section
-                className="w-full relative py-12 sm:py-16 lg:py-20 bg-[var(--color-bg-secondary)]"
+                className="w-full relative pt-12 sm:pt-16 lg:pt-20 bg-[var(--color-bg-secondary)]"
             >
                 <div className="mx-auto max-w-7xl ">
 

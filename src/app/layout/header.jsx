@@ -46,10 +46,10 @@ export default function Navbar() {
                     {/* Contact Button */}
                     <div className="hidden lg:block">
                         <button
-                            className="px-5 py-2 bg-primary rounded-full text-white text-md font-semibold transition-all duration-200 hover:opacity-90 hover:scale-105 active:scale-95 shadow-md"
+                            className="px-5 py-2 bg-primary rounded-full text-white text-md font-semibold transition-all duration-200 hover:opacity-90 hover:scale-105 active:scale-95 cursor-pointer shadow-md"
 
                         >
-                            Contact Us
+                            <Link href={'/contact'}>   Contact Us</Link>
                         </button>
                     </div>
 

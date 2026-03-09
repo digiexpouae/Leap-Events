@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -18,11 +18,15 @@ const navLinks = [
 const About = [
     { name: "Sustainability", href: "/about/sustainability" },
 ];
-
+const aboutNames = About.map((s) => s.name);
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [active, setActive] = useState("Home");
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+    useEffect(() => {
+        console.log("Active", active)
+    }, [])
+
 
     return (
         <nav className="w-full fixed top-0 z-[99]">
@@ -48,7 +52,7 @@ export default function Navbar() {
                                 <div key={elem.name} className="relative group">
                                     <button
                                         onClick={() => setActive(elem.name)}
-                                        className={`px-4 py-1.5 rounded-full font-medium text-white flex items-center gap-1.5 ${active === elem.name ? "font-semibold" : "font-normal"
+                                        className={`px-4 py-1.5 rounded-full font-medium text-white flex items-center gap-1.5 ${aboutNames.includes(active) || active === elem.name ? "font-semibold" : "font-normal"
                                             }`}
                                     >
                                         <Link href={elem.link}>{elem.name}</Link>
@@ -62,10 +66,7 @@ export default function Navbar() {
 
                                     {/* Dropdown panel */}
                                     <div
-                                        className="absolute top-[calc(100%+16px)] left-1/2 -translate-x-10 z-50 rounded-2xl overflow-hidden
-                                                   invisible opacity-0 translate-y-1
-                                                   group-hover:visible group-hover:opacity-100 group-hover:translate-y-0
-                                                   transition-all duration-200 ease-out"
+                                        className={"absolute top-[calc(100%+16px)] left-1/2 -translate-x-10 z-50 rounded-2xl overflow-hidden invisible opacity-0 translate-y-1  group-hover:visible group-hover:opacity-100  transition-all duration-200 ease-out"}
                                         style={{
                                             width: "480px",
                                             background: "rgba(10, 10, 10, 0.85)",
@@ -82,16 +83,23 @@ export default function Navbar() {
                                                 <div key={section.name}>
 
 
-                                                    <Link
-                                                        key={section.name}
-                                                        href={section.href}
-                                                        className="flex items-center gap-2 px-2 py-2 rounded-lg transition-all duration-150 hover:bg-white/[0.06] group/item"
-                                                    >
-                                                        <span className="w-1 h-1 rounded-full bg-white/20 group-hover/item:bg-white/60 transition-colors flex-shrink-0" />
-                                                        <span className="text-sm text-white/70 group-hover/item:text-white transition-colors">
-                                                            {section.name}
-                                                        </span>
-                                                    </Link>
+
+                                                    <span className="w-1 h-1 rounded-full bg-white/20 group-hover/item:bg-white/60 transition-colors flex-shrink-0" />
+                                                    <span className="text-sm text-white/70 group-hover/item:text-white transition-colors">
+                                                        <Link
+                                                            key={section.name}
+                                                            href={section.href}
+                                                            onClick={() => {
+                                                                setActive(section.name)
+                                                                console.log("active", active)
+
+                                                            }
+
+                                                            }
+                                                            className="flex items-center gap-2 px-2 py-2 rounded-lg transition-all duration-150 hover:bg-white/[0.06] group/item"
+                                                        >   {section.name}  </Link>
+                                                    </span>
+
                                                 </div>
                                             ))}
                                         </div>
@@ -250,6 +258,6 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
-        </nav>
+        </nav >
     );
 }

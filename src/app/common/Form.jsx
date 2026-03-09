@@ -158,7 +158,7 @@ export default function GetInTouch() {
                     <div className="sm:col-span-2 mt-1">
                         <button
                             onClick={handleSubmit}
-                            className="w-full py-4 bg-[var(--color-primary)] rounded-full font-bold text-white text-sm sm:text-base tracking-widest uppercase transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98]"
+                            className="w-full py-3 bg-primary rounded-full font-bold text-white text-sm sm:text-base tracking-tighter  transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] cursor-pointer"
 
                         >
                             Explore More

@@ -5,6 +5,8 @@
   --color-bg-secondary: #001028;
   --color-primary: #5686DA;
   --color-heading: #5686DA;
+  --color-bg-primary-two: #F0FBFF;
+
 }
 
 /* GRIFTER */
@@ -65,6 +67,10 @@ h6 {
   font-family: "GRIFTER";
 }
 
+.text-gray {
+  color: #5A5A5A;
+}
+
 .bg-primary-gradient {
   background-image: linear-gradient(180deg, #F0FBFF 0%, #FFFFFF 100%);
   ;
@@ -93,4 +99,12 @@ h6 {
 /* Pause on hover */
 .flex:hover>div {
   animation-play-state: paused;
+}
+
+.bg-primary {
+  background-color: var(--color-primary)
+}
+
+.bg-primary-two {
+  background-color: var(--color-bg-primary-two);
 }

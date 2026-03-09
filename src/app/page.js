@@ -14,14 +14,12 @@ export default function Home() {
 
   return (
     <>
-      <Header />
 
       <Parallexanimation />
       <Event />
       <VoicesOfLegacy />
       <LogoMarquee />
       <Form />
-      <Footer />
     </>
   );
 }

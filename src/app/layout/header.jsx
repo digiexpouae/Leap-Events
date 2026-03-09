@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-
-const navLinks = ["Home", "About", "Services", "Work", "Portfolio", "Careers", "Blogs"];
+import Link from "next/link";
+const navLinks = [{ name: "Home", link: "/" }, { name: "About", link: "/about" }, { name: "Services", link: '/services' }, { name: "Work", link: "/ourwork" }, { name: "Portfolio", link: "#" }, { name: "Careers", link: "/career" }, { name: "Blogs", link: "/articles" }];
 import Image from "next/image";
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +17,7 @@ export default function Navbar() {
                     <div className="flex-shrink-0">
                         <div className="flex items-center gap-2">
                             {/* SVG placeholder mimicking "leap" logo style */}
-                            <Image src="/assets/logo.svg" alt="leap" width={80} height={80} />
+                            <Link href="/">    <Image src="/assets/logo.svg" alt="leap" width={80} height={80} /></Link>
                         </div>
                     </div>
 
@@ -26,16 +26,19 @@ export default function Navbar() {
                         className="hidden lg:flex items-center border border-[#595959] bg-[#00000080] rounded-full text-md tracking-tight px-2 py-1 gap-1"
                         style={{ backdropFilter: 'blur(20px)' }}
                     >
-                        {navLinks.map((link) => (
+                        {navLinks.map((elem) => (
+
                             <button
-                                key={link}
-                                onClick={() => setActive(link)}
-                                className={`px-4 py-1.5 rounded-full  font-medium text-white   ${active === link
+                                key={elem.name}
+                                onClick={() => setActive(elem.name)}
+                                className={`px-4 py-1.5 rounded-full  font-medium text-white   ${active === elem.name
                                     ? " font-semibold "
                                     : "font-normal "
                                     }`}
                             >
-                                {link}
+
+                                <Link href={elem.link}>   {elem.name}
+                                </Link>
                             </button>
                         ))}
                     </div>
@@ -43,8 +46,8 @@ export default function Navbar() {
                     {/* Contact Button */}
                     <div className="hidden lg:block">
                         <button
-                            className="px-5 py-2 rounded-full text-white text-md font-semibold transition-all duration-200 hover:opacity-90 hover:scale-105 active:scale-95 shadow-md"
-                            style={{ backgroundColor: "#5686DA" }}
+                            className="px-5 py-2 bg-primary rounded-full text-white text-md font-semibold transition-all duration-200 hover:opacity-90 hover:scale-105 active:scale-95 shadow-md"
+
                         >
                             Contact Us
                         </button>
@@ -83,18 +86,20 @@ export default function Navbar() {
                     }`}
             >
                 <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100 flex flex-col gap-1">
-                    {navLinks.map((link) => (
+                    {navLinks.map((elem) => (
+
                         <button
-                            key={link}
-                            onClick={() => { setActive(link); setIsOpen(false); }}
-                            className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 ${active === link
+                            key={elem.name}
+                            onClick={() => { setActive(elem.name); setIsOpen(false); }}
+                            className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-150 ${active === elem.name
                                 ? "text-white shadow-sm"
                                 : "text-gray-600 hover:bg-gray-100 hover:text-gray-900"
                                 }`}
-                            style={active === link ? { backgroundColor: "#5686DA" } : {}}
+                            style={active === elem.name ? { backgroundColor: "#5686DA" } : {}}
                         >
-                            {link}
+                            <Link href={elem.link}> {elem.name}  </Link>
                         </button>
+
                     ))}
                 </div>
             </div>

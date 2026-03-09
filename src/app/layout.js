@@ -1,7 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-
+import Header from '../app/layout/header'
+import Footer from '../app/layout/footer'
 
 export const metadata = {
   title: "Create Next App",
@@ -9,13 +9,21 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  return (
+  return (<>
+
+    <Header />
     <html lang="en">
+
       <body
         className={`antialiased`}
       >
+
         {children}
+
       </body>
+
     </html>
+    <Footer />
+  </>
   );
 }

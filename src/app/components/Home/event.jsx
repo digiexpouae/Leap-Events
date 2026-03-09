@@ -22,7 +22,6 @@ export default function CorporateEvents() {
                 pin: true,
                 scrub: 1,
                 pinSpacing: true,   // ✅ holds scroll space so animation completes
-
                 start: "top top",
                 end: `+=${cards.length * 600}`, // 600px
 

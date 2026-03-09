@@ -37,31 +37,17 @@ const events = [
     },
 ];
 
-export default function MomentsWeCreated() {
+export default function MomentsWeCreated({ className }) {
     return (
         <>
             {/* ── Moments We Created Section ── */}
             <section
-                className="w-full relative pt-12 sm:pt-16 lg:pt-20 bg-[var(--color-bg-secondary)]"
+                className={`w-full relative  py-4 ${className}`}
             >
                 <div className="mx-auto max-w-7xl ">
 
                     {/* Header row */}
-                    <div className="flex nd:flex-col sm:flex-row px-4 md:px-16 sm:items-center sm:justify-between gap-4 mb-8 sm:mb-10">
-                        <h2
-                            className="font-black uppercase text-white text-[clamp(1.8rem,5vw,3rem)]"
-                            style={{ letterSpacing: "-0.01em", lineHeight: 1.05 }}
-                        >
-                            Moments We Created
-                        </h2>
 
-                        <button
-                            className="self-start sm:self-auto px-6 py-2.5 bg-[var(--color-primary)] rounded-full text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:brightness-110 whitespace-nowrap"
-
-                        >
-                            Explore More
-                        </button>
-                    </div>
 
                     {/* 2×2 grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">

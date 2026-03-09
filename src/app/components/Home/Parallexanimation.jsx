@@ -82,12 +82,31 @@ const Parallexanimation = () => {
                 - scrolls normally after pin ends
                 - negative margin pulls it flush against container
             */}
+
+
                   <div
-                        className="relative w-full z-50 -mt-screen translate-y-full"
+                        className="relative w-full z-50 bg-[var(--color-bg-secondary)] pt-12 sm:pt-16 lg:pt-20 -mt-screen translate-y-full"
                         style={{ marginTop: "-100vh" }}
                         ref={ref3}
                   >
-                        <SectionThree />
+
+
+                        <div className="flex nd:flex-col sm:flex-row px-4 md:px-16 sm:items-center sm:justify-between gap-4 mb-8 sm:mb-10">
+                              <h2
+                                    className={`font-black uppercase text-white text-[clamp(1.8rem,5vw,3rem)]`}
+                                    style={{ letterSpacing: "-0.01em", lineHeight: 1.05 }}
+                              >
+                                    Moments We Created
+                              </h2>
+
+                              <button
+                                    className="self-start sm:self-auto px-6 py-2.5 bg-[var(--color-primary)] rounded-full text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:brightness-110 whitespace-nowrap"
+
+                              >
+                                    Explore More
+                              </button>
+                        </div>
+                        <SectionThree className="" />
                   </div>
 
             </div>

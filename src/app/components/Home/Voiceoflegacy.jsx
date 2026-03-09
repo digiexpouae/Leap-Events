@@ -125,12 +125,7 @@ export default function VoicesOfLegacy() {
 
             </div>
 
-            <style>{`
-        :root {
-          --color-primary: #5686DA;
-          --color-bg-primary: #eaf2fc;
-        }
-      `}</style>
+
         </section>
     );
 }

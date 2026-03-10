@@ -149,18 +149,18 @@ export default function Navbar() {
                     </div>
 
                     {/* Mobile hamburger */}
-                    <div className="lg:hidden flex items-center gap-3">
+                    <div className="lg:hidden relative flex items-center gap-3">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="p-2 rounded-lg transition-colors"
+                            className="p-2 relative z-20 rounded-lg transition-colors"
                             aria-label="Toggle menu"
                         >
                             {isOpen ? (
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-5 h-5" fill="none" stroke="white" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             ) : (
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-5 h-5" fill="none" stroke="black" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             )}
@@ -171,93 +171,137 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             <div
-                className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+                className={`lg:hidden overflow-hidden absolute inset-0  transition-all duration-300 h-screen ease-in-out ${isOpen ? " translate-x-0 opacity-100" : "translate-x-100 opacity-0"
                     }`}
+
+                style={{
+                    background: "rgba(10,10,10,0.90)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                    backdropFilter: "blur(24px)",
+                }}
             >
                 <div
-                    className="mx-4 mb-4 mt-2 rounded-2xl overflow-hidden flex flex-col"
-                    style={{
-                        background: "rgba(10,10,10,0.90)",
-                        border: "1px solid rgba(255,255,255,0.08)",
-                        backdropFilter: "blur(24px)",
-                    }}
+                    className=" h-full overflow-hidden flex flex-col translate-y-30 "
+
                 >
-                    {navLinks.map((elem) =>
+                    {/* Mobile Menu — Right Slide Drawer Body */}
+                    {navLinks.map((elem, i) =>
                         elem.name === "About" ? (
-
-                            // Mobile Services accordion
                             <div key={elem.name}>
-                                <button
-                                    className="w-full flex items-center justify-between px-5 py-3.5 text-sm font-medium text-white/80 hover:text-white hover:bg-white/[0.04] transition-all"
-                                >
-                                    <Link href="/about">  <span>About</span></Link>
-                                    <svg
-                                        onClick={() => {
-                                            setMobileServicesOpen(!mobileServicesOpen)
-                                        }}
-
-                                        width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                        className="transition-transform duration-200"
-                                        style={{ transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}
-                                    >
-                                        <path d="M2 4L6 8L10 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
-                                </button>
-
-                                {/* Accordion content */}
+                                {/* About row with split tap zones */}
                                 <div
-                                    className="overflow-hidden transition-all duration-300 ease-in-out"
-                                    style={{ maxHeight: mobileServicesOpen ? "400px" : "0px" }}
+                                    className="flex items-center mx-3 my-0.5 rounded-2xl overflow-hidden transition-colors"
+                                    style={{ background: mobileServicesOpen ? "rgba(255,255,255,0.05)" : "transparent" }}
                                 >
-                                    <div
-                                        className="mx-3 mb-2 rounded-xl p-4 grid grid-cols-3 gap-3"
-                                        style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
+                                    <Link
+                                        href="/about"
+                                        onClick={() => setIsOpen(false)}
+                                        className="flex-1 px-4 py-3.5 text-xl font-medium text-white/75 hover:text-white transition-colors"
                                     >
-                                        {About.map((section) => (
-                                            <div key={section.name}>
+                                        About
+                                    </Link>
 
-                                                <Link
-                                                    key={section.name}
-                                                    href={section.href}
-                                                    onClick={() => setIsOpen(false)}
-                                                    className="block text-xs text-white/60 hover:text-white py-1 transition-colors"
-                                                >
-                                                    {section.name}
-                                                </Link>
-                                            </div>
+                                    {/* Divider between text and chevron */}
+                                    <div className="w-px h-5 bg-white/10 flex-shrink-0" />
+
+                                    <button
+                                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                                        className="px-4 py-3.5 flex items-center justify-center text-white/40 hover:text-white transition-colors"
+                                        aria-label="Toggle About submenu"
+                                    >
+                                        <svg
+                                            width="11" height="11" viewBox="0 0 12 12" fill="none"
+                                            style={{
+                                                transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)",
+                                                transition: "transform 0.3s cubic-bezier(0.4,0,0.2,1)"
+                                            }}
+                                        >
+                                            <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                {/* Accordion sub-items */}
+                                <div
+                                    className="overflow-hidden"
+                                    style={{
+                                        maxHeight: mobileServicesOpen ? "300px" : "0px",
+                                        opacity: mobileServicesOpen ? 1 : 0,
+                                        transition: "max-height 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.25s ease",
+                                    }}
+                                >
+                                    <div className="mx-6 mb-3 mt-1 flex flex-col gap-0.5">
+                                        {About.map((section) => (
+                                            <Link
+                                                key={section.name}
+                                                href={section.href}
+                                                onClick={() => setIsOpen(false)}
+                                                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-base text-white/45 hover:text-white hover:bg-white/[0.05] transition-all"
+                                            >
+                                                {/* Dot indicator */}
+                                                <span
+                                                    className="w-1 h-1 text-base rounded-full flex-shrink-0"
+                                                    style={{ background: "rgba(255,255,255,0.3)" }}
+                                                />
+                                                {section.name}
+                                                {/* Arrow nudge on hover */}
+                                                <span className="ml-auto text-white/20 text-[10px]">↗</span>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
 
-                                {/* Divider */}
-                                <div className="h-px mx-5 bg-white/[0.05]" />
+                                {/* Thin rule */}
+                                <div className="h-px mx-6 bg-white/[0.05]" />
                             </div>
 
                         ) : (
-
-                            // Regular mobile link
                             <div key={elem.name}>
                                 <Link
                                     href={elem.link}
                                     onClick={() => { setActive(elem.name); setIsOpen(false); }}
-                                    className={`block px-5 py-3.5 text-sm font-medium transition-all ${active === elem.name ? "text-white" : "text-white/60 hover:text-white hover:bg-white/[0.04]"
-                                        }`}
+                                    className="flex items-center justify-between mx-3 my-0.5 px-4 py-3.5 rounded-2xl text-xl font-medium transition-all"
+                                    style={{
+                                        color: active === elem.name ? "white" : "rgba(255,255,255,0.55)",
+                                        background: active === elem.name ? "rgba(255,255,255,0.06)" : "transparent",
+                                        // Staggered slide-in
+                                        transform: isOpen ? "translateX(0)" : "translateX(20px)",
+                                        opacity: isOpen ? 1 : 0,
+                                        transition: `transform 0.4s cubic-bezier(0.4,0,0.2,1) ${i * 45}ms, opacity 0.35s ease ${i * 45}ms, background 0.15s, color 0.15s`,
+                                    }}
                                 >
-                                    {elem.name}
+                                    <span>{elem.name}</span>
+
+                                    {/* Active indicator dot */}
+                                    {active === elem.name && (
+                                        <span className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0" />
+                                    )}
                                 </Link>
-                                <div className="h-px mx-5 bg-white/[0.05]" />
+
+                                {/* Subtle rule — skip last */}
+                                {i < navLinks.length - 1 && (
+                                    <div className="h-px mx-6 bg-white/[0.04]" />
+                                )}
                             </div>
                         )
                     )}
 
                     {/* Mobile CTA */}
-                    <div className="p-4">
+                    <div className="p-4 pt-3 mt-auto">
+                        {/* Small label */}
+                        <p className="text-center text-[10px] text-white/20 tracking-widest uppercase mb-3">
+                            Ready to work together?
+                        </p>
+
                         <Link
                             href="/contact"
                             onClick={() => setIsOpen(false)}
-                            className="block w-full text-center py-3 rounded-full text-sm font-semibold text-black bg-white hover:opacity-90 transition-opacity"
+                            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full text-sm font-semibold text-black bg-white hover:opacity-90 active:scale-95 transition-all"
                         >
                             Contact Us
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                                <path d="M2 7h10M8 3l4 4-4 4" stroke="black" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
                         </Link>
                     </div>
                 </div>

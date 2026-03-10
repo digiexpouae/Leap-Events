@@ -10,12 +10,16 @@ import Footer from '../app/layout/footer'
 import LogoMarquee from '../app/common/LogoMarquee'
 import Parallexanimation from "./components/Home/Parallexanimation";
 import Event from '../app/components/Home/event'
+import ScrollProvider from '../app/common/scrollProvider'
 export default function Home() {
 
   return (
     <>
+      <ScrollProvider>
 
-      <Parallexanimation />
+        <Parallexanimation />
+      </ScrollProvider>
+
       <Event />
       <VoicesOfLegacy />
       <LogoMarquee />

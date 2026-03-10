@@ -40,9 +40,9 @@ export default function VoicesOfLegacy() {
 
     return (
         <section
-            className="w-full bg-primary-gradient py-14 sm:py-20 relative "
+            className="w-full bg-primary-gradient py-20 sm:py-40 relative "
         >
-            <div className="mx-auto max-w-5xl px-5 sm:px-8 lg:px-12">
+            <div className="max-w-5xl mx-auto  px-5 sm:px-8 lg:px-12">
 
                 {/* Heading */}
                 <h2

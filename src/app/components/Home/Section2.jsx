@@ -6,7 +6,7 @@ export default function WhereLeagciesBegin() {
     return (
         <section className="bg-primary-gradient h-screen w-full py-34 w-full relative" >
             {/* ── Main content grid ── */}
-            <div className="relative z-10 mx-auto max-w-5xl px-6  ">
+            <div className="relative z-10 max-w-5xl mx-auto h-full flex flex-col items-center justify-center px-6  ">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 mb-6 items-start">
 
                     {/* LEFT — headline */}
@@ -37,7 +37,7 @@ export default function WhereLeagciesBegin() {
 
                     <div className="lg:w-2/3 ">
                         {/* Body text */}
-                        <p className="md:text-2xl tracking-tight  leading-[1.2] text-gray-600 max-w-prose">
+                        <p className="text-[clamp(1rem,2vw,2rem)] tracking-tight  leading-[1.2] text-gray-600 max-w-prose">
                             We are organization of eclectic team of enthusiast with decade and
                             more dedicated to event industries. Our Previous experience and
                             enhance knowledge enable us to excel in event industry from
@@ -62,7 +62,7 @@ export default function WhereLeagciesBegin() {
 
                 >
                     {/* Placeholder silhouette hint */}
-                    <Image src={'/assets/home/3.png'} height={200} width={1600} alt="skylines" />
+                    <Image src={'/assets/home/3.png'} height={200} width={1920} alt="skylines" />
                 </div>
                 {/* ↑↑↑ REPLACE THIS DIV WITH YOUR IMAGE ↑↑↑ */}
             </div>

@@ -44,7 +44,7 @@ export default function MomentsWeCreated({ className }) {
             <section
                 className={`w-full relative  py-4 ${className}`}
             >
-                <div className="mx-auto max-w-7xl ">
+                <div className="mx-auto ">
 
                     {/* Header row */}
 

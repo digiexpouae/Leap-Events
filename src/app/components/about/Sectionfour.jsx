@@ -13,17 +13,18 @@ const team = [
         bio: "Event Enthusiast, Team Builder And Excellent Organizer",
         image: "/assets/about/img-2.png",
     },
-    {
-        name: "SHAJAAT",
-        role: "Art Director",
-        bio: "Leads The Art Department Team With Enact Knowledge",
-        image: "/assets/about/img-3.png",
-    },
+
     {
         name: "TAHER ALHAMMAMI",
         role: "Marketing Director",
         bio: "Customer Oriented Marketing Professional With Strong Business Development And Project Management Skills",
         image: "/assets/about/img-4.png",
+    },
+    {
+        name: "SHAJAAT",
+        role: "Art Director",
+        bio: "Leads The Art Department Team With Enact Knowledge",
+        image: "/assets/about/img-3.png",
     },
     {
         name: "KRISHNA PATEL",

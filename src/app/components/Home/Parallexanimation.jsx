@@ -43,7 +43,7 @@ const Parallexanimation = () => {
             tl.to(ref2.current, {
                   yPercent: -100,
             }, "+=0.4");
-
+            // 
             // ref3 slides up into view — overlaps the pinned container
             tl.to(ref3.current, {
                   y: 0,

@@ -195,7 +195,6 @@ export default function Navbar() {
                                     <svg
                                         onClick={() => {
                                             setMobileServicesOpen(!mobileServicesOpen)
-                                            setIsOpen(false)
                                         }}
 
                                         width="12" height="12" viewBox="0 0 12 12" fill="none"

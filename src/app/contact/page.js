@@ -5,7 +5,7 @@ const contact = () => {
         <>
             <HeroSection heading={"Contact Us"} text={<>Start your journey with us today and make <br /> your next event a cornerstone of your legacy  <br />
             </>} />
-            <Form />
+            <Form className={"bg-primary-gradient"} />
         </>
     )
 }

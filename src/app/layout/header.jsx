@@ -188,11 +188,16 @@ export default function Navbar() {
                             // Mobile Services accordion
                             <div key={elem.name}>
                                 <button
-                                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                                     className="w-full flex items-center justify-between px-5 py-3.5 text-sm font-medium text-white/80 hover:text-white hover:bg-white/[0.04] transition-all"
+                                    onClick={() => setIsOpen(false)}
                                 >
-                                    <span>About</span>
+                                    <Link href="/about">  <span>About</span></Link>
                                     <svg
+                                        onClick={() => {
+                                            setMobileServicesOpen(!mobileServicesOpen)
+                                            setIsOpen(false)
+                                        }}
+
                                         width="12" height="12" viewBox="0 0 12 12" fill="none"
                                         className="transition-transform duration-200"
                                         style={{ transform: mobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)" }}
@@ -251,6 +256,7 @@ export default function Navbar() {
                     <div className="p-4">
                         <Link
                             href="/contact"
+                            onClick={() => setIsOpen(false)}
                             className="block w-full text-center py-3 rounded-full text-sm font-semibold text-black bg-white hover:opacity-90 transition-opacity"
                         >
                             Contact Us

@@ -11,7 +11,7 @@ const departments = [
     "Other",
 ];
 
-export default function GetInTouch() {
+export default function GetInTouch({ className }) {
     const [form, setForm] = useState({
         name: "",
         phone: "",
@@ -32,7 +32,7 @@ export default function GetInTouch() {
 
     return (
         <section
-            className="w-full py-14 sm:py-20"
+            className={`w-full py-14 sm:py-20 ${className}`}
         >
             <div className="mx-auto max-w-4xl px-5 sm:px-8 lg:px-12">
 
@@ -71,6 +71,7 @@ export default function GetInTouch() {
                         className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-gray-700 placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
                         style={{
                             border: "1.5px solid rgba(86,134,218,0.25)",
+                            "--tw-ring-color": "rgba(86,134,218,0.35)",
                         }}
                     />
 
@@ -84,6 +85,7 @@ export default function GetInTouch() {
                         className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-gray-700 placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
                         style={{
                             border: "1.5px solid rgba(86,134,218,0.25)",
+                            "--tw-ring-color": "rgba(86,134,218,0.35)",
                         }}
                     />
 
@@ -97,6 +99,7 @@ export default function GetInTouch() {
                         className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-gray-700 placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
                         style={{
                             border: "1.5px solid rgba(86,134,218,0.25)",
+                            "--tw-ring-color": "rgba(86,134,218,0.35)",
                         }}
                     />
 
@@ -110,6 +113,7 @@ export default function GetInTouch() {
                         className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-gray-700 placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
                         style={{
                             border: "1.5px solid rgba(86,134,218,0.25)",
+                            "--tw-ring-color": "rgba(86,134,218,0.35)",
                         }}
                     />
 
@@ -122,6 +126,7 @@ export default function GetInTouch() {
                             className="w-full appearance-none px-5 py-3.5 rounded-full bg-white border text-sm outline-none transition-all duration-200 focus:ring-2 pr-10"
                             style={{
                                 border: "1.5px solid rgba(86,134,218,0.25)",
+                                "--tw-ring-color": "rgba(86,134,218,0.35)",
                                 color: form.department ? "#374151" : "#9ca3af",
                             }}
                         >

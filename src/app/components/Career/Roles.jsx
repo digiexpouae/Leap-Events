@@ -38,13 +38,13 @@ function RoleCard({ title, tags, description }) {
                     {tags.map((tag) => (
                         <span
                             key={tag}
-                            className="text-lg text-white border border-[var(--color-primary)] rounded-full px-4 py-2"
+                            className=" text-md md:text-lg text-white border border-[var(--color-primary)] rounded-full px-4 py-2"
                         >
                             {tag}
                         </span>
                     ))}
                 </div>
-                <p className="text-white text-2xl tracking-tighter font-light">
+                <p className="text-white text-lg md:text-2xl tracking-tighter font-light">
                     {description}
                 </p>
             </div>

@@ -34,6 +34,7 @@ const Services = () => {
 
         <HeroSection heading={heading} text={text} />
         <SectionTwo heading={headingtwo} categories={tabs} />
+
         <Service heading={<>CREATIVE STRATEGY AND <br /> CONCEPT DEVELOPMENT</>} description={description} services={defaultServices} />
         <Service heading={<>Spatial and  <br /> Experiential Design</>} description={"Immersive designs that captivate and inspire your audience."} services={defaultServicesTwo} />
         <Service heading={<>Technical Production and  <br /> Execution </>} description={"Cutting-edge production for flawless, innovative events."} services={ServicesThree} />
@@ -42,7 +43,6 @@ const Services = () => {
         <Service heading={<>Marketing and <br /> Sponsorship</>} description={"Maximizing event visibility with strategic marketing and sponsorships.."} services={ServicesSix} />
         <Service heading={<>Innovative <br /> Properties</>} description={"Engaging, immersive activations that create memorable experiences."} services={ServicesSeven} />
         <Service heading={<>Experience and Entertainment <br /> Management</>} description={"Curating talent and entertainment for standout event experiences."} services={ServicesEight} />
-
 
 
 

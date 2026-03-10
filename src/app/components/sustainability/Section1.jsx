@@ -146,7 +146,7 @@ export default function SustainableEventsSection() {
                                 <span className="font-black text-[var(--color-heading)] uppercase text-sm md:text-2xl tracking-tighter leading-snug mb-2 block">
                                     {title}
                                 </span>
-                                <p className="text-xs md:text-sm tracking-tighter">
+                                <p className="text-sm tracking-tighter">
                                     {description}
                                 </p>
                             </div>

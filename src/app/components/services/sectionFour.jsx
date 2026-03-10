@@ -6,7 +6,7 @@ export default function Banner() {
         <section className="relative w-full h-screen min-h-[500px] overflow-hidden">
             {/* Background Image */}
             <Image
-                src="/assets/banner.png"
+                src="/assets/Banner.png"
                 alt="Event background with stage lights and crowd"
                 fill
                 priority

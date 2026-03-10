@@ -20,7 +20,7 @@ export default function CorporateEvents() {
             scrollTrigger: {
                 trigger: container.current,
                 pin: true,
-                scrub: 1,
+                scrub: 2,
                 pinSpacing: true,   // ✅ holds scroll space so animation completes
                 start: "top top",
                 end: `+=${cards.length * 600}`, // 600px
@@ -35,7 +35,6 @@ export default function CorporateEvents() {
                 tl.to(cards[i + 1], {
                     y: "0%",
                     duration: 1,
-                    ease: "power1.in"
                 });
             }
 
@@ -43,7 +42,7 @@ export default function CorporateEvents() {
             if (!isLast) {
                 tl.to(card, {
                     y: "-100%",
-                }, "<+0.2"); // ← exits together with next card entering
+                }, "<+0.1"); // ← exits together with next card entering
             }
             else {
                 tl.to(card, {

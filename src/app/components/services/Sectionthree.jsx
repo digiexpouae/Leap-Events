@@ -6,10 +6,10 @@ function ServiceCard({ title, subtitle, body }) {
             <h3 className="text-[color:var(--color-heading)] uppercase text-xl lg:text-3xl tracking-tighter leading-snug">
                 {title}
             </h3>
-            <p className=" font-semibold text-sm md:text-xl tracking-tighter">
+            <p className=" font-semibold text-xl tracking-tighter">
                 {subtitle}
             </p>
-            <p className="text-xs md:text-sm tracking-tighter">
+            <p className="text-sm tracking-tighter">
                 {body}
             </p>
         </div>
@@ -31,15 +31,15 @@ export default function CreativeStrategySection({
             <div className="max-w-5xl mx-auto">
 
                 {/* Section heading */}
-                <h2 className="uppercase text-2xl md:text-3xl lg:text-5xl leading-tight tracking-tight mb-3">
+                <h2 className="uppercase text-center md:text-start text-2xl md:text-3xl lg:text-5xl leading-tight tracking-tight mb-3">
                     {heading}
                 </h2>
-                <p className="text-gray text-sm md:text-2xl tracking-tighter mb-2">
+                <p className="text-gray text-center md:text-start text-base md:text-2xl tracking-tighter mb-2">
                     {description}
                 </p>
 
                 {/* Service rows */}
-                <div className="mt-16">
+                <div className="mt-4 md:mt-16">
                     {rows.map((row, rowIdx) => (
                         <div
                             key={rowIdx}

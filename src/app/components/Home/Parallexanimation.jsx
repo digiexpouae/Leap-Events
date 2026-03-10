@@ -47,7 +47,7 @@ const Parallexanimation = () => {
             // ref3 slides up into view — overlaps the pinned container
             tl.to(ref3.current, {
                   y: 0,
-            }, "+=0.4");
+            }, "+=0.2");
 
       }, { scope: container });
 

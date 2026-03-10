@@ -189,7 +189,6 @@ export default function Navbar() {
                             <div key={elem.name}>
                                 <button
                                     className="w-full flex items-center justify-between px-5 py-3.5 text-sm font-medium text-white/80 hover:text-white hover:bg-white/[0.04] transition-all"
-                                    onClick={() => setIsOpen(false)}
                                 >
                                     <Link href="/about">  <span>About</span></Link>
                                     <svg

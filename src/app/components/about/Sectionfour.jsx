@@ -37,10 +37,9 @@ const team = [
 function TeamCard({ name, role, bio, image }) {
     return (
         <div className="flex flex-col items-center text-center gap-3 ">
-            <div className=" overflow-hidden flex-shrink-0">
+            <div className="relative h-[200px] w-[200px] md:h-[260px] md:w-[260px]  overflow-hidden">
                 <Image
-                    width={300}
-                    height={300}
+                    fill
                     src={image}
                     alt={name}
 
@@ -75,7 +74,7 @@ export default function MeetOurTeamSection() {
                 </h2>
 
                 {/* Top row — 3 members */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-10  mb-12 md:mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-20  mb-12 md:mb-16">
                     {topRow.map((member, index) => (
                         <TeamCard key={index} name={member.name} role={member.role} bio={member.bio} image={member.image} />
                     ))}

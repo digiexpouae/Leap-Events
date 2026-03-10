@@ -171,7 +171,7 @@ export default function Navbar() {
 
             {/* Mobile Menu */}
             <div
-                className={`lg:hidden overflow-hidden absolute inset-0  transition-all duration-300 h-screen ease-in-out ${isOpen ? " translate-x-0 opacity-100" : "translate-x-100 opacity-0"
+                className={`lg:hidden overflow-hidden absolute inset-0  transition-all duration-300 h-screen ease-in-out ${isOpen ? " translate-x-0 opacity-100" : "translate-x-200 opacity-0"
                     }`}
 
                 style={{

@@ -30,7 +30,7 @@ const Parallexanimation = () => {
                         end: `+=2000`,
                         pin: true,
                         pinSpacing: true,
-                        scrub: 1,
+                        scrub: 2,
                         anticipatePin: 1,
                         invalidateOnRefresh: true,
                   },
@@ -38,18 +38,15 @@ const Parallexanimation = () => {
 
             tl.to(ref1.current, {
                   yPercent: -100,
-                  ease: "power2.out",
             });
 
             tl.to(ref2.current, {
-                  yPercent: -120,
-                  ease: "power2.out",
-            });
+                  yPercent: -100,
+            }, "+=0.4");
 
             // ref3 slides up into view — overlaps the pinned container
             tl.to(ref3.current, {
                   y: 0,
-                  ease: "power2.out",
             }, "+=0.4");
 
       }, { scope: container });

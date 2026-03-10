@@ -42,7 +42,7 @@ export default function CorporateEvents() {
             if (!isLast) {
                 tl.to(card, {
                     y: "-100%",
-                }, "<+0.1"); // ← exits together with next card entering
+                }, "<+0.2"); // ← exits together with next card entering
             }
             else {
                 tl.to(card, {

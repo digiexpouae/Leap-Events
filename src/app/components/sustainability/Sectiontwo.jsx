@@ -103,10 +103,10 @@ function EventCard({ event }) {
 
             </div>
             <div className=" text-white  flex flex-col items-start justify-start p-4 sm:p-5 ">
-                <span className="font-black uppercase mt-4 text-base sm:text-2xl leading-tight tracking-tighter">
+                <span className="font-black uppercase mt-4 text-xl sm:text-2xl leading-tight tracking-tighter">
                     {event.title}
                 </span>
-                <ul className="text-xs sm:text-base mt-4 pl-4 font-light leading-[2.3]" >
+                <ul className="text-sm sm:text-base mt-4 pl-4 font-light leading-[2.3]" >
                     {event.list.map((elem, index) => {
                         return (
                             <li key={index} className="" style={{ listStyle: "disc" }}>{elem}</li>)

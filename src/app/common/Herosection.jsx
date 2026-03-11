@@ -1,7 +1,7 @@
 export default function OurStorySection({ heading, text, className }) {
     return (
         <section className="w-full h-screen flex items-center justify-center bg-white  px-4 md:px-0">
-            <div className="max-w-5xl mx-auto md:!hidden  flex  flex-col justify-between h-[40%] translate-y-[30%]  pt-20 ">
+            <div className="max-w-5xl mx-auto md:!hidden  flex  flex-col justify-between h-[40%] translate-y-[30%]  ">
 
                 {/* Vision paragraph — right half */}
                 <div className="flex justify-end mb-6 md:mb-8">

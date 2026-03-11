@@ -50,7 +50,7 @@ export default function OurCultureSection() {
                             className={`md:border-b ${index % 2 === 0 ? "md:border-r" : ""}  md:border-black px-10 py-12 text-center`}
                         >
                             <h3 className="text-[color:var(--color-heading)] font-black uppercase text-lg md:text-xl lg:text-2xl tracking-tight mb-5">
-                                {title}{index * 1}
+                                {title}
                             </h3>
                             <p className="text-gray-700 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
                                 {description}

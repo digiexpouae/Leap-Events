@@ -34,10 +34,10 @@ export default function StatsSection() {
                 {/* ↑↑↑ REPLACE THIS DIV WITH YOUR IMAGE ↑↑↑ */}
             </div>
 
-            <div className="max-w-5xl mx-auto relative z-10 lg:pl-20">
+            <div className="max-w-4xl mx-auto relative z-10 ">
 
                 {/* Heading */}
-                <h2 className="text-black  uppercase text-2xl md:text-3xl lg:text-[40px] leading-tight tracking-tight  mb-12 md:mb-16">
+                <h2 className="text-black  uppercase text-2xl md:text-[40px] leading-tight tracking-tight  mb-12 md:mb-16">
                     20 YEARS OF TURNING AMBITIOUS VISIONS
                     <br className="hidden sm:block" /> INTO UNFORGETTABLE REALITIES
                 </h2>
@@ -46,10 +46,10 @@ export default function StatsSection() {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10 md:gap-y-12">
                     {stats.map(({ value, prefix }, index) => (
                         <div key={index} className="flex flex-col gap-1 ">
-                            <span className="text-black text-[20px] md:text-[28px] tracking-tighter">
+                            <span className="text-black text-[20px] lg:text-[28px] tracking-tighter">
                                 {prefix}
                             </span>
-                            <span className="text-[color:var(--color-heading)] font-['GRIFTER'] tracking-tighter font-black text-xl md:text-[40px] leading-none uppercase">
+                            <span className="text-[color:var(--color-heading)] font-['GRIFTER'] tracking-tighter font-black text-xl md:text-3xl lg:text-[40px] leading-none uppercase">
                                 {value}
                             </span>
 

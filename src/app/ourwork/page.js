@@ -20,8 +20,7 @@ const index = () => {
     return (
 
         <div>
-            <HeroSection heading={heading} text={<>At LINKVIVA, every event is a testament to our <br /> commitment to excellence and innovation</>} />
-            <Sectiontwo heading={text} categories={tabs} />
+            <HeroSection heading={heading} text={<>At Leap Events, every event is a testament to our <br /> commitment to excellence and innovation</>} />            <Sectiontwo heading={text} categories={tabs} />
             <Event className={"bg-[var(--color-bg-secondary)]"} />
             <Form />
         </div>

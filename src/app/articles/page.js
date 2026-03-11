@@ -4,7 +4,7 @@ import Form from '../common/Form'
 const Articles = () => {
     return (
         <div>
-            <HeroSection heading={"Articles"} text={<>Dive into the depths of event management <br /> with LINKVIVA’s Perspectives</>} />
+            <HeroSection heading={"Articles"} text={<>Dive into the depths of event management <br /> with Leap Events’ Perspectives</>} />
             <Index />
             <Form />
         </div>

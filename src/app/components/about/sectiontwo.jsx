@@ -46,10 +46,10 @@ export default function StatsSection() {
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-10 md:gap-y-12">
                     {stats.map(({ value, prefix }, index) => (
                         <div key={index} className="flex flex-col gap-1 ">
-                            <span className="text-black text-[28px] tracking-tighter">
+                            <span className="text-black text-[20px] md:text-[28px] tracking-tighter">
                                 {prefix}
                             </span>
-                            <span className="text-[color:var(--color-heading)] font-['GRIFTER'] tracking-tighter font-black text-2xl md:text-[40px] leading-none uppercase">
+                            <span className="text-[color:var(--color-heading)] font-['GRIFTER'] tracking-tighter font-black text-xl md:text-[40px] leading-none uppercase">
                                 {value}
                             </span>
 

@@ -47,9 +47,11 @@ export default function OurCultureSection() {
                         index % 3 === 0 && console.log("index", index),
                         <div
                             key={index}
-                            className={`md:border-b ${index % 2 === 0 ? "md:border-r" : ""}  md:border-black px-10 py-12 text-center`}
+                            className={`md:border-b ${index % 2 === 0 ? "md:border-r" : ""}  md:border-black px-10 py-6 md:py-12 text-center`}
                         >
-                            <h3 className="text-[color:var(--color-heading)] font-black uppercase text-lg md:text-xl lg:text-2xl tracking-tight mb-5">
+                            <h3 className="text-[color:var(--color-heading)] font-black uppercase  text-lg md:text-xl lg:text-2xl tracking-tight mb-2 md:mb-5"
+                                style={{ fontFamily: "DM Sans" }}
+                            >
                                 {title}
                             </h3>
                             <p className="text-gray-700 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
@@ -60,8 +62,10 @@ export default function OurCultureSection() {
                 </div>
 
                 {/* Bottom solo card */}
-                <div className="px-10 py-12 text-center">
-                    <h3 className="text-[color:var(--color-heading)] font-black uppercase text-lg md:text-xl lg:text-2xl tracking-tight mb-5">
+                <div className="px-10 py-6  md:py-12 text-center">
+                    <h3 className="text-[color:var(--color-heading)] font-black uppercase text-lg md:text-xl lg:text-2xl tracking-tight mb-2 md:mb-5"
+                        style={{ fontFamily: "DM Sans" }}
+                    >
                         COLLABORATIVE ENVIRONMENT
                     </h3>
                     <p className="text-gray-700 text-sm md:text-base leading-relaxed max-w-sm mx-auto">

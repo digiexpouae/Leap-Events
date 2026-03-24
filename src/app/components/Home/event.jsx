@@ -61,7 +61,7 @@ export default function CorporateEvents() {
         title: 'Corporate Events', image: "/assets/home/7.png"
     },
     { title: "Mall Decor & Activation", image: "/assets/home/Malldecor.jpg" },
-    { title: "Wedding", image: "/assets/home/wedding.jpg" },
+    // { title: "Wedding", image: "/assets/home/wedding.jpg" },
     { title: "Digital Print & Branding", image: "/assets/home/digitalprint.jpg" },
     { title: 'Exhibition', image: "/assets/home/event.jpg" },
 

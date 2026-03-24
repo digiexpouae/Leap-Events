@@ -14,7 +14,7 @@ const quickLinks = [
 const services = [
     "Corporate Events",
     "Mall Decor & Activation",
-    "Wedding",
+    // "Wedding",
     "Digital Print & Branding",
     "Exhibition",
     "Entertainment",

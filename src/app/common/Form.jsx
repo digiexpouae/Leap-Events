@@ -7,7 +7,7 @@ const departments = [
     "Family Festivals",
     "Students Festival",
     "Tech Festival",
-    "Wedding Events",
+    // "Wedding Events",
     "Other",
 ];
 

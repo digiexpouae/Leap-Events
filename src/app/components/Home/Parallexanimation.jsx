@@ -132,8 +132,14 @@ const Parallexanimation = () => {
                               </motion.button>
                         </div>
 
-
-                        <SectionThree className="" />
+                        <motion.div
+                              initial={{ y: 250 }}
+                              whileInView={{ y: 0 }}
+                              viewport={{ once: true }}
+                              transition={{ duration: 1, ease: "easeOut" }}
+                        >
+                              <SectionThree className="" />
+                        </motion.div>
                   </div>
 
             </div >

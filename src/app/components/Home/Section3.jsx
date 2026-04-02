@@ -6,7 +6,6 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import gsap from "gsap";
 import { forwardRef, useEffect } from "react";
-
 const events = [
     {
         id: 1,

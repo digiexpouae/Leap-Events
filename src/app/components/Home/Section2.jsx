@@ -14,7 +14,7 @@ export default function WhereLeagciesBegin() {
     useGSAP(() => {
         gsap.set([headlineRef.current, buttonRef.current, bodyRef.current], {
             autoAlpha: 0,
-            y: 40,
+            y: 20,
         });
 
         const tl = gsap.timeline({ paused: true });
@@ -40,10 +40,10 @@ export default function WhereLeagciesBegin() {
                 {
                     autoAlpha: 1,
                     y: 0,
-                    duration: 0.8,
+                    duration: 1.2,
                     ease: "power3.out",
                 },
-                "-=0.4"
+
             );
         const checkVisibility = () => {
             if (!sectionRef.current) return;

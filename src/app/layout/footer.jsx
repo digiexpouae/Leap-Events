@@ -50,11 +50,11 @@ export default function Footer() {
 
 
     return (
-        <>
+        <section >
 
-            <div className="w-full "><Image src={'/assets/globe2.png'} alt="globe" width={1920} height={800} /></div>
+            <div className="w-full overflow-hidden"><Image src={'/assets/globe2.png'} alt="globe" width={1920} height={800} /></div>
             <motion.footer
-                className="w-full"
+                className="w-full h-auto"
                 style={{ background: "var(--color-bg-secondary, #0a1628)" }}
                 variants={footerVariants}
                 initial="hidden"
@@ -168,6 +168,6 @@ export default function Footer() {
 
 
             </motion.footer >
-        </>
+        </section>
     );
 }

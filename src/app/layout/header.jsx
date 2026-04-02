@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
+import { motion } from "framer-motion";
 const navLinks = [
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
@@ -23,37 +23,82 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [active, setActive] = useState("Home");
     const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-    useEffect(() => {
-        console.log("Active", active)
-    }, [])
 
+    const navVariants = {
+        hidden: {},
+        visible: {
+            transition: {
+                staggerChildren: 0.2,
+                delayChildren: 2, // wait f // delay between each child
+            }
+        }
+    }
+
+    const pillVariants = {
+        hidden: { y: -20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+                staggerChildren: 0.08,
+                delayChildren: 0.2, // ✅ start staggering after pill appears
+            }
+        }
+    }
+    const itemVariants = {
+        hidden: { y: -20, opacity: 0 },
+        visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+    }
 
     return (
-        <nav className="w-full fixed top-0 z-[99]">
+        <motion.nav className="w-full fixed top-0 z-[99] nav"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 1.5 }}
+
+
+
+        >
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12">
-                <div className="flex items-center justify-between h-16">
+                <motion.div className="flex items-center justify-between h-16"
+                    initial="hidden"
+                    variants={navVariants}
+                    animate="visible"
+
+
+                >
 
                     {/* Logo */}
-                    <div className="flex-shrink-0">
+                    <motion.div className="flex-shrink-0"
+                        variants={itemVariants}
+
+
+
+                    >
                         <Link href="/">
                             <Image src="/assets/logo.svg" alt="leap" width={80} height={80} />
                         </Link>
-                    </div>
+                    </motion.div>
 
                     {/* Desktop Nav */}
-                    <div
+                    <motion.div
                         className="hidden lg:flex items-center border border-[#595959] bg-[#00000080] rounded-full text-md tracking-tight px-2 py-1 gap-1"
                         style={{ backdropFilter: "blur(20px)" }}
+                        variants={pillVariants}
+
                     >
                         {navLinks.map((elem) =>
                             elem.name === "About" ? (
 
                                 // Services with dropdown
                                 <div key={elem.name} className="relative group">
-                                    <button
+                                    <motion.button
                                         onClick={() => setActive(elem.name)}
                                         className={`px-4 py-1.5 rounded-full font-medium text-white flex items-center gap-1.5 ${aboutNames.includes(active) || active === elem.name ? "font-semibold" : "font-normal"
                                             }`}
+                                        variants={itemVariants}
                                     >
                                         <Link href={elem.link}>{elem.name}</Link>
                                         <svg
@@ -62,7 +107,7 @@ export default function Navbar() {
                                         >
                                             <path d="M2 4L6 8L10 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                         </svg>
-                                    </button>
+                                    </motion.button>
 
                                     {/* Dropdown panel */}
                                     <div
@@ -126,34 +171,42 @@ export default function Navbar() {
                             ) : (
 
                                 // All other nav links
-                                <button
+                                <motion.button
                                     key={elem.name}
                                     onClick={() => setActive(elem.name)}
+                                    variants={itemVariants}
+
                                     className={`px-4 py-1.5 rounded-full font-medium text-white ${active === elem.name ? "font-semibold" : "font-normal"
                                         }`}
+
                                 >
                                     <Link href={elem.link}>{elem.name}</Link>
-                                </button>
+                                </motion.button>
                             )
                         )}
-                    </div>
+                    </motion.div>
 
                     {/* Contact CTA */}
-                    <div className="hidden lg:block">
+                    <motion.div className="hidden lg:block"
+                        variants={itemVariants}
+
+                    >
+
                         <Link
                             href="/contact"
                             className="px-5 py-2 bg-primary rounded-full text-white text-md font-semibold transition-all duration-200 hover:opacity-90 hover:scale-105 active:scale-95 shadow-md"
                         >
                             Contact Us
                         </Link>
-                    </div>
+                    </motion.div>
 
                     {/* Mobile hamburger */}
                     <div className="lg:hidden relative flex items-center gap-3">
-                        <button
+                        <motion.button
                             onClick={() => setIsOpen(!isOpen)}
                             className="p-2 relative z-20 rounded-lg transition-colors"
                             aria-label="Toggle menu"
+                            variants={itemVariants}
                         >
                             {isOpen ? (
                                 <svg className="w-5 h-5" fill="none" stroke="white" viewBox="0 0 24 24">
@@ -164,9 +217,9 @@ export default function Navbar() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                                 </svg>
                             )}
-                        </button>
+                        </motion.button>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             {/* Mobile Menu */}
@@ -306,6 +359,6 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
-        </nav >
+        </motion.nav >
     );
 }

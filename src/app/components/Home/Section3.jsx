@@ -1,6 +1,12 @@
-
+"use client"
 import Image from "next/image";
 import Event from './event'
+// import { useEffect } from "react";
+import { useGSAP } from "@gsap/react";
+import { useRef } from "react";
+import gsap from "gsap";
+import { forwardRef, useEffect } from "react";
+
 const events = [
     {
         id: 1,
@@ -37,6 +43,7 @@ const events = [
     },
 ];
 
+
 export default function MomentsWeCreated({ className }) {
     return (
         <>
@@ -69,15 +76,65 @@ export default function MomentsWeCreated({ className }) {
     );
 }
 
-function EventCard({ event }) {
+
+
+export const EventCard = forwardRef(({ event }, ref) => {
+    const ref1 = useRef();
+    const mainContainer = useRef();
+
+    useEffect(() => {
+        if (!ref1.current || !mainContainer.current) return;
+        console.log("main")
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                const entry = entries[0];
+
+                // When the card appears in the viewport
+                if (entry.isIntersecting) {
+                    const tl = gsap.timeline();
+                    tl.to(ref1.current, {
+                        clipPath:
+                            "polygon(0% 0%, 0% 100%, 0% 100%, 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 100%, 100% 100%, 100% 0%)",
+                        duration: 1.6,
+                        ease: "power3.inOut",
+                    }).call(() => {
+                        gsap.set(ref1.current, { autoAlpha: 0 }); // hide curtain after animation
+                    });
+
+                    // Only run once
+                    observer.unobserve(mainContainer.current);
+                }
+            },
+            {
+                root: null,           // viewport
+                rootMargin: "0px",
+                threshold: 0.2,       // 20% of card must be visible
+            }
+        );
+
+        observer.observe(mainContainer.current);
+
+        return () => {
+            if (mainContainer.current) observer.unobserve(mainContainer.current);
+        };
+    }, []);
+
     return (
         <div
-            className="group relative overflow-hidden "
+            className="group relative overflow-hidden"
+            ref={mainContainer}
             style={{ aspectRatio: "16/9" }}
         >
-            {/* ── IMAGE PLACEHOLDER ── */}
-            {/* Replace this div with your Next.js Image: */}
-
+            {/* ── CURTAIN (clipped overlay) ── */}
+            <div
+                className="absolute inset-0 bg-primary z-[99]"
+                ref={ref1}
+                style={{
+                    clipPath:
+                        "polygon(0% 0%, 0% 100%, 25% 100%, 25% 25%, 75% 25%, 75% 75%, 25% 75%, 25% 100%, 100% 100%, 100% 0%)",
+                }}
+            ></div>
 
             <div
                 className="absolute inset-0 flex items-center justify-center text-xs font-mono tracking-widest uppercase"
@@ -87,7 +144,6 @@ function EventCard({ event }) {
                     color: "rgba(255,255,255,0.18)",
                 }}
             >
-                {/* ↓ swap this entire div with <Image … /> */}
                 <Image
                     src={event.image}
                     alt={event.title}
@@ -98,7 +154,7 @@ function EventCard({ event }) {
 
             {/* Gradient overlay */}
             <div
-                className="absolute inset-0 "
+                className="absolute inset-0"
                 style={{
                     background:
                         "linear-gradient(to bottom, rgba(0,0,0,0.45) 0%, transparent 40%, rgba(0,0,0,0.15) 100%)",
@@ -106,13 +162,11 @@ function EventCard({ event }) {
             />
 
             {/* Text overlay — top */}
-            <div className="absolute top-0 left-0  text-white right-0 flex flex-col items-center justify-center p-4 sm:p-5 z-10">
-                <h3 className="font-black uppercase  text-base sm:text-xl leading-tight tracking-wide">
+            <div className="absolute top-0 left-0 text-white right-0 flex flex-col items-center justify-center p-4 sm:p-5 z-10">
+                <h3 className="font-black uppercase text-base sm:text-xl leading-tight tracking-wide">
                     {event.title}
                 </h3>
-                <p className="text-xs sm:text-sm mt-0.5" >
-                    {event.category} / {event.year}
-                </p>
+                <p className="text-xs sm:text-sm mt-0.5">{event.category} / {event.year}</p>
             </div>
 
             {/* Hover shimmer */}
@@ -125,4 +179,5 @@ function EventCard({ event }) {
             />
         </div>
     );
-}
+});
+

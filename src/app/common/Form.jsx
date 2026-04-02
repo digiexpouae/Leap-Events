@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-
+import { motion } from 'framer-motion'
 const departments = [
     "Corporate Events",
     "Family Festivals",
@@ -37,14 +37,28 @@ export default function GetInTouch({ className }) {
             <div className="mx-auto max-w-4xl px-5 sm:px-8 lg:px-12">
 
                 {/* Heading */}
-                <h2
+                <motion.h2
                     className="text-center font-black uppercase text-[clamp(2rem,6vw,3.8rem)] text-gray-900 tracking-tight mb-10 sm:mb-12"
+                    initial={{ y: 30 }}
+                    whileInView={{ y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1 }}
+
+
                 >
                     Get In Touch
-                </h2>
+                </motion.h2>
 
                 {/* Form grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4"
+
+
+
+                    initial={{ y: 120 }}
+                    whileInView={{ y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1 }}
+                >
 
                     {/* Name */}
                     <input
@@ -170,10 +184,10 @@ export default function GetInTouch({ className }) {
                         </button>
                     </div>
 
-                </div>
+                </motion.div>
             </div>
 
 
-        </section>
+        </section >
     );
 }

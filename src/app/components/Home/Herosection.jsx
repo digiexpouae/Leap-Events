@@ -1,13 +1,66 @@
 
-import React from "react";
+"use client"
+import React, { useRef, useEffect, useLayoutEffect } from "react";
 import Image from "next/image";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
 export default function HeroSection() {
+    const mainContainer = useRef()
+    const ref1 = useRef()
+    const ref2 = useRef()
+
+    // const navRef = useRef(null);
+
+    // useEffect(() => {
+    //     navRef.current = document.querySelector("nav");
+    // }, []);
+    useLayoutEffect(() => {
+        // const nav = document.querySelector("nav");
+    }, []);
+    useGSAP(() => {
+        // const nav = document.querySelector("nav");
+        // gsap.set(nav, { opacity: 0 })
+        const tl = gsap.timeline();
+
+        tl.set(ref2.current, { translateY: 400 })
+
+        // 
+        tl.to(ref1.current, {
+            translateY: '-120vh', duration: 1,
+            // clipPath: "inset(0 0 100% 0)", // 
+        });
+
+        tl.to(ref2.current, { translateY: 0, duration: 2, opacity: 1 }, "<");
+        // tl.to(nav, { opacity: 1 }, "<+2")
+    }, { scope: mainContainer })
     return (
         <section
-            className="relative w-full bg-white  h-screen overflow-hidden"
+            className="relative w-full bg-white z-[120]  h-screen " ref={mainContainer}
         >
             {/* Subtle grid overlay */}
-            <div className=" h-full max-w-5xl mx-auto  flex flex-col items-center justify-between">
+            <div
+                className="absolute -top-[20vh]  bg-primary z-[120] w-full h-[140vh] overflow-visible"
+                ref={ref1}
+            >
+                <div
+                    className="absolute -bottom-28 left-0  right-0 w-full  h-[220px] w-full "
+                    style={{ clipPath: "ellipse(60% 100% at 50% 100%)" }}
+                // style={{
+                //     borderTopLeftRadius: "100% 100%",
+                //     borderTopRightRadius: "100% 100%",
+                // }}
+                // }}
+                >
+                    <div className="bg-white h-[50%]"></div>
+                    <div className="bg-transparent h-[50%]"></div>
+
+                </div>
+            </div>
+
+
+            <div className=" h-full max-w-5xl mx-auto absolute inset-0 z-[40] opacity-0  flex flex-col items-center justify-between" ref={ref2}>
 
 
 
@@ -20,11 +73,11 @@ export default function HeroSection() {
                     >
                         <span className="text-[var(--color-primary)]"> Crafting Legacies</span>
                         <br />
-                        Through
+                        <span>Through</span>
 
-                        Extraordinary
+                        <span>Extraordinary</span>
                         <br />
-                        Experiences
+                        <span> Experiences</span>
                     </h2>
 
                     {/* Headline */}

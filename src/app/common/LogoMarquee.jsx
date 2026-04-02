@@ -1,5 +1,7 @@
+"use client"
 import React from "react";
 import Image from "next/image";
+import { motion } from 'framer-motion'
 // ── Logo data ──
 // Replace `text` with real <Image> components once you have the assets.
 // Each row scrolls in opposite directions for a layered feel.
@@ -111,22 +113,36 @@ export default function TrustedByLeaders() {
     return (
         <section className="w-full py-14 sm:py-20" >
             <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 mb-10 sm:mb-14">
-                <h2
+                <motion.h2
                     className="text-center font-black uppercase text-[clamp(1.8rem,5.5vw,3.5rem)] text-gray-900"
                     style={{ letterSpacing: "-0.01em", lineHeight: 1.0 }}
+
+                    initial={{ opacity: 0, y: 120 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 2 }}
+
+
+
                 >
                     Trusted By Leaders
-                </h2>
+                </motion.h2>
             </div>
 
             {/* Three marquee rows */}
-            <div className="flex flex-col gap-4 sm:gap-5">
+            <motion.div className="flex flex-col gap-4 sm:gap-5"
+
+                initial={{ opacity: 0, y: 220 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 2 }}
+            >
                 <MarqueeRow items={row1} direction="left" speed={30} />
                 <MarqueeRow items={row2} direction="right" speed={24} />
                 <MarqueeRow items={row3} direction="left" speed={27} />
                 <MarqueeRow items={row4} direction="right" speed={27} />
 
-            </div>
+            </motion.div>
 
 
         </section>

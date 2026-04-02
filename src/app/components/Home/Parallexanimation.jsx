@@ -8,16 +8,30 @@ import { useGSAP } from "@gsap/react";
 import { useRef } from "react"
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-
+import { motion } from 'framer-motion'
 const Parallexanimation = () => {
       const container = useRef()
       const ref1 = useRef()
       const ref2 = useRef()
       const ref3 = useRef()
+      const videoRef = useRef();
 
       useGSAP(() => {
             gsap.registerPlugin(ScrollTrigger);
             ScrollTrigger.normalizeScroll(true);
+            if (ref2.current && videoRef.current) {
+                  console.log("Creating video ScrollTrigger");
+                  ScrollTrigger.create({
+                        trigger: ref2.current,
+                        start: "+=400",
+                        end: "+=800",
+
+                        onEnter: () => videoRef.current?.play(),
+                        // onLeave: () => videoRef.current?.pause(),
+                        // onEnterBack: () => videoRef.current?.play(),
+                        // onLeaveBack: () => videoRef.current?.pause(),
+                  })
+            }
 
 
             // ref3 starts exactly one viewport below — outside the pin container
@@ -34,7 +48,9 @@ const Parallexanimation = () => {
                         anticipatePin: 1,
                         invalidateOnRefresh: true,
                   },
-            });
+            })
+
+            // Separate ScrollTrigger for video
 
             tl.to(ref1.current, {
                   yPercent: -100,
@@ -42,12 +58,17 @@ const Parallexanimation = () => {
 
             tl.to(ref2.current, {
                   yPercent: -100,
+
+
+
             }, "+=0.4");
             // 
             // ref3 slides up into view — overlaps the pinned container
             tl.to(ref3.current, {
                   y: 0,
             }, "+=0.2");
+
+
 
       }, { scope: container });
 
@@ -64,7 +85,7 @@ const Parallexanimation = () => {
                               <HeroSection />
                         </div>
                         <div className="absolute inset-0 z-10" ref={ref2}>
-                              <Video />
+                              <Video ref={videoRef} />
                         </div>
                         <div className="absolute inset-0 z-[5]">
                               <SectionTwo />
@@ -89,24 +110,33 @@ const Parallexanimation = () => {
 
 
                         <div className="flex nd:flex-col sm:flex-row px-4 md:px-16 sm:items-center sm:justify-between gap-4 mb-8 sm:mb-10">
-                              <h2
+                              <motion.h2
                                     className={`font-black uppercase text-white text-[clamp(1.8rem,5vw,3rem)]`}
                                     style={{ letterSpacing: "-0.01em", lineHeight: 1.05 }}
+                                    initial={{ y: 50 }}
+                                    whileInView={{ y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 1, ease: "easeOut" }}
                               >
                                     Moments We Created
-                              </h2>
+                              </motion.h2>
 
-                              <button
+                              <motion.button
                                     className="self-start sm:self-auto px-6 py-2.5 bg-[var(--color-primary)] rounded-full text-sm font-semibold text-white transition-all duration-300 hover:scale-105 hover:brightness-110 whitespace-nowrap"
-
+                                    initial={{ y: 50 }}
+                                    whileInView={{ y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 1, ease: "easeOut" }}
                               >
                                     Explore More
-                              </button>
+                              </motion.button>
                         </div>
+
+
                         <SectionThree className="" />
                   </div>
 
-            </div>
+            </div >
       );
 }
 

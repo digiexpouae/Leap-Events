@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 const testimonials = [
     {
         id: 1,
@@ -45,44 +46,61 @@ export default function VoicesOfLegacy() {
             <div className="max-w-5xl mx-auto  px-5 sm:px-8 lg:px-12">
 
                 {/* Heading */}
-                <h2
+                <motion.h2
                     className="text-center font-black uppercase text-[clamp(2rem,7vw,4.5rem)] text-gray-900 mb-10 sm:mb-14"
                     style={{ letterSpacing: "-0.01em", lineHeight: 1.0 }}
+                    initial={{ y: 50 }}
+                    whileInView={{ y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 2 }}
+
+
                 >
                     Voices Of Legacy
-                </h2>
+                </motion.h2>
 
                 {/* Card */}
-                <div
+                <motion.div
                     className="relative w-full rounded-2xl sm:rounded-3xl px-7 sm:px-12 pt-10 sm:pt-14 pb-8 sm:pb-10 bg-[#EEF4FF]"
 
-                >
+
+                    initial={{ y: 120 }}
+                    whileInView={{ y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 1 }}>
 
 
                     {/* Quote text */}
-                    <p
+                    <motion.p
                         className="relative z-10 text-gray-800 tracking-tighter font-medium text-[clamp(1rem,2.5vw,3rem)] leading-relaxed mb-8 sm:mb-10 max-w-3xl"
                         style={{ lineHeight: "1.65" }}
+
+
                     >
                         {current.quote}
-                    </p>
+                    </motion.p>
 
                     {/* Footer row */}
                     <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
                         <div>
-                            <h5
+                            <motion.h5
                                 className="font-black uppercase tracking-wider text-[clamp(1rem,3vw,2rem)]"
                                 style={{ color: "var(--color-primary, #5686DA)" }}
+
+
                             >
                                 {current.name}
-                            </h5>
+                            </motion.h5>
                             <p className="text-xs sm:text-lg uppercase tracking-tighter  mt-0.5 font-medium">
                                 Client : {current.company}
                             </p>
                         </div>
 
                         {/* Logo / fallback */}
-                        <div className="shrink-0">
+                        <motion.div className="shrink-0"
+
+
+                        >
                             {current.logo ? (
                                 /* Replace with Next.js Image when logo available:
                                    <Image src={current.logo} alt={current.company} width={120} height={40} className="object-contain" /> */
@@ -99,9 +117,9 @@ export default function VoicesOfLegacy() {
                                     {current.logoText}
                                 </span>
                             )}
-                        </div>
+                        </motion.div>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Pagination dots */}
                 <div className="flex items-center justify-center gap-2.5 mt-8">
@@ -126,6 +144,6 @@ export default function VoicesOfLegacy() {
             </div>
 
 
-        </section>
+        </section >
     );
 }

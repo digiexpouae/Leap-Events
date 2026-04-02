@@ -1,8 +1,22 @@
-const Video = () => {
+"use client";
+import { useEffect, useRef } from "react";
+import { forwardRef } from "react";
+const Video = forwardRef((props, videoRef) => {
+
     return (
         <div className="w-full h-screen">
-            <video src="#" poster="/assets/home/event.png" className="h-full w-full object-cover"></video>
+            <video
+                ref={videoRef}
+                src="/assets/leap.mp4"
+                poster="/assets/leapposter.JPG"
+                className="h-full w-full object-cover"
+                // autoPlay
+                muted
+                loop
+                playsInline
+            />
+        </div>
+    );
+})
 
-        </div>)
-}
-export default Video
+export default Video;

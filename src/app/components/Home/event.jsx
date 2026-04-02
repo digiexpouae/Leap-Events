@@ -4,6 +4,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import { motion } from 'framer-motion'
 export default function CorporateEvents() {
     const container = useRef()
     useGSAP(() => {
@@ -78,16 +79,28 @@ export default function CorporateEvents() {
                 className="w-full px-5 sm:px-8 lg:px-12 py-10 sm:py-14"
             >
                 <div className="mx-auto max-w-7xl text-white flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 pt-10 justify-between">
-                    <h3
+                    <motion.h3
                         className="font-black uppercase text-white text-[clamp(1.8rem,5vw,3rem)] shrink-0"
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1 }}
+
                     >
                         What We Do
-                    </h3>
-                    <p
+                    </motion.h3>
+                    <motion.p
                         className="text-base tracking-tighter sm:text-3xl "
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1 }}
+
+
+
                     >
                         Crafting More Than Events
-                    </p>
+                    </motion.p>
                 </div>
             </div >
             {/* This box is the visible 50vh window */}
@@ -108,6 +121,10 @@ function EventCard({
     image,
     placeholder,
 }) {
+
+
+
+
     return (
         <div
             className="child  relative w-full flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 sm:gap-10 px-6 sm:px-10 py-4  rounded-2xl overflow-hidden hover:brightness-110"
@@ -121,17 +138,25 @@ function EventCard({
             />
 
             {/* ── Title ── */}
-            <h3
+            <motion.h3
                 className="relative z-10 font-black uppercase text-white leading-tight shrink-0 text-[clamp(1.1rem,4vw,2rem)]"
                 style={{ letterSpacing: "0.03em", maxWidth: "200px" }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
             >
                 {title}
-            </h3>
+            </motion.h3>
 
             {/* ── Image ── */}
-            <div
+            <motion.div
                 className="relative z-10 w-full sm:w-[48%] md:w-[42%] lg:w-[38%] shrink-0 overflow-hidden rounded-xl"
                 style={{ aspectRatio: "16/9" }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1 }}
             >
 
                 {/* ── IMAGE PLACEHOLDER ──
@@ -153,7 +178,7 @@ function EventCard({
                             "radial-gradient(ellipse at 65% 50%, rgba(200,140,60,0.18) 0%, transparent 65%)",
                     }}
                 />
-            </div>
-        </div>
+            </motion.div>
+        </div >
     );
 }

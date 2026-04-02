@@ -68,7 +68,7 @@ export default function HeroSection() {
                 <div className="relative z-10  md:h-[40%] h-[50%] flex flex-col items-center px-4 md:px-0 justify-end text-center w-full">
                     {/* Eyebrow */}
                     <h2
-                        className=" leading-[1.2] tracking-tight uppercase text-[clamp(2rem,4vw,2.5rem)] font-semibold mb-3 "
+                        className=" leading-[1.2] tracking-tight uppercase text-[clamp(1.6rem,4vw,2.5rem)] font-semibold mb-3 "
 
                     >
                         <span className="text-[var(--color-primary)]"> Crafting Legacies</span>

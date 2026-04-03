@@ -75,7 +75,7 @@ const Parallexanimation = () => {
             tl.to(ref2.current, { duration: 0.15 })
             tl.to(ref3.current, {
                   y: 0,
-                  duration: 1
+                  duration: `${isMobile ? 2 : 1}`
 
             });
 

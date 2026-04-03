@@ -33,7 +33,7 @@ export default function Footer() {
         visible: {
             transition: {
                 staggerChildren: 0.2,
-                delayChildren: 1
+                delayChildren: 0.3
             }
         }
     }

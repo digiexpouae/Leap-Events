@@ -64,7 +64,7 @@ export default function VoicesOfLegacy() {
                     className="relative w-full rounded-2xl sm:rounded-3xl px-7 sm:px-12 pt-10 sm:pt-14 pb-8 sm:pb-10 bg-[#EEF4FF]"
 
 
-                    initial={{ y: 120 }}
+                    initial={{ y: 80 }}
                     whileInView={{ y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1 }}>

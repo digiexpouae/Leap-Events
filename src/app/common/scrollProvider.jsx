@@ -16,7 +16,11 @@ export default function SmoothScrollProvider({ children }) {
 
             lenis = new Lenis({
                 lerp: 0.06,
-                smoothTouch: true,
+                // touchMultiplier: 2,
+                syncTouch: true,
+                syncTouchLerp: 0.03,    // ← easing when finger lifts (momentum)
+
+                // smoothTouch: true,
             });
             // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
             lenis.on('scroll', ScrollTrigger.update);

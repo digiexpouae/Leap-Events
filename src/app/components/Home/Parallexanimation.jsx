@@ -15,9 +15,13 @@ const Parallexanimation = () => {
       const ref2 = useRef()
       const ref3 = useRef()
       const videoRef = useRef();
+      gsap.registerPlugin(ScrollTrigger);
 
       useGSAP(() => {
-            gsap.registerPlugin(ScrollTrigger);
+            const isMobile = window.innerWidth < 768;
+
+            const endDistance = window.innerHeight;
+
             ScrollTrigger.normalizeScroll(true);
             if (ref2.current && videoRef.current) {
                   console.log("Creating video ScrollTrigger");
@@ -41,10 +45,10 @@ const Parallexanimation = () => {
                   scrollTrigger: {
                         trigger: container.current,
                         start: "top top",
-                        end: `+=2000`,
+                        end: `+=${isMobile ? endDistance * 4 : endDistance * 2} `,
                         pin: true,
                         pinSpacing: true,
-                        scrub: 2,
+                        scrub: 1,
                         anticipatePin: 1,
                         invalidateOnRefresh: true,
                   },
@@ -54,19 +58,26 @@ const Parallexanimation = () => {
 
             tl.to(ref1.current, {
                   yPercent: -100,
+                  duration: 1
             });
 
             tl.to(ref2.current, {
                   yPercent: -100,
+                  duration: 1
 
 
 
-            }, "+=0.4");
+
+            });
             // 
             // ref3 slides up into view — overlaps the pinned container
+
+            tl.to(ref2.current, { duration: 0.15 })
             tl.to(ref3.current, {
                   y: 0,
-            }, "+=0.2");
+                  duration: 1
+
+            });
 
 
 

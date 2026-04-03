@@ -54,7 +54,7 @@ export default function GetInTouch({ className }) {
 
 
 
-                    initial={{ y: 120 }}
+                    initial={{ y: 60 }}
                     whileInView={{ y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 1 }}

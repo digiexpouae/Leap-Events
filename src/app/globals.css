@@ -77,25 +77,27 @@ h6 {
 }
 
 
-@keyframes marquee-left {
-  0% {
+
+.marquee {
+  animation: tbl-marquee 28s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  /* ← prevents flicker on loop */
+  -webkit-backface-visibility: hidden;
+}
+
+
+@keyframes tbl-marquee {
+  from {
     transform: translateX(0);
   }
 
-  100% {
-    transform: translateX(-50%);
+  to {
+    transform: translateX(-33.3333%);
   }
 }
 
-@keyframes marquee-right {
-  0% {
-    transform: translateX(-50%);
-  }
 
-  100% {
-    transform: translateX(0);
-  }
-}
 
 /* Pause on hover */
 .flex:hover>div {
@@ -108,4 +110,14 @@ h6 {
 
 .bg-primary-two {
   background-color: var(--color-bg-primary-two);
+}
+
+
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  aspect-ratio: 16/9;
+  /* Removes unwanted baseline scrollbar spacing */
 }

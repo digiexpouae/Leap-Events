@@ -7,7 +7,7 @@ const Video = forwardRef((props, videoRef) => {
         <div className="w-full h-screen">
             <video
                 ref={videoRef}
-                src="/assets/leap.mp4"
+                src="/assets/leap_showreel.mp4"
                 poster="/assets/leapposter.JPG"
                 className="h-full w-full object-cover"
                 // autoPlay

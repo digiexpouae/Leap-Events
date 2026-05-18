@@ -10,11 +10,218 @@
 }
 
 /* GRIFTER */
-@font-face {
+/* @font-face {
   font-family: "GRIFTER";
   src: url("/fonts/grifter/grifter-bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
+}/* GRIFTER */
+/* @font-face {
+  font-family: "GRIFTER";
+  src: url("/fonts/grifter/grifter-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* DM Sans Regular */
+/* @font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/dmsans/DMSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* DM Sans Medium */
+/* @font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/dmsans/DMSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* DM Sans Bold */
+/* @font-face {
+  font-family: "DM Sans";
+  src: url("/fonts/dmsans/DMSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+} */
+
+/* DM Sans Italic */
+/* @font-face { */
+  /* font-family: "DM Sans"; */
+  /* src: url("/fonts/dmsans/DMSans-Italic.ttf") format("truetype"); */
+  /* font-weight: 400; */
+  /* font-style: italic; */
+  /* font-display: swap; */
+/* }  */
+
+/* ─── Montserrat ─── */
+
+/* Montserrat Black */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat Black Italic */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Montserrat Bold */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat Bold Italic */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Montserrat ExtraBold */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat ExtraBold Italic */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Montserrat ExtraLight */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat ExtraLight Italic */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-ExtraLightItalic.ttf") format("truetype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Montserrat Italic */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Montserrat Light */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat Light Italic */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Montserrat Medium */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat Medium Italic */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Montserrat Regular */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat SemiBold */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat SemiBold Italic */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Montserrat Thin */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat Thin Italic */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -55,7 +262,7 @@
 }
 
 body {
-  font-family: "DM Sans";
+  font-family: "Montserrat";
   overflow-x: hidden;
 }
 
@@ -63,8 +270,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-  font-family: "GRIFTER";
+h6 ,p,span{
+  font-family: "Montserrat";
 }
 
 .text-gray {
@@ -77,25 +284,27 @@ h6 {
 }
 
 
-@keyframes marquee-left {
-  0% {
+
+.marquee {
+  animation: tbl-marquee 28s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  /* ← prevents flicker on loop */
+  -webkit-backface-visibility: hidden;
+}
+
+
+@keyframes tbl-marquee {
+  from {
     transform: translateX(0);
   }
 
-  100% {
-    transform: translateX(-50%);
+  to {
+    transform: translateX(-33.3333%);
   }
 }
 
-@keyframes marquee-right {
-  0% {
-    transform: translateX(-50%);
-  }
 
-  100% {
-    transform: translateX(0);
-  }
-}
 
 /* Pause on hover */
 .flex:hover>div {
@@ -108,4 +317,14 @@ h6 {
 
 .bg-primary-two {
   background-color: var(--color-bg-primary-two);
+}
+
+
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  aspect-ratio: 16/9;
+  /* Removes unwanted baseline scrollbar spacing */
 }

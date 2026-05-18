@@ -47,7 +47,7 @@ export default function VoicesOfLegacy() {
 
                 {/* Heading */}
                 <motion.h2
-                    className="text-center font-black uppercase text-[clamp(2rem,7vw,4.5rem)] text-gray-900 mb-10 sm:mb-14"
+                    className="text-center font-black font-bold uppercase text-[clamp(2rem,7vw,4.5rem)] text-gray-900 mb-10 sm:mb-14"
                     style={{ letterSpacing: "-0.01em", lineHeight: 1.0 }}
                     initial={{ y: 50 }}
                     whileInView={{ y: 0 }}

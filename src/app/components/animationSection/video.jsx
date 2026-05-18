@@ -14,7 +14,7 @@ function VideoMesh({rotateRef}) {
   // 1. Create the video element with a URL string, not an import
   const videoEl = useMemo(() => {
     const v = document.createElement('video')
-    v.src = '/assets/leap.mp4'   // path relative to /public
+    v.src = '/assets/leap_showreel.mp4'   // path relative to /public
     v.crossOrigin = 'anonymous'
     v.loop = true
     v.muted = true
@@ -84,7 +84,7 @@ export default function VideoScene({ fovRef, canvasWrapperRef,rotateRef  }) {
   return (
    <div
   ref={canvasWrapperRef}
-className="md:scale-[0.6] lg:scale-[0.75]"
+className="scale-x-95 scale-40 md:scale-[0.6]"
   style={{
     width: '100%',                  // final size, set once
     height: '100%',

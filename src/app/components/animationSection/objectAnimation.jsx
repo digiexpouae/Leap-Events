@@ -1,10 +1,10 @@
 "use client"
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useLayoutEffect } from 'react'
 import gsap from 'gsap'
 import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin'
 import Video from "./video"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-gsap.registerPlugin(MorphSVGPlugin,ScrollTrigger)
+
 const INITIAL_PATH =
   "M975.76 458.42L1300.21 -433.35L1747.02 -121.88C1527.63 66.61 1079.95 451.01 1044.36 480.67C1008.76 510.34 997.39 526.4 996.15 530.73L632.77 1513.35L402.87 1353.91L172.98 1194.46C425.12 970.44 932.56 519.79 944.77 509.41C957.78 499.02 970.81 471.09 975.76 458.42Z"
 // uniform scale: 1920 / 1483.5 ≈ 1.2942 on both axes, then re-center vertically
@@ -22,9 +22,14 @@ const FINAL_PATH =
   const canvasWrapperRef=useRef(null)
   const containerRef=useRef(null)
     const rotateRef = useRef(true)
-  useEffect(() => {
-    if (!pathRef.current || !svgRef.current || !tiltRef.current) return
+ useLayoutEffect(() => {
+  if (!pathRef.current || !svgRef.current || !tiltRef.current) return
 
+  gsap.registerPlugin(MorphSVGPlugin, ScrollTrigger)
+
+  let onMouseMove // declare outside ctx so cleanup can see it
+
+  const ctx = gsap.context(() => {
     const bbox = pathRef.current.getBBox()
     const cx = bbox.x + bbox.width / 2
     const cy = bbox.y + bbox.height / 2
@@ -35,102 +40,70 @@ const FINAL_PATH =
       rotation: 0,
       svgOrigin: `${cx} ${cy}`,
     })
-    gsap.set(ref3.current, {
-      opacity: 0
+    gsap.set(ref3.current, { opacity: 0 })
 
-    })
+    const tl = gsap.timeline()
+    tl.to(svgRef.current, { opacity: 1 })
+      .to(pathRef.current, { opacity: 1, duration: 1.2, rotate: 180 })
+      .to(pathRef.current, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" })
+      .to(pathRef.current, { morphSVG: FINAL_PATH, duration: 1.4, ease: 'power2.inOut' })
+      .to(pathRef.current, { scale: 1 })
+      .to(pathRef.current, { duration: 1.5, rotate: -10, ease: 'power2.inOut' })
+      .to(ref3.current, { opacity: 1 })
 
-
-    const tl = gsap.timeline({
-      // defaults: { ease: 'power3.out' },
-  
-    })
-
-
- 
-        tl.to(pathRef.current, { opacity: 1, duration: 1.2,rotate:180})
-        .to(pathRef.current, { opacity: 1,scale:1, duration: 0.4,ease:"power2.out" })
-
-        .to(pathRef.current, {
-        morphSVG: FINAL_PATH,
-        duration: 1.4,
-        ease: 'power2.inOut',
-      },)
-      .to(pathRef.current,{scale:1},
-      )
-        .to(
-        pathRef.current,
-        {  duration: 1.5,rotate:-10, ease: 'power2.inOut' },
-      )
-      
-      .to(ref3.current, {
-        opacity: 1
-      })
-      
-   const tl2 = gsap.timeline({
+    const tl2 = gsap.timeline({
       defaults: { ease: 'power3.out' },
       scrollTrigger: {
         trigger: containerRef.current,
         start: 'top top',
-        end: '+=1000',
-        
-      pinSpacing: true,
-
+        end: '+=1300',
         pin: true,
         scrub: 2,
-     onUpdate: (self) => {
-  if (rotateRef.current && self.progress >= 0.6) {
-    rotateRef.current = false
-  }
-      }}
-    
-  })
-        
-tl2.fromTo(fovRef, { current:75}, { current: 50, ease: 'power2.out' })      
-.to(
-    canvasWrapperRef.current,
-    { scale: 1, ease: 'power2.out' },
-    0,
-  )
-    // --- Mouse tilt setup ---
-    // quickTo gives smooth lerped updates without firing a new tween per mousemove
-    // --- Mouse rotation setup (flat 2D) ---
+        onUpdate: (self) => {
+          if (rotateRef.current && self.progress >= 0.6) {
+            rotateRef.current = false
+          }
+        }
+      }
+    })
+
+    const mm = gsap.matchMedia()
+    mm.add('(max-width: 767px)', () => {
+      tl2.fromTo(fovRef, { current: 95 }, { current: 55, ease: 'power2.out' })
+        .to(canvasWrapperRef.current, { scale: 1, ease: 'power2.out' }, 0)
+    })
+    mm.add('(min-width: 768px)', () => {
+      tl2.fromTo(fovRef, { current: 75 }, { current: 55, ease: 'power2.out' })
+        .to(canvasWrapperRef.current, { scale: 1, ease: 'power2.out' }, 0)
+    })
+
     const rotZ = gsap.quickTo(tiltRef.current, 'rotation', { duration: 0.6, ease: 'power3.out' })
+    const MAX_TILT = 0.5
 
-    const MAX_TILT = 0.5// degrees
-
-    const onMouseMove = (e) => {
+    onMouseMove = (e) => {
       if (!readyRef.current) return
       const nx = (e.clientX / window.innerWidth - 1) * 2
-      const ny = (e.clientY / window.innerHeight - 1) * 2
-
-      // Combine horizontal + vertical mouse position into one flat rotation
-      rotZ((nx ) * MAX_TILT)
+      rotZ(nx * MAX_TILT)
     }
-
     window.addEventListener('mousemove', onMouseMove)
+  }, containerRef)
 
-    return () => {
-      tl.kill()
-      tl2.kill() // Kill timeline 2 to destroy ScrollTrigger instances safely
-       ScrollTrigger.getAll().forEach((st) => st.kill())
-      window.removeEventListener('mousemove', onMouseMove)
-    }
-  }, [])
-
-
+  // SINGLE cleanup — remove listener, then revert GSAP
+  return () => {
+    if (onMouseMove) window.removeEventListener('mousemove', onMouseMove)
+    ctx.kill()
+  }
+}, [])
 
 
-useEffect(()=>{
-  console.log("Fov",fovRef.current)
-},[fovRef])
+
 
 
 
   return (
     <>
-    <div className="relative w-full "
-      style={{ height: '100vh' }}   ref={containerRef}>
+    <div className="relative w-full h-screen"
+    ref={containerRef}>
     <div
       style={{
         position: 'relative',
@@ -156,6 +129,7 @@ useEffect(()=>{
           height="100%"
           xmlns="http://www.w3.org/2000/svg"
           style={{ display: 'block' }}
+          className="opacity-0"
         >
           <g >
             <path ref={pathRef} d={INITIAL_PATH} fill="#5686DA" />

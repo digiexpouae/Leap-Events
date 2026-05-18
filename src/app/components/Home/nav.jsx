@@ -30,13 +30,13 @@ export default function Navbar() {
 
     return (
         <div
-            className={`fixed bottom-10 left-0 z-30 right-0 hidden md:flex items-center justify-center transition-all duration-500 ease-in-out transform ${isVisible
+            className={`fixed bottom-10 left-0 z-30 right-0 max-w-2xl mx-auto hidden md:flex items-center justify-center transition-all duration-500 ease-in-out transform ${isVisible
                 ? 'translate-y-0 opacity-100'
                 : 'translate-y-128  pointer-events-none'
                 }`}
         >
             {/* Main Navigation Pill */}
-            <nav className="flex items-center justify-between w-full max-w-2xl px-8 py-3 bg-white rounded-full shadow-2xl">
+            <nav className="flex items-center justify-between w-full px-8 py-3 bg-white rounded-full shadow-2xl">
 
                 {/* Navigation Links */}
                 <div className="flex gap-16">

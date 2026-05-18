@@ -2,16 +2,16 @@
 import { useEffect } from "react";
 import Lenis from "@studio-freight/lenis";
 import { gsap } from "gsap";
-
+import {ScrollTrigger} from "gsap/ScrollTrigger";
 export default function SmoothScrollProvider({ children }) {
     useEffect(() => {
         if (typeof window === "undefined") return;
         const isMobile = window.innerWidth < 768
 
         let lenis = null;
-        import("gsap/ScrollTrigger").then((module) => {
+        // import("gsap/ScrollTrigger").then((module) => {
 
-            const ScrollTrigger = module.ScrollTrigger;
+            // const ScrollTrigger = module.ScrollTrigger;
             gsap.registerPlugin(ScrollTrigger);
 
             lenis = new Lenis({
@@ -36,11 +36,15 @@ export default function SmoothScrollProvider({ children }) {
 
 
 
-        });
+        // });
 
         return () => {
-            lenis.destroy();
-            ScrollTrigger.kill();
+          // Remove ticker first so no more raf calls fire after destroy
+      lenis.destroy();
+ 
+      // Kill all ScrollTrigger instances and clear pin spacers
+      ScrollTrigger.getAll().forEach((st) => st.kill(true));
+      ScrollTrigger.clearScrollMemory();
         };
     }, []);
 

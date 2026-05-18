@@ -38,7 +38,7 @@ export default function GetInTouch({ className }) {
 
                 {/* Heading */}
                 <motion.h2
-                    className="text-center font-black uppercase text-[clamp(2rem,6vw,3.8rem)] text-gray-900 tracking-tight mb-10 sm:mb-12"
+                    className="text-center font-black uppercase font-bold text-[clamp(2rem,6vw,3.8rem)] text-gray-900 tracking-tight mb-10 sm:mb-12"
                     initial={{ y: 30 }}
                     whileInView={{ y: 0 }}
                     viewport={{ once: true }}

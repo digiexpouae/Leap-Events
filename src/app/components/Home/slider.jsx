@@ -1,28 +1,24 @@
 "use client";
 
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback, useRef, useEffect } from "react";
 
 const projects = [
   {
     id: 1,
     title: "D-Tech: Where ideas evolve into innovation, and innovation shapes the future.",
-    mainImage: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=900&q=80",
+    mainImage: "/assets/home/img-1.png",
   },
   {
     id: 2,
     title: "Innovation Hub: Connecting minds, building the next generation of solutions.",
-    mainImage: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=900&q=80",
+    mainImage: "/assets/home/im-2.png",
   },
   {
     id: 3,
     title: "TechForward: Pioneering digital transformation across industries.",
-    mainImage: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&q=80",
+    mainImage: "/assets/home/im-3.png",
   },
-  {
-    id: 4,
-    title: "FutureWave: Empowering communities through cutting-edge technology.",
-    mainImage: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=900&q=80",
-  },
+  
 ];
 
 const TOTAL = projects.length;
@@ -39,38 +35,93 @@ const ArrowLeft = () => (
   </svg>
 );
 
+// Converts any index into a signed offset relative to current.
+// e.g. with TOTAL=4 and current=0:
+//   index 0 → offset  0  (active)
+//   index 1 → offset +1  (one to the right)
+//   index 3 → offset -1  (one to the left, wraps)
+
+
+
+function getOffset(index, current, total) {
+  let offset = index - current;
+  // Wrap so offset is always in range [-(total/2), total/2]
+  if (offset > total / 2)  offset -= total;
+  if (offset < -total / 2) offset += total;
+  return offset;
+}
+
+// Maps an offset to a CSS transform + size + opacity.
+// offset  0  → active (large, center)
+// offset +1  → right small preview
+// offset +2  → far right small preview (faded)
+// offset -1  → left (hidden, ready to sweep in)
+// anything else → hidden far off-screen
+function getStyle(offset) {
+ 
+  switch (offset) {
+    case 0:
+      return {
+        transform: "translateX(0px) translateY(0px)",
+        width: "600px", height:"400px",
+        opacity: 1, zIndex: 20,
+      };
+    case 1:
+      return {
+        transform: "translateX(640px) translateY(100px)",
+        width: "200px", height: "200px",
+        opacity: 1, zIndex: 10,
+      };
+    case 2:
+      return {
+        transform: "translateX(880px) translateY(100px)",
+        width: "200px", height: "200px",
+        opacity: 0, zIndex: 5,
+      };
+    case -1:
+      return {
+        transform: "translateX(-300px) translateY(100px)",
+        width: "200px", height: "200px",
+        opacity: 0, zIndex: 5,
+      };
+    default:
+      // Positive offsets (unseen future) park far right
+      // Negative offsets (further past) park far left
+      return offset > 0
+        ? { transform: "translateX(1200px) translateY(100px)", width: "200px", height: "200px", opacity: 0, zIndex: 0 }
+        : { transform: "translateX(-600px) translateY(100px)", width: "200px", height: "200px", opacity: 0, zIndex: 0 };
+  }
+}
+
 export default function ProjectSlider() {
   const [current, setCurrent] = useState(0);
   const [animating, setAnimating] = useState(false);
-  const [direction, setDirection] = useState(null);
-  const prevIndexRef = useRef(0);
-
+const [isMobile,setIsMobile]=useState()
   const goTo = useCallback(
-    (nextIndex, dir) => {
+    (nextIndex) => {
       if (animating) return;
-      prevIndexRef.current = current;
-      setDirection(dir);
       setAnimating(true);
-
       setCurrent(nextIndex);
-
-      setTimeout(() => {
-        setAnimating(false);
-        setDirection(null);
-      }, 600); // Animation duration
+      setTimeout(() => setAnimating(false), 600);
     },
-    [animating, current]
+    [animating]
   );
 
-  const handleNext = () => {
-    const nextIndex = (current + 1) % TOTAL;
-    goTo(nextIndex, "next");
-  };
 
-  const handlePrev = () => {
-    const prevIndex = (current - 1 + TOTAL) % TOTAL;
-    goTo(prevIndex, "prev");
-  };
+
+useEffect(()=>{
+
+if(window.innerWidth<768){
+  setIsMobile(window.innerWidth)
+}
+
+},[])
+
+
+
+
+  const handleNext = () => goTo((current + 1) % TOTAL);
+  const handlePrev = () => goTo((current - 1 + TOTAL) % TOTAL);
 
   return (
     <section className="w-full bg-white py-12 px-4 sm:px-8 lg:px-16 overflow-hidden">
@@ -79,92 +130,60 @@ export default function ProjectSlider() {
         <div className="flex lg:flex-row flex-col gap-12 items-start w-full">
           {/* Left-side header text */}
           <div className="pt-4 relative z-30 shrink-0">
-            <p className="text-[26px] leading-tight font-extrabold text-black max-w-[180px]">
+            <p className="text-[26px] leading-tight font-bold text-black max-w-[180px]">
               Projects you might also be interested in
             </p>
           </div>
 
           {/* Viewport Frame */}
-          <div className="relative w-full h-[450px] md:h-[400px] overflow-visible">
+          <div className="relative w-full h-[350px] md:h-[400px] overflow-visible">
             {projects.map((ele, index) => {
-              const isActive = index === current;
-              const isPrevious = index === prevIndexRef.current;
-
-              const isNextPreview = index === (current + 1) % TOTAL;
-              const isFarPreview = index === (current + 2) % TOTAL;
-
-              let placementClass = "";
-
-              // 1. IDLE STATE (Static display between clicks)
-              if (!animating) {
-                if (isActive) {
-                  placementClass = "w-[600px] h-[400px] translate-x-0 scale-100 opacity-100 z-20";
-                } else if (isNextPreview) {
-                  placementClass = "w-[200px] h-[200px] translate-x-[640px] translate-y-[100px] scale-100 opacity-100 z-10";
-                } else if (isFarPreview) {
-                  placementClass = "w-[200px] h-[200px] translate-x-[880px] translate-y-[100px] scale-100 opacity-100 z-0";
-                } else {
-                  // Keep remaining elements off-screen to the right by default
-                  placementClass = "w-[200px] h-[200px] translate-x-[1200px] translate-y-[100px] scale-90 opacity-0 z-0";
-                }
-              }
-
-              // 2. NEXT CLICK MECHANICS (Right-to-Left movement)
-              else if (direction === "next") {
-                if (isPrevious) {
-                  // Old active card sweeps out hard to the left
-                  placementClass = "w-[600px] h-[400px] -translate-x-[1000px] scale-95 opacity-0 z-0";
-                } else if (isActive) {
-                  // New active card moves inward from its preview spot on the right to center stage
-                  placementClass = "w-[600px] h-[400px] translate-x-0 scale-100 opacity-100 z-20";
-                } else if (isNextPreview) {
-                  placementClass = "w-[200px] h-[200px] translate-x-[640px] translate-y-[100px] scale-100 opacity-100 z-10";
-                } else if (isFarPreview) {
-                  placementClass = "w-[200px] h-[200px] translate-x-[880px] translate-y-[100px] scale-100 opacity-100 z-0";
-                } else {
-                  placementClass = "w-[200px] h-[200px] translate-x-[1200px] translate-y-[100px] scale-90 opacity-0 z-0";
-                }
-              }
-
-              // 3. PREV CLICK MECHANICS (Left-to-Right movement)
-              else if (direction === "prev") {
-                if (isPrevious) {
-                  // Old active card shrinks and shifts over to become the first right preview card
-                  placementClass = "w-[200px] h-[200px] translate-x-[640px] translate-y-[100px] scale-100 opacity-100 z-10";
-                } else if (isActive) {
-                  // New active card sweeps directly from the left out-of-bounds array area straight to the center
-                  placementClass = "w-[600px] h-[400px] translate-x-0 scale-100 opacity-100 z-20";
-                } else if (isNextPreview) {
-                  // Existing preview items shift rightward down the track
-                  placementClass = "w-[200px] h-[200px] translate-x-[880px] translate-y-[100px] scale-100 opacity-100 z-0";
-                } else {
-                  // Force incoming target state calculation to prepare on the left before sweeping right
-                  placementClass = "w-[600px] h-[400px] -translate-x-[1000px] scale-95 opacity-0 z-0";
-                }
-              }
+              const offset = getOffset(index, current, TOTAL);
+              const style = getStyle(offset);
+              const isActive = offset === 0;
 
               return (
                 <div
                   key={ele.id}
-                  className={`absolute top-0 left-0 max-w-full origin-center rounded-[34px] transition-all duration-600 ease-in-out overflow-hidden transform select-none ${placementClass}`}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: isMobile?"330px":style.width,
+                    height:isMobile?"230px": style.height,
+                    transform: style.transform,
+                    opacity: style.opacity,
+                    zIndex: style.zIndex,
+                    transition: "all 900ms cubic-bezier(0.4, 0, 0.2, 1)",
+                    borderRadius: "34px",
+                    overflow: "hidden",
+                  }}
                 >
                   <div className="w-full h-full relative">
                     <img
                       src={ele.mainImage}
                       alt={ele.title}
-                      className="w-full h-full object-cover rounded-[34px]"
+                      className="w-full h-full object-cover"
                     />
-                    <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-40'}`} />
+                    <div
+                      className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 ${
+                        isActive ? "opacity-100" : "opacity-40"
+                      }`}
+                    />
                   </div>
 
-                  {/* Slider Progress Index */}
+                  {/* Badge */}
                   <div className="absolute left-6 top-6 bg-black/40 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-medium">
                     {index + 1}/{TOTAL}
                   </div>
 
-                  {/* Title text styling */}
-                  <div className={`absolute bottom-8 left-8 right-8 text-white transition-all duration-500 delay-100 ${isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"}`}>
-                    <h2 className="text-[20px] md:text-[26px] leading-tight font-extrabold max-w-[520px]">
+                  {/* Title */}
+                  <div
+                    className={`absolute bottom-8 left-8 right-8 text-white transition-all duration-500 delay-100 ${
+                      isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+                    }`}
+                  >
+                    <h2 className="text-[20px] md:text-[26px] leading-tight font-medium max-w-[520px]">
                       {ele.title}
                     </h2>
                   </div>
@@ -174,14 +193,14 @@ export default function ProjectSlider() {
           </div>
         </div>
 
-        {/* Action Controls Button Row */}
+        {/* Controls */}
         <div className="flex items-center justify-center lg:justify-end w-full">
           <div className="flex gap-4">
             <button
               onClick={handlePrev}
               disabled={animating}
               aria-label="Previous project"
-              className="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all duration-150 flex items-center justify-center shadow-md disabled:opacity-40 disabled:cursor-not-allowed"
+              className="w-14 h-14 rounded-full bg-[var(--color-primary)] cursor-pointer hover:bg-blue-400 active:scale-95 transition-all duration-150 flex items-center justify-center shadow-md disabled:opacity-40 disabled:cursor-not-allowed"
             >
               <ArrowLeft />
             </button>
@@ -189,7 +208,7 @@ export default function ProjectSlider() {
               onClick={handleNext}
               disabled={animating}
               aria-label="Next project"
-              className="w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 active:scale-95 transition-all duration-150 flex items-center justify-center shadow-md disabled:opacity-40 disabled:cursor-not-allowed"
+              className="w-14 h-14 rounded-full bg-[var(--color-primary)]  cursor-pointer hover:bg-blue-400 active:scale-95 transition-all duration-150 flex items-center justify-center shadow-md disabled:opacity-40 disabled:cursor-not-allowed"
             >
               <ArrowRight />
             </button>

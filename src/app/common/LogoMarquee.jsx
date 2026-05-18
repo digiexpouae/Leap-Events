@@ -114,7 +114,7 @@ export default function TrustedByLeaders() {
         <section className="w-full py-14 sm:py-20" >
             <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 mb-10 sm:mb-14">
                 <motion.h2
-                    className="text-center font-black uppercase text-[clamp(1.8rem,5.5vw,3.5rem)] text-gray-900"
+                    className="text-center font-black font-medium uppercase text-[clamp(1.8rem,5.5vw,3.5rem)] text-gray-900"
                     style={{ letterSpacing: "-0.01em", lineHeight: 1.0 }}
 
                     initial={{ opacity: 0, y: 120 }}

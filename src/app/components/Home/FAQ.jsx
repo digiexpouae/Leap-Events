@@ -17,7 +17,7 @@ export default function FAQSection() {
     return (
         <section className="min-h-screen bg-white flex items-center justify-center px-6 py-20 font-sans">
             <div className="w-full max-w-5xl ">
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-black uppercase leading-tight tracking-tight mb-14">
+                <h2 className="text-2xl sm:text-4xl font-bold text-black uppercase leading-tight tracking-tight mb-14">
                     The Questions You
                     <br />
                     You Might Be Asking

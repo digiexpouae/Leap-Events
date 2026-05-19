@@ -80,7 +80,7 @@ export default function CorporateEvents() {
             >
                 <div className="mx-auto max-w-7xl text-white flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8 pt-10 justify-between">
                     <motion.h3
-                        className="font-black uppercase text-white text-[clamp(1.8rem,5vw,3rem)] shrink-0"
+                        className="font-bold uppercase text-white text-[clamp(1.8rem,5vw,3rem)] shrink-0"
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
@@ -139,7 +139,7 @@ function EventCard({
 
             {/* ── Title ── */}
             <motion.h3
-                className="relative z-10 font-black uppercase text-white leading-tight shrink-0 text-[clamp(1.1rem,4vw,2rem)]"
+                className="relative z-10 font-bold uppercase text-white leading-tight shrink-0 text-[clamp(1.1rem,4vw,2rem)]"
                 style={{ letterSpacing: "0.03em", maxWidth: "200px" }}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}

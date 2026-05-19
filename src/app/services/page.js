@@ -1,10 +1,9 @@
-import HeroSection from "../common/Herosection"
-import SectionTwo from '../common/SectionTwo'
-import Service from '../components/services/Sectionthree'
-import SectionFour from '../components/services/sectionFour'
 import Form from '../common/Form'
-import LogoMarquee from '../common/LogoMarquee'
-import { defaultServices, defaultServicesTwo, ServicesThree, ServicesFour, ServicesFive, ServicesSix, ServicesSeven, ServicesEight } from '../utils/defaultService'
+import LogoMarquee from '../components/Home/Marquee'
+import SectionOne from '../components/services/sectionOne'
+import SectionThree from '../components/services/Sectionthree'
+import LeapEvent from '../components/services/leapEvent'
+import SectionFive from '../components/services/SectionFive'
 const Services = () => {
 
 
@@ -31,24 +30,11 @@ const Services = () => {
     return (<>
 
 
-
-        <HeroSection heading={heading} text={text} />
-        <SectionTwo heading={headingtwo} categories={tabs} />
-
-        <Service heading={<>CREATIVE STRATEGY AND <br /> CONCEPT DEVELOPMENT</>} description={description} services={defaultServices} />
-        <Service heading={<>Spatial and  <br /> Experiential Design</>} description={"Immersive designs that captivate and inspire your audience."} services={defaultServicesTwo} />
-        <Service heading={<>Technical Production and  <br /> Execution </>} description={"Cutting-edge production for flawless, innovative events."} services={ServicesThree} />
-        <Service heading={<>Venue and <br /> Management</>} description={"Efficient venue management for seamless event execution."} services={ServicesFour} />
-        <Service heading={<>Event Operations <br /> and Safety </>} description={"Ensuring safe, smooth operations from start to finish."} services={ServicesFive} />
-        <Service heading={<>Marketing and <br /> Sponsorship</>} description={"Maximizing event visibility with strategic marketing and sponsorships.."} services={ServicesSix} />
-        <Service heading={<>Innovative <br /> Properties</>} description={"Engaging, immersive activations that create memorable experiences."} services={ServicesSeven} />
-        <Service heading={<>Experience and Entertainment <br /> Management</>} description={"Curating talent and entertainment for standout event experiences."} services={ServicesEight} />
-
-
-
-
-
-        <SectionFour />
+<SectionOne />
+        <SectionThree />
+        
+       <LeapEvent />
+       <SectionFive />
         <LogoMarquee />
         <Form />
     </>

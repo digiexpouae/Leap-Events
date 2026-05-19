@@ -22,11 +22,11 @@ const FINAL_PATH =
 // Mobile — tighter bleed, proportional to smaller screen
    useGSAP(
   () => {
-    const isMobile=window.innerWidth<769
    
   const rect = placeholderRef.current.getBoundingClientRect();
   const sectionRect = sectionRef.current.getBoundingClientRect();
 const bottomDistance = sectionRect.bottom - rect.bottom;
+  console.log("rect", rect.left,"sectionRef",sectionRect.left)
 
    gsap.set(".hero-thumb", {
     left: rect.left - sectionRect.left,

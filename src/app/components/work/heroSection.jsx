@@ -186,7 +186,7 @@ export function ThreeDImageRing({
       onMouseDown={draggable ? handleDragStart : undefined}
       onTouchStart={draggable ? handleDragStart : undefined}
     >
-      <div className={` w-[400px] md:${width}px `}
+      <div className={` w-[400px] md:w-[${width}px] `}
         style={{
           perspective: `${perspective}px`,
         

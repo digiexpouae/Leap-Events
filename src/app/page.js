@@ -34,7 +34,7 @@ export default function Home() {
       <Nav />
 
       {/* <Parallexanimation /> */}
-      {/* <Event /> */}
+      <Event />
 
       <Slider />
       <Marquee />

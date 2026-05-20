@@ -1,13 +1,14 @@
 // components/AboutSection.tsx
 import Image from "next/image";
-
+import Link from "next/link";
 export default function AboutSection() {
   return (
     <section className="w-full bg-white h-screen px-4 py-14 sm:px-6 lg:px-12">
       <div className="mx-auto  max-w-5xl flex flex-col  items-center gap-8 lg:flex-row ">
         <div className="relative h-[220px] lg:w-1/2  w-full overflow-hidden rounded-[30px] shadow-lg sm:h-[280px] lg:h-[320px]">
           <Image
-            src="/assets/home/4.png"
+            src="/assets/about/about.jpeg"
+            
             alt="About us"
             fill
             className="object-cover"
@@ -26,12 +27,13 @@ export default function AboutSection() {
           <p className="mt-4 max-w-md md:text-2xl  md:leading-7 sm:text-base">
             We are a passionate team with over a decade of experience in the
             event industry, delivering exceptional events through expertise,
-            innovation, and modern technology.
+            innovation, and mdern technology.
           </p>
-
-          <button className="mt-6 rounded-full bg-blue-500 px-5 py-2 text-sm font-medium text-white transition hover:bg-blue-600">
-            Read Our Story
-          </button>
+        
+          <Link  className="mt-6 rounded-full bg-blue-500 px-5 py-2 text-sm font-medium text-white transition hover:bg-blue-600"
+          href="/about" > 
+           Read Our Story
+          </Link>
         </div>
       </div>
     </section>

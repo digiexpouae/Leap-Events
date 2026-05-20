@@ -37,7 +37,7 @@ const index = () => {
 
         <div>
             {/* <HeroSection heading={heading} text={<>At Leap Events, every event is a testament to our <br /> commitment to excellence and innovation</>} />            <Sectiontwo heading={text} categories={tabs} /> */}
-            <div className='h-screen relative w-full flex flex-col items-center justify-center overflow-relative '>
+            <div className='h-screen relative w-full flex flex-col items-center justify-center overflow-hidden '>
               <div className='max-w-5xl mx-auto uppercase flex items-center justify-center  '>
                 <h2 className='text-5xl text-black font-bold'>
                     Events

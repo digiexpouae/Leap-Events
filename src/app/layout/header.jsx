@@ -9,9 +9,9 @@ const navLinks = [
     { name: "About", link: "/about" },
     { name: "Services", link: "/services" },
     { name: "Work", link: "/ourwork" },
-    { name: "Portfolio", link: "#" },
-    { name: "Careers", link: "/career" },
-    { name: "Blogs", link: "/articles" },
+    // { name: "Portfolio", link: "#" },
+    // { name: "Careers", link: "/career" },
+    // { name: "Blogs", link: "/articles" },
 ];
 
 // Replace the services array with this:
@@ -61,7 +61,7 @@ export default function Navbar() {
 
 
         >
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-12">
                 <motion.div className="flex items-center justify-between h-16"
                     initial="hidden"
                     variants={navVariants}
@@ -90,86 +90,7 @@ export default function Navbar() {
 
                     >
                         {navLinks.map((elem) =>
-                            elem.name === "About" ? (
-
-                                // Services with dropdown
-                                <div key={elem.name} className="relative group">
-                                    <motion.button
-                                        onClick={() => setActive(elem.name)}
-                                        className={`px-4 py-1.5 rounded-full font-medium text-white flex items-center gap-1.5 ${aboutNames.includes(active) || active === elem.name ? "font-semibold" : "font-normal"
-                                            }`}
-                                        variants={itemVariants}
-                                    >
-                                        <Link href={elem.link}>{elem.name}</Link>
-                                        <svg
-                                            width="12" height="12" viewBox="0 0 12 12" fill="none"
-                                            className="transition-transform duration-200 group-hover:rotate-180"
-                                        >
-                                            <path d="M2 4L6 8L10 4" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                                        </svg>
-                                    </motion.button>
-
-                                    {/* Dropdown panel */}
-                                    <div
-                                        className={"absolute top-[calc(100%+16px)] left-1/2 -translate-x-10 z-50 rounded-2xl overflow-hidden invisible opacity-0 translate-y-1  group-hover:visible group-hover:opacity-100  transition-all duration-200 ease-out"}
-                                        style={{
-                                            width: "480px",
-                                            background: "rgba(10, 10, 10, 0.85)",
-                                            border: "1px solid rgba(255,255,255,0.08)",
-                                            backdropFilter: "blur(24px)",
-                                            boxShadow: "0 24px 48px rgba(0,0,0,0.6), 0 0 0 0.5px rgba(255,255,255,0.04) inset",
-                                        }}
-                                    >
-                                        {/* Top shimmer line */}
-                                        <div className="h-px w-full" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)" }} />
-
-                                        <div className="p-5 grid grid-cols-3 gap-3">
-                                            {About.map((section) => (
-                                                <div key={section.name}>
-
-
-
-                                                    <span className="w-1 h-1 rounded-full bg-white/20 group-hover/item:bg-white/60 transition-colors flex-shrink-0" />
-                                                    <span className="text-sm text-white/70 group-hover/item:text-white transition-colors">
-                                                        <Link
-                                                            key={section.name}
-                                                            href={section.href}
-                                                            onClick={() => {
-                                                                setActive(section.name)
-                                                                console.log("active", active)
-
-                                                            }
-
-                                                            }
-                                                            className="flex items-center gap-2 px-2 py-2 rounded-lg transition-all duration-150 hover:bg-white/[0.06] group/item"
-                                                        >   {section.name}  </Link>
-                                                    </span>
-
-                                                </div>
-                                            ))}
-                                        </div>
-
-                                        {/* Bottom CTA */}
-                                        <div
-                                            className="mx-4 mb-4 rounded-xl px-4 py-3 flex items-center justify-between"
-                                            style={{
-                                                background: "rgba(255,255,255,0.03)",
-                                                border: "1px solid rgba(255,255,255,0.06)",
-                                            }}
-                                        >
-                                            <p className="text-xs text-white/40">Ready to build something great?</p>
-                                            <Link
-                                                href="/contact"
-                                                className="text-xs font-semibold px-3 py-1.5 rounded-full text-black bg-white hover:opacity-80 transition-opacity"
-                                            >
-                                                Let's talk →
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            ) : (
-
+                            
                                 // All other nav links
                                 <motion.button
                                     key={elem.name}
@@ -182,7 +103,7 @@ export default function Navbar() {
                                 >
                                     <Link href={elem.link}>{elem.name}</Link>
                                 </motion.button>
-                            )
+                            
                         )}
                     </motion.div>
 

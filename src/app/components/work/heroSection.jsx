@@ -186,12 +186,16 @@ export function ThreeDImageRing({
       onMouseDown={draggable ? handleDragStart : undefined}
       onTouchStart={draggable ? handleDragStart : undefined}
     >
-      <div className={` w-[400px] md:${width}px `}
+      <div className={` w-[400px] md:w-[${width}px] `}
         style={{
           perspective: `${perspective}px`,
         
           // 16:9 height derived from width
-          height: `${Math.round(width * (9 / 16))}px`,
+          // height: `${Math.round(width * (9 / 16))}px`,
+              width: `${width}px`,
+
+              aspectRatio: "16 / 9",
+
           position: "absolute",
           left: "50%",
           top: "50%",

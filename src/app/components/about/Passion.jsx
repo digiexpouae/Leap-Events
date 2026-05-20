@@ -1,112 +1,216 @@
-"use client"
+"use client";
 
-const STATS = {
-  top: "200+",
-  middle: "600+",
-  bottom: "21",
-}
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
-export default function PassionPrecision() {
+/**
+ * Data for each step in the stack. Replace `image` URLs with files in /public
+ * (e.g. "/event-1.jpg") for production.
+ */
+const STATS = [
+   {
+    number: "400",
+    suffix: "+",
+    label: "Events\nDelivered",
+    description: "Big stages, small details. Each one designed to leave a mark.",
+    image:
+      "/assets/home/4.png",
+  },
+  {
+    number: "11",
+    suffix: "",
+    label: "Years of\nCraft",
+    description:
+      "Two decades of refining what live experiences can actually feel like.",
+    image:
+      "/assets/home/4.png",
+  },
+  {
+    number: "200",
+    suffix: "+",
+    label: "Clients\nServed",
+    description:
+      "From boutique launches to brand activations — trust, earned one room at a time.",
+    image:
+      "/assets/home/4.png",
+  },
+  {
+    number: "600",
+    suffix: "+",
+    label: "Events\nDelivered",
+    description: "Big stages, small details. Each one designed to leave a mark.",
+    image:
+      "/assets/home/4.png",
+  },
+  {
+    number: "21",
+    suffix: "",
+    label: "Years of\nCraft",
+    description:
+      "Two decades of refining what live experiences can actually feel like.",
+    image:
+      "/assets/home/4.png",
+  },
+];
+
+export default function PassionPrecisionSection() {
+  const wrapperRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Map scroll progress through the tall wrapper to an active index.
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+
+    const onScroll = () => {
+      const rect = wrapper.getBoundingClientRect();
+      const total = wrapper.offsetHeight - window.innerHeight;
+      if (total <= 0) return;
+      const progress = Math.min(Math.max(-rect.top / total, 0), 1);
+      // Divide the 0→1 range into equal segments, one per stat.
+      const idx = Math.min(
+        STATS.length - 1,
+        Math.floor(progress * STATS.length)
+      );
+      setActiveIndex(idx);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const active = STATS[activeIndex];
+
   return (
-    <section className="relative flex min-h-screen w-full flex-col overflow-hidden bg-[#DEF6FF]">
-      {/* Top-right brand icon */}
-    
-      {/* Heading */}
-      <header className="px-4 pb-12 pt-16 text-center md:pt-20">
-        <h2 className="text-3xl font-bold leading-[1.05] tracking-tight text-slate-900 md:text-5xl">
-          WHERE PASSION
-          <br />
-          MEETS PRECISION
-        </h2>
-      </header>
-
-      {/* Stats stage */}
-      <div className="relative flex flex-1 items-center justify-center px-4">
-        <div className="relative mx-auto flex h-[460px] w-full max-w-5xl items-center justify-center md:h-[520px]">
-          {/* Dashed crosshairs */}
-          <div className="pointer-events-none absolute inset-x-0 top-1/2 border-t border-dashed border-blue-400/40" />
-          <div className="pointer-events-none absolute inset-y-0 left-1/2 border-l border-dashed border-blue-400/40" />
-
-          {/* Background watermark stats */}
-          <span
-            aria-hidden
-            className="absolute top-2 select-none text-6xl font-light tracking-tight text-blue-300/40 md:text-8xl"
-          >
-            {STATS.top}
-          </span>
-          <span
-            aria-hidden
-            className="absolute bottom-2 select-none text-6xl font-light tracking-tight text-blue-300/40 md:text-8xl"
-          >
-            {STATS.bottom}
-          </span>
-
-          {/* Left label */}
-          <p className="absolute left-2 top-1/2 -translate-y-1/2 text-base font-bold leading-tight text-slate-900 md:left-10 md:text-2xl">
-            Events
-            <br />
-            Delivered
-          </p>
-
-          {/* Right description */}
-          <p className="absolute right-2 top-1/2 max-w-[140px] -translate-y-1/2 text-xs leading-snug text-slate-600 md:right-10 md:max-w-[200px] md:text-sm">
-            Big stages, small details. Each one designed to leave a mark.
-          </p>
-
-          {/* Tilted image card */}
-          <FeaturedCard value={STATS.middle} />
-        </div>
-      </div>
-
-      {/* CTA */}
-      <div className="flex justify-center pb-20 pt-4">
-        <button
-          type="button"
-          className="rounded-full bg-white/60 px-8 py-3 text-sm font-medium text-slate-700 shadow-sm backdrop-blur-sm transition-colors hover:bg-white/80"
-        >
-          Get to know us
-        </button>
-      </div>
-
-      {/* Bottom-left brand cluster */}
-    
-    </section>
-  )
-}
-
-function FeaturedCard({ value }) {
-  return (
-    <div
-      className="group relative overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/5"
-      style={{
-        width: "clamp(260px, 38vw, 380px)",
-        aspectRatio: "16 / 11",
-        transform: "perspective(1000px) rotateY(-12deg) rotateX(4deg)",
-        transformStyle: "preserve-3d",
-      }}
+    <section
+      ref={wrapperRef} 
+      className="relative  "
+      style={{ height: `${STATS.length * 100}vh` }}
+      aria-label="Where passion meets precision"
     >
-      {/* Replace with your image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage:
-            "linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4c1d95 100%)",
-        }}
-      />
-      <div className="absolute inset-0 bg-black/20" />
+      {/* Sticky stage — pinned while the user scrolls through the wrapper */}
+      <div className="sticky top-0 h-screen w-full overflow-hidden">
+       
+    
 
-      {/* Subtle highlight */}
-      <div
-        aria-hidden
-        className="absolute -left-1/4 -top-1/4 h-1/2 w-1/2 rounded-full bg-white/10 blur-3xl"
-      />
+        {/* Left label — changes with active stat */}
+        <div className="absolute left-6 md:left-16 top-1/2 -translate-y-1/2 max-w-[200px]">
+          <p
+            key={`label-${activeIndex}`}
+            className="text-[#0b1220] font-bold leading-[1.05] text-2xl md:text-3xl whitespace-pre-line animate-[fadeUp_0.5s_ease-out_both]"
+          >
+            {active.label}
+          </p>
+        </div>
 
-      <div className="absolute inset-0 flex items-center justify-center">
-        <span className="text-6xl font-bold tracking-tighter text-white drop-shadow-lg md:text-7xl">
-          {value}
-        </span>
+        {/* Right description — changes with active stat */}
+        <div className="absolute right-6 md:right-16 top-1/2 -translate-y-1/2 max-w-[180px]">
+          <p
+            key={`desc-${activeIndex}`}
+            className="text-[#0b1220]/80 text-sm md:text-base leading-snug animate-[fadeUp_0.5s_ease-out_both]"
+          >
+            {active.description}
+          </p>
+        </div>
+
+        {/* CENTER stack of numbers + image card */}
+        <div className="absolute inset-0 grid place-items-center">
+          <div className="relative w-[min(640px,85vw)] h-[min(560px,80vw)] md:h-[520px] md:w-[680px]">
+            {STATS.map((s, i) => {
+              const offset = i - activeIndex; // -1 prev, 0 active, +1 next
+              const isActive = offset === 0;
+              const translateY = offset * 180; // vertical gap between stacked numbers
+              const scale = isActive ? 1 : 1;
+              const colorClass = isActive ? "text-white" : "text-[#000000]/5";
+              const z = isActive ? 20 : 5;
+
+              return (
+                <div
+                  key={s.number}
+                  className="absolute inset-0 grid place-items-center transition-all duration-[700ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  style={{
+                    transform: `translateY(${translateY}px) scale(${scale})`,
+                    zIndex: z,
+                  }}
+                  aria-hidden={!isActive}
+                >
+                  <div
+                    className={`relative  font-bold tracking-tight leading-none ${colorClass} transition-colors duration-[700ms]`}
+                    style={{ fontSize: "clamp(120px, 22vw, 180px)" }}
+                  >
+                    {s.number}
+                    {s.suffix && (
+                      <span
+                        className="absolute -top-2 md:-top-4 text-[0.35em] font-black"
+                        style={{ right: "-0.35em" }}
+                      >
+                        {s.suffix}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Image card — sits on top of the ACTIVE number, cross-fades */}
+            <div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 rotate-[-5deg]  w-[68%] aspect-[16/10] rounded-3xl overflow-hidden shadow-[0_30px_80px_-20px_rgba(11,18,32,0.45)]  ring-1 ring-black/5" >
+              {STATS.map((s, i) => (
+                <div
+                  key={i}
+                  className={`absolute inset-0 transition-opacity duration-[700ms]  ease-out ${
+                    i === activeIndex ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  {/* Plain <img> so this is drop-in without next.config domain config.
+                      Swap to next/image when you move images to /public. */}
+                  <Image
+                    src={s.image}
+                    alt={s.label.replace("\n", " ")}
+                    width={350}
+                    height={300}
+                    className="h-full w-full object-cover"
+                    loading={i === 0 ? "eager" : "lazy"}
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Decorative purple flower over the right edge of the card */}
+          
+          </div>
+        </div>
+
+        {/* Bottom CTA */}
+       
+        {/* Subtle scroll-progress dots */}
+        {/* <div className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 flex flex-col gap-2">
+          {STATS.map((_, i) => (
+            <span
+              key={i}
+              className={`block h-1.5 w-1.5 rounded-full transition-all duration-500 ${
+                i === activeIndex ? "bg-[#0b1220] scale-125" : "bg-[#0b1220]/20"
+              }`}
+            />
+          ))}
+        </div> */}
       </div>
-    </div>
-  )
+
+      {/* Local keyframes for the label/description fade-in */}
+      <style jsx>{`
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(8px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+    </section>
+  );
 }
 

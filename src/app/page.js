@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-
+{/* s */}
         {/* <div className="absolute inset-0 "> */}
         {/* <div class="bowtie"></div> */}
 

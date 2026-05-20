@@ -2,16 +2,19 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-screen md:h-[200vh] min-h-[300px] overflow-hidden">
+    <section className="relative w-full h-screen md:h-[220vh] min-h-[300px] overflow-hidden">
       {/* Background image */}
       <Image
-        src="/assets/ev.png"
+        src="/assets/34f0f76fbb95f41988f848484d1cd551efce1ff7.jpg"
         alt="Live cultural performance"
         fill
         priority
         quality={90}
         sizes="100vw"
-        className="object-cover object-[left_40%_top_20px] md:object-center -z-10"
+
+        style={{objectPosition:"40% 20%"}}
+        className="object-cover object-[40%_35%] md:object-center -z-10"
+
       />
 
       {/* Dark overlay */}

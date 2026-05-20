@@ -3,16 +3,16 @@
 import Image from "next/image";
 
 const works = [
-  { title: "FERJAN FESTIVAL",   image: "/assets/ev-1.jpg" },
-  { title: "RAMADAN SOUQ",      image: "/assets/ev-2.jpg" },
-  { title: "SOUQ ALFREEJ",      image: "/assets/ev-3.jpg" },
-  { title: "CORPORATE EVENT",   image: "/assets/ev-4.jpg" },
-  { title: "WINTER FESTIVAL",   image: "/assets/ev-5.jpg" },
-  { title: "WONDERLAND",        image: "/assets/ev-6.jpg" },
-  { title: "SHOPPING FESTIVAL", image: "/assets/ev-7.jpg" },
-  { title: "GAMING FESTIVAL",   image: "/assets/ev-8.jpg" },
-  { title: "HOARDING DESIGN",   image: "/assets/ev-9.jpg" },
-];
+  { title: "FERJAN FESTIVAL",    image: "/assets/work-1.png"  },
+  { title: "RAMADAN SOUQ",        image: "/assets/work-2.png"      },
+  { title: "SOUQ ALFREEJ",    image: "/assets/work-3.png"   },
+  { title: "CORPORATE EVENT",   image: "/assets/work-4.png" },
+  { title: "WINTER FESTIVAL",   image: "/assets/work-5.png" },
+  { title: "WONDERLAND",        image: "/assets/work-6.png" },
+  { title: "SHOPPING FESTIVAL", image: "/assets/work-7.png" },
+  { title: "GAMING FESTIVAL",   image: "/assets/work-8.png" },
+  { title: "HOARDING DESIGN",   image: "/assets/work-9.png" },];
+
 
 const PER_GROUP = 3;
 

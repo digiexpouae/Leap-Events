@@ -110,7 +110,7 @@ gsap.set(imageWrapRef.current,{
           <div className="flex-1">
             <h1
               ref={headingRef}
-              className="font-extrabold opacity-0 text-[#5b8bf5] leading-[0.95]"
+              className="font-bold opacity-0 text-[#5b8bf5] leading-[0.95]"
               style={{
                 fontSize: "clamp(3rem, 12vw, 11rem)",
                 letterSpacing: "-0.04em",
@@ -139,7 +139,7 @@ gsap.set(imageWrapRef.current,{
       >
         <Image
           ref={imageRef}
-          src="/assets/service1.jpg"
+          src="/assets/45efd71d77f81afef70a94d74886303f02b7a161.jpg"
           alt="Team collaboration"
           fill
           className="w-full h-full object-cover"

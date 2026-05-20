@@ -6,17 +6,17 @@ const projects = [
   {
     id: 1,
     title: "D-Tech: Where ideas evolve into innovation, and innovation shapes the future.",
-    mainImage: "/assets/home/img-1.png",
+    mainImage: "/assets/sl-1.jpg",
   },
   {
     id: 2,
     title: "Innovation Hub: Connecting minds, building the next generation of solutions.",
-    mainImage: "/assets/home/im-2.png",
+    mainImage: "/assets/sl-2.jpg",
   },
   {
     id: 3,
     title: "TechForward: Pioneering digital transformation across industries.",
-    mainImage: "/assets/home/im-3.png",
+    mainImage: "/assets/sl-4.jpg",
   },
   
 ];

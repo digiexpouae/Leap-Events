@@ -18,7 +18,7 @@ export default function Scene() {
   const containerRef=useRef(null)
     const rotateRef = useRef(true)
      const isMobile = useRef(false);
-      isMobile.current = window.innerWidth < 768;
+isMobile.current = typeof window !== "undefined" && window.innerWidth < 768;
     
     const Viewbox=isMobile.current? "0 0 375 677" : "0 0 1921.5 1083.5"
 const INITIAL_PATH = isMobile.current

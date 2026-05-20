@@ -155,11 +155,7 @@ export default function PassionPrecisionSection() {
 
             {/* Image card — sits on top of the ACTIVE number, cross-fades */}
             <div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 -rotate-5
-                         w-[68%] aspect-[16/10] rounded-3xl overflow-hidden
-                         shadow-[0_30px_80px_-20px_rgba(11,18,32,0.45)]
-                         ring-1 ring-black/5"
-            >
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 -rotate-5  w-[68%] aspect-[16/10] rounded-3xl overflow-hidden shadow-[0_30px_80px_-20px_rgba(11,18,32,0.45)]  ring-1 ring-black/5" >
               {STATS.map((s, i) => (
                 <div
                   key={i}

@@ -5,12 +5,7 @@ import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin'
 import Video from "./video"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-const INITIAL_PATH =
-  "M975.76 458.42L1300.21 -433.35L1747.02 -121.88C1527.63 66.61 1079.95 451.01 1044.36 480.67C1008.76 510.34 997.39 526.4 996.15 530.73L632.77 1513.35L402.87 1353.91L172.98 1194.46C425.12 970.44 932.56 519.79 944.77 509.41C957.78 499.02 970.81 471.09 975.76 458.42Z"
-// uniform scale: 1920 / 1483.5 ≈ 1.2942 on both axes, then re-center vertically
-const FINAL_PATH =
-  "M1214.05 627.1L1822.1 -561.5L2471 -561.5C2122.93 -175.84 1403.91 621.43 1307.78 725.88C1211.65 830.2 1267.71 920.76 1307.78 953.01L2073.68 1641.52L-551 1641.52L-551 -65.49C-79.43 177.59 893.23 678.42 1011.38 737.09C1129.53 795.55 1195.73 688.2 1214.05 627.1Z"
-  export default function Scene() {
+export default function Scene() {
   const pathRef = useRef(null)
   const svgRef = useRef(null)
   const tiltRef = useRef(null)        // wrapper that receives the 3D mouse tilt
@@ -22,6 +17,18 @@ const FINAL_PATH =
   const canvasWrapperRef=useRef(null)
   const containerRef=useRef(null)
     const rotateRef = useRef(true)
+     const isMobile = useRef(false);
+      isMobile.current = window.innerWidth < 768;
+    
+    const Viewbox=isMobile.current? "0 0 375 677" : "0 0 1921.5 1083.5"
+const INITIAL_PATH = isMobile.current
+  ? "M191.373 289.817L319.121 -62L495.047 60.88C408.666 135.242 232.398 286.891 218.383 298.594C204.367 310.297 199.89 316.636 199.403 318.343L56.3256 706L-124.711 580.194C-25.4328 491.813 174.364 314.027 179.328 309.931C184.292 305.835 189.426 294.815 191.373 289.817Z"
+  : "M975.76 458.42L1300.21 -433.35L1747.02 -121.88C1527.63 66.61 1079.95 451.01 1044.36 480.67C1008.76 510.34 997.39 526.4 996.15 530.73L632.77 1513.35L402.87 1353.91L172.98 1194.46C425.12 970.44 932.56 519.79 944.77 509.41C957.78 499.02 970.81 471.09 975.76 458.42Z"
+const FINAL_PATH=isMobile.current?
+  "M118.581 382.018L434.235 -422.189L559.5 -800C435.651 -177.845 179.722 347.43 146.797 403.727C113.872 460.025 139.322 496.665 156.163 507.948L1200 1100L1200 1200L-500 1200L-500 394.927C-300 400.895 -150 417.746 30.6183 437.402C81.683 457.058 110.537 408.669 118.581 382.018Z"
+ : "M1214.05 627.1L1822.1 -561.5L2471 -561.5C2122.93 -175.84 1403.91 621.43 1307.78 725.88C1211.65 830.2 1267.71 920.76 1307.78 953.01L2073.68 1641.52L-551 1641.52L-551 -65.49C-79.43 177.59 893.23 678.42 1011.38 737.09C1129.53 795.55 1195.73 688.2 1214.05 627.1Z"
+  
+    
  useLayoutEffect(() => {
   if (!pathRef.current || !svgRef.current || !tiltRef.current) return
 
@@ -50,7 +57,6 @@ const FINAL_PATH =
       .to(pathRef.current, { scale: 1 })
       .to(pathRef.current, { duration: 1.5, rotate: -10, ease: 'power2.inOut' })
       .to(ref3.current, { opacity: 1 })
-
     const tl2 = gsap.timeline({
       defaults: { ease: 'power3.out' },
       scrollTrigger: {
@@ -89,11 +95,16 @@ const FINAL_PATH =
   }, containerRef)
 
   // SINGLE cleanup — remove listener, then revert GSAP
-  return () => {
+//  
+ 
+
+
+ return () => {
     if (onMouseMove) window.removeEventListener('mousemove', onMouseMove)
     ctx.kill()
   }
-}, [])
+}
+,[])
 
 
 
@@ -123,7 +134,7 @@ const FINAL_PATH =
       >
         <svg
           ref={svgRef}
-          viewBox="0 0 1920 1080"
+          viewBox={Viewbox}
           preserveAspectRatio="xMidYMid slice"
           width="100%"
           height="100%"

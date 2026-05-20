@@ -7,7 +7,8 @@ export default function AboutSection() {
       <div className="mx-auto  max-w-5xl flex flex-col  items-center gap-8 lg:flex-row ">
         <div className="relative h-[220px] lg:w-1/2  w-full overflow-hidden rounded-[30px] shadow-lg sm:h-[280px] lg:h-[320px]">
           <Image
-            src="/assets/home/4.png"
+            src="/assets/about/about.jpeg"
+            
             alt="About us"
             fill
             className="object-cover"

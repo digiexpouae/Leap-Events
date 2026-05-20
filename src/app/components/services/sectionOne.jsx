@@ -28,10 +28,23 @@ useEffect(() => {
 
 gsap.set(imageWrapRef.current,{
     left:rect.left-sectionRect.left, 
+      top: rect.top - sectionRect.top,  // ✅ add this
     width: rect.width,
     height: rect.height,
+    opacity:0,
+    y:40
+    
 })
-      const tl = gsap.timeline({
+        gsap.set([headingRef.current, descRef.current, logoRef.current, topLinesRef.current],{
+            opacity:0,
+    y:40
+    
+        })
+
+
+     const tl2=gsap.timeline({})
+     
+     const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
@@ -42,12 +55,21 @@ gsap.set(imageWrapRef.current,{
         },
       });
  
-     
+     tl2.to(  imageWrapRef.current,{
+        y:0,
+      opacity:1
+     })
+     tl2.to(          [headingRef.current, descRef.current, logoRef.current, topLinesRef.current],{
+      y:0,
+      opacity:1
+     }
+)
     tl.to(
         imageWrapRef.current,{
             top:"0",
       left: "50%",
-      xPercent: -50,
+      xPercent: -50,      
+
       width: "100vw",
       height: "100vh",
       bottom:0,
@@ -60,7 +82,6 @@ gsap.set(imageWrapRef.current,{
         .to(
           [headingRef.current, descRef.current, logoRef.current, topLinesRef.current],
           {
-            opacity: 1,
             ease: "none",
             duration: 0.5,
           },
@@ -89,9 +110,9 @@ gsap.set(imageWrapRef.current,{
           <div className="flex-1">
             <h1
               ref={headingRef}
-              className="font-extrabold text-[#5b8bf5] leading-[0.95]"
+              className="font-extrabold opacity-0 text-[#5b8bf5] leading-[0.95]"
               style={{
-                fontSize: "clamp(4rem, 12vw, 11rem)",
+                fontSize: "clamp(3rem, 12vw, 11rem)",
                 letterSpacing: "-0.04em",
               }}
             >
@@ -100,7 +121,7 @@ gsap.set(imageWrapRef.current,{
                {/* Expanding image */}
                  <div
         ref={placeholderRef}
-        className="h-[120px] md:h-[160px] w-1/2   overflow-hidden rounded-2xl shadow-2xl"
+        className="h-[120px] md:h-[160px] w-1/2   overflow-hidden rounded-2xl "
        
       >
       
@@ -113,7 +134,7 @@ gsap.set(imageWrapRef.current,{
 
   <div
         ref={imageWrapRef}
-        className="h-[120px] w-1/2 absolute   overflow-hidden rounded-2xl shadow-2xl"
+        className="h-[120px] w-1/2 absolute opacity-0 z-10 overflow-hidden rounded-2xl shadow-2xl"
        
       >
         <Image
@@ -124,7 +145,7 @@ gsap.set(imageWrapRef.current,{
           className="w-full h-full object-cover"
         />
         </div>
-          <div ref={descRef} className="md:w-72 md:mt-32 lg:mt-48">
+          <div ref={descRef} className="md:w-72 opacity-0 md:mt-32 lg:mt-48">
             <p className="text-black text-sm leading-relaxed">
               Years of experience backed by trusted knowledge. Helping you
               achieve better outcomes, faster.

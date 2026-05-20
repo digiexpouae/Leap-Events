@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 /**
@@ -13,7 +14,7 @@ const STATS = [
     label: "Events\nDelivered",
     description: "Big stages, small details. Each one designed to leave a mark.",
     image:
-      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1400&q=80&auto=format&fit=crop",
+      "/assets/home/4.png",
   },
   {
     number: "11",
@@ -22,7 +23,7 @@ const STATS = [
     description:
       "Two decades of refining what live experiences can actually feel like.",
     image:
-      "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=1400&q=80&auto=format&fit=crop",
+      "/assets/home/4.png",
   },
   {
     number: "200",
@@ -31,7 +32,7 @@ const STATS = [
     description:
       "From boutique launches to brand activations — trust, earned one room at a time.",
     image:
-      "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1400&q=80&auto=format&fit=crop",
+      "/assets/home/4.png",
   },
   {
     number: "600",
@@ -39,7 +40,7 @@ const STATS = [
     label: "Events\nDelivered",
     description: "Big stages, small details. Each one designed to leave a mark.",
     image:
-      "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1400&q=80&auto=format&fit=crop",
+      "/assets/home/4.png",
   },
   {
     number: "21",
@@ -48,7 +49,7 @@ const STATS = [
     description:
       "Two decades of refining what live experiences can actually feel like.",
     image:
-      "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=1400&q=80&auto=format&fit=crop",
+      "/assets/home/4.png",
   },
 ];
 
@@ -84,7 +85,7 @@ export default function PassionPrecisionSection() {
   return (
     <section
       ref={wrapperRef} 
-      className="relative  py-16"
+      className="relative  "
       style={{ height: `${STATS.length * 100}vh` }}
       aria-label="Where passion meets precision"
     >
@@ -120,7 +121,7 @@ export default function PassionPrecisionSection() {
               const offset = i - activeIndex; // -1 prev, 0 active, +1 next
               const isActive = offset === 0;
               const translateY = offset * 180; // vertical gap between stacked numbers
-              const scale = isActive ? 1 : 0.55;
+              const scale = isActive ? 1 : 1;
               const colorClass = isActive ? "text-white" : "text-[#000000]/5";
               const z = isActive ? 20 : 5;
 
@@ -135,8 +136,8 @@ export default function PassionPrecisionSection() {
                   aria-hidden={!isActive}
                 >
                   <div
-                    className={`relative  font-black tracking-tight leading-none ${colorClass} transition-colors duration-[700ms]`}
-                    style={{ fontSize: "clamp(120px, 22vw, 280px)" }}
+                    className={`relative  font-bold tracking-tight leading-none ${colorClass} transition-colors duration-[700ms]`}
+                    style={{ fontSize: "clamp(120px, 22vw, 180px)" }}
                   >
                     {s.number}
                     {s.suffix && (
@@ -154,23 +155,25 @@ export default function PassionPrecisionSection() {
 
             {/* Image card — sits on top of the ACTIVE number, cross-fades */}
             <div
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 -rotate-5
                          w-[68%] aspect-[16/10] rounded-3xl overflow-hidden
                          shadow-[0_30px_80px_-20px_rgba(11,18,32,0.45)]
                          ring-1 ring-black/5"
             >
               {STATS.map((s, i) => (
                 <div
-                  key={s.image}
-                  className={`absolute inset-0 transition-opacity duration-[700ms] ease-out ${
+                  key={i}
+                  className={`absolute inset-0 transition-opacity duration-[700ms]  ease-out ${
                     i === activeIndex ? "opacity-100" : "opacity-0"
                   }`}
                 >
                   {/* Plain <img> so this is drop-in without next.config domain config.
                       Swap to next/image when you move images to /public. */}
-                  <img
+                  <Image
                     src={s.image}
                     alt={s.label.replace("\n", " ")}
+                    width={350}
+                    height={300}
                     className="h-full w-full object-cover"
                     loading={i === 0 ? "eager" : "lazy"}
                   />
@@ -186,7 +189,7 @@ export default function PassionPrecisionSection() {
         {/* Bottom CTA */}
        
         {/* Subtle scroll-progress dots */}
-        <div className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 flex flex-col gap-2">
+        {/* <div className="absolute right-6 md:right-10 top-1/2 -translate-y-1/2 flex flex-col gap-2">
           {STATS.map((_, i) => (
             <span
               key={i}
@@ -195,7 +198,7 @@ export default function PassionPrecisionSection() {
               }`}
             />
           ))}
-        </div>
+        </div> */}
       </div>
 
       {/* Local keyframes for the label/description fade-in */}

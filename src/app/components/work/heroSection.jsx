@@ -191,7 +191,11 @@ export function ThreeDImageRing({
           perspective: `${perspective}px`,
         
           // 16:9 height derived from width
-          height: `${Math.round(width * (9 / 16))}px`,
+          // height: `${Math.round(width * (9 / 16))}px`,
+              width: `${width}px`,
+
+              aspectRatio: "16 / 9",
+
           position: "absolute",
           left: "50%",
           top: "50%",

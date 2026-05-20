@@ -23,7 +23,7 @@ const about = () => {
           <BuiltOnCraft />
           <OurTeam />
 
-          <div className='bg-[#d6efff]'>
+          <div className='bg-[#d6efff] py-16'>
              {/* Heading */}
         <div className=" md:top-16 flex justify-center px-6">
           <h2 className="text-center font-bold tracking-tight text-[#0b1220] text-3xl md:text-5xl leading-[1.05]">
@@ -38,7 +38,7 @@ const about = () => {
          <div className=" flex justify-center">
           <button
             type="button"
-            className="rounded-full bg-[#6c8cff] text-white text-sm md:text-base
+            className="rounded-full bg-[#6c8cff] cursor-pointer text-white text-sm md:text-base
                        px-6 py-3 md:px-8 md:py-3.5 font-medium
                        shadow-[0_10px_30px_-10px_rgba(108,140,255,0.7)]
                        hover:bg-[#5a7bff] transition-colors"

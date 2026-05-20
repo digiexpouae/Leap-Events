@@ -13,7 +13,7 @@ export default function Scene() {
   const videoRef = useRef(null)
   const ref3=useRef(null)
   const fovRef=useRef(75)
-const [isMobile] = useState(() => window.innerWidth < 768)
+const [isMobile,setIsMobile]=useState(false)
   const canvasWrapperRef=useRef(null)
   const containerRef=useRef(null)
     const rotateRef = useRef(true)
@@ -27,9 +27,16 @@ const FINAL_PATH=isMobile?
  : "M1214.05 627.1L1822.1 -561.5L2471 -561.5C2122.93 -175.84 1403.91 621.43 1307.78 725.88C1211.65 830.2 1267.71 920.76 1307.78 953.01L2073.68 1641.52L-551 1641.52L-551 -65.49C-79.43 177.59 893.23 678.42 1011.38 737.09C1129.53 795.55 1195.73 688.2 1214.05 627.1Z"
   
     
- useLayoutEffect(() => {
-  if (!pathRef.current || !svgRef.current || !tiltRef.current) return
 
+useEffect(()=>{
+ setIsMobile(window.innerWidth < 768)
+},[])
+
+
+ useEffect(() => {
+
+  if (!pathRef.current || !svgRef.current || !tiltRef.current ) return;
+console.log("ismobile",isMobile);
   gsap.registerPlugin(MorphSVGPlugin, ScrollTrigger)
 
   let onMouseMove // declare outside ctx so cleanup can see it
@@ -99,10 +106,10 @@ const FINAL_PATH=isMobile?
 
  return () => {
     if (onMouseMove) window.removeEventListener('mousemove', onMouseMove)
-    ctx.kill()
+    ctx.revert()
   }
 }
-,[])
+,[isMobile])
 
 
 

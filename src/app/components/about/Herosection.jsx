@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,26 +13,29 @@ export default function HeroSection() {
   const placeholderRef=useRef()
   const pathRef=useRef()
   const svgRef=useRef()
-  const isMobile = useRef(false);
-isMobile.current = typeof window !== "undefined" && window.innerWidth < 768;
+const [isMobile, setIsMobile] = useState(null)
 
-const Viewbox=isMobile.current? "0 0 375 677" : "0 0 1921.5 1083.5"
+
+const Viewbox=isMobile? "0 0 375 677" : "0 0 1921.5 1083.5"
 
   const INITIAL_PATH =
-  isMobile.current
+  isMobile
   ? "M191.373 289.817L319.121 -62L495.047 60.88C408.666 135.242 232.398 286.891 218.383 298.594C204.367 310.297 199.89 316.636 199.403 318.343L56.3256 706L-124.711 580.194C-25.4328 491.813 174.364 314.027 179.328 309.931C184.292 305.835 189.426 294.815 191.373 289.817Z"
 :
   "M975.76 458.42L1300.21 -433.35L1747.02 -121.88C1527.63 66.61 1079.95 451.01 1044.36 480.67C1008.76 510.34 997.39 526.4 996.15 530.73L632.77 1513.35L402.87 1353.91L172.98 1194.46C425.12 970.44 932.56 519.79 944.77 509.41C957.78 499.02 970.81 471.09 975.76 458.42Z"
 // uniform scale: 1920 / 1483.5 ≈ 1.2942 on both axes, then re-center vertically
-const FINAL_PATH =  isMobile.current?
+const FINAL_PATH =  isMobile?
 "M215.438 408.233L240.787 0H323.171C308.267 115.853 276.698 359.694 269.656 408.233C262.615 456.772 300.991 468.673 321.059 468.556L677 514.499V760H-676V394.555C-413.474 410.805 121.224 444.006 159.811 446.811C198.398 449.617 212.973 422.261 215.438 408.233Z"
 :"M1266 582L1302 -3000H1419C1397.83 165.167 1353 512.8 1343 582C1333 651.2 1387.5 668.167 1416 668L8000 733.5V5000H-5000V562.5C372.833 585.667 1132.2 633 1187 637C1241.8 641 1262.5 602 1266 582Z"
 
 // Mobile — tighter bleed, proportional to smaller screen
-   useGSAP(
+   
+useLayoutEffect(() => {
+  setIsMobile(window.innerWidth < 768)
+}, [])
+useGSAP(
   () => {
    
-console.log("isMobile:", isMobile, window.innerWidth);
   const rect = placeholderRef.current.getBoundingClientRect();
   const sectionRect = sectionRef.current.getBoundingClientRect();
 const bottomDistance = sectionRect.bottom - rect.bottom;

@@ -85,7 +85,7 @@ export default function PassionPrecisionSection() {
   return (
     <section
       ref={wrapperRef} 
-      className="relative  "
+      className="relative"
       style={{ height: `${STATS.length * 100}vh` }}
       aria-label="Where passion meets precision"
     >
@@ -198,18 +198,7 @@ export default function PassionPrecisionSection() {
       </div>
 
       {/* Local keyframes for the label/description fade-in */}
-      <style jsx>{`
-        @keyframes fadeUp {
-          from {
-            opacity: 0;
-            transform: translateY(8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
+   
     </section>
   );
 }

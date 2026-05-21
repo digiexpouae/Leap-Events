@@ -104,7 +104,7 @@ console.log("ismobile",isMobile);
 ScrollTrigger.refresh()
  return () => {
     if (onMouseMove) window.removeEventListener('mousemove', onMouseMove)
-    ctx.kill()
+   ctx.revert();
   }
 }
 ,[])

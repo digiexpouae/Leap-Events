@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin'
 import Video from "./video"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useGSAP } from '@gsap/react'
 
 export default function Scene() {
   const pathRef = useRef(null)
@@ -19,7 +20,7 @@ export default function Scene() {
     
 
     
- useEffect(() => {
+ useGSAP(() => {
     const isMobile = window.innerWidth < 768   // ← read directly, no state
 
   const viewBox=isMobile? "0 0 375 677" : "0 0 1921.5 1083.5"
@@ -33,12 +34,13 @@ const INITIAL_PATH= isMobile
      svgRef.current?.setAttribute('viewBox', viewBox)
   pathRef.current?.setAttribute('d', INITIAL_PATH)
   if (!pathRef.current || !svgRef.current || !tiltRef.current ) return;
-console.log("ismobile",isMobile);
   gsap.registerPlugin(MorphSVGPlugin, ScrollTrigger)
 
   let onMouseMove // declare outside ctx so cleanup can see it
-
-  const ctx = gsap.context(() => {
+let tl;
+let tl2;
+let ctx;
+  ctx = gsap.context(() => {
     const bbox = pathRef.current.getBBox()
     const cx = bbox.x + bbox.width / 2
     const cy = bbox.y + bbox.height / 2
@@ -51,7 +53,7 @@ console.log("ismobile",isMobile);
     })
     gsap.set(ref3.current, { opacity: 0 })
 
-    const tl = gsap.timeline()
+     tl = gsap.timeline()
     tl.to(svgRef.current, { opacity: 1 })
       .to(pathRef.current, { opacity: 1, duration: 1.2, rotate: 180 })
       .to(pathRef.current, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" })
@@ -59,7 +61,7 @@ console.log("ismobile",isMobile);
       .to(pathRef.current, { scale: 1 })
       .to(pathRef.current, { duration: 1.5, rotate: -10, ease: 'power2.inOut' })
       .to(ref3.current, { opacity: 1 })
-    const tl2 = gsap.timeline({
+    tl2 = gsap.timeline({
       defaults: { ease: 'power3.out' },
       scrollTrigger: {
         trigger: containerRef.current,
@@ -98,16 +100,19 @@ console.log("ismobile",isMobile);
 
   // SINGLE cleanup — remove listener, then revert GSAP
 //  
- 
+
 
 // at the end of Scene's useEffect, before the return
-ScrollTrigger.refresh()
  return () => {
     if (onMouseMove) window.removeEventListener('mousemove', onMouseMove)
    ctx.revert();
+  tl.kill()
+  tl2.kll()
   }
-}
-,[])
+},
+   { scope: containerRef } 
+ )
+
 
 
 

@@ -55,6 +55,7 @@ export default function Navbar() {
                 </div>
 
                 {/* CTA Button */}
+                <Link href="tel:+971 04 228 0856">
                 <button className="flex items-center gap-3 py-1 pl-8 pr-3 transition-transform bg-[var(--color-primary)] rounded-full hover:scale-105 active:scale-95 group">
                     <span className=" text-white tracking-tight">
                         SCHEDULE A CALL
@@ -67,7 +68,7 @@ export default function Navbar() {
                             alt="Phone icon"
                         />
                     </div>
-                </button>
+                </button></Link>
 
             </nav>
         </div>

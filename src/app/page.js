@@ -27,8 +27,9 @@ export default function Home() {
         {/* <div class="bowtie"></div> */}
 
         {/* <Animate /> */}
+        <div className="relative">
         <ObjectAnimation />
-
+</div>
         {/* </div>   */}
       <About />
       <Nav />

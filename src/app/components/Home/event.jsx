@@ -25,6 +25,7 @@ export default function CorporateEvents() {
                 pinSpacing: true,   // ✅ holds scroll space so animation completes
                 start: "top top",
                 end: `+=${cards.length * 600}`, // 600px
+  refreshPriority: -1,  // ← calculate after Scene's ScrollTrigger
 
             }
         })

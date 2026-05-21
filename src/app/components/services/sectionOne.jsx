@@ -20,6 +20,8 @@ useEffect(() => {
 //   gsap.set(imageWrapRef.current,{
 //         xPercent:100
 //     })
+let tl2;
+let tl;
 
     const ctx = gsap.context(() => {
       
@@ -42,9 +44,9 @@ gsap.set(imageWrapRef.current,{
         })
 
 
-     const tl2=gsap.timeline({})
+    tl2=gsap.timeline({})
      
-     const tl = gsap.timeline({
+     tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
@@ -89,7 +91,12 @@ gsap.set(imageWrapRef.current,{
         );
     }, sectionRef);
  
-    return () => ctx.revert();
+    return () => {ctx.revert();
+     ScrollTrigger.getAll().forEach(t => t.kill())
+  
+  tl?.kill()
+  tl2?.kill()
+    }
   }, []);
 
 

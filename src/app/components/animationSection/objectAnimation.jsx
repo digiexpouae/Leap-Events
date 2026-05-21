@@ -106,8 +106,11 @@ let ctx;
  return () => {
     if (onMouseMove) window.removeEventListener('mousemove', onMouseMove)
    ctx.revert();
-  tl.kill()
-  tl2.kll()
+   ScrollTrigger.getAll().forEach(t => t.kill())
+  
+  tl?.kill()
+  tl2?.kill()
+  
   }
 },
    { scope: containerRef } 

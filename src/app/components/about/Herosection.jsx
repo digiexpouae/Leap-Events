@@ -65,13 +65,15 @@ gsap.set(".hero-tagline",{
   gsap.set(".hero-text-row", {opacity: 0})
 
   gsap.set(".hero-thumb", {opacity: 0})
+  let tl;
+  let tl2;
     const ctx = gsap.context(() => {
 
- const tl2 = gsap.timeline({
+ tl2 = gsap.timeline({
       // defaults: { ease: 'power3.out' },
   
     })
-    const tl = gsap.timeline({
+    tl = gsap.timeline({
       scrollTrigger: {
         trigger: sectionRef.current,
         start: "top top",
@@ -124,10 +126,16 @@ tl2.to(".hero-tagline", { opacity: 1, ease: "power2.in" },"<")
     },"<");
 
   })
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+       ScrollTrigger.getAll().forEach(t => t.kill())
+  
+  tl?.kill()
+  tl2?.kill()
+  
     
 
-  },
+  }},
   { scope: sectionRef }
 );
 

@@ -23,9 +23,9 @@ const about = () => {
           <BuiltOnCraft />
           <OurTeam />
 
-          <div className='bg-[#d6efff] py-16'>
+          <div className='bg-[#d6efff] py-16 hidden md:block'>
              {/* Heading */}
-        <div className=" md:top-16 flex justify-center px-6">
+        <div className=" md:top-16  md:flex justify-center px-6">
           <h2 className="text-center font-bold tracking-tight text-[#0b1220] text-3xl md:text-5xl leading-[1.05]">
             WHERE PASSION
             <br />

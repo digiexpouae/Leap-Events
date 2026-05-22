@@ -16,7 +16,8 @@ export default function Scene() {
   const fovRef=useRef(75)
   const canvasWrapperRef=useRef(null)
   const containerRef=useRef(null)
-    const rotateRef = useRef(true)
+  const rotateRef = useRef(true)
+
     
 
     
@@ -52,6 +53,8 @@ let ctx;
       svgOrigin: `${cx} ${cy}`,
     })
     gsap.set(ref3.current, { opacity: 0 })
+        gsap.set(".hero-title", { opacity: 0,y:20 })
+    gsap.set(".hero-description", { opacity: 0 ,y:20 })
 
      tl = gsap.timeline()
     tl.to(svgRef.current, { opacity: 1 })
@@ -59,8 +62,13 @@ let ctx;
       .to(pathRef.current, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" })
       .to(pathRef.current, { morphSVG: FINAL_PATH, duration: 1.4, ease: 'power2.inOut' })
       .to(pathRef.current, { scale: 1 })
+    
+
       .to(pathRef.current, { duration: 1.5, rotate: -10, ease: 'power2.inOut' })
+        .to(".hero-title", { opacity: 1 ,y:0})
+     .to(".hero-description", { opacity: 1 ,y:0})
       .to(ref3.current, { opacity: 1 })
+
     tl2 = gsap.timeline({
       defaults: { ease: 'power3.out' },
       scrollTrigger: {
@@ -159,11 +167,13 @@ let ctx;
         </svg>
       </div>
         {/* <div  className="relative w-full h-full" ref={containerRef}> */}
-          <div className='absolute hidden md:block md:left-12  md:top-1/2 md:translate-y-[150%]'>
+          <div className='absolute hero-title hidden md:block opacity-0  md:left-12  md:top-1/2 md:translate-y-[150%]'
+       >
       <h2 className=' md:text-white font-bold md:text-xl uppercase leading-tight tracking-tighter'>Step into
 <br />the Spotlight</h2>
       </div>
-     <div className='absolute hidden md:block  md:translate-x-[0] md:right-12  md:top-1/2 md:translate-y-[150%]'>
+     <div className='absolute hidden md:block hero-description opacity-0 md:translate-x-[0] md:right-12  md:top-1/2 md:translate-y-[150%]'
+   >
       <h2 className='md:text-black/80 font-medium text-sm md:text-base leading-[1] tracking-tighter'>we craft world-class spaces & events<br />
 that create memories, initiate <br />
 conversations and elevate ambitions.</h2>
@@ -186,11 +196,12 @@ conversations and elevate ambitions.</h2>
     {/* {mobile} */}
 
 
-  <div className='absolute top-28 left-1/2 -translate-x-1/2 md:hidden block '>
+  <div className='absolute top-28 left-1/2  hero-title -translate-x-1/2 md:hidden block '
+  >
       <h2 className='text-black font-bold text-xl  uppercase leading-tight tracking-tighter'>Step into
 <br />the Spotlight</h2>
       </div>
-     <div className='absolute left-1/2 md:hidden block -translate-x-1/2     bottom-10 '>
+     <div className='absolute left-1/2 hero-description  md:hidden block -translate-x-1/2     bottom-10 '>
       <h2 className='text-white font-medium text-sm leading-[1] tracking-tighter'>we craft world-class spaces & events<br />
 that create memories, initiate <br />
 conversations and elevate ambitions.</h2>

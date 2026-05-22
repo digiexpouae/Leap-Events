@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
@@ -16,24 +16,7 @@ export default function ExpertiseSection() {
   const placeholderRef=useRef(null)
 
 
-  useEffect(() => {
-  const orig = Node.prototype.removeChild;
-  Node.prototype.removeChild = function(child) {
-    if (!this.contains(child)) {
-      console.error("BAD NODE:", child);
-      console.log("Parent:", this);
-      console.log("Real parent:", child.parentNode);
-      console.trace();
-    }
-    return orig.call(this, child);
-  };
-
-  return () => {
-    // restore original when component unmounts
-    Node.prototype.removeChild = orig;
-  };
-}, []);
-useEffect(() => {
+useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
  
 //   gsap.set(imageWrapRef.current,{
@@ -108,7 +91,7 @@ gsap.set(imageWrapRef.current,{
           },
           
         );
-    }, sectionRef);
+    },);
  
     return () => {
        ScrollTrigger.getAll()

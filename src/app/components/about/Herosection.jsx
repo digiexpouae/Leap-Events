@@ -146,7 +146,7 @@ tl2.to(".hero-tagline", { opacity: 1, ease: "power2.in" },"<")
   return (
     <section ref={sectionRef} className="relative h-screen overflow-hidden bg-white">
        <div className="absolute left-0 top-0 z-10 mx-auto max-w-7xl px-6 translate-y-30 md:px-12">
-        <p className="hero-tagline max-w-xs text-md font-semibold uppercase leading-relaxed tracking-tight text-gray-800">
+        <p className="hero-tagline max-w-xs text-md opacity-0 font-semibold uppercase leading-relaxed tracking-tight text-gray-800">
           Crafting unforgettable events across the UAE for over a decade.
         </p>
       </div>

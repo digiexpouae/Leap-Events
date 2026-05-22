@@ -62,7 +62,7 @@ export default function HeroEventsSection() {
             viewport={{ once: false, amount: 0.3 }}
             className="text-white font-bold uppercase leading-[0.85] tracking-tight will-change-transform"
             style={{
-              fontSize: "clamp(3.5rem, 13vw,  10rem)",
+              fontSize: "clamp(3rem, 13vw,  10rem)",
               letterSpacing: "-0.04em",
             }}
           >
@@ -80,7 +80,7 @@ export default function HeroEventsSection() {
               viewport={{ once: false, amount: 0.3 }}
               className="text-white font-bold uppercase leading-[0.85] tracking-tight will-change-transform"
               style={{
-                fontSize: "clamp(3.5rem, 12vw,  10rem)",
+                fontSize: "clamp(3rem, 12vw,  10rem)",
                 letterSpacing: "-0.04em",
               }}
             >
@@ -113,7 +113,7 @@ export default function HeroEventsSection() {
               viewport={{ once: false, amount: 0.3 }}
               className="text-[#5b8bf5] font-bold uppercase leading-[0.85] tracking-tight will-change-transform"
               style={{
-                fontSize: "clamp(3.5rem, 12vw,  10rem)",
+                fontSize: "clamp(3rem, 12vw,  10rem)",
                 letterSpacing: "-0.04em",
               }}
             >
@@ -142,7 +142,7 @@ export default function HeroEventsSection() {
             viewport={{ once: false, amount: 0.3 }}
             className="text-white font-bold uppercase leading-[0.85] tracking-tight will-change-transform"
             style={{
-              fontSize: "clamp(3.5rem, 12vw, 10rem)",
+              fontSize: "clamp(3rem, 12vw, 10rem)",
               letterSpacing: "-0.04em",
             }}
           >

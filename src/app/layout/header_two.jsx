@@ -31,7 +31,7 @@ export default function Header() {
       alt="logo"
       width={100}
       height={60}
-      className='translate-y-[10px]'
+      className=' translate-y-[4px] md:translate-y-[10px]'
       />
       </Link>
       </div>

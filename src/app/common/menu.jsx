@@ -17,7 +17,7 @@ export default function DiagonalMenu() {
       <button
         onClick={() => setOpen(true)}
         aria-label="Open menu"
-        className="group flex  cursor-pointer items-center gap-2.5 bg-[#5686DA] px-6 py-3.5"
+        className="group flex  cursor-pointer items-center gap-2.5 bg-[#5686DA] px-4 md:px-6 py-3.5"
         style={{
           borderBottomRightRadius: '10px',
           opacity: open ? 0 : 1,

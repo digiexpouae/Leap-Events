@@ -159,6 +159,16 @@ let ctx;
         </svg>
       </div>
         {/* <div  className="relative w-full h-full" ref={containerRef}> */}
+          <div className='absolute hidden md:block md:left-12  md:top-1/2 md:translate-y-[150%]'>
+      <h2 className=' md:text-white font-bold md:text-xl uppercase leading-tight tracking-tighter'>Step into
+<br />the Spotlight</h2>
+      </div>
+     <div className='absolute hidden md:block  md:translate-x-[0] md:right-12  md:top-1/2 md:translate-y-[150%]'>
+      <h2 className='md:text-black/80 font-medium text-sm md:text-base leading-[1] tracking-tighter'>we craft world-class spaces & events<br />
+that create memories, initiate <br />
+conversations and elevate ambitions.</h2>
+      </div>
+
 
       <div
         ref={ref3}
@@ -172,6 +182,18 @@ let ctx;
       >
 
         <Video rotateRef={rotateRef} fovRef={fovRef} canvasWrapperRef={canvasWrapperRef}  />
+      </div>
+    {/* {mobile} */}
+
+
+  <div className='absolute top-28 left-1/2 -translate-x-1/2 md:hidden block '>
+      <h2 className='text-black font-bold text-xl  uppercase leading-tight tracking-tighter'>Step into
+<br />the Spotlight</h2>
+      </div>
+     <div className='absolute left-1/2 md:hidden block -translate-x-1/2     bottom-10 '>
+      <h2 className='text-white font-medium text-sm leading-[1] tracking-tighter'>we craft world-class spaces & events<br />
+that create memories, initiate <br />
+conversations and elevate ambitions.</h2>
       </div>
       </div>
    

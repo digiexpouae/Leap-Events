@@ -4,26 +4,68 @@ import Image from "next/image";
 import { useState } from "react";
 
 const teamMembers = [
-  { name: "John Doe", designation: "Founder & CEO",   image: "/assets/about/person.png",
-},
-  { name: "Jane Smith", designation: "Creative Director",    image: "/assets/about/person.png",
- },
-  { name: "Alex Carter", designation: "Head of Production",    image: "/assets/about/person.png",
- },
-  { name: "Maria Lopez", designation: "Brand Strategist",    image: "/assets/about/person.png",
-},
-  { name: "David Kim", designation: "Lead Designer",     image: "/assets/about/person.png",
-},
-  { name: "Sara Ahmed", designation: "Event Manager",    image: "/assets/about/person.png",
-},
-  { name: "Mike Brown", designation: "Tech Lead",     image: "/assets/about/person.png",
- },
-  { name: "Lina Park", designation: "Marketing Head",     image: "/assets/about/person.png",
-},
-  { name: "Omar Hassan", designation: "Operations",    image: "/assets/about/person.png",
-},
-  { name: "Emma Wilson", designation: "Client Relations",     image: "/assets/about/person.png",
- },
+    {
+    name: "ahmad issam sammour",
+    role: "CEO",
+    bio: "Have Dedicated Decades Of Experience In Events And Promotion",
+    image: "/assets/person.png",
+  },
+  {
+    name: "MOHAMMED BAHAA EDIN Boshra",
+    role: "Managing Director",
+    bio: "Have Dedicated Decades Of Experience In Events And Promotion",
+    image: "/assets/about/img1.png",
+  },
+  {
+    name: "taher mohamed najeeb al hammami",
+    role: "production manager",
+    bio: "Leads The Art Department Team With Enact Knowledge",
+    image: "/assets/about/img2.png",
+  },
+  {
+    name: "shujat ali muqri",
+    role: "Art Director",
+    bio: "Leads The Art Department Team With Enact Knowledge",
+    image: "/assets/about/img3.png",
+  },
+  {
+    name: "irshad ahmed",
+    role: "Finance Manager",
+    bio: "Event Enthusiast, Team Builder And Excellent Organizer",
+    image: "/assets/about/img4.png",
+  },
+  {
+    name: "arsalan hussain arbab ali mangi",
+    role: "Project Cordinator",
+    bio: "Leads The Art Department Team With Enact Knowledge",
+    image: "/assets/about/img5.png",
+  },
+  {
+    name: "zainulabdin shujat ali muqri",
+    role: "Design Manager",
+    bio: "Have Dedicated Decades Of Experience In Events And Promotion",
+    image: "/assets/about/img6.png",
+  },
+
+   {
+    name: "Krishna patel",
+    role: "Creative Visualiser",
+    bio: "Have Dedicated Decades Of Experience In Events And Promotion",
+    image: "/assets/about/dummy.webp",
+  },
+  {
+    name: "arjun viswanath",
+    role: "Procurment Manager",
+    bio: "Event Enthusiast, Team Builder And Excellent Organizer",
+    image: "/assets/about/img7.png",
+  },
+  {
+    name: "ajay",
+    role: "office boy",
+    bio: "Event Enthusiast, Team Builder And Excellent Organizer",
+       image: "/assets/about/img8.png",
+
+  },
 ];
 
 export default function TeamSectionHover() {
@@ -39,9 +81,9 @@ export default function TeamSectionHover() {
 
   return (
     <section className="min-h-screen px-6 md:px-16">
-      <div className="mx-auto flex max-w-6xl items-center gap-20">
+      <div className="mx-auto flex max-w-6xl items-start gap-20">
         {/* Left: Stacked image deck (desktop only) */}
-        <div className="relative hidden h-[460px] w-72 shrink-0 md:block">
+        <div className="relative hidden h-72 w-72 shrink-0 md:block">
           {teamMembers.map((member, i) => {
             const isActive = activeIndex === i;
             const distance = i - activeIndex;
@@ -54,7 +96,7 @@ export default function TeamSectionHover() {
                 style={{
                   zIndex: isActive ? 20 : teamMembers.length - absDist,
                   opacity: isActive ? 1 : 0,
-                  transform: `translateY(${i * 20}px)`,
+                  transform: `translateY(${i * 40}px)`,
                   transition: "all 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                 }}
               >
@@ -96,7 +138,7 @@ export default function TeamSectionHover() {
                     }`}
                   >
                     <div
-                      className={`relative mx-auto my-3 h-64 w-48 overflow-hidden rounded-2xl transition-transform duration-500 ease-out ${
+                      className={`relative mx-auto my-3 h-48 w-48 overflow-hidden rounded-2xl transition-transform duration-500 ease-out ${
                         isMobileOpen ? "translate-y-0" : "translate-y-full"
                       }`}
                     >
@@ -118,7 +160,7 @@ export default function TeamSectionHover() {
                     className="flex cursor-pointer items-baseline justify-between py-3.5 transition-all duration-200"
                   >
                     <span
-                      className={`text-lg font-semibold transition-colors duration-200 md:text-xl ${
+                      className={`text-lg font-semibold transition-colors duration-200 uppercase ${
                         isActive ? "text-blue-500" : "text-gray-400"
                       }`}
                     >
@@ -129,7 +171,7 @@ export default function TeamSectionHover() {
                         isActive ? "text-blue-500" : "text-gray-400"
                       }`}
                     >
-                      {member.designation}
+                      {member.role}
                     </span>
                   </div>
                 </li>

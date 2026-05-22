@@ -5,17 +5,17 @@ import { useState, useCallback, useRef, useEffect } from "react";
 const projects = [
   {
     id: 1,
-    title: "D-Tech: Where ideas evolve into innovation, and innovation shapes the future.",
+    title: "WINTER GARDEN",
     mainImage: "/assets/sl-1.jpg",
   },
   {
     id: 2,
-    title: "Innovation Hub: Connecting minds, building the next generation of solutions.",
+    title: "SOUQ RAMADAN 2026",
     mainImage: "/assets/sl-2.jpg",
   },
   {
     id: 3,
-    title: "TechForward: Pioneering digital transformation across industries.",
+    title: "FERJAN FESTIVAL",
     mainImage: "/assets/sl-4.jpg",
   },
   

@@ -14,6 +14,25 @@ export default function ExpertiseSection() {
   const logoRef = useRef(null);
   const topLinesRef = useRef(null);
   const placeholderRef=useRef(null)
+
+
+  useEffect(() => {
+  const orig = Node.prototype.removeChild;
+  Node.prototype.removeChild = function(child) {
+    if (!this.contains(child)) {
+      console.error("BAD NODE:", child);
+      console.log("Parent:", this);
+      console.log("Real parent:", child.parentNode);
+      console.trace();
+    }
+    return orig.call(this, child);
+  };
+
+  return () => {
+    // restore original when component unmounts
+    Node.prototype.removeChild = orig;
+  };
+}, []);
 useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
  
@@ -91,11 +110,13 @@ gsap.set(imageWrapRef.current,{
         );
     }, sectionRef);
  
-    return () => {ctx.revert();
-     ScrollTrigger.getAll().forEach(t => t.kill())
-  
-  tl?.kill()
-  tl2?.kill()
+    return () => {
+       ScrollTrigger.getAll()
+    .filter(t => t.trigger === sectionRef.current)
+    .forEach(t => t.kill()); // release pin FIRST
+  tl?.kill();
+  tl2?.kill();
+  ctx.revert(); 
     }
   }, []);
 

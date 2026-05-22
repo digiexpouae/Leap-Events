@@ -5,24 +5,71 @@ import { useState } from "react";
 import TeamSectionHover from "./TeamHover";
 
 // Sample team data — replace with your real data
+
+
 const teamMembers = [
-  {
-    name: "John Doe",
-    designation: "Founder & CEO",
-    image: "/team/member-1.jpg",
-    fact: "Has produced over 200 live events across 12 countries.",
+    {
+    name: "ahmad issam sammour",
+    role: "CEO",
+    bio: "Have Dedicated Decades Of Experience In Events And Promotion",
+    image: "/assets/person.png",
   },
-  { name: "Jane Smith", designation: "Creative Director", image: "/team/member-2.jpg", fact: "Started her career designing concert stages at 19." },
-  { name: "Alex Carter", designation: "Head of Production", image: "/team/member-3.jpg", fact: "Built a 40-foot LED wall in under 8 hours." },
-  { name: "Maria Lopez", designation: "Brand Strategist", image: "/team/member-4.jpg", fact: "Speaks five languages fluently." },
-  { name: "David Kim", designation: "Lead Designer", image: "/team/member-5.jpg", fact: "Won three international design awards in 2023." },
-  { name: "Sara Ahmed", designation: "Event Manager", image: "/team/member-6.jpg", fact: "Coordinated a 10,000-person festival single-handedly." },
-  { name: "Mike Brown", designation: "Tech Lead", image: "/team/member-7.jpg", fact: "Built our entire booking platform from scratch." },
-  { name: "Lina Park", designation: "Marketing Head", image: "/team/member-8.jpg", fact: "Grew our social following by 400% in one year." },
-  { name: "Omar Hassan", designation: "Operations", image: "/team/member-9.jpg", fact: "Knows every venue manager in three cities by name." },
-  { name: "Emma Wilson", designation: "Client Relations", image: "/team/member-10.jpg", fact: "Has never lost a client in 8 years." },
-  { name: "Ravi Patel", designation: "Logistics Lead", image: "/team/member-11.jpg", fact: "Moved 50 tons of equipment overnight, twice." },
-  { name: "Zoe Chen", designation: "Content Lead", image: "/team/member-12.jpg", fact: "Former journalist turned event storyteller." },
+  {
+    name: "MOHAMMED BAHAA EDIN Boshra",
+    role: "Managing Director",
+    bio: "Have Dedicated Decades Of Experience In Events And Promotion",
+    image: "/assets/about/img1.png",
+  },
+  {
+    name: "taher mohamed najeeb al hammami",
+    role: "production manager",
+    bio: "Leads The Art Department Team With Enact Knowledge",
+    image: "/assets/about/img2.png",
+  },
+  {
+    name: "shujat ali muqri",
+    role: "Art Director",
+    bio: "Leads The Art Department Team With Enact Knowledge",
+    image: "/assets/about/img3.png",
+  },
+  {
+    name: "irshad ahmed",
+    role: "Finance Manager",
+    bio: "Event Enthusiast, Team Builder And Excellent Organizer",
+    image: "/assets/about/img4.png",
+  },
+  {
+    name: "arsalan hussain arbab ali mangi",
+    role: "Project Cordinator",
+    bio: "Leads The Art Department Team With Enact Knowledge",
+    image: "/assets/about/img5.png",
+  },
+  {
+    name: "zainulabdin shujat ali muqri",
+    role: "Design Manager",
+    bio: "Have Dedicated Decades Of Experience In Events And Promotion",
+    image: "/assets/about/img6.png",
+  },
+
+   {
+    name: "Krishna patel",
+    role: "Creative Visualiser",
+    bio: "Have Dedicated Decades Of Experience In Events And Promotion",
+    image: "/assets/about/img6.png",
+  },
+  {
+    name: "arjun viswanath",
+    role: "Procurment Manager",
+    bio: "Event Enthusiast, Team Builder And Excellent Organizer",
+    image: "/assets/about/img7.png",
+  },
+  {
+    name: "ajay",
+    role: "office boy",
+    bio: "Event Enthusiast, Team Builder And Excellent Organizer",
+       image: "/assets/about/img8.png",
+
+  },
 ];
 
 export default function TeamSection() {

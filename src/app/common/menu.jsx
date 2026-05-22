@@ -1,0 +1,128 @@
+'use client'
+import { useState } from 'react'
+
+const navs = [
+  { num: '01', name: 'HOME',     link: '/'         },
+  { num: '02', name: 'ABOUT',    link: '/about'    },
+  { num: '03', name: 'SERVICES', link: '/services' },
+  { num: '04', name: 'WORK',     link: '/ourwork'  },
+]
+
+export default function DiagonalMenu() {
+  const [open, setOpen] = useState(false)
+
+  return (
+    <>
+      {/* ── MENU BUTTON ─────────────────────────────────────────── */}
+      <button
+        onClick={() => setOpen(true)}
+        aria-label="Open menu"
+        className="group flex  cursor-pointer items-center gap-2.5 bg-[#5686DA] px-6 py-3.5"
+        style={{
+          borderBottomRightRadius: '10px',
+          opacity: open ? 0 : 1,
+          pointerEvents: open ? 'none' : 'auto',
+          transitionProperty: 'opacity',
+          transitionDuration: '300ms',
+          transitionTimingFunction: 'linear',
+          transitionDelay: open ? '0ms' : '700ms',
+        }}
+      >
+        <div className="flex flex-col gap-[4px]">
+          <span className="block h-[1.5px] w-[18px] bg-white transition-all" />
+          <span className="block h-[1.5px] w-[18px] bg-white transition-all duration-200 group-hover:w-3" />
+          <span className="block h-[1.5px] w-[18px] bg-white transition-all" />
+        </div>
+        <span className="text-[10px] tracking-[3px] text-white transition-transform duration-300 group-hover:translate-x-0.5">
+          MENU
+        </span>
+      </button>
+
+      {/* ── OVERLAY ─────────────────────────────────────────────── */}
+      <div
+        className={`fixed inset-0 z-20 ${open ? 'visible' : 'invisible'}`}
+        style={{
+          background: 'rgba(0,10,40,0.82)',
+          transitionProperty: 'visibility',
+          transitionDuration: '0s',
+          transitionTimingFunction: 'linear',
+          transitionDelay: open ? '0ms' : '900ms',
+        }}
+      >
+        {/* Diagonal sweep */}
+        <svg
+          viewBox="0 0 1948 1088"
+          preserveAspectRatio="none"
+          className="absolute inset-0 h-full w-full transition-[clip-path] duration-[900ms] ease-[cubic-bezier(.77,0,.175,1)]"
+          style={{ clipPath: open ? 'inset(0 0% 0 0)' : 'inset(0 100% 0 0)' }}
+        >
+          <path d="M390 0H0V120L1410 1088H1948L1962 280L80 0Z" fill="#5686DA" />
+        </svg>
+
+        {/* Content fades in after shape lands */}
+        <div
+          className="absolute inset-0"
+          style={{
+            opacity: open ? 1 : 0,
+            pointerEvents: open ? 'auto' : 'none',
+            transitionProperty: 'opacity',
+            transitionDuration: '300ms',
+            transitionTimingFunction: 'ease',
+            transitionDelay: open ? '750ms' : '0ms',
+          }}
+        >
+          {/* Logo — top left */}
+          <div className="absolute left-10 top-12">
+            {/* Replace with your logo */}
+          </div>
+
+          {/* Close button — top right */}
+          <button
+            onClick={() => setOpen(false)}
+            aria-label="Close menu"
+            className="group absolute right-6 top-5 cursor-pointer border-none bg-transparent p-2"
+          >
+            <div className="relative h-6 w-6">
+              <span className="absolute left-0 top-1/2 block h-[1.5px] w-full origin-center bg-white" style={{ transform: 'rotate(45deg)' }} />
+              <span className="absolute left-0 top-1/2 block h-[1.5px] w-full origin-center bg-white" style={{ transform: 'rotate(-45deg)' }} />
+            </div>
+          </button>
+
+          {/* Nav — bottom right */}
+          <nav className="absolute top-1/2 md:bottom-14 right-10 text-right">
+            {navs.map(({ num, name, link }) => (
+              <a
+                key={name}
+                href={link}
+                className="group/link relative block overflow-hidden py-1.5 text-white no-underline"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                <span
+                  className="absolute bottom-1.5 right-0 block h-px bg-white/50"
+                  style={{ width: '0%', transition: 'width 500ms ease' }}
+                  ref={el => {
+                    if (!el) return
+                    const parent = el.closest('a')
+                    parent.addEventListener('mouseenter', () => (el.style.width = '100%'))
+                    parent.addEventListener('mouseleave', () => (el.style.width = '0%'))
+                  }}
+                />
+                <span className="inline-block transition-transform duration-300 group-hover/link:-translate-x-1.5">
+                  <span className="mr-2 align-super font-sans text-[11px] font-light tracking-[2px] text-white/40">
+                    {num}
+                  </span>
+                  <span className="text-2xl md:text-4xl font-semibold tracking-wide transition-colors duration-300 group-hover/link:text-white/70 md:text-5xl">
+                    {name}
+                  </span>
+                </span>
+              </a>
+            ))}
+          </nav>
+
+          {/* Social row — bottom left */}
+      
+        </div>
+      </div>
+    </>
+  )
+}

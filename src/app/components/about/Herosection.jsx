@@ -20,6 +20,9 @@ const [isMobile, setIsMobile] = useState(null)
  
 // Mobile — tighter bleed, proportional to smaller screen
 
+
+
+
 useGSAP(
   () => {
 
@@ -129,13 +132,14 @@ tl2.to(".hero-tagline", { opacity: 1, ease: "power2.in" },"<")
     return () => {
       ctx.revert();
        ScrollTrigger.getAll().forEach(t => t.kill())
-  
+  ScrollTrigger.refresh();    
   tl?.kill()
   tl2?.kill()
   
     
 
-  }},
+  }
+},
   { scope: sectionRef }
 );
 

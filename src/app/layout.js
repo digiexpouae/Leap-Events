@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from '../app/layout/header'
+import Header from '../app/layout/header_two'
 import Footer from '../app/layout/footer'
 import ScrollProvider from '../app/common/scrollProvider'
 export const metadata = {

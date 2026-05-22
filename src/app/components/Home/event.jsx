@@ -60,14 +60,14 @@ export default function CorporateEvents() {
 
     })
     const data = [{
-        title: 'Corporate Events', image: "/assets/home/7.png"
+        title: 'Corporate Events', image: "/assets/Corporate_Events.jpg"
     },
-    { title: "Mall Decor & Activation", image: "/assets/home/Malldecor.jpg" },
+    { title: "Mall Decor & Activation", image: "/assets/MallDecor&Activation.jpg" },
     // { title: "Wedding", image: "/assets/home/wedding.jpg" },
-    { title: "Digital Print & Branding", image: "/assets/home/digitalprint.jpg" },
-    { title: 'Exhibition', image: "/assets/home/event.jpg" },
+    { title: "Digital Print & Branding", image: "/assets/Digital_Print_&Branding.jpg" },
+    { title: 'Exhibition', image: "/assets/Exhibition.jpg" },
 
-    { title: 'Entertainment', image: "/assets/entertainment.jpg" }
+    { title: 'Entertainment', image: "/assets/Entertainment.jpg" }
         ,
     ]
     return (

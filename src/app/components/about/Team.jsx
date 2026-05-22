@@ -1,51 +1,64 @@
 import Image from "next/image";
 
 const teamMembers = [
+    {
+    name: "ahmad issam sammour",
+    role: "CEO",
+    bio: "Have Dedicated Decades Of Experience In Events And Promotion",
+    image: "/assets/person.png",
+  },
   {
-    name: "Mohammed Baha Eldin",
+    name: "MOHAMMED BAHAA EDIN Boshra",
     role: "Managing Director",
     bio: "Have Dedicated Decades Of Experience In Events And Promotion",
     image: "/assets/about/img1.png",
   },
   {
-    name: "Shajaat",
-    role: "Art Director",
+    name: "taher mohamed najeeb al hammami",
+    role: "production manager",
     bio: "Leads The Art Department Team With Enact Knowledge",
     image: "/assets/about/img2.png",
   },
   {
-    name: "Shajaat",
+    name: "shujat ali muqri",
     role: "Art Director",
     bio: "Leads The Art Department Team With Enact Knowledge",
     image: "/assets/about/img3.png",
   },
   {
-    name: "Ahmed Sammor",
-    role: "Events Director",
+    name: "irshad ahmed",
+    role: "Finance Manager",
     bio: "Event Enthusiast, Team Builder And Excellent Organizer",
     image: "/assets/about/img4.png",
   },
   {
-    name: "Shajaat",
-    role: "Art Director",
+    name: "arsalan hussain arbab ali mangi",
+    role: "Project Cordinator",
     bio: "Leads The Art Department Team With Enact Knowledge",
     image: "/assets/about/img5.png",
   },
   {
-    name: "Mohammed Baha Eldin",
-    role: "Managing Director",
+    name: "zainulabdin shujat ali muqri",
+    role: "Design Manager",
     bio: "Have Dedicated Decades Of Experience In Events And Promotion",
     image: "/assets/about/img6.png",
   },
+
+   {
+    name: "Krishna patel",
+    role: "Creative Visualiser",
+    bio: "Have Dedicated Decades Of Experience In Events And Promotion",
+    image: "/assets/about/dummy.webp",
+  },
   {
-    name: "Ahmed Sammor",
-    role: "Events Director",
+    name: "arjun viswanath",
+    role: "Procurment Manager",
     bio: "Event Enthusiast, Team Builder And Excellent Organizer",
     image: "/assets/about/img7.png",
   },
   {
-    name: "Ahmed Sammor",
-    role: "Events Director",
+    name: "ajay",
+    role: "office boy",
     bio: "Event Enthusiast, Team Builder And Excellent Organizer",
        image: "/assets/about/img8.png",
 
@@ -78,6 +91,12 @@ export default function MeetOurTeam() {
             <MemberCard key={i} member={member} />
           ))}
         </div>
+          {/* Row 3 */}
+        <div className="mt-10  flex  flex-wrap items-center justify-center gap-6">
+          {teamMembers.slice(8, 12).map((member, i) => (
+            <MemberCard key={i} member={member} />
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -107,9 +126,7 @@ function MemberCard({
       <p className="mt-0.5 text-xs font-medium text-white ">
         {member.role}
       </p>
-      <p className="mt-1.5 text-[11px] leading-[1.3]  text-white md:text-xs">
-        {member.bio}
-      </p>
+      
     </div>
   );
 }

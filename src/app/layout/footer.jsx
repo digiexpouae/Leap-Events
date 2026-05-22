@@ -54,7 +54,7 @@ export default function Footer() {
 
             <div className="w-full overflow-hidden"><Image src={'/assets/globe2.png'} alt="globe" width={1920} height={800} /></div>
             <motion.footer
-                className="w-full h-auto"
+                className="w-full h-auto relative "
                 style={{ background: "var(--color-bg-secondary, #0a1628)" }}
                 variants={footerVariants}
                 initial="hidden"
@@ -165,7 +165,16 @@ export default function Footer() {
                         Copyright © 2026 LeapEvent. All Rights Reserved.
                     </motion.p>
                 </div>
+<div className="absolute bottom-0 left-0 right-0 w-full">
+    <div className="relative w-full h-14 md:h-34">
+        <Image
+alt="logo"
+src={"/assets/leap.png"}
+        fill
+        />
 
+    </div>
+</div>
 
             </motion.footer >
         </section>

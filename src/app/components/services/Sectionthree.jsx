@@ -104,8 +104,8 @@ export default function HeroEventsSection() {
         </div>
 
         {/* Row 3: EVENTS + "12 years of experience" */}
-        <div className="flex items-end  gap-4 md:gap-8 mt-2 md:mt-4">
-          <div className="overflow-hidden">
+        <div className="flex items-end  gap-4 md:gap-8 mt-2 w-full md:mt-4">
+          <div className="overflow-hidden w-[70%]">
             <motion.div
               variants={rowVariants}
               initial="hidden"
@@ -126,7 +126,7 @@ export default function HeroEventsSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.4 }}
-            className="block text-white/80 text-sm lg:text-base leading-tight md:w-1/3 text-center pb-6 lg:pb-10"
+            className="block text-white/80 text-sm  w-[30%] lg:text-base leading-tight md:w-1/3 text-center pb-6 lg:pb-10"
           >
             <p>12 years</p>
             <p>of experience</p>

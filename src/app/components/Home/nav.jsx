@@ -41,13 +41,13 @@ export default function Navbar() {
                 {/* Navigation Links */}
                 <div className="flex gap-16">
                     <Link
-                        href="#"
+                        href="/ourwork"
                         className="text-md font-bold tracking-tight text-gray-900 transition-colors hover:text-blue-600"
                     >
                         OUR WORK
                     </Link>
                     <Link
-                        href="#"
+                        href="/about"
                         className="text-md font-bold tracking-tight text-gray-900 transition-colors hover:text-blue-600"
                     >
                         ABOUT US

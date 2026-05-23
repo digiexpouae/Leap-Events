@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="relative w-full h-screen md:h-[220vh] min-h-[300px] overflow-hidden">
       {/* Background image */}
       <Image
-        src="/assets/34f0f76fbb95f41988f848484d1cd551efce1ff7.jpg"
+        src="/assets/Rectangle_93.png"
         alt="Live cultural performance"
         fill
         priority

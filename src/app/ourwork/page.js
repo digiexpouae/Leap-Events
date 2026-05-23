@@ -21,14 +21,14 @@ const index = () => {
     const heading = "Our Work"
     
       const imageUrls = [
-    "/assets/ev-h-1.jpg",
-    "/assets/ev-h-2.jpg",
-    "/assets/ev-h-3.jpg",
-    "/assets/ev-h-4.jpg",
-    "/assets/ev-h-1.jpg",
-    "/assets/ev-h-2.jpg",
-    "/assets/ev-h-3.jpg",
-    "/assets/ev-h-4.jpg",
+    "/assets/Rectangle_136.png",
+    "/assets/Rectangle_137.png",
+    "/assets/Rectangle_138.png",
+    "/assets/Rectangle_139.png",
+    "/assets/Rectangle_136.png",
+    "/assets/Rectangle_137.png",
+    "/assets/Rectangle_138.png",
+    "/assets/Rectangle_139.png",
    
   ];
 

@@ -35,6 +35,7 @@ const index = () => {
     const text = "EXPLORE OUR CURATED PORTFOLIO OF PAST EVENTS THAT HAVE NOT ONLY MET BUT EXCEEDED EXPECTATIONS, LEAVING LASTING IMPRESSIONS AND CRAFTING ENDURING LEGACIES"
     return (
 
+        // event
         <div>
             {/* <HeroSection heading={heading} text={<>At Leap Events, every event is a testament to our <br /> commitment to excellence and innovation</>} />            <Sectiontwo heading={text} categories={tabs} /> */}
             <div className='h-screen relative w-full flex flex-col items-center justify-between py-34 lg:py-24 xl:py-34 overflow-hidden '>

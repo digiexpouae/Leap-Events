@@ -151,7 +151,7 @@ tl2.to(".hero-tagline", { opacity: 1, ease: "power2.in" },"<")
         </p>
       </div>
        <div
-        ref={imgRef}
+        ref={imgRef} 
         style={{
           width: '100%',
           height: '100%',
@@ -179,24 +179,24 @@ tl2.to(".hero-tagline", { opacity: 1, ease: "power2.in" },"<")
 
       {/* Giant brand text row — aligned to BOTTOM so thumb grows upward */}
     {/* Giant brand text row */}
-<div className="absolute inset-x-0  bottom-20 md:bottom-0 flex items-center w-full">
-     <span className="hero-text-row shrink-0 z-20 text-[clamp(3.4rem,14vw,16rem)] font-bold uppercase leading-none tracking-tighter text-white select-none">
-          LE
+<div className="absolute inset-x-0  bottom-20 md:bottom-0 flex items-center justify-center w-full">
+     <span className="hero-text-row shrink-0 z-20 text-[clamp(3.2rem,13vw,18rem)] md:text-[clamp(3.4rem,15vw,18rem)] font-bold uppercase leading-none tracking-tighter text-white select-none">
+          LEAP EV
         </span>
 
   {/* PLACEHOLDER — holds the flex space, invisible */}
   <div 
     ref={placeholderRef}
-    className="shrink-0 h-[clamp(4rem,10vw,10rem)]   w-[clamp(4rem,10vw,10rem)]" 
+    className="shrink-0 h-[clamp(4rem,10vw,12rem)]  w-[clamp(4rem,10vw,12rem)]" 
   />
 
-        <span className="hero-text-row shrink-0 z-10 font-bold text-[clamp(3.4rem,14vw,16rem)] uppercase leading-none tracking-tighter text-white select-none">
-          P EVENTS
+        <span className="hero-text-row shrink-0 z-10 font-bold text-[clamp(3.2rem,13vw,18rem)] md:text-[clamp(3.4rem,15vw,18rem)] uppercase leading-none tracking-tighter text-white select-none">
+       NTS
         </span>
 </div>
 
 {/* ACTUAL thumb — absolute from start, positioned over placeholder */}
-<div className="hero-thumb absolute z-40 overflow-hidden rounded-xl shadow-xl">
+<div className="hero-thumb absolute z-40 ml-2 overflow-hidden rounded-xl shadow-xl">
   <video src="/assets/leap_showreel.mp4" autoPlay muted loop playsInline
     className="h-full w-full object-cover" />
 </div>

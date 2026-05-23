@@ -19,6 +19,43 @@ const projects = [
     mainImage:  "/assets/e-5.png"
   },
   
+   {
+    id: 4,
+    title: "winter garden", 
+    mainImage:  "/assets/wintergarden.webp"
+  },
+   {
+    id: 5,
+    title: "international film festival", 
+    mainImage:  "/assets/internationalfilmfestival.webp"
+  },
+   {
+    id: 6,
+    title: "souqal freej", 
+    mainImage:  "/assets/souqalfreej.webp"
+  },
+   {
+    id: 7,
+    title: "summer rush", 
+    mainImage:  "/assets/summerrush.webp"
+  },
+   {
+    id: 8,
+    title: "gems school", 
+    mainImage:  "/assets/gemsachool.webp"
+  },
+   {
+    id: 9,
+    title: "mastermind", 
+    mainImage:  "/assets/mastermind.webp"
+    
+  },
+   {
+    id: 10,
+    title: "du", 
+    mainImage:  "/assets/du.webp"
+  },
+  
 ];
 
 const TOTAL = projects.length;

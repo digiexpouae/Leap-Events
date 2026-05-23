@@ -219,6 +219,7 @@ const [currentPerspective, setCurrentPerspective] = useState(perspective);
                     backgroundImage: `url(${imageUrl})`,
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
+                    backgroundPosition:"center center",
                     backfaceVisibility: "hidden",
                     rotateY: index * -angle,
                     z: -(imageDistance * currentScale),

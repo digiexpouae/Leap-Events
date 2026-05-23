@@ -24,8 +24,8 @@ export function ThreeDImageRing({
   imageClassName = "",
   backgroundColor,
   draggable = true,
-  autoRotate = true,        // NEW — enable continuous rotation
-  autoRotateSpeed = 0.15,   // NEW — degrees per frame
+  autoRotate = true,
+  autoRotateSpeed = 0.15,
   mobileBreakpoint = 768,
   mobileScaleFactor = 0.8,
   inertiaPower = 0.8,
@@ -40,19 +40,17 @@ export function ThreeDImageRing({
   const currentRotationY = useRef(initialRotation);
   const isDragging = useRef(false);
   const velocity = useRef(0);
-  const rafRef = useRef(null);           // NEW — requestAnimationFrame handle
+  const rafRef = useRef(null);
 
+  // Store scale in a ref so 3D children always read the latest value
+  // without needing a re-render
+  const scaleRef = useRef(1);
   const [currentScale, setCurrentScale] = useState(1);
+const [currentPerspective, setCurrentPerspective] = useState(perspective);
+
   const [showImages, setShowImages] = useState(false);
 
   const angle = useMemo(() => 360 / images.length, [images.length]);
-
-  const getBgPos = (imageIndex, currentRot, scale) => {
-    const scaledImageDistance = imageDistance * scale;
-    const effectiveRotation = currentRot - 180 - imageIndex * angle;
-    const parallaxOffset = ((effectiveRotation % 360 + 360) % 360) / 360;
-    return `${-(parallaxOffset * (scaledImageDistance / 1.5))}px 0px`;
-  };
 
   // ── Auto-rotation loop ──────────────────────────────────────────────────
   useEffect(() => {
@@ -70,41 +68,43 @@ export function ThreeDImageRing({
     return () => cancelAnimationFrame(rafRef.current);
   }, [autoRotate, autoRotateSpeed]);
 
-  // ── Sync background parallax + facing opacity on rotation change ──────────
+  // ── Sync opacity on rotation change ──────────────────────────────────────
   useEffect(() => {
     const unsubscribe = rotationY.on("change", (latestRotation) => {
       if (ringRef.current) {
         Array.from(ringRef.current.children).forEach((imgElement, i) => {
-          // Background parallax
-          imgElement.style.backgroundPosition = getBgPos(i, latestRotation, currentScale);
-
-          // Each card's world-space Y rotation = ring rotation + card's own offset
           const worldAngle = ((latestRotation - i * angle) % 360 + 360) % 360;
-
-          // worldAngle: 0deg = fully facing viewer, 90deg = edge, 180deg = back
-          // Clamp to front hemisphere only — anything >= 90deg is invisible
           const isFront = worldAngle < 90 || worldAngle > 270;
-          const opacity = isFront ? 1 : 0;
-          imgElement.style.opacity = String(opacity);
+          imgElement.style.opacity = isFront ? "1" : "0";
         });
       }
       currentRotationY.current = latestRotation;
     });
     return () => unsubscribe();
-  }, [rotationY, images.length, imageDistance, currentScale, angle]);
+  }, [rotationY, angle]);
 
   // ── Responsive scale ────────────────────────────────────────────────────
   useEffect(() => {
     const handleResize = () => {
       const vw = window.innerWidth;
-      // Scale card width to ~45vw on desktop, ~80vw on mobile
-      const targetW = vw <= mobileBreakpoint ? vw * 0.8 : vw * 0.45;
-      setCurrentScale(targetW / width);
+      const targetW = vw <= mobileBreakpoint ? vw * 0.85 : vw * 0.6;
+      const scale = targetW / width;
+      scaleRef.current = scale;
+      setCurrentScale(scale);
+      setCurrentPerspective(vw <= mobileBreakpoint ? 500 : 1200); // ✅
+
+
+      // Immediately update 3D transforms on all children
+      if (ringRef.current) {
+        Array.from(ringRef.current.children).forEach((imgEl) => {
+          imgEl.style.transform = `rotateY(${parseFloat(imgEl.dataset.angle || 0)}deg) translateZ(${imageDistance * scale}px)`;
+        });
+      }
     };
     window.addEventListener("resize", handleResize);
     handleResize();
     return () => window.removeEventListener("resize", handleResize);
-  }, [mobileBreakpoint, width]);
+  }, [mobileBreakpoint, width, imageDistance]);
 
   useEffect(() => {
     setShowImages(true);
@@ -132,7 +132,7 @@ export function ThreeDImageRing({
     velocity.current = -deltaX * 0.5;
     const next = currentRotationY.current + velocity.current;
     rotationY.set(next);
-    currentRotationY.current = next;   // keep ref in sync so auto-rotate resumes correctly
+    currentRotationY.current = next;
     startX.current = clientX;
   };
 
@@ -145,8 +145,6 @@ export function ThreeDImageRing({
     document.removeEventListener("touchmove", handleDrag);
     document.removeEventListener("touchend", handleDragEnd);
 
-    // If autoRotate is on, let the loop take over — no inertia needed.
-    // If autoRotate is off, apply inertia as before.
     if (!autoRotate) {
       const initial = rotationY.get();
       const velocityBoost = velocity.current * inertiaVelocityMultiplier;
@@ -174,32 +172,30 @@ export function ThreeDImageRing({
     visible: { y: 0, opacity: 1 },
   };
 
+  // Scaled dimensions — perspective container uses these directly
+  const scaledWidth = width * currentScale;
+
   return (
+    // ✅ Outer container: NO scale() transform. Just a full-width flex centering wrapper.
     <div
       ref={containerRef}
-      className={`w-full h-[55%]  select-none relative ${containerClassName}`}
+      className={`w-full flex items-center justify-center select-none relative ${containerClassName}`}
       style={{
         backgroundColor,
-        transform: `scale(${currentScale})`,
-        transformOrigin: "center center",
+        height: `${Math.round(scaledWidth * (9 / 16) * 0.7)}px`,
+
       }}
       onMouseDown={draggable ? handleDragStart : undefined}
       onTouchStart={draggable ? handleDragStart : undefined}
     >
-      <div className={` w-[400px] md:w-[${width}px] `}
+      {/* ✅ Perspective div sized to the actual scaled width — no double scaling */}
+      <div
         style={{
-          perspective: `${perspective}px`,
-        
-          // 16:9 height derived from width
-          // height: `${Math.round(width * (9 / 16))}px`,
-              width: `${width}px`,
-
-              aspectRatio: "16 / 9",
-
-          position: "absolute",
-          left: "50%",
-          top: "50%",
-          transform: "translate(-50%, -50%)",
+          perspective: `${currentPerspective}px`,
+          width: `${scaledWidth}px`,
+          aspectRatio: "16 / 9",
+          position: "relative",
+          flexShrink: 0,
         }}
       >
         <motion.div
@@ -217,6 +213,7 @@ export function ThreeDImageRing({
                 <motion.div
                   key={index}
                   className={`w-full h-full absolute ${imageClassName}`}
+                  // ✅ z and transformOrigin use currentScale from state (triggers re-render on resize)
                   style={{
                     transformStyle: "preserve-3d",
                     backgroundImage: `url(${imageUrl})`,
@@ -224,9 +221,8 @@ export function ThreeDImageRing({
                     backgroundRepeat: "no-repeat",
                     backfaceVisibility: "hidden",
                     rotateY: index * -angle,
-                    z: -imageDistance * currentScale,
+                    z: -(imageDistance * currentScale),
                     transformOrigin: `50% 50% ${imageDistance * currentScale}px`,
-                    backgroundPosition: getBgPos(index, currentRotationY.current, currentScale),
                   }}
                   initial="hidden"
                   animate="visible"
@@ -249,8 +245,11 @@ export function ThreeDImageRing({
                   onHoverEnd={() => {
                     if (isDragging.current) return;
                     if (ringRef.current) {
-                      Array.from(ringRef.current.children).forEach((imgEl) => {
-                        imgEl.style.opacity = "1";
+                      const rot = currentRotationY.current;
+                      Array.from(ringRef.current.children).forEach((imgEl, i) => {
+                        const worldAngle = ((rot - i * angle) % 360 + 360) % 360;
+                        const isFront = worldAngle < 90 || worldAngle > 270;
+                        imgEl.style.opacity = isFront ? "1" : "0";
                       });
                     }
                   }}

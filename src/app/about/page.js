@@ -48,7 +48,7 @@ const about = () => {
         </div>
 
             </div>
-          <Team />
+          {/* <Team />/ */}
           <Awards />
             {/* <SectionTwo /> */}
             {/* <Sectionthree /> */}

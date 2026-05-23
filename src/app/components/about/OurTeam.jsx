@@ -12,7 +12,7 @@ const teamMembers = [
     name: "ahmad issam sammour",
     role: "CEO",
     bio: "Have Dedicated Decades Of Experience In Events And Promotion",
-    image: "/assets/person.png",
+    image: "/assets/ahmed.png",
   },
   {
     name: "MOHAMMED BAHAA EDIN Boshra",
@@ -26,6 +26,7 @@ const teamMembers = [
     bio: "Leads The Art Department Team With Enact Knowledge",
     image: "/assets/about/img2.png",
   },
+
   {
     name: "shujat ali muqri",
     role: "Art Director",
@@ -55,13 +56,19 @@ const teamMembers = [
     name: "Krishna patel",
     role: "Creative Visualiser",
     bio: "Have Dedicated Decades Of Experience In Events And Promotion",
-    image: "/assets/about/img6.png",
+    image: "/assets/krishna.png",
   },
   {
     name: "arjun viswanath",
     role: "Procurment Manager",
     bio: "Event Enthusiast, Team Builder And Excellent Organizer",
     image: "/assets/about/img7.png",
+  },
+    {
+    name: "Anna Christina Alan Paul",
+    role: "Photography Intern",
+    bio: "Event Enthusiast, Team Builder And Excellent Organizer",
+    image: "/assets/ana.jpeg",
   },
   {
     name: "ajay",

@@ -8,7 +8,7 @@ const teamMembers = [
     name: "ahmad issam sammour",
     role: "CEO",
     bio: "Have Dedicated Decades Of Experience In Events And Promotion",
-    image: "/assets/person.png",
+    image: "/assets/ahmed.webp",
   },
   {
     name: "MOHAMMED BAHAA EDIN Boshra",
@@ -51,13 +51,21 @@ const teamMembers = [
     name: "Krishna patel",
     role: "Creative Visualiser",
     bio: "Have Dedicated Decades Of Experience In Events And Promotion",
-    image: "/assets/about/dummy.webp",
+    image: "/assets/krishna.webp",
   },
+
+  
   {
     name: "arjun viswanath",
     role: "Procurment Manager",
     bio: "Event Enthusiast, Team Builder And Excellent Organizer",
     image: "/assets/about/img7.png",
+  },
+    {
+    name: "Anna Christina Alan Paul",
+    role: "Photography Intern",
+    bio: "Event Enthusiast, Team Builder And Excellent Organizer",
+    image: "/assets/ana.webp",
   },
   {
     name: "ajay",
@@ -67,6 +75,7 @@ const teamMembers = [
 
   },
 ];
+
 
 export default function TeamSectionHover() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -96,7 +105,7 @@ export default function TeamSectionHover() {
                 style={{
                   zIndex: isActive ? 20 : teamMembers.length - absDist,
                   opacity: isActive ? 1 : 0,
-                  transform: `translateY(${i * 40}px)`,
+                  transform: `translateY(${i * 60}px)`,
                   transition: "all 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                 }}
               >
@@ -160,14 +169,14 @@ export default function TeamSectionHover() {
                     className="flex cursor-pointer items-baseline justify-between py-3.5 transition-all duration-200"
                   >
                     <span
-                      className={`text-lg font-semibold transition-colors duration-200 uppercase ${
+                      className={`text-lg font-semibold transition-colors w-2/3 duration-200 uppercase ${
                         isActive ? "text-blue-500" : "text-gray-400"
                       }`}
                     >
                       {member.name}
                     </span>
                     <span
-                      className={`text-sm transition-colors duration-200 ${
+                      className={`text-sm transition-colors w-1/3 text-center duration-200 ${
                         isActive ? "text-blue-500" : "text-gray-400"
                       }`}
                     >

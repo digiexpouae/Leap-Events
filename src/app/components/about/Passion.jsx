@@ -8,23 +8,8 @@ import { useEffect, useRef, useState } from "react";
  * (e.g. "/event-1.jpg") for production.
  */
 const STATS = [
-   {
-    number: "400",
-    suffix: "+",
-    label: "Events\nDelivered",
-    description: "Big stages, small details. Each one designed to leave a mark.",
-    image:
-      "/assets/eventsdelivered.jpg",
-  },
-  {
-    number: "11",
-    suffix: "",
-    label: "Years of\nCraft",
-    description:
-      "Two decades of refining what live experiences can actually feel like.",
-    image:
-      "/assets/home/4.png",
-  },
+
+ 
   {
     number: "200",
     suffix: "+",

@@ -34,7 +34,7 @@ const AWARDS = [
 
 export default function Awards() {
   return (
-    <section className="bg-[#DEF6FF] px-4 py-16 md:py-24">
+    <section className="bg-[#001028] px-4 py-16 md:py-24">
       <div className="mx-auto max-w-5xl">
         <h2 className="mb-12 text-center text-4xl font-bold tracking-tight text-slate-900 md:mb-16 md:text-5xl">
           AWARDS

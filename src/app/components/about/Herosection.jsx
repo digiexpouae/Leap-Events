@@ -146,8 +146,9 @@ tl2.to(".hero-tagline", { opacity: 1, ease: "power2.in" },"<")
   return (
     <section ref={sectionRef} className="relative h-screen overflow-hidden bg-white">
        <div className="absolute left-0 top-0 z-10 mx-auto max-w-7xl px-6 translate-y-30 md:px-12">
-        <p className="hero-tagline max-w-xs text-md opacity-0 font-semibold uppercase leading-relaxed tracking-tight text-gray-800">
-          Crafting unforgettable events across the UAE for over a decade.
+        <p className="hero-tagline w-[190px] md:w-[420px] text-xs md:text-lg opacity-0 font-semibold uppercase leading-relaxed tracking-tight text-gray-800">
+          Crafting unforgettable events
+       across the UAE for over a decade.
         </p>
       </div>
        <div
@@ -187,7 +188,7 @@ tl2.to(".hero-tagline", { opacity: 1, ease: "power2.in" },"<")
   {/* PLACEHOLDER — holds the flex space, invisible */}
   <div 
     ref={placeholderRef}
-    className="shrink-0 h-[clamp(4rem,10vw,12rem)]  w-[clamp(4rem,10vw,12rem)]" 
+    className="shrink-0 h-[clamp(4rem,10vw,12rem)] md:ml-4 w-[clamp(4rem,10vw,12rem)]" 
   />
 
         <span className="hero-text-row shrink-0 z-10 font-bold text-[clamp(3.2rem,13vw,18rem)] md:text-[clamp(3.4rem,15vw,18rem)] uppercase leading-none tracking-tighter text-white select-none">
@@ -196,7 +197,7 @@ tl2.to(".hero-tagline", { opacity: 1, ease: "power2.in" },"<")
 </div>
 
 {/* ACTUAL thumb — absolute from start, positioned over placeholder */}
-<div className="hero-thumb absolute z-40 ml-2 overflow-hidden rounded-xl shadow-xl">
+<div className="hero-thumb absolute z-40  overflow-hidden rounded-xl shadow-xl">
   <video src="/assets/leap_showreel.mp4" autoPlay muted loop playsInline
     className="h-full w-full object-cover" />
 </div>

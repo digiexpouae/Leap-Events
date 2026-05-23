@@ -106,7 +106,7 @@ export default function CorporateEvents() {
             </div >
             {/* This box is the visible 50vh window */}
             <div
-                className="relative w-full h-2/3 overflow-hidden translate-y-1/3 md:translate-y-1/5 mx-auto max-w-7xl px-5 sm:px-8 lg:px-12"
+                className="relative w-full h-2/3 overflow-hidden translate-y-1/5 mx-auto max-w-7xl px-5 sm:px-8 lg:px-12"
             // ✅ overflow-hidden only on inner box — clips cards cleanly
             >
                 {data.map((elem, index) => (

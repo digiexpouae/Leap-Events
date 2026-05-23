@@ -6,7 +6,7 @@ const works = [
   { title: "FERJAN FESTIVAL",   image: "/assets/e-1.png"  },
   { title: "souq ramadan",      image: "/assets/e-2.png"      },
   { title: "winter garden",      image: "/assets/e-9.png"   },
-  { title: "CITY CENTRE AJMAN",   image: "/assets/e-4.png" },
+  { title: "souq al freej",   image: "/assets/e-4.png" },
   { title: "SHARJAH INTERNATIONAL FILM FESTIVAL",   image: "/assets/e-3.png" },
   { title: "university of dubai",        image: "/assets/e-5.png" },
   { title: "Gems Graduation Event", image: "/assets/e-6.png" },

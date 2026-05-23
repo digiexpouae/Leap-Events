@@ -77,7 +77,7 @@ function LogoMarquee() {
 
   return (
     <div
-      className="relative overflow-hidden rounded-full bg-white shadow-xl py-4 md:py-6"
+      className="relative overflow-hidden rounded-full bg-white shadow-xl py-2 md:py-6"
       aria-label="Trusted partner logos"
       role="marquee"
     >
@@ -86,6 +86,7 @@ function LogoMarquee() {
       <div className="pointer-events-none absolute inset-y-0 right-0 w-20 z-10 bg-gradient-to-l from-white to-transparent" />
 
       {/* Scrolling track */}
+      <div className="flex">
       <div
         className="flex will-change-transform marquee"
 
@@ -107,6 +108,27 @@ function LogoMarquee() {
         ))}
       </div>
 
+    <div
+        className="flex will-change-transform marquee translate-x-1"
+
+      >
+        {items.map((elem, idx) => (
+          <div
+            key={`${elem.id}-${idx}`}
+            className="flex-shrink-0 flex items-center justify-center mx-4"
+            style={{ width: 120, height: 48 }}   // fixed height for every slot
+          >
+            <Image
+              src={elem.logo}
+              alt={elem.name ?? "Partner logo"}
+              width={120}
+              height={48}
+              className="object-contain w-full h-full"  // scales inside the box
+            />
+          </div>
+        ))}
+      </div>
+      </div>
       {/* Scoped keyframe — name-spaced to avoid collisions */}
 
     </div>
@@ -138,8 +160,9 @@ export default function TrustedByLeaders() {
       </h2>
 
       {/* Marquee strip */}
-      <div className="mx-6 md:mx-16 lg:mx-24">
+      <div className="mx-4 md:mx-16 lg:mx-24">
         <LogoMarquee />
+  
       </div>
     </section>
   );

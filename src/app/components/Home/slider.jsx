@@ -5,18 +5,18 @@ import { useState, useCallback, useRef, useEffect } from "react";
 const projects = [
   {
     id: 1,
-    title: "WINTER GARDEN",
-    mainImage: "/assets/sl-1.jpg",
+    title: "FERJAN FESTIVAL",
+    mainImage:"/assets/e-1.png",
   },
   {
     id: 2,
-    title: "SOUQ RAMADAN 2026",
-    mainImage: "/assets/sl-2.jpg",
+    title: "souq ramadan",
+    mainImage:"/assets/e-2.png",
   },
   {
     id: 3,
-    title: "FERJAN FESTIVAL",
-    mainImage: "/assets/sl-4.jpg",
+    title: "university of dubai", 
+    mainImage:  "/assets/e-5.png"
   },
   
 ];
@@ -183,7 +183,7 @@ if(window.innerWidth<768){
                       isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
                     }`}
                   >
-                    <h2 className="text-[20px] md:text-[26px] leading-tight font-medium max-w-[520px]">
+                    <h2 className="text-[20px] md:text-[26px] uppercase leading-tight font-medium max-w-[520px]">
                       {ele.title}
                     </h2>
                   </div>

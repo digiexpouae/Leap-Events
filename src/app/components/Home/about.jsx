@@ -20,7 +20,7 @@ export default function AboutSection() {
         <div className="flex flex-col justify-between  h-[280px] items-start lg:ml-16">
           
 
-          <h2 className="md:text-4xl font-extrabold uppercase tracking-wide text-black text-3xl">
+          <h2 className="md:text-4xl font-extrabold uppercase tracking-tight text-black text-3xl">
             About Us
           </h2>
 
@@ -30,7 +30,7 @@ export default function AboutSection() {
             innovation, and mdern technology.
           </p>
         
-          <Link  className="mt-6 rounded-full bg-blue-500 px-5 py-2 text-sm font-medium text-white transition hover:bg-blue-600"
+          <Link  className="mt-6 rounded-full bg-[#5686DA] px-3 py-2 text-sm font-medium text-white transition hover:bg-[#5686DA]/50"
           href="/about" > 
            Read Our Story
           </Link>

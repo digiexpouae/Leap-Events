@@ -220,7 +220,7 @@ if(window.innerWidth<768){
                       isActive ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
                     }`}
                   >
-                    <h2 className="text-[20px] md:text-[26px] uppercase leading-tight font-medium max-w-[520px]">
+                    <h2 className={`text-[20px] md:text-[26px] ${ele.id == 10 ?"lowercase": "uppercase"}  leading-tight font-medium max-w-[520px]`}>
                       {ele.title}
                     </h2>
                   </div>

@@ -37,7 +37,7 @@ const index = () => {
 
         <div>
             {/* <HeroSection heading={heading} text={<>At Leap Events, every event is a testament to our <br /> commitment to excellence and innovation</>} />            <Sectiontwo heading={text} categories={tabs} /> */}
-            <div className='h-screen relative w-full flex flex-col items-center justify-between lg:py-24 xl:py-34 overflow-hidden '>
+            <div className='h-screen relative w-full flex flex-col items-center justify-between py-34 lg:py-24 xl:py-34 overflow-hidden '>
               <div className='max-w-5xl mx-auto uppercase flex items-center justify-center  '>
                 <h2 className='text-5xl  xl:text-7xl text-black font-bold'>
                     Events
@@ -51,7 +51,7 @@ const index = () => {
   autoRotate={true}       // default — spins on its own
   autoRotateSpeed={0.4}  // degrees per frame, ~9°/s at 60fps
 />
-<p className='text-black text-sm md:text-base text-center'>  From corporate stages to large-scale festivals, we plan, design, and deliver
+<p className='text-black px-4 text-sm md:text-base text-center'>  From corporate stages to large-scale festivals, we plan, design, and deliver
     <br />
      every detail in-house  so the vision lands exactly as promised.</p>
 </div>

@@ -124,7 +124,7 @@ if(window.innerWidth<768){
   const handlePrev = () => goTo((current - 1 + TOTAL) % TOTAL);
 
   return (
-    <section className="w-full bg-white py-12 px-4 sm:px-8 lg:px-16 overflow-hidden">
+    <section className="w-full bg-white py-18 px-4 sm:px-8 lg:px-16 overflow-hidden">
       <div className="max-w-screen-2xl mx-auto flex flex-col gap-12">
 
         <div className="flex lg:flex-row flex-col gap-12 items-start w-full">

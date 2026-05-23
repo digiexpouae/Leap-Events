@@ -3,15 +3,15 @@
 import Image from "next/image";
 
 const works = [
-  { title: "FERJAN FESTIVAL",    image: "/assets/work-1.png"  },
-  { title: "RAMADAN SOUQ",        image: "/assets/work-2.png"      },
-  { title: "SOUQ ALFREEJ",    image: "/assets/work-3.png"   },
-  { title: "CORPORATE EVENT",   image: "/assets/work-4.png" },
-  { title: "WINTER FESTIVAL",   image: "/assets/work-5.png" },
-  { title: "WONDERLAND",        image: "/assets/work-6.png" },
-  { title: "SHOPPING FESTIVAL", image: "/assets/work-7.png" },
-  { title: "GAMING FESTIVAL",   image: "/assets/work-8.png" },
-  { title: "HOARDING DESIGN",   image: "/assets/work-9.png" },];
+  { title: "FERJAN FESTIVAL",   image: "/assets/e-1.png"  },
+  { title: "souq ramadan",      image: "/assets/e-2.png"      },
+  { title: "winter garden",      image: "/assets/e-9.png"   },
+  { title: "CITY CENTRE AJMAN",   image: "/assets/e-4.png" },
+  { title: "SHARJAH INTERNATIONAL FILM FESTIVAL",   image: "/assets/e-3.png" },
+  { title: "university of dubai",        image: "/assets/e-5.png" },
+  { title: "Gems Graduation Event", image: "/assets/e-6.png" },
+  { title: "du",   image: "/assets/e-7.png" },
+  { title: "summer rush",   image: "/assets/e-8.png" },];
 
 
 const PER_GROUP = 3;
@@ -30,7 +30,7 @@ function WorkCard({ title, image, className = "" }) {
       />
       <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-        <h3 className="relative text-white text-sm md:text-base font-bold tracking-widest uppercase">
+        <h3 className="relative text-white text-sm md:text-base font-bold tracking-tighter uppercase">
           {title}
         </h3>
       </div>

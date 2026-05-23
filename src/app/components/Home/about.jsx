@@ -3,8 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 export default function AboutSection() {
   return (
-    <section className="relative w-full bg-white h-screen px-4 py-14 sm:px-6 lg:px-12">
-      <div className="mx-auto max-w-5xl flex flex-col h-full items-center gap-8 lg:flex-row ">
+    <section className="relative w-full bg-white h-screen px-4 md:py-14 sm:px-6 lg:px-12">
+      <div className="mx-auto max-w-5xl flex flex-col h-full items-center justify-center md:justify-start  gap-8 lg:flex-row ">
         <div className="relative h-[220px] lg:w-1/2  w-full overflow-hidden rounded-[30px] shadow-lg sm:h-[280px] lg:h-[320px]">
           <Image
             src="/assets/about/about.jpeg"

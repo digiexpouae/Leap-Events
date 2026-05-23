@@ -14,7 +14,7 @@ const STATS = [
     label: "Events\nDelivered",
     description: "Big stages, small details. Each one designed to leave a mark.",
     image:
-      "/assets/home/4.png",
+      "/assets/eventsdelivered.jpg",
   },
   {
     number: "11",
@@ -32,7 +32,7 @@ const STATS = [
     description:
       "From boutique launches to brand activations — trust, earned one room at a time.",
     image:
-      "/assets/home/4.png",
+      "/assets/eventsdelivered.jpg",
   },
   {
     number: "600",

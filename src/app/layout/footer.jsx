@@ -153,8 +153,8 @@ export default function Footer() {
 
                 {/* ── Divider ── */}
                 <div
-                    className="mx-auto max-w-7xl px-6 sm:px-10 lg:px-16"
-                    style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}
+                    className="hidden md:block  mx-auto max-w-5xl px-6 sm:px-10 lg:px-16"
+                    style={{ borderTop: "1px solid white" }}
                 />
 
                 {/* ── Copyright ── */}

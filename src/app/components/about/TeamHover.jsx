@@ -105,7 +105,7 @@ export default function TeamSectionHover() {
                 style={{
                   zIndex: isActive ? 20 : teamMembers.length - absDist,
                   opacity: isActive ? 1 : 0,
-                  transform: `translateY(${i * 60}px)`,
+                  transform: `translateY(${i * 50}px)`,
                   transition: "all 0.42s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                 }}
               >
@@ -114,7 +114,7 @@ export default function TeamSectionHover() {
                   alt={member.name}
                   width={200}
                   height={400}
-                  className="h-full w-full object-cover"
+                  className={`h-full w-full object-cover ${i== 9 ?"object-center" :"object-top"}`}
                   draggable={false}
                 />
               </div>
@@ -154,9 +154,9 @@ export default function TeamSectionHover() {
                       <Image
                         src={member.image}
                         alt={member.name}
-                        fill
+                        fill 
                         sizes="192px"
-                        className="object-cover"
+  className={`object-cover  ${i== 9 ?"object-center" :"object-top"}`}
                         draggable={false}
                       />
                     </div>

@@ -6,17 +6,17 @@ const projects = [
   {
     id: 1,
     title: "FERJAN FESTIVAL",
-    mainImage:"/assets/e-1.png",
+    mainImage:"/assets/ferjan-festival-logo.webp",
   },
   {
     id: 2,
     title: "souq ramadan",
-    mainImage:"/assets/e-2.png",
+    mainImage:"/assets/souq-ramadan-logo.webp",
   },
   {
     id: 3,
     title: "university of dubai", 
-    mainImage:  "/assets/e-5.png"
+    mainImage:  "/assets/dubai-universtity-logo.webp"
   },
   
    {
@@ -47,7 +47,7 @@ const projects = [
    {
     id: 9,
     title: "mastermind", 
-    mainImage:  "/assets/mastermind.webp"
+    mainImage:  "/assets/master-mind-logo.webp"
     
   },
    {

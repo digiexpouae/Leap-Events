@@ -43,7 +43,7 @@ svgRef.current?.setAttribute('viewBox', viewBox)
   const sectionRect = sectionRef.current.getBoundingClientRect();
 const bottomDistance = sectionRect.bottom - rect.bottom;
    gsap.set(".hero-thumb", {
-    left: rect.left - sectionRect.left + 4,
+    left: rect.left - sectionRect.left +4,
     width: rect.width,
     height: rect.height,
     bottom:bottomDistance

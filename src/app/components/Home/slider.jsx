@@ -22,7 +22,7 @@ const projects = [
    {
     id: 4,
     title: "winter garden", 
-    mainImage:  "/assets/wintergarden.webp"
+    mainImage:  "/assets/winter-garden.webp"
   },
    {
     id: 5,

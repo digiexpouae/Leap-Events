@@ -52,7 +52,7 @@ const index = () => {
   autoRotate={true}       // default — spins on its own
   autoRotateSpeed={0.4}  // degrees per frame, ~9°/s at 60fps
 />
-<p className='text-black px-4 text-sm md:text-base text-center'>  From corporate stages to large-scale festivals, we plan, design, and deliver
+<p className='text-black px-4 text-xs md:text-base text-center  '>  From corporate stages to large-scale festivals, we plan, design, and deliver
     <br />
      every detail in-house  so the vision lands exactly as promised.</p>
 </div>

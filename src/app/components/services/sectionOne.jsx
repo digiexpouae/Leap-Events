@@ -29,16 +29,20 @@ let tl;
       
   const rect = placeholderRef.current.getBoundingClientRect();
   const sectionRect = sectionRef.current.getBoundingClientRect();
+const wrapRect = imageWrapRef.current.getBoundingClientRect(); // ← use this instead of sectionRect
 
 gsap.set(imageWrapRef.current,{
-    left:rect.left-sectionRect.left, 
-      top: rect.top - sectionRect.top,  // ✅ add this
+     x: rect.left - wrapRect.left,   // delta from wrap's current position to placeholder
+  y: rect.top - wrapRect.top,
     width: rect.width,
     height: rect.height,
     opacity:0,
-    y:40
     
 })
+
+
+
+
         gsap.set([headingRef.current, descRef.current, logoRef.current, topLinesRef.current],{
             opacity:0,
     y:40
@@ -53,7 +57,7 @@ gsap.set(imageWrapRef.current,{
           trigger: sectionRef.current,
           start: "top top",
           end: "+=150%",
-          scrub: 2,
+          scrub: 1.5,
           pin: true,
           anticipatePin: 1,
         },
@@ -68,21 +72,29 @@ gsap.set(imageWrapRef.current,{
       opacity:1
      }
 )
-    tl.to(
-        imageWrapRef.current,{
-            top:"0",
-      left: "50%",
-      xPercent: -50,      
 
-      width: "100vw",
-      height: "100vh",
+
+
+    tl.to(imageWrapRef.current,{
+         left:"50%",    
+         x:"-50%",
+         duration:0.8
+    })
+     .to  (imageWrapRef.current,{
+      
+         y:0,
+      top:0,
       bottom:0,
+          width: "100vw",
+      height: "100vh",
       borderRadius: 0,
+      duration:1,
       ease: "power2.inOut",
     },
-        
+      "<"  
       )   
-        
+   
+
         .to(
           [headingRef.current, descRef.current, logoRef.current, topLinesRef.current],
           {

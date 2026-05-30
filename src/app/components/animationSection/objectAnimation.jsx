@@ -30,7 +30,7 @@ const INITIAL_PATH= isMobile
   ? "M191.373 289.817L319.121 -62L495.047 60.88C408.666 135.242 232.398 286.891 218.383 298.594C204.367 310.297 199.89 316.636 199.403 318.343L56.3256 706L-124.711 580.194C-25.4328 491.813 174.364 314.027 179.328 309.931C184.292 305.835 189.426 294.815 191.373 289.817Z"
   : "M975.76 458.42L1300.21 -433.35L1747.02 -121.88C1527.63 66.61 1079.95 451.01 1044.36 480.67C1008.76 510.34 997.39 526.4 996.15 530.73L632.77 1513.35L402.87 1353.91L172.98 1194.46C425.12 970.44 932.56 519.79 944.77 509.41C957.78 499.02 970.81 471.09 975.76 458.42Z"
   const FINAL_PATH=isMobile?
-"M105.527 376.74L434.772 -224.63L534.498 -220.906C411.338 -32.1364 157.126 355.655 125.555 396.665C93.9842 437.676 110.335 469.076 122.456 479.65L1500 1500L1500 1500L-1500 1500L-1500 366.822C-41.0734 373.13 -7.48975 390.898 30.7282 411.502C68.9462 432.107 96.5184 396.913 105.527 376.74Z":
+"M147.541 348.328L509.837 -321H583.348C476.366 -125.105 267.453 237.673 195.456 365.87C133.104 476.893 186.704 509.587 215.802 531.853L796 907H-538.983C-558.936 907 -547.297 369.838 -538.983 101.258C-407.717 183.614 -121.818 359.528 -28.3563 404.33C65.1055 449.131 95.0366 450.886 147.541 348.328Z":
 "M1214.05 627.1L1822.1 -561.5L2471 -561.5C2122.93 -175.84 1403.91 621.43 1307.78 725.88C1211.65 830.2 1267.71 920.76 1307.78 953.01L2073.68 1641.52L-551 1641.52L-551 -65.49C-79.43 177.59 893.23 678.42 1011.38 737.09C1129.53 795.55 1195.73 688.2 1214.05 627.1Z"
      
  
@@ -48,6 +48,17 @@ let ctx;
     const bbox = pathRef.current.getBBox()
     const cx = bbox.x + bbox.width / 2
     const cy = bbox.y + bbox.height / 2
+    const ghost = gsap.fromTo(pathRef.current,
+  { morphSVG: INITIAL_PATH },
+  { morphSVG: FINAL_PATH, paused: true, ease: 'none' }
+);
+ghost.progress(0.28);
+const midD = pathRef.current.getAttribute('d');
+ghost.kill();
+
+// now set initial path back for the rotate/scale steps
+gsap.set(pathRef.current, { attr: { d: INITIAL_PATH } ,    ease: 'power2.inOut',
+});
 
     gsap.set(pathRef.current, {
       opacity: 0,
@@ -63,7 +74,14 @@ let ctx;
     tl.to(svgRef.current, { opacity: 1 })
       .to(pathRef.current, { opacity: 1, duration: 1.2, rotate: 180 })
       .to(pathRef.current, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" })
-      .to(pathRef.current, { morphSVG: FINAL_PATH, duration: 1.4, ease: 'power2.inOut' })
+  .call(() => {
+    // RIGHT before morph starts, swap d to the 60% snapshot
+    gsap.set(pathRef.current, { attr: { d: midD } })
+  })
+  .to(pathRef.current, { 
+    morphSVG: FINAL_PATH, 
+ease: 'power2.inOut',
+  },)
       .to(pathRef.current, { scale: 1 })
     
 

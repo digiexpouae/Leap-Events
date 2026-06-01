@@ -186,7 +186,7 @@ tl2.to(".hero-tagline", { opacity: 1, ease: "power2.in" },"<")
   {/* PLACEHOLDER — holds the flex space, invisible */}
   <div 
     ref={placeholderRef}
-    className="shrink-0 h-[clamp(4rem,10vw,12rem)] md:ml-4 w-[clamp(4rem,10vw,12rem)]" 
+    className="shrink-0 h-[clamp(4rem,10vw,12rem)] md:ml-4 w-[clamp(4rem,10vw,12rem)] mx-1" 
   />
 
         <span className="hero-text-row shrink-0 z-10 font-bold text-[clamp(3.2rem,13vw,18rem)] md:text-[clamp(3.4rem,15vw,18rem)] uppercase leading-none tracking-tighter text-white select-none">

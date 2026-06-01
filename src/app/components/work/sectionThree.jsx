@@ -1,3 +1,4 @@
+import FadeUp from "@/app/common/Transition";
 import Image from "next/image";
 
 export default function Hero() {
@@ -26,6 +27,7 @@ export default function Hero() {
       /> */}
 
       {/* Headline */}
+       <FadeUp> 
       <div className="flex items-start justify-center h-full px-6 pt-16 sm:pt-20 md:pt-24">
         <h1 className="max-w-5xl text-center font-bold uppercase tracking-tighter text-white leading-[1.1] text-2xl sm:text-3xl md:text-4xl lg:text-6xl">
           Crafting Unforgettable
@@ -35,6 +37,7 @@ export default function Hero() {
           Briefs.
         </h1>
       </div>
+      </FadeUp>
     </section>
   );
 }

@@ -7,6 +7,7 @@ import Sectiontwo from '../common/SectionTwo'
 import WorkSection from '../components/work/event'
 import SectionThree from '../components/work/sectionThree'
 import Nav from '../components/Home/nav'
+import FadeUp from '../common/Transition'
 const index = () => {
     const tabs = [
         "All Projects",
@@ -58,11 +59,11 @@ const index = () => {
 </div>
 <Nav />
                <SectionThree />
-            <WorkSection />
+          <WorkSection />
 
             {/* <Event className={"bg-[var(--color-bg-secondary)]"} /> */}
         
-            <Form />
+            <FadeUp> <Form /></FadeUp>
         </div>
 
     )

@@ -18,6 +18,7 @@ import Slider from './components/Home/slider'
 import Marquee from './components/Home/Marquee'
 import FAQ from './components/Home/FAQ'
 import Nav from './components/Home/nav'
+import FadeUp from "./common/Transition";
 export default function Home() {
 
   return (
@@ -27,21 +28,22 @@ export default function Home() {
         {/* <div class="bowtie"></div> */}
 
         {/* <Animate /> */}
+      
         <ObjectAnimation />
         {/* </div>   */}
-      <About />
+          <FadeUp>  <About /></FadeUp> 
+    
       <Nav />
 
-      {/* <Parallexanimation /> */}
-      <Event />
+  <Event />
 
-      <Slider />
-      <Marquee />
+    <FadeUp>   <Slider /></FadeUp> 
+     <FadeUp>  <Marquee /></FadeUp> 
 
-      <VoicesOfLegacy />
-      <FAQ />
+          <FadeUp>  <VoicesOfLegacy />     </FadeUp> 
+         <FadeUp>   <FAQ />     </ FadeUp> 
       {/* <LogoMarquee /> */}
-      <Form />
+            <FadeUp>  <Form />        </FadeUp> 
     </>
   );
 }

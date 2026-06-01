@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import TeamSectionHover from "./TeamHover";
+import FadeUp from "@/app/common/Transition";
 
 // Sample team data — replace with your real data
 
@@ -90,7 +91,7 @@ export default function TeamSection() {
       {/* Header */}
       <div className="relative max-w-7xl mx-auto">
         {/* Floating brand icon (hidden on mobile) */}
-      
+         <FadeUp> 
         <div className="text-center max-w-2xl mx-auto">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
             WHAT SETS US APART?
@@ -101,9 +102,12 @@ export default function TeamSection() {
             a team that&apos;s been delivering standout events for over a decade.
           </p>
         </div>
+        </FadeUp> 
       </div>
 
       {/* Main content grid */}
+               <FadeUp> 
+
       <div className="mt-12 lg:mt-16 max-w-7xl mx-auto">
         <div className="flex flex-row gap-8 lg:gap-10 justify-between items-start">
           {/* SHOW FACT — hidden on mobile */}
@@ -145,6 +149,8 @@ export default function TeamSection() {
         </div>
         
       </div>
+      </FadeUp> 
+
     </section>
   );
 }

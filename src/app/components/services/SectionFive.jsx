@@ -1,5 +1,6 @@
 "use client";
 
+import FadeUp from "@/app/common/Transition";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -149,8 +150,10 @@ export default function SpacesBuiltToMove() {
       className="relative w-full bg-[#DEF6FF] px-6 py-16 md:px-12 md:py-24"
       aria-label="Our services"
     >
+     
       <div className="mx-auto max-w-7xl">
         {/* Heading + intro */}
+          <FadeUp>
         <div className="flex flex-col gap-6 md:items-start md:justify-between">
           <h2 className="text-4xl font-bold uppercase tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
             Spaces built
@@ -162,7 +165,8 @@ export default function SpacesBuiltToMove() {
             a lasting impression.
           </p>
         </div>
-
+        </FadeUp>
+    <FadeUp>
         {/* Body: three columns. Image is sticky, text scrolls. */}
         <div className="mt-12 grid grid-cols-1 gap-10 md:mt-20 md:grid-cols-12 md:gap-10">
           {/* LEFT — sticky image stack */}
@@ -231,7 +235,9 @@ export default function SpacesBuiltToMove() {
             </div>
           </div>
         </div>
+         </FadeUp>
       </div>
+     
     </section>
   );
 }

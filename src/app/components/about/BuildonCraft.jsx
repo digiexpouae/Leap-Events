@@ -1,3 +1,5 @@
+import FadeUp from "@/app/common/Transition";
+
 const cards = [
   {
     number: "1",
@@ -28,6 +30,7 @@ export default function BuiltOnCraft() {
       <div className="mx-auto max-w-7xl">
 
         {/* Header Row */}
+        <FadeUp>
         <div className="mb-12 flex flex-col gap-6 md:grid grid-cols-[1fr_2fr_1fr] md:items-start justify-between">
           <p className="max-w-md text-sm leading-relaxed text-white/60  md:text-left text-center">
             Great events aren&apos;t accidents. They&apos;re the result of clear
@@ -40,9 +43,10 @@ export default function BuiltOnCraft() {
             <br />
             Driven by Detail
           </h2>
-        </div>
+        </div></FadeUp>
 
         {/* Cards Grid */}
+    <FadeUp>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           {cards.map((card) => (
             <div
@@ -82,7 +86,7 @@ export default function BuiltOnCraft() {
             </div>
           ))}
         </div>
-
+</FadeUp>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 "use client";
 
+import FadeUp from "@/app/common/Transition";
 import Image from "next/image";
 
 const works = [
@@ -77,16 +78,20 @@ export default function WorkSection() {
     <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-12">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
+      <FadeUp> 
         <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-black mb-10 md:mb-14">
           WORK
         </h2>
 
+</FadeUp>
         {/* All groups stacked vertically, alternating sides */}
+         <FadeUp amount={0.1}>
         <div className="flex flex-col gap-10 md:gap-16">
           {groups.map((items, i) => (
             <WorkGroup key={i} items={items} heroOnLeft={i % 2 === 0} />
           ))}
         </div>
+        </FadeUp>
       </div>
     </section>
   );

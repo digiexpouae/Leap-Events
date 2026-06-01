@@ -4,6 +4,7 @@ import SectionOne from '../components/services/sectionOne'
 import SectionThree from '../components/services/Sectionthree'
 import LeapEvent from '../components/services/leapEvent'
 import SectionFive from '../components/services/SectionFive'
+import FadeUp from '../common/Transition'
 const Services = () => {
 
 
@@ -31,12 +32,12 @@ const Services = () => {
 
 
 <SectionOne />
-        <SectionThree />
+     <SectionThree />
         
        <LeapEvent />
-       <SectionFive />
-        <LogoMarquee />
-        <Form />
+     <SectionFive />
+       <FadeUp>  <LogoMarquee /></FadeUp>
+        <FadeUp> <Form /></FadeUp>
     </>
 
     )

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useCallback, useRef, useEffect } from "react";
 
 const projects = [
@@ -191,15 +192,18 @@ if(window.innerWidth<768){
                     transform: style.transform,
                     opacity: style.opacity,
                     zIndex: style.zIndex,
-                    transition: "all 900ms cubic-bezier(0.4, 0, 0.2, 1)",
+                    transition: "all 500ms cubic-bezier(0.4, 0, 0.2, 1)",
                     borderRadius: "34px",
                     overflow: "hidden",
                   }}
                 >
                   <div className="w-full h-full relative">
-                    <img
+                    <Image
                       src={ele.mainImage}
                       alt={ele.title}
+                      width={600}
+                      height={400}
+                      
                       className="w-full h-full object-cover"
                     />
                     <div

@@ -1,5 +1,6 @@
 "use client";
 
+import FadeUp from "@/app/common/Transition";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
@@ -75,32 +76,38 @@ export default function PassionPrecisionSection() {
       aria-label="Where passion meets precision"
     >
       {/* Sticky stage — pinned while the user scrolls through the wrapper */}
+ 
       <div className="sticky top-0 h-screen w-full overflow-hidden">
        
     
 
         {/* Left label — changes with active stat */}
         <div className="absolute left-6 md:left-16 top-1/2 -translate-y-1/2 max-w-[200px]">
-          <p
+        
+             <FadeUp>  <p
             key={`label-${activeIndex}`}
             className="text-[#0b1220] font-bold leading-[1.05] text-2xl md:text-3xl whitespace-pre-line animate-[fadeUp_0.5s_ease-out_both]"
           >
             {active.label}
           </p>
+          </FadeUp>
         </div>
 
         {/* Right description — changes with active stat */}
         <div className="absolute right-6 md:right-16 top-1/2 -translate-y-1/2 max-w-[180px]">
+        <FadeUp>
           <p
             key={`desc-${activeIndex}`}
             className="text-[#0b1220]/80 text-sm md:text-base leading-snug animate-[fadeUp_0.5s_ease-out_both]"
           >
             {active.description}
           </p>
+          </FadeUp>
         </div>
 
         {/* CENTER stack of numbers + image card */}
         <div className="absolute inset-0 grid place-items-center">
+          <FadeUp>
           <div className="relative w-[min(640px,85vw)] h-[min(560px,80vw)] md:h-[520px] md:w-[680px]">
             {STATS.map((s, i) => {
               const offset = i - activeIndex; // -1 prev, 0 active, +1 next
@@ -165,6 +172,7 @@ export default function PassionPrecisionSection() {
             {/* Decorative purple flower over the right edge of the card */}
           
           </div>
+          </FadeUp>
         </div>
 
         {/* Bottom CTA */}

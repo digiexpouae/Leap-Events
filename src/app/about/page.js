@@ -13,6 +13,7 @@ import Precision from '../components/about/Passion'
 import Team from '../components/about/Team'
 import Awards from '../components/about/Awards'
 import OurTeam from '../components/about/OurTeam'
+import FadeUp from '../common/Transition'
 const about = () => {
     return (
         <div>
@@ -20,11 +21,11 @@ const about = () => {
             <Herosection />
             {/* <Herosection heading={"Our Story"} text={<> Our vision extends beyond the immediate thrill <br /> of the event to leave
                 a lasting imprint that <br /> propels our clients into the future</>} /> */}
-          <BuiltOnCraft />
-          <OurTeam />
-
+        <BuiltOnCraft /> 
+           <OurTeam />     
           <div className='bg-[#d6efff] py-16 hidden md:block'>
              {/* Heading */}
+     <FadeUp>
         <div className=" md:top-16  md:flex justify-center px-6">
           <h2 className="text-center font-bold tracking-tight text-[#0b1220] text-3xl md:text-5xl leading-[1.05]">
             WHERE PASSION
@@ -32,6 +33,7 @@ const about = () => {
             MEETS PRECISION
           </h2>
         </div>
+        </FadeUp>
 
         
           <Precision />
@@ -49,7 +51,7 @@ const about = () => {
 
             </div>
           {/* <Team />/ */}
-          <Awards />
+       
             {/* <SectionTwo /> */}
             {/* <Sectionthree /> */}
             {/* <Sectionfour /> */}
@@ -70,8 +72,8 @@ const about = () => {
                 </div>
                 <Event />
             </div> */}
-
-            <Form />
+       <FadeUp> <Awards /></FadeUp>
+          <FadeUp>    <Form /></FadeUp>
 
         </div>
     )

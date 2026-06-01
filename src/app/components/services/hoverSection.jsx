@@ -99,7 +99,7 @@ const handleRowClick = (i) => {
   },
 ];
   return (
-    <div className='md:hidden block  w-full px-4  py-16'>
+    <div className='md:hidden block  w-full px-6  py-16'>
           <ul>
             {SERVICES.map((member, i) => {
               const isActive = activeIndex === i;
@@ -143,7 +143,7 @@ const handleRowClick = (i) => {
                       {member.title}
                     </span>
                     <span
-                      className={`text-xs transition-colors w-1/3 text-center duration-200 ${
+                      className={`text-[8px] transition-colors w-1/3 text-center duration-200 ${
                         isActive ? "text-blue-500" : "text-gray-400"
                       }`}
                     >

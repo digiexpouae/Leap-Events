@@ -128,7 +128,7 @@ gsap.set(imageWrapRef.current,{
  
 
       {/* Heading + description */}
-      <div className="relative pt-32 md:pt-40 px-8 md:px-16 max-w-7xl mx-auto">
+      <div className="relative  px-8 md:px-16 max-w-7xl mx-auto h-full flex flex-col items-center justify-center">
         <div className="flex flex-col md:flex-row items-start gap-8">
           <div className="flex-1">
             <h1

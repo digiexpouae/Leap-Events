@@ -52,7 +52,10 @@ let ctx;
   { morphSVG: INITIAL_PATH },
   { morphSVG: FINAL_PATH, paused: true, ease: 'none' }
 );
-ghost.progress(0.28);
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+
+ghost.progress(isMobile?0.24: 0);
 const midD = pathRef.current.getAttribute('d');
 ghost.kill();
 
@@ -73,16 +76,18 @@ gsap.set(pathRef.current, { attr: { d: INITIAL_PATH } ,    ease: 'power2.inOut',
      tl = gsap.timeline()
     tl.to(svgRef.current, { opacity: 1 })
       .to(pathRef.current, { opacity: 1, duration: 1.2, rotate: 180 })
-      .to(pathRef.current, { opacity: 1, scale: 1, duration: 0.4, ease: "power2.out" })
+      .to(pathRef.current, { opacity: 1, scale: 1, duration: 0.6, ease: "power2.out" })
   .call(() => {
     // RIGHT before morph starts, swap d to the 60% snapshot
     gsap.set(pathRef.current, { attr: { d: midD } })
   })
   .to(pathRef.current, { 
     morphSVG: FINAL_PATH, 
-ease: 'power2.inOut',
+        type: "rotational", // try "rotational" or "linear"
+
+duration:1,
+ease: 'power2.out',
   },)
-      .to(pathRef.current, { scale: 1 })
     
 
       .to(pathRef.current, { duration: 1.5, rotate: -10, ease: 'power2.inOut' })

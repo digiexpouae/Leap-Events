@@ -166,7 +166,6 @@ export default function SpacesBuiltToMove() {
           </p>
         </div>
         </FadeUp>
-    <FadeUp>
         {/* Body: three columns. Image is sticky, text scrolls. */}
         <div className="mt-12 grid grid-cols-1 gap-10 md:mt-20 md:grid-cols-12 md:gap-10">
           {/* LEFT — sticky image stack */}
@@ -235,7 +234,6 @@ export default function SpacesBuiltToMove() {
             </div>
           </div>
         </div>
-         </FadeUp>
       </div>
      
     </section>

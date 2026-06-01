@@ -26,7 +26,7 @@ const teamMembers = [
     name: "shujat ali muqri",
     role: "Art Director",
     bio: "Leads The Art Department Team With Enact Knowledge",
-    image: "/assets/about/img3.png",
+    image: "/assets/shujat2.webp",
   },
   {
     name: "irshad ahmed",

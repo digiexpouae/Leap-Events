@@ -147,7 +147,7 @@ export default function SpacesBuiltToMove() {
 
   return (
     <section
-      className="relative w-full bg-[#DEF6FF] px-6 py-16 md:px-12 md:py-24"
+      className="relative w-full bg-[#DEF6FF] px-6 py-16 md:px-12 md:py-24 hidden  md:block"
       aria-label="Our services"
     >
      

@@ -94,7 +94,7 @@ export default function StatsSlider() {
 
     return () => {
       track.removeEventListener("touchstart", handleTouchStart);
-      track.removeEventLisetener("touchmove", handleTouchMove);
+      track.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
 

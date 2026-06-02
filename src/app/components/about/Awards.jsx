@@ -1,5 +1,5 @@
 "use client"
-
+import Image from "next/image"
 const AWARDS = [
   {
     src: "/assets/about/aw-1.png"
@@ -34,7 +34,7 @@ const AWARDS = [
 
 export default function Awards() {
   return (
-    <section className="bg-[#001028] px-4 py-16 md:py-24">
+    <section className="bg-[#001028] px-4 py-16 md:py-24 md:block hidden">
       <div className="mx-auto max-w-5xl">
         <h2 className="mb-12 text-center text-4xl text-white font-bold tracking-tight text-slate-900 md:mb-16 md:text-5xl">
           AWARDS
@@ -46,9 +46,11 @@ export default function Awards() {
               key={award.alt}
               className="group aspect-square overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
-              <img
+              <Image 
                 src={award.src}
                 alt={award.alt}
+                width={300}
+                height={300}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />

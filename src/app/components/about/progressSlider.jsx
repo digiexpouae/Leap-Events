@@ -64,6 +64,9 @@ export default function StatsSlider() {
       startProgress = progressRef.current;
       decided = false;
       horizontal = false;
+
+  e.preventDefault();
+  e.stopPropagation()
     };
 
     const handleTouchMove = (e) => {
@@ -77,7 +80,9 @@ export default function StatsSlider() {
 
       if (!horizontal) return; // vertical → let page scroll
 
-      e.preventDefault(); // horizontal → block scroll, move slider
+      
+  e.preventDefault();
+  e.stopPropagation()// horizontal → block scroll, move slider
 
       const cardW = viewportRef.current.offsetWidth / VISIBLE;
       const maxScroll = cardW * (STATS.length - VISIBLE);
@@ -89,7 +94,7 @@ export default function StatsSlider() {
 
     return () => {
       track.removeEventListener("touchstart", handleTouchStart);
-      track.removeEventListener("touchmove", handleTouchMove);
+      track.removeEventLisetener("touchmove", handleTouchMove);
     };
   }, []);
 

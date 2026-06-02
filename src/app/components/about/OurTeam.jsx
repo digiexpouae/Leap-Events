@@ -111,7 +111,7 @@ export default function TeamSection() {
       <div className="mt-12 lg:mt-16 max-w-7xl mx-auto">
         <div className="flex flex-row gap-8 lg:gap-10 justify-between items-start">
           {/* SHOW FACT — hidden on mobile */}
-          <div className="hidden md:flex w-1/4  items-center gap-3 pt-4">
+          <div className="hidden lg:flex w-1/4  items-center gap-3 pt-4">
             <button
               type="button"
               onClick={() => setShowFact((s) => !s)}

@@ -15,6 +15,7 @@ import Awards from '../components/about/Awards'
 import OurTeam from '../components/about/OurTeam'
 import FadeUp from '../common/Transition'
 import ProgressSlider from '../components/about/progressSlider'
+import AwardMobile from '../components/about/awardsMobile'
 const about = () => {
     return (
         <div>
@@ -24,7 +25,7 @@ const about = () => {
                 a lasting imprint that <br /> propels our clients into the future</>} /> */}
         <BuiltOnCraft /> 
            <OurTeam />     
-          <div className='bg-[#d6efff] py-16 md:block hidden '>
+<div className="bg-[#d6efff]  py-16 flex flex-col justify-between gap-10 ">
              {/* Heading */}
      <FadeUp>
         <div className=" md:top-16  md:flex justify-center px-6">
@@ -38,7 +39,7 @@ const about = () => {
 
         
           <Precision />
-          {/* <ProgressSlider /> */}
+          <ProgressSlider />
          <div className=" flex justify-center">
           <button
             type="button"
@@ -75,6 +76,7 @@ const about = () => {
                 <Event />
             </div> */}
        <FadeUp> <Awards /></FadeUp>
+          <FadeUp> <AwardMobile /></FadeUp>
           <FadeUp>    <Form /></FadeUp>
 
         </div>

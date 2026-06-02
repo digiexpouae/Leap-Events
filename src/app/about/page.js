@@ -14,6 +14,7 @@ import Team from '../components/about/Team'
 import Awards from '../components/about/Awards'
 import OurTeam from '../components/about/OurTeam'
 import FadeUp from '../common/Transition'
+import ProgressSlider from '../components/about/progressSlider'
 const about = () => {
     return (
         <div>
@@ -23,7 +24,7 @@ const about = () => {
                 a lasting imprint that <br /> propels our clients into the future</>} /> */}
         <BuiltOnCraft /> 
            <OurTeam />     
-          <div className='bg-[#d6efff] py-16 hidden md:block'>
+          <div className='bg-[#d6efff] py-16 '>
              {/* Heading */}
      <FadeUp>
         <div className=" md:top-16  md:flex justify-center px-6">
@@ -37,6 +38,7 @@ const about = () => {
 
         
           <Precision />
+          <ProgressSlider />
          <div className=" flex justify-center">
           <button
             type="button"

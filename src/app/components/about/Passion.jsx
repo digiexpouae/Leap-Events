@@ -71,7 +71,7 @@ export default function PassionPrecisionSection() {
   return (
     <section
       ref={wrapperRef} 
-      className="relative"
+      className="hidden md:block relative"
       style={{ height: `${STATS.length * 100}vh` }}
       aria-label="Where passion meets precision"
     >

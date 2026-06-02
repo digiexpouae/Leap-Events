@@ -24,7 +24,7 @@ const about = () => {
                 a lasting imprint that <br /> propels our clients into the future</>} /> */}
         <BuiltOnCraft /> 
            <OurTeam />     
-          <div className='bg-[#d6efff] py-16 '>
+          <div className='bg-[#d6efff] py-16 md:block hidden '>
              {/* Heading */}
      <FadeUp>
         <div className=" md:top-16  md:flex justify-center px-6">
@@ -38,7 +38,7 @@ const about = () => {
 
         
           <Precision />
-          <ProgressSlider />
+          {/* <ProgressSlider /> */}
          <div className=" flex justify-center">
           <button
             type="button"

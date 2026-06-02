@@ -67,7 +67,7 @@ export default function CorporateEvents() {
     { title: "Digital Print & Branding", image: "/assets/Digital_Print_&Branding.jpg" },
     { title: 'Exhibition', image: "/assets/Exhibition.jpg" },
 
-    { title: 'Entertainment', image: "/assets/Entertainment.jpg" }
+    { title: 'Entertainment', image: "/assets/en.jpg" }
         ,
     ]
     return (

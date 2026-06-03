@@ -28,7 +28,7 @@ const about = () => {
 <div className="bg-[#d6efff]  py-16 flex flex-col justify-between gap-10 ">
              {/* Heading */}
      <FadeUp>
-        <div className=" md:top-16  md:flex justify-center px-6">
+        <div className=" md:top-16  md:flex justify-center px-6 md:block hidden">
           <h2 className="text-center font-bold tracking-tight text-[#0b1220] text-3xl md:text-5xl leading-[1.05]">
             WHERE PASSION
             <br />
@@ -39,7 +39,7 @@ const about = () => {
 
         
           <Precision />
-          <ProgressSlider />
+          {/* <ProgressSlider /> */}
          <div className=" flex justify-center">
           <button
             type="button"

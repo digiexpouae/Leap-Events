@@ -29,10 +29,16 @@ export default function GetInTouch({ className }) {
         console.log("Form submitted:", form);
         // hook up your API / server action here
     };
+    const dismissKeyboard = () => {
+        if (document.activeElement instanceof HTMLElement) {
+            document.activeElement.blur();
+        }
+    };
 
     return (
         <section
             className={`w-full py-14 sm:py-20 ${className}`}
+            onTouchStart={dismissKeyboard} 
         >
             <div className="mx-auto max-w-4xl px-5 sm:px-8 lg:px-12">
 

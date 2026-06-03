@@ -55,7 +55,7 @@ const teamMembers = [
     image: "/assets/about/img4.png",
   },
   {name:"Arjun Viswanath",
-  role:"Procurment",
+  role:"Procurment Manager",
     image:"/assets/about/img7.png" },
   
   {

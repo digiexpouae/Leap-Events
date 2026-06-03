@@ -20,28 +20,28 @@ export default function Awards() {
   const next = useCallback(() => setIndex((i) => Math.min(i + 1, AWARDS.length - 1)), [])
 
   return (
-    <section className="bg-[#001028] px-4 py-16 md:py-24 md:hidden block">
-      <div className="mx-auto max-w-5xl">
-        <h2 className="mb-12 text-center text-4xl font-bold tracking-tight text-white md:mb-16 md:text-5xl">
+    <section className="bg-[#001028] px-4 py-12 md:hidden block">
+      <div className="mx-auto  max-w-[260px]">
+        <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-white">
           AWARDS
         </h2>
 
         {/* Slider track */}
-        <div className="overflow-hidden px-2">
-          <ul
-            className="flex gap-4 transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(calc(-${index} * (100% + 1rem)))` }}
-          >
+        <div className="overflow-hidden">
+         <ul
+  className="flex gap-3 transition-transform duration-500 ease-in-out"
+  style={{ transform: `translateX(calc(-${index} * (100% + 0.75rem)))` }}
+>
             {AWARDS.map((award) => (
               <li
                 key={award.alt}
-                className="group aspect-square w-full flex-none overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="group aspect-square w-full flex-none  overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5"
               >
                 <Image
                   src={award.src}
                   alt={award.alt}
-                  width={600}
-                  height={600}
+                  width={300}
+                  height={300}
                   loading="lazy"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
@@ -50,15 +50,18 @@ export default function Awards() {
           </ul>
         </div>
 
+        {/* Dot indicators */}
+       
+
         {/* Bottom arrows */}
-        <div className="mt-8 flex justify-center gap-4">
+        <div className="mt-5 flex justify-center gap-4">
           <button
             onClick={prev}
             disabled={index === 0}
             aria-label="Previous award"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-200 hover:border-white/60 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-200 hover:border-white/60 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
           >
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
               <path d="M11 4L6 9l5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
@@ -66,9 +69,9 @@ export default function Awards() {
             onClick={next}
             disabled={index >= AWARDS.length - 1}
             aria-label="Next award"
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-200 hover:border-white/60 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-200 hover:border-white/60 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
           >
-            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
               <path d="M7 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>

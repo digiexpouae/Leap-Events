@@ -16,54 +16,51 @@ const teamMembers = [
     bio: "Have Dedicated Decades Of Experience In Events And Promotion",
     image: "/assets/about/img1.png",
   },
-  {
-    name: "taher mohamed najeeb al hammami",
-    role: "production manager",
-    bio: "Leads The Art Department Team With Enact Knowledge",
-    image: "/assets/about/img2.png",
-  },
+  
   {
     name: "shujat ali muqri",
     role: "Art Director",
     bio: "Leads The Art Department Team With Enact Knowledge",
     image: "/assets/shujat2.webp",
   },
-  {
-    name: "irshad ahmed",
-    role: "Finance Manager",
-    bio: "Event Enthusiast, Team Builder And Excellent Organizer",
-    image: "/assets/about/img4.png",
-  },
-  {
-    name: "arsalan hussain arbab ali mangi",
-    role: "Project Cordinator",
-    bio: "Leads The Art Department Team With Enact Knowledge",
-    image: "/assets/about/img5.png",
-  },
-  {
-    name: "zainulabdin shujat ali muqri",
-    role: "Design Manager",
-    bio: "Have Dedicated Decades Of Experience In Events And Promotion",
-    image: "/assets/about/img6.png",
-  },
-
    {
     name: "Krishna patel",
     role: "Creative Visualiser",
     bio: "Have Dedicated Decades Of Experience In Events And Promotion",
     image: "/assets/krishna.webp",
   },
-
+   {
+    name: "zainulabdin shujat ali muqri",
+    role: "Design Manager",
+    bio: "Have Dedicated Decades Of Experience In Events And Promotion",
+    image: "/assets/about/img6.png",
+  },
+  {
+    name: "taher mohamed najeeb al hammami",
+    role: "production manager",
+    bio: "Leads The Art Department Team With Enact Knowledge",
+    image: "/assets/about/img2.png",
+  },
+ {
+    name: "arsalan hussain arbab ali mangi",
+    role: "Project Cordinator",
+    bio: "Leads The Art Department Team With Enact Knowledge",
+    image: "/assets/about/img5.png",
+  },
+ 
+  {
+    name: "irshad ahmed",
+    role: "Finance Manager",
+    bio: "Event Enthusiast, Team Builder And Excellent Organizer",
+    image: "/assets/about/img4.png",
+  },
+  {name:"Arjun Viswanath",
+  role:"Procurment",
+    image:"/assets/about/img7.png" },
   
   {
-    name: "arjun viswanath",
-    role: "Procurment Manager",
-    bio: "Event Enthusiast, Team Builder And Excellent Organizer",
-    image: "/assets/about/img7.png",
-  },
-    {
     name: "Anna Christina Alan Paul",
-    role: "Photography Intern",
+    role: "Photographer",
     bio: "Event Enthusiast, Team Builder And Excellent Organizer",
     image: "/assets/ana.webp",
   },

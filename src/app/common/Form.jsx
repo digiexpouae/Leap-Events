@@ -50,7 +50,7 @@ export default function GetInTouch({ className }) {
                 </motion.h2>
 
                 {/* Form grid */}
-                <motion.div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4"
+                <motion.form className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4"
 
 
 
@@ -184,7 +184,7 @@ export default function GetInTouch({ className }) {
                         </button>
                     </div>
 
-                </motion.div>
+                </motion.form>
             </div>
 
 

@@ -47,8 +47,10 @@ function VideoMesh({rotateRef}) {
 
     // Smoothly interpolate the camera position toward the mouse position
     // Multiply by a small decimal (e.g., 0.5) to keep the rotation "slight"
-    const targetRotationX = -y * 0.1
-    const targetRotationY = x * 0.1
+   const isMobile = window.innerWidth < 768
+
+const targetRotationX = -y * (isMobile ? 0.02 : 0.03)
+const targetRotationY = x * (isMobile ? 0.02 : 0.03)
 
     // Smoothly interpolate (lerp) the object's rotation
     meshRef.current.rotation.x += (targetRotationX - meshRef.current.rotation.x) * 0.05

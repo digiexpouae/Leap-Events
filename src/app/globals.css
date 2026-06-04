@@ -294,6 +294,17 @@ h6 ,p,span{
 }
 
 
+@media (max-width:768px){
+  .marquee {
+  animation: tbl-marquee 20s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  /* ← prevents flicker on loop */
+  -webkit-backface-visibility: hidden;
+}
+
+}
+
 @keyframes tbl-marquee {
   from {
     transform: translateX(0);

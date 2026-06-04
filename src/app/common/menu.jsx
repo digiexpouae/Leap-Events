@@ -82,7 +82,7 @@ export default function DiagonalMenu() {
           <button
             onClick={() => setOpen(false)}
             aria-label="Close menu"
-            className="group absolute right-6 top-5 cursor-pointer border-none bg-transparent p-2"
+            className="group absolute right-6 top-5 cursor-pointer z-30 border-none bg-transparent p-2"
           >
             <div className="relative h-6 w-6">
               <span className="absolute left-0 top-1/2 block h-[1.5px] w-full origin-center bg-white" style={{ transform: 'rotate(45deg)' }} />

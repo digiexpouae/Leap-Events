@@ -30,7 +30,7 @@ const STATS = [
   },
   {
     number: "12",
-    suffix: "",
+    suffix: "+",
     label: "Years of\nCraft",
     description:
       "Two decades of refining what live experiences can actually feel like.",

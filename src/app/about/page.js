@@ -26,7 +26,7 @@ const about = () => {
                 a lasting imprint that <br /> propels our clients into the future</>} /> */}
         <BuiltOnCraft /> 
            <OurTeam />     
-<div className="bg-[#d6efff]  py-16 flex flex-col justify-between gap-10 ">
+<div className="bg-[#d6efff]  py-16 flex flex-col justify-between gap-10 hidden  md:block">
              {/* Heading */}
      <FadeUp>
         <div className=" md:top-16  md:flex justify-center px-6 md:block hidden">

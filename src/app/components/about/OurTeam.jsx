@@ -110,14 +110,14 @@ export default function TeamSection() {
         <div className="flex flex-row gap-8 lg:gap-10 justify-between items-start">
           {/* SHOW FACT — hidden on mobile */}
           <div className="hidden lg:flex w-1/4  items-center gap-3 pt-4">
-            <button
+            {/* <button
               type="button"
               onClick={() => setShowFact((s) => !s)}
               aria-pressed={showFact}
               className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white hover:scale-105 active:scale-95 transition-transform shadow-md focus:outline-none focus:ring-2 focus:ring-black/30"
             >
               {/* Eye icon */}
-              <svg
+              {/* <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
                 height="18"
@@ -131,11 +131,9 @@ export default function TeamSection() {
               >
                 <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" />
                 <circle cx="12" cy="12" r="3" />
-              </svg>
-            </button>
-            <span className="text-xs font-bold tracking-wider text-black">
-              SHOW FACT
-            </span>
+              </svg> */}
+            {/* </button> */} 
+           
           </div>
                  
 

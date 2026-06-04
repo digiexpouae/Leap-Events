@@ -286,7 +286,7 @@ h6 ,p,span{
 
 
 .marquee {
-  animation: tbl-marquee 20s linear infinite;
+  animation: tbl-marquee 25s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   /* ← prevents flicker on loop */

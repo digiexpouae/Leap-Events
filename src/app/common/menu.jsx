@@ -6,6 +6,8 @@ const navs = [
   { num: '02', name: 'ABOUT',    link: '/about'    },
   { num: '03', name: 'SERVICES', link: '/services' },
   { num: '04', name: 'WORK',     link: '/ourwork'  },
+  { num: '05', name: 'CONTACT',     link: '/contact'  },
+
 ]
 
 export default function DiagonalMenu() {
@@ -61,7 +63,7 @@ export default function DiagonalMenu() {
 
         {/* Content fades in after shape lands */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 h-full"
           style={{
             opacity: open ? 1 : 0,
             pointerEvents: open ? 'auto' : 'none',
@@ -72,7 +74,7 @@ export default function DiagonalMenu() {
           }}
         >
           {/* Logo — top left */}
-          <div className="absolute left-10 top-12">
+          <div className="absolute left-10 top-12 ">
             {/* Replace with your logo */}
           </div>
 
@@ -89,7 +91,7 @@ export default function DiagonalMenu() {
           </button>
 
           {/* Nav — bottom right */}
-          <nav className="absolute top-1/2 md:bottom-14 right-10 text-right">
+          <nav className="absolute  flex flex-col h-full items-center justify-center  md:translate-y-1/6  right-5 lg:right-10 text-right">
             {navs.map(({ num, name, link }) => (
               <a
                 key={name}

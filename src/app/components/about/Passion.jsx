@@ -12,7 +12,7 @@ const STATS = [
 
  
   {
-    number: "200",
+    number: "75",
     suffix: "+",
     label: "Clients\nServed",
     description:
@@ -29,7 +29,7 @@ const STATS = [
       "/assets/home/4.png",
   },
   {
-    number: "21",
+    number: "12",
     suffix: "",
     label: "Years of\nCraft",
     description:

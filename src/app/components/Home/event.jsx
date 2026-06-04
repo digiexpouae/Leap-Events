@@ -64,7 +64,6 @@ export default function CorporateEvents() {
     },
     { title: "Mall Decor & Activation", image: "/assets/MallDecor&Activation.jpg" },
     // { title: "Wedding", image: "/assets/home/wedding.jpg" },
-    { title: "Digital Print & Branding", image: "/assets/Digital_Print_&Branding.jpg" },
     { title: 'Exhibition', image: "/assets/Exhibition.jpg" },
 
     { title: 'Entertainment', image: "/assets/en.jpg" }
@@ -160,9 +159,7 @@ function EventCard({
                 transition={{ duration: 1 }}
             >
 
-                {/* ── IMAGE PLACEHOLDER ──
-          Replace this block with your Next.js Image: */}
-
+      
                 <Image
                     src={image}
                     alt={title}

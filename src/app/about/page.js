@@ -16,6 +16,7 @@ import OurTeam from '../components/about/OurTeam'
 import FadeUp from '../common/Transition'
 import ProgressSlider from '../components/about/progressSlider'
 import AwardMobile from '../components/about/awardsMobile'
+import Link from 'next/link'
 const about = () => {
     return (
         <div>
@@ -47,11 +48,11 @@ const about = () => {
                        px-6 py-3 md:px-8 md:py-3.5 font-medium
                        shadow-[0_10px_30px_-10px_rgba(108,140,255,0.7)]
                        hover:bg-[#5a7bff] transition-colors"
-          >
-            Get to know us
+         
+         >
+         <Link href={"/contact"}> Get to know us</Link>   
           </button>
         </div>
-
             </div>
           {/* <Team />/ */}
        

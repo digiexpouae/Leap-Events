@@ -3,16 +3,45 @@ import Image from "next/image"
 import { useState, useCallback } from "react"
 
 const AWARDS = [
-  { src: "/assets/about/aw-1.png", alt: "Excellence Award 2019" },
-  { src: "/assets/about/aw-2.png", alt: "International Recognition Plaque" },
-  { src: "/assets/about/aw-3.png", alt: "Al Annah Diran 2019 Award" },
-  { src: "/assets/about/aw-4.png", alt: "Global Achievement Trophy" },
-  { src: "/assets/about/aw-5.png", alt: "Film Festival Reel Award" },
-  { src: "/assets/about/aw-6.png", alt: "Crystal Drop Award" },
-  { src: "/assets/about/aw-7.png", alt: "Dubai Civil Defense Recognition" },
-  { src: "/assets/about/aw-8.png", alt: "Certificate of Appreciation" },
+  {
+    src: "/assets/aw-1.webp"
+,
+    alt: "Excellence Award 2019",
+  },
+  {
+   src: "/assets/aw-2.webp",
+    alt: "International Recognition Plaque",
+  },
+  {
+     src: "/assets/aw-3.webp",
+    alt: "Al Annah Diran 2019 Award",
+  },
+  {
+    src: "/assets/aw-4.webp",
+    alt: "Global Achievement Trophy",
+  },
+  {
+ src: "/assets/aw-5.webp",    alt: "Film Festival Reel Award",
+  },
+  {
+ src: "/assets/aw-6.webp",    alt: "Crystal Drop Award",
+  },
+  {
+ src: "/assets/aw-7.webp",    alt: "Dubai Civil Defense Recognition",
+  },
+  {
+ src: "/assets/aw-8.webp",    alt: "Certificate of Appreciation",
+  },
+   {
+ src: "/assets/aw-9.webp",    alt: "aw-9",
+  },
+   {
+ src: "/assets/aw-10.webp",   alt: "aw-10",
+  },
+   {
+ src: "/assets/aw-11.webp",   alt: "aw-11",
+  },
 ]
-
 export default function Awards() {
   const [index, setIndex] = useState(0)
 
@@ -20,9 +49,9 @@ export default function Awards() {
   const next = useCallback(() => setIndex((i) => Math.min(i + 1, AWARDS.length - 1)), [])
 
   return (
-    <section className="bg-[#001028] px-4 py-12 md:hidden block">
+    <section className=" px-4 py-12 md:hidden block">
       <div className="mx-auto  max-w-[260px]">
-        <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-white">
+        <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-black">
           AWARDS
         </h2>
 
@@ -59,9 +88,9 @@ export default function Awards() {
             onClick={prev}
             disabled={index === 0}
             aria-label="Previous award"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-200 hover:border-white/60 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/30 text-white transition-all duration-200 hover:border-white/60 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
           >
-            <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" color="black">
               <path d="M11 4L6 9l5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>
@@ -69,9 +98,9 @@ export default function Awards() {
             onClick={next}
             disabled={index >= AWARDS.length - 1}
             aria-label="Next award"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white transition-all duration-200 hover:border-white/60 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-black/30 text-white transition-all duration-200 hover:border-white/60 hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-30"
           >
-            <svg width="16" height="16" viewBox="0 0 18 18" fill="none">
+            <svg width="16" height="16" viewBox="0 0 18 18" fill="none" color="black">
               <path d="M7 4l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </button>

@@ -68,6 +68,9 @@ export default function CorporateEvents() {
 
     { title: 'Entertainment', image: "/assets/en.jpg" }
         ,
+
+          { title: 'Venue & Management', image: "/assets/ev-8.webp" },
+    {title:"Marketing & Sponsorship",image:"/assets/ev-9.png"}
     ]
     return (
 
@@ -139,8 +142,8 @@ function EventCard({
 
             {/* ── Title ── */}
             <motion.h3
-                className="relative z-10 font-bold uppercase text-white leading-tight shrink-0 text-[clamp(1.1rem,4vw,2rem)]"
-                style={{ letterSpacing: "0.03em", maxWidth: "200px" }}
+                className="relative z-10 font-bold max-w-[290px] uppercase text-white leading-tight shrink-0 text-[clamp(1.1rem,4vw,2rem)]"
+                style={{ letterSpacing: "0.03em",}}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

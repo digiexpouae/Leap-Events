@@ -43,13 +43,13 @@ const AWARDS = [
 
 export default function Awards() {
   return (
-    <section className=" px-4 py-16 md:py-24 md:block hidden">
+    <section className=" px-4 py-16 md:py-24  hidden   md:block">
       <div className="mx-auto max-w-5xl">
         <h2 className="mb-12 text-center text-4xl  font-bold tracking-tight text-slate-900 md:mb-16 md:text-5xl">
           AWARDS
         </h2>
 <div className="flex flex-col md:gap-6 justify-center">
-        <ul className="grid grid-cols-2 gap-4 lg:grid-cols-4 md:gap-6">
+        <ul className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           {AWARDS.slice(0,8).map((award) => (
             <li
               key={award.alt}
@@ -67,7 +67,7 @@ export default function Awards() {
           ))}
         </ul>
         <div className="w-full flex items-center justify-center">
-          <ul className="grid grid-cols-2 grid lg:grid-cols-3  md:gap-6  w-full lg:w-[75%] items-center justify-center">
+          <ul className="grid grid-cols-2 grid md:grid-cols-3  md:gap-6  w-full lg:w-[75%] items-center justify-center">
           {AWARDS.slice(8,11).map((award) => (
             <li
               key={award.alt}

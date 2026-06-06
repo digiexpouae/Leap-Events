@@ -17,6 +17,7 @@ import FadeUp from '../common/Transition'
 import ProgressSlider from '../components/about/progressSlider'
 import AwardMobile from '../components/about/awardsMobile'
 import Link from 'next/link'
+import Leader from '../components/about/leaderSection'
 const about = () => {
     return (
         <div>
@@ -25,7 +26,8 @@ const about = () => {
             {/* <Herosection heading={"Our Story"} text={<> Our vision extends beyond the immediate thrill <br /> of the event to leave
                 a lasting imprint that <br /> propels our clients into the future</>} /> */}
         <BuiltOnCraft /> 
-           <OurTeam />     
+       <FadeUp><Leader /></FadeUp> 
+           {/* <OurTeam />      */}
 <div className="bg-[#d6efff]  py-16 flex flex-col justify-between gap-10 hidden  md:block">
              {/* Heading */}
      <FadeUp>
@@ -54,6 +56,7 @@ const about = () => {
           </button>
         </div>
             </div>
+
           {/* <Team />/ */}
        
             {/* <SectionTwo /> */}
@@ -76,6 +79,7 @@ const about = () => {
                 </div>
                 <Event />
             </div> */}
+
        <FadeUp> <Awards /></FadeUp>
           <FadeUp> <AwardMobile /></FadeUp>
           <FadeUp>    <Form /></FadeUp>

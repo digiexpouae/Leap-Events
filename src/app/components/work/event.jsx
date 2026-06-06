@@ -5,14 +5,14 @@ import Image from "next/image";
 import { useState } from "react";
 
 const works = [
-  { title: "FERJAN FESTIVAL",                    image: "/assets/e-1.png", videoUrl: "/assets/leap.mp4"    },
-  { title: "souq ramadan",                       image: "/assets/e-2.png", videoUrl: "/assets/leap.mp4"   },
-  { title: "winter garden",                      image: "/assets/e-9.png", videoUrl: "/assets/leap.mp4"   },
+  { title: "FERJAN FESTIVAL",                    image: "/assets/e-1.png", videoUrl: "https://youtu.be/pLuB9L6Dstk"  },
+  { title: "souq ramadan",                       image: "/assets/e-2.png", videoUrl: "https://youtu.be/3uozDM8afj4" },
+  { title: "winter garden",                      image: "/assets/e-9.png",  videoUrl: "https://youtu.be/H1Wr7gjx-xs"   },
   { title: "souq al freej",                      image: "/assets/e-4.png", videoUrl: "/assets/leap.mp4"   },
-  { title: "SHARJAH INTERNATIONAL FILM FESTIVAL",image: "/assets/e-3.png", videoUrl: "/assets/leap.mp4"   },
-  { title: "university of dubai",                image: "/assets/e-5.png", videoUrl: "/assets/leap.mp4"   },
-  { title: "Gems Graduation Event",              image: "/assets/e-6.png", videoUrl: "/assets/leap.mp4"   },
-  { title: "du",                                 image: "/assets/e-7.png", videoUrl: "/assets/leap.mp4"   },
+  { title: "SHARJAH INTERNATIONAL FILM FESTIVAL",image: "/assets/e-3.png", videoUrl: "https://www.youtube.com/watch?v=SVv5c23FXSc"   },
+  { title: "university of dubai",                image: "/assets/e-5.png",  videoUrl: "https://youtu.be/mZoRYVv_gZQ"  },
+  { title: "Gems Graduation Event",              image: "/assets/e-6.png", videoUrl: "https://youtu.be/CmgtuBhJkoc"  },
+  { title: "du",                                 image: "/assets/e-7.png",  videoUrl: "https://youtu.be/nY2h7oHkpN0"   },
   { title: "summer rush",                        image: "/assets/e-8.png", videoUrl: "/assets/leap.mp4"  },
 ];
 
@@ -20,6 +20,10 @@ const PER_GROUP = 3;
 
 // ── Video Modal ───────────────────────────────────────────────────────────────
 function VideoModal({ work, onClose }) {
+    const getYouTubeId = (url) => {
+  const match = url.match(/(?:v=|youtu\.be\/)([^&?/]+)/);
+  return match ? match[1] : null;
+};
   return (
     <div
       onClick={onClose}
@@ -30,14 +34,29 @@ function VideoModal({ work, onClose }) {
         onClick={(e) => e.stopPropagation()}
         className="relative w-full max-w-3xl rounded-2xl overflow-hidden bg-black"
       >
-        <video
+        {/* <video
           src={work.videoUrl}
           controls
           autoPlay
           playsInline
           muted
           className="w-full block max-h-[80vh]"
-        />
+        /> */}
+
+
+        <iframe
+  width="100%"
+  height="480"
+  //  ref={videoRef}
+  src={`https://www.youtube.com/embed/${getYouTubeId(work.videoUrl)}?autoplay=1&mute=1&rel=0`}
+
+
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ display: "block", maxHeight: "80vh" }}
+/>
 
         {/* Title */}
         <p className="absolute bottom-0 left-0 right-0 px-6 py-4 text-white text-sm font-bold uppercase tracking-wider"

@@ -315,7 +315,7 @@ export default function ProjectSlider() {
       )}
 
       <section className="w-full bg-white py-18 px-4 sm:px-8 lg:px-16 overflow-hidden">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto ">
           <div className="flex lg:flex-row flex-col gap-12 items-start w-full">
 
             {/* Left header */}
@@ -347,7 +347,7 @@ export default function ProjectSlider() {
                       left:         0,
                       width:        isMobile ? "330px" : st.width,
                       height:       isMobile ? "230px" : st.height,
-                      transform:    isMobile? "translate(10%,0)": st.transform,
+                      transform:    st.transform,
                       opacity:      st.opacity,
                       zIndex:       st.zIndex,
                       transition:   "transform 480ms cubic-bezier(0.25, 0.46, 0.45, 0.94), width 480ms cubic-bezier(0.25, 0.46, 0.45, 0.94), height 480ms cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 350ms ease",

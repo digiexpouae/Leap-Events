@@ -4,21 +4,28 @@ import Image from "next/image";
 import { useState, useCallback, useEffect, useRef } from "react";
 
 const projects = [
-  { id: 1,  title: "FERJAN FESTIVAL",            mainImage: "/assets/ferjan-festival-logo.webp",       videoUrl: "/assets/leap.mp4" },
-  { id: 2,  title: "souq ramadan",               mainImage: "/assets/souq-ramadan-logo.webp",          videoUrl: "/assets/leap.mp4" },
-  { id: 3,  title: "university of dubai",        mainImage: "/assets/dubai-universtity-logo.webp",     videoUrl: "/assets/leap.mp4" },
-  { id: 4,  title: "winter garden",              mainImage: "/assets/winter-garden.webp",              videoUrl: "/assets/leap.mp4" },
-  { id: 5,  title: "international film festival",mainImage: "/assets/internationalfilmfestival.webp",  videoUrl: "/assets/leap.mp4" },
+  { id: 1,  title: "FERJAN FESTIVAL",            mainImage: "/assets/ferjan-festival-logo.webp",       videoUrl: "https://youtu.be/pLuB9L6Dstk" },
+  { id: 2,  title: "souq ramadan",               mainImage: "/assets/souq-ramadan-logo.webp",          videoUrl: "https://youtu.be/3uozDM8afj4" },
+  { id: 3,  title: "university of dubai",        mainImage: "/assets/dubai-universtity-logo.webp",     videoUrl: "https://youtu.be/mZoRYVv_gZQ" },
+  { id: 4,  title: "winter garden",              mainImage: "/assets/winter-garden.webp",              videoUrl: "https://youtu.be/H1Wr7gjx-xs" },
+  { id: 5,  title: "international film festival",mainImage: "/assets/internationalfilmfestival.webp",  videoUrl: "https://www.youtube.com/watch?v=SVv5c23FXSc" },
   { id: 6,  title: "souqal freej",               mainImage: "/assets/souqalfreej.webp",                videoUrl: "/assets/leap.mp4" },
   { id: 7,  title: "summer rush",                mainImage: "/assets/summerrush.webp",                 videoUrl: "/assets/leap.mp4" },
-  { id: 8,  title: "gems school",                mainImage: "/assets/gemsachool.webp",                 videoUrl: "/assets/leap.mp4" },
-  { id: 9,  title: "mastermind",                 mainImage: "/assets/master-mind-logo.webp",           videoUrl: "/assets/leap.mp4" },
-  { id: 10, title: "du",                         mainImage: "/assets/du.webp",                         videoUrl: "/assets/leap.mp4" },
+  { id: 8,  title: "gems school",                mainImage: "/assets/gemsachool.webp",                 videoUrl: "https://youtu.be/CmgtuBhJkoc" },
+  { id: 9,  title: "mastermind",                 mainImage: "/assets/master-mind-logo.webp",           videoUrl: "https://youtu.be/EGftWEEc_uE" },
+  { id: 10, title: "du",                         mainImage: "/assets/du.webp",                         videoUrl: "https://youtu.be/nY2h7oHkpN0" },
 ];
 
-const TOTAL          = projects.length;
-const AUTO_INTERVAL  = 3000;
-const DRAG_THRESHOLD = 50;
+const TOTAL         = projects.length;
+const AUTO_INTERVAL = 3000;
+
+// Velocity threshold (px/ms) to trigger a slide on quick flick
+const VELOCITY_THRESHOLD = 0.3;
+// Distance threshold (px) to trigger a slide on slow drag
+const DISTANCE_THRESHOLD = 60;
+
+// Custom play cursor (your SVG encoded)
+const PLAY_CURSOR = `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 130 130' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cmask id='mask0' style='mask-type:luminance' maskUnits='userSpaceOnUse' x='0' y='0' width='130' height='130'%3E%3Cpath d='M130 0H0V130H130V0Z' fill='white'/%3E%3C/mask%3E%3Cg mask='url(%23mask0)'%3E%3Cpath d='M64.8389 14.334C92.8214 14.3342 115.505 37.0186 115.505 65.001C115.505 92.9829 92.8213 115.667 64.8389 115.667C36.8567 115.667 14.172 92.983 14.1719 65.001C14.1719 37.0185 36.8565 14.334 64.8389 14.334Z' stroke='white' stroke-width='7'/%3E%3Cpath d='M81.0869 55.4141L65.3786 46.3684C61.4786 44.0934 56.7661 44.0934 52.8659 46.3684C48.9659 48.6434 46.6367 52.6517 46.6367 57.2016V75.3474C46.6367 79.8433 48.9659 83.9058 52.8659 86.1808C54.8161 87.3183 56.9828 87.8599 59.0953 87.8599C61.2619 87.8599 63.3744 87.3183 65.3244 86.1808L81.0328 77.1349C84.9328 74.8599 87.2619 70.8516 87.2619 66.3016C87.3703 61.7516 85.0411 57.6891 81.0869 55.4141Z' fill='%23FFFCFC'/%3E%3C/g%3E%3C/svg%3E") 20 20, pointer`;
 
 // ─── Video Modal ──────────────────────────────────────────────────────────────
 function VideoModal({ project, onClose }) {
@@ -30,8 +37,12 @@ function VideoModal({ project, onClose }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  useEffect(() => { videoRef.current?.play(); }, []);
+  // useEffect(() => { videoRef.current?.play(); }, []);
 
+  const getYouTubeId = (url) => {
+  const match = url.match(/(?:v=|youtu\.be\/)([^&?/]+)/);
+  return match ? match[1] : null;
+};
   return (
     <div
       onClick={onClose}
@@ -53,13 +64,26 @@ function VideoModal({ project, onClose }) {
           animation: "scaleIn 250ms cubic-bezier(0.34,1.56,0.64,1)",
         }}
       >
-        <video
+        {/* <video
           ref={videoRef}
           src={project.videoUrl}
           controls autoPlay playsInline muted
           style={{ width: "100%", display: "block", maxHeight: "80vh" }}
-        />
+        /> */}
 
+        <iframe
+  width="100%"
+  height="480"
+   ref={videoRef}
+  src={`https://www.youtube.com/embed/${getYouTubeId(project.videoUrl)}?autoplay=1&mute=1&rel=0`}
+
+
+  title="YouTube video player"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+  style={{ display: "block", maxHeight: "80vh" }}
+/>
         <div style={{
           position: "absolute", bottom: 0, left: 0, right: 0,
           padding: "32px 28px 20px",
@@ -70,7 +94,6 @@ function VideoModal({ project, onClose }) {
             {project.title}
           </p>
         </div>
-
         <button
           onClick={onClose}
           aria-label="Close video"
@@ -84,14 +107,11 @@ function VideoModal({ project, onClose }) {
           }}
           onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.2)")}
           onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(0,0,0,0.5)")}
-        >
-          ✕
-        </button>
+        >✕</button>
       </div>
-
       <style>{`
-        @keyframes fadeIn  { from { opacity: 0 } to { opacity: 1 } }
-        @keyframes scaleIn { from { transform: scale(0.92); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+        @keyframes fadeIn  { from { opacity:0 } to { opacity:1 } }
+        @keyframes scaleIn { from { transform:scale(0.92);opacity:0 } to { transform:scale(1);opacity:1 } }
       `}</style>
     </div>
   );
@@ -123,14 +143,19 @@ export default function ProjectSlider() {
   const [current, setCurrent]         = useState(0);
   const [activeVideo, setActiveVideo] = useState(null);
   const [isMobile, setIsMobile]       = useState(false);
+  const [isDragging, setIsDragging]   = useState(false);
 
   const autoTimer    = useRef(null);
   const currentRef   = useRef(0);
   const animatingRef = useRef(false);
 
-  // Per-card drag state — lives in refs, no re-renders
-  const dragStartX = useRef(null);
-  const dragMoved  = useRef(false);
+  // Drag tracking
+  const dragStartX   = useRef(null);
+  const dragStartT   = useRef(null);   // timestamp for velocity
+  const dragLastX    = useRef(null);   // last position for velocity
+  const dragLastT    = useRef(null);
+  const dragMoved    = useRef(false);
+  const dragFired    = useRef(false);  // slide already fired this drag
 
   useEffect(() => {
     if (window.innerWidth < 768) setIsMobile(true);
@@ -141,7 +166,7 @@ export default function ProjectSlider() {
     animatingRef.current = true;
     setCurrent(nextIndex);
     currentRef.current = nextIndex;
-    setTimeout(() => { animatingRef.current = false; }, 600);
+    setTimeout(() => { animatingRef.current = false; }, 500);
   }, []);
 
   const goNext = useCallback(() => goTo((currentRef.current + 1) % TOTAL), [goTo]);
@@ -165,61 +190,117 @@ export default function ProjectSlider() {
     else resetAutoTimer();
   }, [activeVideo]); // eslint-disable-line
 
-  // ── Drag handlers — attached directly to each card ─────────────────────────
-  // Mouse
-  const onMouseDown = (e) => {
-    dragStartX.current = e.clientX;
-    dragMoved.current  = false;
-    // Capture mouse globally so drag works even when leaving the card
-    window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("mouseup",   onMouseUp);
-  };
-
+  // ── Mouse drag ──────────────────────────────────────────────────────────────
   const onMouseMove = useCallback((e) => {
     if (dragStartX.current === null) return;
-    if (Math.abs(e.clientX - dragStartX.current) > DRAG_THRESHOLD) {
-      dragMoved.current = true;
+
+    const now  = performance.now();
+    const x    = e.clientX;
+    const diff = dragStartX.current - x;
+
+    // Track velocity with last two points
+    dragLastX.current = x;
+    dragLastT.current = now;
+
+    if (Math.abs(diff) > 8) dragMoved.current = true;
+
+    // Fire immediately on velocity flick — no waiting for mouseup
+    if (!dragFired.current) {
+      const dt = now - dragStartT.current;
+      const velocity = dt > 0 ? Math.abs(diff) / dt : 0; // px/ms
+
+      const quickFlick = velocity > VELOCITY_THRESHOLD && Math.abs(diff) > 20;
+      const slowDrag   = Math.abs(diff) >= DISTANCE_THRESHOLD;
+
+      if (quickFlick || slowDrag) {
+        dragFired.current = true;
+        if (diff > 0) { goNext(); } else { goPrev(); }
+        resetAutoTimer();
+      }
     }
-  }, []);
+  }, [goNext, goPrev, resetAutoTimer]);
 
   const onMouseUp = useCallback((e) => {
-    window.removeEventListener("mousemove", onMouseMove);
-    window.removeEventListener("mouseup",   onMouseUp);
-    if (dragStartX.current === null) return;
-    const diff = dragStartX.current - e.clientX;
-    if (Math.abs(diff) >= DRAG_THRESHOLD) {
-      if (diff > 0) goNext(); else goPrev();
-      resetAutoTimer();
+    document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener("mouseup",   onMouseUp);
+    document.body.style.cursor = "";
+    setIsDragging(false);
+
+    // If no slide fired yet, do a final check on total distance
+    if (!dragFired.current && dragStartX.current !== null) {
+      const diff = dragStartX.current - e.clientX;
+      if (Math.abs(diff) >= 30) {
+        if (diff > 0) goNext(); else goPrev();
+        resetAutoTimer();
+      }
     }
+
     dragStartX.current = null;
-    // Keep dragMoved true briefly so onClick doesn't fire
+    dragFired.current  = false;
     setTimeout(() => { dragMoved.current = false; }, 0);
   }, [goNext, goPrev, resetAutoTimer, onMouseMove]);
 
-  // Touch
-  const onTouchStart = (e) => {
-    dragStartX.current = e.touches[0].clientX;
+  const onMouseDown = useCallback((e) => {
+    dragStartX.current = e.clientX;
+    dragStartT.current = performance.now();
+    dragLastX.current  = e.clientX;
+    dragLastT.current  = performance.now();
     dragMoved.current  = false;
+    dragFired.current  = false;
+
+    document.body.style.cursor = "grabbing";
+    setIsDragging(true);
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup",   onMouseUp);
+  }, [onMouseMove, onMouseUp]);
+
+  // ── Touch ───────────────────────────────────────────────────────────────────
+  const touchStartX = useRef(null);
+  const touchStartT = useRef(null);
+  const touchFired  = useRef(false);
+
+  const onTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartT.current = performance.now();
+    touchFired.current  = false;
+    dragMoved.current   = false;
   };
 
   const onTouchMove = (e) => {
-    if (dragStartX.current === null) return;
-    if (Math.abs(e.touches[0].clientX - dragStartX.current) > DRAG_THRESHOLD) {
-      dragMoved.current = true;
+    if (touchStartX.current === null || touchFired.current) return;
+    const now  = performance.now();
+    const x    = e.touches[0].clientX;
+    const diff = touchStartX.current - x;
+    const dt   = now - touchStartT.current;
+    const velocity = dt > 0 ? Math.abs(diff) / dt : 0;
+
+    if (Math.abs(diff) > 8) dragMoved.current = true;
+
+    const quickFlick = velocity > VELOCITY_THRESHOLD && Math.abs(diff) > 20;
+    const slowDrag   = Math.abs(diff) >= DISTANCE_THRESHOLD;
+
+    if (quickFlick || slowDrag) {
+      touchFired.current = true;
+      if (diff > 0) goNext(); else goPrev();
+      resetAutoTimer();
     }
   };
 
   const onTouchEnd = (e) => {
-    if (dragStartX.current === null) return;
-    const diff = dragStartX.current - e.changedTouches[0].clientX;
-    if (Math.abs(diff) >= DRAG_THRESHOLD) {
-      if (diff > 0) goNext(); else goPrev();
-      resetAutoTimer();
+    if (!touchFired.current && touchStartX.current !== null) {
+      const diff = touchStartX.current - e.changedTouches[0].clientX;
+      if (Math.abs(diff) >= 30) {
+        if (diff > 0) goNext(); else goPrev();
+        resetAutoTimer();
+      }
     }
-    dragStartX.current = null;
+    touchStartX.current = null;
+    touchFired.current  = false;
     setTimeout(() => { dragMoved.current = false; }, 0);
   };
 
+  // ── Click ───────────────────────────────────────────────────────────────────
   const handleCardClick = (ele, offset) => {
     if (dragMoved.current) return;
     if (offset === 0)  setActiveVideo(ele);
@@ -255,7 +336,7 @@ export default function ProjectSlider() {
                 return (
                   <div
                     key={ele.id}
-                    onMouseDown={onMouseDown}
+                    onMouseDown={isActive ? onMouseDown : undefined}
                     onTouchStart={onTouchStart}
                     onTouchMove={onTouchMove}
                     onTouchEnd={onTouchEnd}
@@ -266,14 +347,16 @@ export default function ProjectSlider() {
                       left:         0,
                       width:        isMobile ? "330px" : st.width,
                       height:       isMobile ? "230px" : st.height,
-                      transform:    st.transform,
+                      transform:    isMobile? "translate(10%,0)": st.transform,
                       opacity:      st.opacity,
                       zIndex:       st.zIndex,
-                      transition:   "all 500ms cubic-bezier(0.4, 0, 0.2, 1)",
+                      transition:   "transform 480ms cubic-bezier(0.25, 0.46, 0.45, 0.94), width 480ms cubic-bezier(0.25, 0.46, 0.45, 0.94), height 480ms cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 350ms ease",
                       borderRadius: "34px",
                       overflow:     "hidden",
                       userSelect:   "none",
-                      cursor:       isActive ? "grab" : isNext ? "pointer" : "default",
+                      cursor:       isActive
+                        ? (isDragging ? "grabbing" : PLAY_CURSOR)
+                        : isNext ? "pointer" : "default",
                     }}
                   >
                     <div className="w-full h-full relative">
@@ -288,7 +371,7 @@ export default function ProjectSlider() {
                       <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-50"}`} />
                     </div>
 
-                    {/* Next hint arrow on preview card */}
+                    {/* Next hint */}
                     {isNext && (
                       <div style={{
                         position: "absolute", inset: 0,
@@ -296,8 +379,7 @@ export default function ProjectSlider() {
                         alignItems: "center", justifyContent: "center",
                         gap: "6px", pointerEvents: "none",
                       }}>
-                        <svg
-                          width="32" height="32" viewBox="0 0 24 24"
+                        <svg width="32" height="32" viewBox="0 0 24 24"
                           fill="none" stroke="white" strokeWidth="2"
                           strokeLinecap="round" strokeLinejoin="round"
                           style={{ animation: "nudge 1.2s ease-in-out infinite" }}
@@ -307,9 +389,7 @@ export default function ProjectSlider() {
                         <span style={{
                           color: "white", fontSize: "10px", fontWeight: 600,
                           letterSpacing: "0.12em", textTransform: "uppercase", opacity: 0.9,
-                        }}>
-                          next
-                        </span>
+                        }}>next</span>
                       </div>
                     )}
 
@@ -318,7 +398,7 @@ export default function ProjectSlider() {
                       {index + 1}/{TOTAL}
                     </div>
 
-                    {/* Title — active only */}
+                    {/* Title */}
                     {isActive && (
                       <div className="absolute bottom-8 left-8 right-8 text-white">
                         <h2 className={`text-[20px] md:text-[26px] ${ele.id === 10 ? "lowercase" : "uppercase"} leading-tight font-medium max-w-[520px]`}>
@@ -336,8 +416,8 @@ export default function ProjectSlider() {
 
       <style>{`
         @keyframes nudge {
-          0%, 100% { transform: translateX(0px);  }
-          50%       { transform: translateX(7px);  }
+          0%, 100% { transform: translateX(0px); }
+          50%       { transform: translateX(7px); }
         }
       `}</style>
     </>

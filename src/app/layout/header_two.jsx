@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import DiagonalMenu from '../common/menu'
 import Image from 'next/image'
-import TranslateButtons from '../components/Translate'
+// import TranslateButtons from '../components/Translate'
 export default function Header() {
 
 
@@ -41,12 +41,13 @@ export default function Header() {
 
 
 
-      <div className='absolute right-10 inset-y-0'>
+      {/* <div className='absolute right-10 inset-y-0'>
                 <div id="google_translate_element" style={{ display: 'none' }}></div>
                 <TranslateButtons />
 
+      </div> */}
       </div>
-      </div>
+
 
 
       {/* ── RIGHT: lang + CTA ───────────────────────────────────── */}

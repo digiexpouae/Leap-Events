@@ -170,7 +170,7 @@ const handleFirstModalSubmit = async (e) => {
       {/* First Modal */}
       {isFirstModalOpen && (
         <div className="modal-overlay">
-          <div className="modal-content">
+          <div className="modal-content mx-4">
             <button className="close-button" onClick={() => {
               cleanupConversation();
               setIsFirstModalOpen(false);

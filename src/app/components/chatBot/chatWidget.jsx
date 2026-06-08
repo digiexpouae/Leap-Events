@@ -224,7 +224,7 @@ className="w-full h-auto"
                     value={formData.phone}
                     onChange={handleInputChange}
                     required
-                    className="flex-1 bg-[#FFFFFF33] border border-[rgba(255,255,255,0.1)] rounded-lg px-2 py-2 text-white placeholder-[rgba(255,255,255,0.6)] focus:outline-none focus:ring-2 focus:ring-[#4a90e2] focus:border-transparent"
+                    className="flex-1 bg-[#FFFFFF33] border border-[rgba(255,255,255,0.1)] w-2/3 rounded-lg px-2 py-2 text-white placeholder-[rgba(255,255,255,0.6)] focus:outline-none focus:ring-2 focus:ring-[#4a90e2] focus:border-transparent"
                   />
                 </div>
               </div>

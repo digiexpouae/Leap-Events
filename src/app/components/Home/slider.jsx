@@ -9,7 +9,7 @@ const projects = [
   { id: 3,  title: "university of dubai",        mainImage: "/assets/dubai-universtity-logo.webp",     videoUrl: "https://youtu.be/mZoRYVv_gZQ" },
   { id: 4,  title: "winter garden",              mainImage: "/assets/winter-garden.webp",              videoUrl: "https://youtu.be/H1Wr7gjx-xs" },
   { id: 5,  title: "international film festival",mainImage: "/assets/internationalfilmfestival.webp",  videoUrl: "https://www.youtube.com/watch?v=SVv5c23FXSc" },
-  { id: 6,  title: "souqal freej",               mainImage: "/assets/souqalfreej.webp",                videoUrl: "/assets/leap.mp4" },
+  { id: 6,  title: "souq al fareej",               mainImage: "/assets/souqalfreej.webp",                videoUrl: "/assets/leap.mp4" },
   { id: 7,  title: "summer rush",                mainImage: "/assets/summerrush.webp",                 videoUrl: "/assets/leap.mp4" },
   { id: 8,  title: "gems school",                mainImage: "/assets/gemsachool.webp",                 videoUrl: "https://youtu.be/CmgtuBhJkoc" },
   { id: 9,  title: "mastermind",                 mainImage: "/assets/master-mind-logo.webp",           videoUrl: "https://youtu.be/EGftWEEc_uE" },

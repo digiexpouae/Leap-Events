@@ -164,7 +164,7 @@ export default function SustainableEventsSection() {
                                         />
                                     </div>
                                     <div>
-                                        <span className="font-black text-[var(--color-heading)] uppercase text-sm md:text-2xl tracking-tighter leading-snug mb-2 block">
+                                        <span className="font-black text-(--color-heading) uppercase text-sm md:text-2xl tracking-tighter leading-snug mb-2 block">
                                             {title}
                                         </span>
                                         <p className="text-sm tracking-tighter">{description}</p>
@@ -225,7 +225,7 @@ export default function SustainableEventsSection() {
                                         />
                                     </div>
                                     <div className="flex flex-col text-center max-w-[280px]">
-                                        <span className="font-black text-[var(--color-heading)] uppercase text-xl tracking-tighter leading-snug mb-2 block">
+                                        <span className="font-black text-(--color-heading) uppercase text-xl tracking-tighter leading-snug mb-2 block">
                                             {title}
                                         </span>
                                         <p className="text-lg tracking-tighter">{description}</p>

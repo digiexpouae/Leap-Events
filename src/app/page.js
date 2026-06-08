@@ -28,7 +28,7 @@ export default function Home() {
         {/* <div class="bowtie"></div> */}
 
         {/* <Animate /> */}
-      
+
         <ObjectAnimation />
         {/* </div>   */}
           <FadeUp>  <About /></FadeUp> 
@@ -39,6 +39,8 @@ export default function Home() {
 
     <FadeUp>   <Slider /></FadeUp> 
      <FadeUp>  <Marquee /></FadeUp> 
+           <div className="elfsight-app-574ead0b-1073-4e2a-a741-8944560a1b8b" data-elfsight-app-lazy></div>
+
 
           <FadeUp>  <VoicesOfLegacy />     </FadeUp> 
          <FadeUp>   <FAQ />     </ FadeUp> 

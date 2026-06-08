@@ -9,6 +9,10 @@
 
 }
 
+body{
+  top: 0 !important;
+  position: static !important;
+}
 /* GRIFTER */
 /* @font-face {
   font-family: "GRIFTER";
@@ -286,7 +290,7 @@ h6 ,p,span{
 
 
 .marquee {
-  animation: tbl-marquee 25s linear infinite;
+  animation: tbl-marquee 35s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   /* ← prevents flicker on loop */
@@ -338,4 +342,204 @@ canvas {
   display: block;
   aspect-ratio: 16/9;
   /* Removes unwanted baseline scrollbar spacing */
+}
+/* Hide Google Translate toolbar at top of page */
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-te-balloon-frame,
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+}
+
+
+
+/* Hide the translate widget itself */
+.goog-te-gadget {
+  display: none !important;
+}
+
+/* Remove Google skiptranslate banner */
+.skiptranslate {
+  display: none !important;
+}
+
+
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+
+.modal-logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1rem;
+}
+
+/* Chat Widget Floating Button */
+.chat-widget {
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  /* background: #0E1527; */
+  color: #ffffff;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  border: none;
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */
+  backdrop-filter: blur(0);
+  -webkit-backdrop-filter: blur(0);
+  border-radius: 50px;
+}
+
+@media (max-width:786px) {
+  .chat-widget {
+    right: 20px;
+    bottom: 0px
+  }
+}
+
+.chat-widget:hover {
+  /* transform: translateY(-3px); */
+  /* backdrop-filter: blur(8px); */
+  /* background: rgba(255, 255, 255, 0.1); */
+}
+
+.chat-widget-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.3s ease;
+  background: transparent;
+  padding: 0;
+  border: none;
+  margin: 0 auto;
+}
+
+.chat-widget:hover .chat-widget-icon {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.chat-widget-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: none;
+  border-radius: 50%;
+}
+
+.chat-widget-image {
+  display: none;
+  /* Hide the duplicate image by default */
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(14, 21, 39, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+.modal-content {
+  /* background: rgba(255, 255, 255, 0.406); */
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-logo {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  /* border: 4px solid #2c5282; */
+}
+
+
+
+.modal-content h2 {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  transform: rotate(90deg);
 }

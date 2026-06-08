@@ -8,7 +8,7 @@ const works = [
   { title: "FERJAN FESTIVAL",                    image: "/assets/e-1.png", videoUrl: "https://youtu.be/pLuB9L6Dstk"  },
   { title: "souq ramadan",                       image: "/assets/e-2.png", videoUrl: "https://youtu.be/3uozDM8afj4" },
   { title: "winter garden",                      image: "/assets/e-9.png",  videoUrl: "https://youtu.be/H1Wr7gjx-xs"   },
-  { title: "souq al freej",                      image: "/assets/e-4.png", videoUrl: "/assets/leap.mp4"   },
+  { title: "souq al fareej",                      image: "/assets/e-4.png", videoUrl: "/assets/leap.mp4"   },
   { title: "SHARJAH INTERNATIONAL FILM FESTIVAL",image: "/assets/e-3.png", videoUrl: "https://www.youtube.com/watch?v=SVv5c23FXSc"   },
   { title: "university of dubai",                image: "/assets/e-5.png",  videoUrl: "https://youtu.be/mZoRYVv_gZQ"  },
   { title: "Gems Graduation Event",              image: "/assets/e-6.png", videoUrl: "https://youtu.be/CmgtuBhJkoc"  },

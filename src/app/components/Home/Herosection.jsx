@@ -71,7 +71,7 @@ export default function HeroSection() {
                         className=" leading-[1.2] tracking-tight uppercase text-[clamp(1.6rem,4vw,2.5rem)] font-semibold mb-3 "
 
                     >
-                        <span className="text-[var(--color-primary)]"> Crafting Legacies</span>
+                        <span className="text-(--color-primary)"> Crafting Legacies</span>
                         <br />
                         <span>Through</span>
 

@@ -2,7 +2,10 @@
 import Link from 'next/link'
 import DiagonalMenu from '../common/menu'
 import Image from 'next/image'
+import TranslateButtons from '../components/Translate'
 export default function Header() {
+
+
   return (
     <>  
     <div className='fixed -top-px -left-px z-[999999] flex'>
@@ -34,7 +37,17 @@ export default function Header() {
       className=' translate-y-[4px] md:translate-y-[10px]'
       />
       </Link>
+
+
+
+
+      <div className='absolute right-10 inset-y-0'>
+                <div id="google_translate_element" style={{ display: 'none' }}></div>
+                <TranslateButtons />
+
       </div>
+      </div>
+
 
       {/* ── RIGHT: lang + CTA ───────────────────────────────────── */}
 

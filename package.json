@@ -2,7 +2,6 @@
   "name": "leap_events",
   "version": "0.1.0",
   "private": true,
-  
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,13 +9,16 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@elevenlabs/react": "^1.6.4",
     "@gsap/react": "^2.1.2",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
     "@studio-freight/lenis": "^1.0.42",
+    "elevenlabs": "^1.59.0",
     "framer-motion": "^12.38.0",
     "gsap": "^3.14.2",
     "lenis": "^1.3.18",
+    "lucide-react": "^1.17.0",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",

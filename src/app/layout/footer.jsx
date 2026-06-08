@@ -94,7 +94,7 @@ export default function Footer() {
                                 />
                                 <button
                                     onClick={handleSubmit}
-                                    className="px-5 py-3 text-sm font-semibold bg-white text-[var(--color-primary)] shrink-0 transition-all duration-200 hover:brightness-110"
+                                    className="px-5 py-3 text-sm font-semibold bg-white text-(--color-primary) shrink-0 transition-all duration-200 hover:brightness-110"
                                 >
                                     Submit
                                 </button>

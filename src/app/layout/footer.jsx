@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from 'framer-motion'
 const quickLinks = [
-    { label: "Home", href: "/" },
+   { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "What We Do", href: "/about" },
     { label: "Our work", href: "/ourwork" },

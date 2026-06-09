@@ -39,7 +39,7 @@ export default function Home() {
 
     <FadeUp>   <Slider /></FadeUp> 
      <FadeUp>  <Marquee /></FadeUp> 
-           <div className="elfsight-app-574ead0b-1073-4e2a-a741-8944560a1b8b" data-elfsight-app-lazy></div>
+           {/* <div className="elfsight-app-574ead0b-1073-4e2a-a741-8944560a1b8b" data-elfsight-app-lazy></div> */}
 
 
           <FadeUp>  <VoicesOfLegacy />     </FadeUp> 

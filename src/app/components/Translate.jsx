@@ -1,5 +1,5 @@
 'use client'
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 export default function TranslateButtons() {
   const originalTextsRef = useRef(null);
@@ -47,15 +47,15 @@ export default function TranslateButtons() {
   }
 
   // ✅ Tag every element with a stable ID on first run
-  function tagElements(elements) {
-    elements.forEach((el, i) => {
-      if (!el.dataset.translateId) {
-        el.dataset.translateId = i; // ← permanent marker on the DOM node
-      }
-          console.log(`tagged: [${i}]`, el.dataset.translateId, el.innerText.slice(0, 20));
+let idCounter = 0; // put this at module scope, outside the component
 
-    });
-  }
+function tagElements(elements) {
+  elements.forEach((el) => {
+    if (!el.dataset.translateId) {
+      el.dataset.translateId = `t${idCounter++}`;
+    }
+  });
+}
 
   function applyTranslations(translations, indexMap, lang) {
     indexMap.forEach(({ translateId, transIndex }) => {
@@ -100,7 +100,7 @@ export default function TranslateButtons() {
 
   async function translatePage(targetLang = 'ar') {
     await new Promise(resolve => setTimeout(resolve, 300));
-
+// took the elements
     const elements = getLeafElements();
 
     // ✅ Tag elements with stable IDs
@@ -180,11 +180,11 @@ export default function TranslateButtons() {
   }
 
   return (
-    <div className="bg-red-500 flex gap-4">
-      <button onClick={() => translatePage('ar')} className="cursor-pointer">
-        🌐 العربية
+    <div className=" flex flex-col  py-4 md:py-0 ">
+      <button onClick={() => translatePage('ar')} className="cursor-pointer md:text-(--color-primary) font-semibold">
+        Arabic
       </button>
-      <button onClick={() => translatePage('en')} className="cursor-pointer">
+      <button onClick={() => translatePage('en')} className="cursor-pointer md:text-(--color-primary)  font-semibold">
         English
       </button>
     </div>

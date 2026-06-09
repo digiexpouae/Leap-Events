@@ -295,6 +295,8 @@ h6 ,p,span{
   backface-visibility: hidden;
   /* ← prevents flicker on loop */
   -webkit-backface-visibility: hidden;
+  
+
 }
 
 

@@ -1,228 +1,257 @@
 {
-  "hash": "062c9e994ce77fbcbba7b755829b6db1a4bacdc424e1bfe5191a982f6a7ac61b",
+  "hash": "d3278c2c60ed8d220ac5409a9d8c952ab39eb82d6fa53fe419a292ff90b9328a",
   "page": "index",
   "lang": "ar",
-  "savedAt": "2026-06-09T09:36:25.857Z",
+  "savedAt": "2026-06-09T14:51:06.659Z",
   "indexMap": [
     {
-      "translateId": "0",
+      "translateId": "t0",
       "transIndex": 0
     },
     {
-      "translateId": "2",
+      "translateId": "t1",
       "transIndex": 1
     },
     {
-      "translateId": "3",
+      "translateId": "t2",
       "transIndex": 2
     },
     {
-      "translateId": "4",
+      "translateId": "t3",
       "transIndex": 3
     },
     {
-      "translateId": "5",
+      "translateId": "t4",
       "transIndex": 4
     },
     {
-      "translateId": "6",
+      "translateId": "t5",
       "transIndex": 5
     },
     {
-      "translateId": "7",
+      "translateId": "t6",
       "transIndex": 6
     },
     {
-      "translateId": "8",
+      "translateId": "t7",
       "transIndex": 7
     },
     {
-      "translateId": "9",
+      "translateId": "t8",
       "transIndex": 8
     },
     {
-      "translateId": "10",
+      "translateId": "t9",
       "transIndex": 9
     },
     {
-      "translateId": "11",
-      "transIndex": 6
-    },
-    {
-      "translateId": "12",
+      "translateId": "t10",
       "transIndex": 10
     },
     {
-      "translateId": "13",
+      "translateId": "t11",
+      "transIndex": 7
+    },
+    {
+      "translateId": "t12",
       "transIndex": 11
     },
     {
-      "translateId": "14",
+      "translateId": "t13",
       "transIndex": 12
     },
     {
-      "translateId": "15",
+      "translateId": "t14",
       "transIndex": 13
     },
     {
-      "translateId": "16",
+      "translateId": "t15",
       "transIndex": 14
     },
     {
-      "translateId": "17",
+      "translateId": "t16",
       "transIndex": 15
     },
     {
-      "translateId": "18",
+      "translateId": "t17",
       "transIndex": 16
     },
     {
-      "translateId": "19",
+      "translateId": "t18",
       "transIndex": 17
     },
     {
-      "translateId": "20",
+      "translateId": "t19",
       "transIndex": 18
     },
     {
-      "translateId": "21",
+      "translateId": "t20",
       "transIndex": 19
     },
     {
-      "translateId": "22",
+      "translateId": "t21",
       "transIndex": 20
     },
     {
-      "translateId": "23",
+      "translateId": "t22",
       "transIndex": 21
     },
     {
-      "translateId": "24",
+      "translateId": "t23",
       "transIndex": 22
     },
     {
-      "translateId": "25",
+      "translateId": "t24",
       "transIndex": 23
     },
     {
-      "translateId": "26",
+      "translateId": "t25",
       "transIndex": 24
     },
     {
-      "translateId": "27",
+      "translateId": "t26",
       "transIndex": 25
     },
     {
-      "translateId": "28",
+      "translateId": "t27",
       "transIndex": 26
     },
     {
-      "translateId": "29",
+      "translateId": "t28",
       "transIndex": 27
     },
     {
-      "translateId": "30",
+      "translateId": "t29",
       "transIndex": 28
     },
     {
-      "translateId": "31",
+      "translateId": "t30",
       "transIndex": 29
     },
     {
-      "translateId": "32",
-      "transIndex": 28
-    },
-    {
-      "translateId": "33",
+      "translateId": "t31",
       "transIndex": 30
     },
     {
-      "translateId": "34",
-      "transIndex": 28
-    },
-    {
-      "translateId": "35",
+      "translateId": "t32",
       "transIndex": 31
     },
     {
-      "translateId": "36",
-      "transIndex": 28
-    },
-    {
-      "translateId": "37",
+      "translateId": "t33",
       "transIndex": 32
     },
     {
-      "translateId": "38",
+      "translateId": "t34",
       "transIndex": 33
     },
     {
-      "translateId": "39",
+      "translateId": "t35",
       "transIndex": 34
     },
     {
-      "translateId": "40",
+      "translateId": "t36",
       "transIndex": 35
     },
     {
-      "translateId": "41",
+      "translateId": "t37",
       "transIndex": 36
     },
     {
-      "translateId": "42",
+      "translateId": "t38",
+      "transIndex": 35
+    },
+    {
+      "translateId": "t39",
       "transIndex": 37
     },
     {
-      "translateId": "43",
+      "translateId": "t40",
+      "transIndex": 35
+    },
+    {
+      "translateId": "t41",
       "transIndex": 38
     },
     {
-      "translateId": "44",
+      "translateId": "t42",
+      "transIndex": 35
+    },
+    {
+      "translateId": "t43",
       "transIndex": 39
     },
     {
-      "translateId": "45",
+      "translateId": "t44",
       "transIndex": 40
     },
     {
-      "translateId": "46",
+      "translateId": "t45",
       "transIndex": 41
     },
     {
-      "translateId": "47",
+      "translateId": "t46",
       "transIndex": 42
     },
     {
-      "translateId": "48",
+      "translateId": "t47",
       "transIndex": 43
     },
     {
-      "translateId": "49",
+      "translateId": "t48",
       "transIndex": 44
     },
     {
-      "translateId": "50",
+      "translateId": "t49",
       "transIndex": 45
     },
     {
-      "translateId": "51",
+      "translateId": "t50",
       "transIndex": 46
     },
     {
-      "translateId": "52",
+      "translateId": "t51",
       "transIndex": 47
     },
     {
-      "translateId": "53",
+      "translateId": "t52",
       "transIndex": 48
     },
     {
-      "translateId": "54",
+      "translateId": "t53",
       "transIndex": 49
+    },
+    {
+      "translateId": "t54",
+      "transIndex": 50
+    },
+    {
+      "translateId": "t55",
+      "transIndex": 51
+    },
+    {
+      "translateId": "t56",
+      "transIndex": 52
+    },
+    {
+      "translateId": "t57",
+      "transIndex": 53
+    },
+    {
+      "translateId": "t58",
+      "transIndex": 54
+    },
+    {
+      "translateId": "t59",
+      "transIndex": 55
+    },
+    {
+      "translateId": "t60",
+      "transIndex": 56
     }
   ],
   "translations": [
     "قائمة طعام",
+    "عربي",
     "إنجليزي",
     "ادخل إلى دائرة الضوء\n",
     "نصمم مساحات وفعاليات عالمية المستوى\nتخلق ذكريات، وتطلق\nحوارات، وترتقي بالطموحات.",
@@ -242,12 +271,18 @@
     "المكان والإدارة",
     "التسويق والرعاية",
     "مشاريع قد تهمك أيضاً",
-    "مهرجان فيرجان",
+    "سوق رمضان",
     "التالي",
     "موثوق به من قبل القادة",
     "أصوات الإرث",
     "كان سباق دبي استثنائياً بكل المقاييس. التغطية الإعلامية والإيجابية والسعادة التي رافقته كانت في غاية الروعة. شكراً لكم!",
     "العميل: داماك",
+    "كان العمل مع الفريق متعة حقيقية. لقد تم التعامل مع كل التفاصيل بدقة وإبداع. لم نكن لنطلب أكثر من ذلك.",
+    "العميل: إعمار",
+    "إعمار",
+    "لقد فاق الحدث كل التوقعات. كانت قدرتهم على تحويل رؤيتنا إلى واقع ملموس مع إدارة كل التحديات اللوجستية أمراً رائعاً.",
+    "العميل: معرض دبي إكسبو",
+    "معرض",
     "الأسئلة التي قد تخطر ببالك\n",
     "لماذا أحداث القفزة؟",
     "نحن هنا للمساعدة. تواصل مع فريقنا وسنرد عليك في أقرب وقت ممكن بجميع التفاصيل التي تحتاجها.",
@@ -263,7 +298,7 @@
     "بيت",
     "عن",
     "ما نقوم به",
-    "معرض",
+    "عملنا",
     "اتصل بنا",
     "ما نقدمه",
     "الفعاليات المؤسسية",

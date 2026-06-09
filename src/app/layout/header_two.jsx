@@ -41,8 +41,8 @@ export default function Header() {
 
 
 
-      <div className='absolute right-10 inset-y-0'>
-                <div id="google_translate_element" style={{ display: 'none' }}></div>
+      <div className='absolute  md:right-10 right-0 inset-y-0'>
+                {/* <div id="google_translate_element" style={{ display: 'none' }}></div> */}
                 <TranslateButtons />
 
       </div>

@@ -86,7 +86,7 @@ function LogoMarquee() {
       <div className="pointer-events-none absolute inset-y-0 right-0 w-20 z-10 bg-gradient-to-l from-white to-transparent" />
 
       {/* Scrolling track */}
-      <div className="flex">
+      <div className="flex" dir="ltr">
       <div
         className="flex will-change-transform marquee"
 

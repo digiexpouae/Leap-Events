@@ -1,7 +1,7 @@
 "use client"
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+
 const testimonials = [
     {
         id: 1,
@@ -36,114 +36,87 @@ const testimonials = [
 ];
 
 export default function VoicesOfLegacy() {
-    const [active, setActive] = useState(0);
-    const current = testimonials[active];
+  const [active, setActive] = useState(0);
 
-    return (
-        <section
-            className="w-full bg-primary-gradient py-20 sm:py-40 relative "
+  return (
+    <section className="w-full bg-primary-gradient py-20 sm:py-40 relative">
+      <div className="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
+
+        <h2
+          className="text-center font-bold uppercase text-[clamp(2rem,7vw,4.5rem)] text-gray-900 mb-10 sm:mb-14"
+          style={{ letterSpacing: "-0.01em", lineHeight: 1.0 }}
         >
-            <div className="max-w-5xl mx-auto  px-5 sm:px-8 lg:px-12">
+          Voices Of Legacy
+        </h2>
 
-                {/* Heading */}
-                <motion.h2
-                    className="text-center font-black font-bold uppercase text-[clamp(2rem,7vw,4.5rem)] text-gray-900 mb-10 sm:mb-14"
-                    style={{ letterSpacing: "-0.01em", lineHeight: 1.0 }}
-                    initial={{ y: 50 }}
-                    whileInView={{ y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 2 }}
+        {/* grid stack: every slide sits in the same cell, card grows to the tallest */}
+        <div className="relative w-full rounded-2xl sm:rounded-3xl px-7 sm:px-12 pt-10 sm:pt-14 pb-8 sm:pb-10 bg-[#EEF4FF] grid">
+          {testimonials.map((t, i) => (
+            <div
+              key={t.id}
+              aria-hidden={i !== active}
+              className="transition-opacity duration-500"
+              style={{
+                gridArea: "1 / 1",                       // stack all slides in one cell
+                opacity: i === active ? 1 : 0,           // hide with opacity, NOT display:none
+                pointerEvents: i === active ? "auto" : "none",
+              }}
+            >
+              <p
+                className="relative z-10 text-gray-800 tracking-tighter font-medium text-[clamp(1rem,2.5vw,3rem)] mb-8 sm:mb-10 max-w-3xl"
+                style={{ lineHeight: "1.65" }}
+              >
+                {t.quote}
+              </p>
 
-
-                >
-                    Voices Of Legacy
-                </motion.h2>
-
-                {/* Card */}
-                <motion.div
-                    className="relative w-full rounded-2xl sm:rounded-3xl px-7 sm:px-12 pt-10 sm:pt-14 pb-8 sm:pb-10 bg-[#EEF4FF]"
-
-
-                    initial={{ y: 80 }}
-                    whileInView={{ y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1 }}>
-
-
-                    {/* Quote text */}
-                    <motion.p
-                        className="relative z-10 text-gray-800 tracking-tighter font-medium text-[clamp(1rem,2.5vw,3rem)] leading-relaxed mb-8 sm:mb-10 max-w-3xl"
-                        style={{ lineHeight: "1.65" }}
-
-
-                    >
-                        {current.quote}
-                    </motion.p>
-
-                    {/* Footer row */}
-                    <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
-                        <div>
-                            <motion.h5
-                                className="font-black uppercase tracking-wider text-[clamp(1rem,3vw,2rem)]"
-                                style={{ color: "var(--color-primary, #5686DA)" }}
-
-
-                            >
-                                {current.name}
-                            </motion.h5>
-                            <p className="text-xs sm:text-lg uppercase tracking-tighter  mt-0.5 font-medium">
-                                Client : {current.company}
-                            </p>
-                        </div>
-
-                        {/* Logo / fallback */}
-                        <motion.div className="shrink-0"
-
-
-                        >
-                            {current.logo ? (
-                                /* Replace with Next.js Image when logo available:
-                                   <Image src={current.logo} alt={current.company} width={120} height={40} className="object-contain" /> */
-                                <Image
-                                    src={current.logo}
-                                    alt={current.company}
-                                    height={30} width={160}
-                                />
-                            ) : (
-                                <span
-                                    className="font-black uppercase tracking-[0.15em] text-xl sm:text-2xl"
-                                    style={{ color: "#0d1b3e", fontStyle: "italic" }}
-                                >
-                                    {current.logoText}
-                                </span>
-                            )}
-                        </motion.div>
-                    </div>
-                </motion.div>
-
-                {/* Pagination dots */}
-                <div className="flex items-center justify-center gap-2.5 mt-8">
-                    {testimonials.map((_, i) => (
-                        <button
-                            key={i}
-                            onClick={() => setActive(i)}
-                            className="rounded-full transition-all duration-300"
-                            style={{
-                                width: i === active ? "28px" : "10px",
-                                height: "10px",
-                                background:
-                                    i === active
-                                        ? "var(--color-primary, #5686DA)"
-                                        : "rgba(86,134,218,0.25)",
-                            }}
-                            aria-label={`Testimonial ${i + 1}`}
-                        />
-                    ))}
+              <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+                <div>
+                  <h5
+                    className="font-black uppercase tracking-wider text-[clamp(1rem,3vw,2rem)]"
+                    style={{ color: "var(--color-primary, #5686DA)" }}
+                  >
+                    {t.name}
+                  </h5>
+                  <p className="text-xs sm:text-lg uppercase tracking-tighter mt-0.5 font-medium">
+                    Client : {t.company}
+                  </p>
                 </div>
 
+                <div className="shrink-0">
+                  {t.logo ? (
+                    <Image src={t.logo} alt={t.company} height={30} width={160} />
+                  ) : (
+                    <span
+                      className="font-black uppercase tracking-[0.15em] text-xl sm:text-2xl"
+                      style={{ color: "#0d1b3e", fontStyle: "italic" }}
+                    >
+                      {t.logoText}
+                    </span>
+                  )}
+                </div>
+              </div>
             </div>
+          ))}
+        </div>
 
+        {/* dots — unchanged */}
+        <div className="flex items-center justify-center gap-2.5 mt-8">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActive(i)}
+              className="rounded-full transition-all duration-300"
+              style={{
+                width: i === active ? "28px" : "10px",
+                height: "10px",
+                background: i === active ? "var(--color-primary, #5686DA)" : "rgba(86,134,218,0.25)",
+              }}
+              aria-label={`Testimonial ${i + 1}`}
+            />
+          ))}
+        </div>
 
-        </section >
-    );
+      </div>
+    </section>
+  );
 }

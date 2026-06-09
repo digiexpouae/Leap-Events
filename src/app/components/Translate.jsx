@@ -1,11 +1,9 @@
 'use client'
+import { useRef } from "react";
 
 export default function TranslateButtons() {
+  const originalTextsRef = useRef(null);
 
-  // ─── Store original english text once ──────────────────
-  let originalTexts = null;
-
-  // ─── Helper: Get Page Key ───────────────────────────────
   function getPageKey() {
     const pathname = window.location.pathname;
     if (pathname === '/' || pathname === '') return 'index';
@@ -17,7 +15,6 @@ export default function TranslateButtons() {
       .replace(/\//g, '_');
   }
 
-  // ─── Helper: Generate Hash ──────────────────────────────
   async function generateHash(text) {
     const encoder = new TextEncoder();
     const data = encoder.encode(text);
@@ -26,33 +23,52 @@ export default function TranslateButtons() {
     return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
   }
 
-  // ─── Helper: Get JSON Cache ─────────────────────────────
   async function getPageCache(page, targetLang) {
     const jsonPath = `/translations/${page}_${targetLang}.json`;
-    console.log(`🔍 Checking cache: ${jsonPath}`);
-
     try {
       const response = await fetch(jsonPath);
-      if (!response.ok) {
-        console.log(`🆕 No cache: ${jsonPath}`);
-        return null;
-      }
-      const cached = await response.json();
-      console.log(`📦 Cache found: ${jsonPath}`);
-      return cached;
-
+      if (!response.ok) return null;
+      return await response.json();
     } catch (e) {
-      console.log(`⚠️ Cache fetch failed: ${jsonPath}`);
       return null;
     }
   }
 
-  // ─── Helper: Apply Translations ─────────────────────────
-  function applyTranslations(elements, translations, indexMap, lang) {
-    translations.forEach((translation, i) => {
-      const originalIndex = indexMap[i];
-      if (elements[originalIndex]) {
-        elements[originalIndex].innerText = translation;
+  function getLeafElements() {
+    const all = Array.from(
+      document.querySelectorAll('h1,h2,h3,h4,p,span,button,a,li,label,td,th')
+    );
+    return all.filter(el => {
+      const hasChildElements = Array.from(el.children).some(
+        child => child.innerText?.trim()
+      );
+      return !hasChildElements && el.innerText.trim() !== '';
+    });
+  }
+
+  // ✅ Tag every element with a stable ID on first run
+  function tagElements(elements) {
+    elements.forEach((el, i) => {
+      if (!el.dataset.translateId) {
+        el.dataset.translateId = i; // ← permanent marker on the DOM node
+      }
+          console.log(`tagged: [${i}]`, el.dataset.translateId, el.innerText.slice(0, 20));
+
+    });
+  }
+
+  function applyTranslations(translations, indexMap, lang) {
+    indexMap.forEach(({ translateId, transIndex }) => {
+      console.log("transIndex",transIndex)
+      // ✅ Find element by its stable ID — not array position
+      const el = document.querySelector(`[data-translate-id="${translateId}"]`);
+      console.log("el",el)
+      console.log("translations[transIndex])",translations[transIndex])
+     console.log("el && translations[transIndex]",el && translations[transIndex])
+    
+     if (el && translations[transIndex]) {
+        console.log(`id[${translateId}] "${el.innerText}" → "${translations[transIndex]}"`);
+        el.innerText = translations[transIndex];
       }
     });
 
@@ -65,117 +81,106 @@ export default function TranslateButtons() {
     }
   }
 
-  // ─── Helper: Restore Original English ───────────────────
-  function restoreOriginal(elements) {
-    if (!originalTexts) {
+  function restoreOriginal() {
+    if (!originalTextsRef.current) {
       console.log('⚠️ No original texts saved');
       return;
     }
 
-    // Restore every element back to original
-    elements.forEach((el, i) => {
-      if (originalTexts[i]) {
-        el.innerText = originalTexts[i];
-      }
+    // ✅ Restore by stable ID — not array index
+    originalTextsRef.current.forEach(({ translateId, text }) => {
+      const el = document.querySelector(`[data-translate-id="${translateId}"]`);
+      if (el) el.innerText = text;
     });
 
-    // Back to LTR
     document.body.style.direction = 'ltr';
     document.body.style.textAlign = 'left';
-
     console.log('✅ Restored to original English');
   }
 
-  // ─── Main: Translate Page ────────────────────────────────
-async function translatePage(targetLang = 'ar') {
+  async function translatePage(targetLang = 'ar') {
+    await new Promise(resolve => setTimeout(resolve, 300));
 
-  // STEP 1: Get all elements
-  const elements = Array.from(
-    document.querySelectorAll('h1,h2,h3,h4,p,span,button,a,li,label,td,th')
-  ).filter(el => el.innerText.trim() !== '');
+    const elements = getLeafElements();
 
-  // STEP 2: Save original texts
-  if (!originalTexts) {
-    originalTexts = elements.map(el => el.innerText);
-  }
+    // ✅ Tag elements with stable IDs
+    tagElements(elements);
 
-  // STEP 3: English → restore original
-  if (targetLang === 'en') {
-    restoreOriginal(elements);
-    return;
-  }
-
-  // STEP 4: Build deduped texts + indexMap
-  const textsToTranslate = [];
-  const indexMap = [];
-  const seen = new Map();
-
-  elements.forEach((el, i) => {
-    const text = el.innerText.trim();
-
-    const shouldTranslate =
-      text.length > 1 &&
-      isNaN(text) &&
-      !/^[^a-zA-Z]*$/.test(text);
-
-    if (!shouldTranslate) return;
-
-    if (seen.has(text)) {
-      // ♻️ Reuse existing translation
-      indexMap.push({
-        elIndex: i,
-        transIndex: seen.get(text)
-      });
-    } else {
-      // 🆕 New unique text
-      const transIndex = textsToTranslate.length;
-      seen.set(text, transIndex);
-      textsToTranslate.push(text);
-      indexMap.push({
-        elIndex: i,
-        transIndex
-      });
+    // ✅ Save originals by stable ID — not array index
+    if (!originalTextsRef.current) {
+      originalTextsRef.current = elements.map(el => ({
+        translateId: el.dataset.translateId,
+        text: el.innerText
+      }));
     }
-  });
 
-  // STEP 5: Generate hash
-  const currentHash = await generateHash(textsToTranslate.join('|'));
-  const page = getPageKey();
+    if (targetLang === 'en') {
+      restoreOriginal();
+      return;
+    }
 
-  // STEP 6: Check JSON cache
-  const cached = await getPageCache(page, targetLang);
+    // ✅ Build indexMap using stable translateId
+    const textsToTranslate = [];
+    const indexMap = [];
+    const seen = new Map();
 
-  if (cached && cached.hash === currentHash) {
-    console.log('✅ Cache hit — 0 API calls');
-    applyTranslations(elements, cached.translations, cached.indexMap, targetLang);
-    return;
-  }
+    elements.forEach((el) => {
+      const text = el.innerText.trim();
+      const translateId = el.dataset.translateId;
 
-  // STEP 7: Call backend
-  try {
-    const response = await fetch('/api/translate', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        texts: textsToTranslate, // ← deduped ✅
-        targetLang,
-        hash: currentHash,
-        indexMap,
-        page
-      })
+      const shouldTranslate =
+        text.length > 1 &&
+        isNaN(text) &&
+        !/^[^a-zA-Z]*$/.test(text);
+
+      if (!shouldTranslate) return;
+
+      if (seen.has(text)) {
+        indexMap.push({ translateId, transIndex: seen.get(text)});
+      } else {
+        const transIndex = textsToTranslate.length;
+        seen.set(text, transIndex);
+        textsToTranslate.push(text);
+        console.log("trans index",transIndex)
+        indexMap.push({ translateId, transIndex });
+      }
     });
 
-    const data = await response.json();
-    if (!data.success) throw new Error(data.error);
+    const page = getPageKey();
+    const currentHash = await generateHash(textsToTranslate.join('|'));
+    const cached = await getPageCache(page, targetLang);
 
-    applyTranslations(elements, data.translations, indexMap, targetLang);
+    if (cached) {
+      console.log('✅ Cache hit — 0 API calls');
+      // ✅ cached.indexMap has stable translateIds — safe to use!
+      applyTranslations(cached.translations, indexMap, targetLang);
+      console.log("cached.translations",cached.translations)
+      return;
+    }
+    try {
+      const response = await fetch('/api/translate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          texts: textsToTranslate,
+          targetLang,
+          hash: currentHash,
+          indexMap,
+          page
+        })
+      });
 
-  } catch (err) {
-    console.error('❌ Translation failed', err);
+      const data = await response.json();
+      if (!data.success) throw new Error(data.error); 
+      applyTranslations(data.translations, indexMap, targetLang);
+
+    } catch (err) {
+      console.error('❌ Translation failed', err);
+    }
   }
-}
+
   return (
-    <div className="bg-red-500">
+    <div className="bg-red-500 flex gap-4">
       <button onClick={() => translatePage('ar')} className="cursor-pointer">
         🌐 العربية
       </button>

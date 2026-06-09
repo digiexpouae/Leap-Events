@@ -1,9 +1,9 @@
 'use client'
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function TranslateButtons() {
   const originalTextsRef = useRef(null);
-
+  const [currentLang, setCurrentLang] = useState('en');
   function getPageKey() {
     const pathname = window.location.pathname;
     if (pathname === '/' || pathname === '') return 'index';
@@ -93,8 +93,9 @@ function tagElements(elements) {
       if (el) el.innerText = text;
     });
 
-    document.body.style.direction = 'ltr';
+      document.body.style.direction = 'ltr';
     document.body.style.textAlign = 'left';
+        setCurrentLang('en');
     console.log('✅ Restored to original English');
   }
 
@@ -151,12 +152,12 @@ function tagElements(elements) {
     const cached = await getPageCache(page, targetLang);
 
     if (cached) {
-      console.log('✅ Cache hit — 0 API calls');
-      // ✅ cached.indexMap has stable translateIds — safe to use!
+  
       applyTranslations(cached.translations, indexMap, targetLang);
-      console.log("cached.translations",cached.translations)
+      setCurrentLang(targetLang);
       return;
     }
+    return;
     try {
       const response = await fetch('/api/translate', {
         method: 'POST',
@@ -175,16 +176,39 @@ function tagElements(elements) {
       applyTranslations(data.translations, indexMap, targetLang);
 
     } catch (err) {
+         setCurrentLang(targetLang);
       console.error('❌ Translation failed', err);
     }
   }
 
   return (
     <div className=" flex flex-col  py-4 md:py-0 ">
-      <button onClick={() => translatePage('ar')} className="cursor-pointer md:text-(--color-primary) font-semibold">
+      <button onClick={() => translatePage('ar')} 
+      
+      className="cursor-pointer "
+       style={{
+          padding: "5px 14px",
+          borderRadius: "999px",
+          fontSize: "13px",
+          fontWeight: 500,
+          border: "none",
+          background: currentLang === 'ar' ? "#5686DA" : "transparent",
+          color: currentLang === 'ar' ? "#fff" : "#5686DA",
+          transition: "all 0.2s",
+        }}>
         Arabic
       </button>
-      <button onClick={() => translatePage('en')} className="cursor-pointer md:text-(--color-primary)  font-semibold">
+      <button onClick={() => translatePage('en')} className="cursor-pointer"
+         style={{
+          padding: "5px 14px",
+          borderRadius: "999px",
+          fontSize: "13px",
+          fontWeight: 500,
+          border: "none",
+          background: currentLang === 'en' ? "#5686DA" : "transparent",
+          color: currentLang === 'en' ? "#fff" : "#5686DA",
+          transition: "all 0.2s",
+        }}>
         English
       </button>
     </div>

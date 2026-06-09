@@ -48,7 +48,7 @@ export default function VoicesOfLegacy() {
         >
           Voices Of Legacy
         </h2>
-
+{/*  */}
         {/* grid stack: every slide sits in the same cell, card grows to the tallest */}
         <div className="relative w-full rounded-2xl sm:rounded-3xl px-7 sm:px-12 pt-10 sm:pt-14 pb-8 sm:pb-10 bg-[#EEF4FF] grid">
           {testimonials.map((t, i) => (

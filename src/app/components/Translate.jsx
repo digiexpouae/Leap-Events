@@ -90,9 +90,9 @@ updateDir(newDir)
         el.innerHTML = el.dataset.i18nSource; // Revert cleanly using immutable saved data source
       }
     });
-    const target= lang=== "ar"? "rtl":"ltr"
+
   document.body.setAttribute('dir', 'ltr');
-  updateDir()
+  updateDir("ltr")
     document.body.style.textAlign = 'left';
     localStorage.setItem('preferredLang', 'en'); 
     setCurrentLang('en');

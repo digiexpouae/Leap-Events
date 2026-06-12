@@ -1,13 +1,27 @@
 'use client'
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
+import { useDirection } from "./ContextProvider";
+// 📑 Helper to tag elements with their original raw English innerHTML source string.
+// This attribute remains completely constant and safe from Google Translate mutation.
+function tagElements(elements) {
+  elements.forEach((el) => {
+    if (!el.dataset.i18nSource) {
+      // Clean leading/trailing spaces but preserve internal <br /> or strong formatting tags
+      el.dataset.i18nSource = el.innerHTML.trim();
+    }
+  });
+}
 
 export default function TranslateButtons() {
   const originalTextsRef = useRef(null);
   const [currentLang, setCurrentLang] = useState('en');
+  const pathname = usePathname(); // 🔹 fires on every navigation
+const {updateDir} =useDirection() 
   function getPageKey() {
-    const pathname = window.location.pathname;
-    if (pathname === '/' || pathname === '') return 'index';
-    return pathname
+    const path = window.location.pathname;
+    if (path === '/' || path === '') return 'index';
+    return path
       .replace(/^\//, '')
       .replace(/\/$/, '')
       .replace('.html', '')
@@ -34,116 +48,85 @@ export default function TranslateButtons() {
     }
   }
 
+  // Optimized leaf-node filter to target elements while allowing innocent inline styling tags (<br/>, <strong>, etc)
   function getLeafElements() {
     const all = Array.from(
-      document.querySelectorAll('h1,h2,h3,h4,p,span,button,a,li,label,td,th')
+      document.querySelectorAll('h1,h2,h3,h4,p,span,button,a,li,label,td,th,div,nav')
     );
     return all.filter(el => {
-      const hasChildElements = Array.from(el.children).some(
-        child => child.innerText?.trim()
+      // Discard container components that hold large layout sections block structural elements
+      const hasBlockChildren = Array.from(el.children).some(
+        child => !['BR', , 'STRONG', 'EM', 'B', 'I'].includes(child.tagName)
       );
-      return !hasChildElements && el.innerText.trim() !== '';
+      return !hasBlockChildren && el.innerHTML.trim() !== '';
     });
   }
 
-  // ✅ Tag every element with a stable ID on first run
-let idCounter = 0; // put this at module scope, outside the component
+  // 🛡️ Safe Dictionary-based Lookup Strategy
+  function applyTranslations(translationsPayload, lang) {
+    const elements = document.querySelectorAll("[data-i18n-source]");
 
-function tagElements(elements) {
-  elements.forEach((el) => {
-    if (!el.dataset.translateId) {
-      el.dataset.translateId = `t${idCounter++}`;
-    }
-  });
-}
+    elements.forEach((el) => {
+      const sourceKey = el.dataset.i18nSource;
 
-  function applyTranslations(translations, indexMap, lang) {
-    indexMap.forEach(({ translateId, transIndex }) => {
-      console.log("transIndex",transIndex)
-      // ✅ Find element by its stable ID — not array position
-      const el = document.querySelector(`[data-translate-id="${translateId}"]`);
-      console.log("el",el)
-      console.log("translations[transIndex])",translations[transIndex])
-     console.log("el && translations[transIndex]",el && translations[transIndex])
-    
-     if (el && translations[transIndex]) {
-        console.log(`id[${translateId}] "${el.innerText}" → "${translations[transIndex]}"`);
-        el.innerText = translations[transIndex];
+      // Direct dynamic lookup by key avoids indexing misalignments completely!
+      if (sourceKey && translationsPayload[sourceKey]) {
+        // innerHTML preserves layout breaks and text stylings perfectly
+        el.innerHTML = translationsPayload[sourceKey];
       }
     });
 
-    if (lang === 'ar') {
-      document.body.style.direction = 'rtl';
-      document.body.style.textAlign = 'right';
-    } else {
-      document.body.style.direction = 'ltr';
-      document.body.style.textAlign = 'left';
-    }
+const target= lang=== "ar"? "rtl":"ltr"
+console.log("target",target)
+document.body.setAttribute('dir', target);
+const newDir=target
+updateDir(newDir)
   }
 
   function restoreOriginal() {
-    if (!originalTextsRef.current) {
-      console.log('⚠️ No original texts saved');
-      return;
-    }
-
-    // ✅ Restore by stable ID — not array index
-    originalTextsRef.current.forEach(({ translateId, text }) => {
-      const el = document.querySelector(`[data-translate-id="${translateId}"]`);
-      if (el) el.innerText = text;
+    const elements = document.querySelectorAll("[data-i18n-source]");
+    elements.forEach((el) => {
+      if (el.dataset.i18nSource) {
+        el.innerHTML = el.dataset.i18nSource; // Revert cleanly using immutable saved data source
+      }
     });
-
-      document.body.style.direction = 'ltr';
+    const target= lang=== "ar"? "rtl":"ltr"
+  document.body.setAttribute('dir', 'ltr');
+  updateDir()
     document.body.style.textAlign = 'left';
-        setCurrentLang('en');
-    console.log('✅ Restored to original English');
+    localStorage.setItem('preferredLang', 'en'); 
+    setCurrentLang('en');
   }
 
-  async function translatePage(targetLang = 'ar') {
+  async function translatePage(targetLang = 'en') {
+    localStorage.setItem('preferredLang', targetLang); 
+    setCurrentLang(targetLang);
+
     await new Promise(resolve => setTimeout(resolve, 300));
-// took the elements
+    
     const elements = getLeafElements();
-
-    // ✅ Tag elements with stable IDs
     tagElements(elements);
-
-    // ✅ Save originals by stable ID — not array index
-    if (!originalTextsRef.current) {
-      originalTextsRef.current = elements.map(el => ({
-        translateId: el.dataset.translateId,
-        text: el.innerText
-      }));
-    }
 
     if (targetLang === 'en') {
       restoreOriginal();
       return;
     }
 
-    // ✅ Build indexMap using stable translateId
     const textsToTranslate = [];
-    const indexMap = [];
-    const seen = new Map();
+    const seen = new Set();
 
+    // Collect array text values using unique set rules
     elements.forEach((el) => {
-      const text = el.innerText.trim();
-      const translateId = el.dataset.translateId;
-
+      const sourceText = el.dataset.i18nSource;
+      const cleanCheckText = el.innerText.trim();
+      
       const shouldTranslate =
-        text.length > 1 &&
-        isNaN(text) &&
-        !/^[^a-zA-Z]*$/.test(text);
-
+        cleanCheckText.length > 1 && isNaN(cleanCheckText) && !/^[^a-zA-Z]*$/.test(cleanCheckText);
       if (!shouldTranslate) return;
 
-      if (seen.has(text)) {
-        indexMap.push({ translateId, transIndex: seen.get(text)});
-      } else {
-        const transIndex = textsToTranslate.length;
-        seen.set(text, transIndex);
-        textsToTranslate.push(text);
-        console.log("trans index",transIndex)
-        indexMap.push({ translateId, transIndex });
+      if (!seen.has(sourceText)) {
+        seen.add(sourceText);
+        textsToTranslate.push(sourceText); // We pass innerHTML directly so Google handles <br /> tags
       }
     });
 
@@ -151,64 +134,73 @@ function tagElements(elements) {
     const currentHash = await generateHash(textsToTranslate.join('|'));
     const cached = await getPageCache(page, targetLang);
 
+    // 🏎️ Handling the Cached JSON File
     if (cached) {
-  
-      applyTranslations(cached.translations, indexMap, targetLang);
-      setCurrentLang(targetLang);
+      // If your JSON file cache already provides an exact dictionary map: { "Hello World": "مرحبا بالعالم" }
+      // Use it directly. If it provides a flat array, map it down first:
+      let lookupMap;
+      if (Array.isArray(cached.translations)) {
+        lookupMap = {};
+        textsToTranslate.forEach((sourceText, index) => {
+          lookupMap[sourceText] = cached.translations[index];
+        });
+      }
+      else {
+  lookupMap = cached.translations || {};   // new keyed format
+}
+      
+      applyTranslations(lookupMap, targetLang);
       return;
     }
-    return;
+
+    // 🌐 Active Live Google API Gateway Fetch Requests Fallback
     try {
       const response = await fetch('/api/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          texts: textsToTranslate,
-          targetLang,
-          hash: currentHash,
-          indexMap,
-          page
-        })
+        // NOTE: Ensure your /api/translate route config specifies mimeType: "text/html" 
+        body: JSON.stringify({ texts: textsToTranslate, targetLang, hash: currentHash, page })
+      });
+      const data = await response.json();
+      if (!data.success) throw new Error(data.error);
+      
+      // Zipping raw array strings output back from Google into an aligned object dictionary map
+      const customTranslationsPayload = {};
+      textsToTranslate.forEach((sourceText, index) => {
+        customTranslationsPayload[sourceText] = data.translations[index];
       });
 
-      const data = await response.json();
-      if (!data.success) throw new Error(data.error); 
-      applyTranslations(data.translations, indexMap, targetLang);
-
+      applyTranslations(customTranslationsPayload, targetLang);
     } catch (err) {
-         setCurrentLang(targetLang);
-      console.error('❌ Translation failed', err);
+      console.error('Translation failed', err);
     }
   }
 
+  // 🔹 Monitor routing hooks or component mounts to safely fire layout shifts
+  useEffect(() => {
+    const savedLang = localStorage.getItem('preferredLang') || 'en';
+    setCurrentLang(savedLang);
+
+    if (savedLang !== 'en') {
+      translatePage(savedLang);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname]); // 🔹 Fires seamlessly on navigation layout refreshes
+
   return (
-    <div className=" flex flex-col  py-4 md:py-0 ">
-      <button onClick={() => translatePage('ar')} 
-      
-      className="cursor-pointer "
-       style={{
-          padding: "5px 14px",
-          borderRadius: "999px",
-          fontSize: "13px",
-          fontWeight: 500,
-          border: "none",
+    <div className="flex flex-col py-4 md:py-0">
+      <button onClick={() => translatePage('ar')} className="cursor-pointer"
+        style={{ padding: "5px 14px", borderRadius: "999px", fontSize: "13px",
+          fontWeight: 500, border: "none",
           background: currentLang === 'ar' ? "#5686DA" : "transparent",
-          color: currentLang === 'ar' ? "#fff" : "#5686DA",
-          transition: "all 0.2s",
-        }}>
+          color: currentLang === 'ar' ? "#fff" : "#5686DA", transition: "all 0.2s" }}>
         Arabic
       </button>
       <button onClick={() => translatePage('en')} className="cursor-pointer"
-         style={{
-          padding: "5px 14px",
-          borderRadius: "999px",
-          fontSize: "13px",
-          fontWeight: 500,
-          border: "none",
+        style={{ padding: "5px 14px", borderRadius: "999px", fontSize: "13px",
+          fontWeight: 500, border: "none",
           background: currentLang === 'en' ? "#5686DA" : "transparent",
-          color: currentLang === 'en' ? "#fff" : "#5686DA",
-          transition: "all 0.2s",
-        }}>
+          color: currentLang === 'en' ? "#fff" : "#5686DA", transition: "all 0.2s" }}>
         English
       </button>
     </div>

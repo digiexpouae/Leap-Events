@@ -1,311 +1,58 @@
 {
-  "hash": "d3278c2c60ed8d220ac5409a9d8c952ab39eb82d6fa53fe419a292ff90b9328a",
+  "hash": "82272a46a71b343bc99969ed9d66a54817a2829e7ff8327883485958ae86ceb1",
   "page": "index",
   "lang": "ar",
-  "savedAt": "2026-06-09T15:09:59.247Z",
-  "indexMap": [
-    {
-      "translateId": "t0",
-      "transIndex": 0
-    },
-    {
-      "translateId": "t1",
-      "transIndex": 1
-    },
-    {
-      "translateId": "t2",
-      "transIndex": 2
-    },
-    {
-      "translateId": "t3",
-      "transIndex": 3
-    },
-    {
-      "translateId": "t4",
-      "transIndex": 4
-    },
-    {
-      "translateId": "t5",
-      "transIndex": 5
-    },
-    {
-      "translateId": "t6",
-      "transIndex": 6
-    },
-    {
-      "translateId": "t7",
-      "transIndex": 7
-    },
-    {
-      "translateId": "t8",
-      "transIndex": 8
-    },
-    {
-      "translateId": "t9",
-      "transIndex": 9
-    },
-    {
-      "translateId": "t10",
-      "transIndex": 10
-    },
-    {
-      "translateId": "t11",
-      "transIndex": 7
-    },
-    {
-      "translateId": "t12",
-      "transIndex": 11
-    },
-    {
-      "translateId": "t13",
-      "transIndex": 12
-    },
-    {
-      "translateId": "t14",
-      "transIndex": 13
-    },
-    {
-      "translateId": "t15",
-      "transIndex": 14
-    },
-    {
-      "translateId": "t16",
-      "transIndex": 15
-    },
-    {
-      "translateId": "t17",
-      "transIndex": 16
-    },
-    {
-      "translateId": "t18",
-      "transIndex": 17
-    },
-    {
-      "translateId": "t19",
-      "transIndex": 18
-    },
-    {
-      "translateId": "t20",
-      "transIndex": 19
-    },
-    {
-      "translateId": "t21",
-      "transIndex": 20
-    },
-    {
-      "translateId": "t22",
-      "transIndex": 21
-    },
-    {
-      "translateId": "t23",
-      "transIndex": 22
-    },
-    {
-      "translateId": "t24",
-      "transIndex": 23
-    },
-    {
-      "translateId": "t25",
-      "transIndex": 24
-    },
-    {
-      "translateId": "t26",
-      "transIndex": 25
-    },
-    {
-      "translateId": "t27",
-      "transIndex": 26
-    },
-    {
-      "translateId": "t28",
-      "transIndex": 27
-    },
-    {
-      "translateId": "t29",
-      "transIndex": 28
-    },
-    {
-      "translateId": "t30",
-      "transIndex": 29
-    },
-    {
-      "translateId": "t31",
-      "transIndex": 30
-    },
-    {
-      "translateId": "t32",
-      "transIndex": 31
-    },
-    {
-      "translateId": "t33",
-      "transIndex": 32
-    },
-    {
-      "translateId": "t34",
-      "transIndex": 33
-    },
-    {
-      "translateId": "t35",
-      "transIndex": 34
-    },
-    {
-      "translateId": "t36",
-      "transIndex": 35
-    },
-    {
-      "translateId": "t37",
-      "transIndex": 36
-    },
-    {
-      "translateId": "t38",
-      "transIndex": 35
-    },
-    {
-      "translateId": "t39",
-      "transIndex": 37
-    },
-    {
-      "translateId": "t40",
-      "transIndex": 35
-    },
-    {
-      "translateId": "t41",
-      "transIndex": 38
-    },
-    {
-      "translateId": "t42",
-      "transIndex": 35
-    },
-    {
-      "translateId": "t43",
-      "transIndex": 39
-    },
-    {
-      "translateId": "t44",
-      "transIndex": 40
-    },
-    {
-      "translateId": "t45",
-      "transIndex": 41
-    },
-    {
-      "translateId": "t46",
-      "transIndex": 42
-    },
-    {
-      "translateId": "t47",
-      "transIndex": 43
-    },
-    {
-      "translateId": "t48",
-      "transIndex": 44
-    },
-    {
-      "translateId": "t49",
-      "transIndex": 45
-    },
-    {
-      "translateId": "t50",
-      "transIndex": 46
-    },
-    {
-      "translateId": "t51",
-      "transIndex": 47
-    },
-    {
-      "translateId": "t52",
-      "transIndex": 48
-    },
-    {
-      "translateId": "t53",
-      "transIndex": 49
-    },
-    {
-      "translateId": "t54",
-      "transIndex": 50
-    },
-    {
-      "translateId": "t55",
-      "transIndex": 51
-    },
-    {
-      "translateId": "t56",
-      "transIndex": 52
-    },
-    {
-      "translateId": "t57",
-      "transIndex": 53
-    },
-    {
-      "translateId": "t58",
-      "transIndex": 54
-    },
-    {
-      "translateId": "t59",
-      "transIndex": 55
-    },
-    {
-      "translateId": "t60",
-      "transIndex": 56
-    }
-  ],
-  "translations": [
-    "قائمة طعام",
-    "عربي",
-    "إنجليزي",
-    "ادخل إلى دائرة الضوء\n",
-    "نصمم مساحات وفعاليات عالمية المستوى\nتخلق ذكريات، وتطلق\nحوارات، وترتقي بالطموحات.",
-    "ادخل إلى دائرة الضوء",
-    "نحن نصمم مساحات وفعاليات عالمية المستوى تخلق ذكريات، وتطلق حوارات، وترتقي بالطموحات.",
-    "معلومات عنا",
-    "نحن فريق شغوف يتمتع بخبرة تزيد عن عقد من الزمان في مجال تنظيم الفعاليات، ونقدم فعاليات استثنائية من خلال الخبرة والابتكار والتكنولوجيا الحديثة.",
-    "اقرأ قصتنا",
-    "عملنا",
-    "حدد موعدًا للمكالمة",
-    "ما نقوم به",
-    "صناعة أكثر من مجرد فعاليات",
-    "فعاليات الشركات",
-    "ديكورات وتجهيزات المركز التجاري",
-    "معرض",
-    "ترفيه",
-    "المكان والإدارة",
-    "التسويق والرعاية",
-    "مشاريع قد تهمك أيضاً",
-    "سوق رمضان",
-    "التالي",
-    "موثوق به من قبل القادة",
-    "أصوات الإرث",
-    "كان سباق دبي استثنائياً بكل المقاييس. التغطية الإعلامية والإيجابية والسعادة التي رافقته كانت في غاية الروعة. شكراً لكم!",
-    "العميل: داماك",
-    "كان العمل مع الفريق متعة حقيقية. لقد تم التعامل مع كل التفاصيل بدقة وإبداع. لم نكن لنطلب أكثر من ذلك.",
-    "العميل: إعمار",
-    "إعمار",
-    "لقد فاق الحدث كل التوقعات. كانت قدرتهم على تحويل رؤيتنا إلى واقع ملموس مع إدارة كل التحديات اللوجستية أمراً رائعاً.",
-    "العميل: معرض دبي إكسبو",
-    "معرض",
-    "الأسئلة التي قد تخطر ببالك\n",
-    "لماذا أحداث القفزة؟",
-    "نحن هنا للمساعدة. تواصل مع فريقنا وسنرد عليك في أقرب وقت ممكن بجميع التفاصيل التي تحتاجها.",
-    "هل تقدمون خدمات تخطيط الفعاليات المخصصة؟",
-    "كم المدة التي يجب أن أحجز فيها خدماتكم مسبقاً؟",
-    "هل تدير فعاليات خارج مدينتك أو بلدك؟",
-    "تواصل معنا",
-    "استكشف المزيد",
-    "لنتحدث",
-    "نحن منظمة تضم فريقاً متنوعاً من المتحمسين الذين كرسوا أنفسهم لقطاع تنظيم الفعاليات لأكثر من عقد من الزمان.",
-    "يُقدِّم",
-    "روابط سريعة",
-    "بيت",
-    "عن",
-    "ما نقوم به",
-    "عملنا",
-    "اتصل بنا",
-    "ما نقدمه",
-    "الفعاليات المؤسسية",
-    "ديكورات وتنشيطات المركز التجاري",
-    "الطباعة الرقمية والعلامات التجارية",
-    "معرض",
-    "ترفيه",
-    "جميع الحقوق محفوظة © 2026 لشركة LeapEvent."
-  ]
+  "savedAt": "2026-06-12T13:15:54.929Z",
+  "translations": {
+    "MENU": "قائمة طعام",
+    "Arabic": "عربي",
+    "English": "إنجليزي",
+    "Step into<br>the Spotlight": "ادخل<br> الأضواء",
+    "we craft world-class spaces &amp; events<br>that create memories, initiate <br>conversations and elevate ambitions.": "نحن نصمم مساحات وفعاليات عالمية المستوى<br> التي تخلق الذكريات، تبدأ<br> المحادثات ورفع مستوى الطموحات.",
+    "About Us": "معلومات عنا",
+    "We are a passionate team with over a decade of experience in the event industry, delivering exceptional events through expertise, innovation, and mdern technology.": "نحن فريق شغوف يتمتع بخبرة تزيد عن عقد من الزمان في مجال تنظيم الفعاليات، ونقدم فعاليات استثنائية من خلال الخبرة والابتكار والتكنولوجيا الحديثة.",
+    "Read Our Story": "اقرأ قصتنا",
+    "OUR WORK": "عملنا",
+    "ABOUT US": "معلومات عنا",
+    "SCHEDULE A CALL": "حدد موعدًا للمكالمة",
+    "What We Do": "ما نقوم به",
+    "Crafting More Than Events": "صناعة أكثر من مجرد فعاليات",
+    "Corporate Events": "الفعاليات المؤسسية",
+    "Mall Decor &amp; Activation": "ديكورات وتنشيطات المركز التجاري",
+    "Exhibition": "معرض",
+    "Entertainment": "ترفيه",
+    "Venue &amp; Management": "المكان والإدارة",
+    "Marketing &amp; Sponsorship": "التسويق والرعاية",
+    "Projects you might also be interested in": "مشاريع قد تهمك أيضاً",
+    "FERJAN FESTIVAL": "مهرجان فيرجان",
+    "next": "التالي",
+    "Trusted By Leaders": "موثوق به من قبل القادة",
+    "Voices Of Legacy": "أصوات الإرث",
+    "Dubai Run Was Nothing Short Of Exceptional. The Coverage And Positivity And Happiness Around It All Is Next Level. Thank You!": "كان سباق دبي استثنائياً بكل المقاييس. التغطية الإعلامية والإيجابية والسعادة التي رافقته كانت في غاية الروعة. شكراً لكم!",
+    "Client : DAMAAC": "العميل: داماك",
+    "Working with the team was an absolute pleasure. Every detail was handled with precision and creativity. We couldn't have asked for more.": "كان العمل مع الفريق متعة حقيقية. لقد تم التعامل مع كل التفاصيل بدقة وإبداع. لم نكن لنطلب أكثر من ذلك.",
+    "Client : Emaar": "العميل: إعمار",
+    "EMAAR": "إعمار",
+    "The event exceeded all expectations. Their ability to bring our vision to life while managing every logistical challenge was remarkable.": "لقد فاق الحدث كل التوقعات. كانت قدرتهم على تحويل رؤيتنا إلى واقع ملموس مع إدارة كل التحديات اللوجستية أمراً رائعاً.",
+    "Client : Dubai Expo": "العميل: إكسبو دبي",
+    "EXPO": "معرض",
+    "The Questions You<br>You Might Be Asking": "الأسئلة التي لديك<br> قد تتساءل",
+    "Why Leap Events?": "لماذا أحداث القفزة؟",
+    "We're here to help. Reach out to our team and we'll get back to you as soon as possible with all the details you need.": "نحن هنا للمساعدة. تواصل مع فريقنا وسنرد عليك في أقرب وقت ممكن بجميع التفاصيل التي تحتاجها.",
+    "Do you offer customized event planning services?": "هل تقدمون خدمات تخطيط الفعاليات المخصصة؟",
+    "How far in advance should I book your services?": "كم المدة التي يجب أن أحجز فيها خدماتكم مسبقاً؟",
+    "Do you manage events outside your city or country?": "هل تدير فعاليات خارج مدينتك أو بلدك؟",
+    "Get In Touch": "تواصل معنا",
+    "Submit": "يُقدِّم",
+    "We are organization of eclectic team of enthusiast with decade and more dedicated to event industries.": "نحن منظمة تضم فريقاً متنوعاً من المتحمسين الذين كرسوا أنفسهم لقطاع تنظيم الفعاليات لأكثر من عقد من الزمان.",
+    "Quick Links": "روابط سريعة",
+    "Home": "بيت",
+    "About": "عن",
+    "Our work": "عملنا",
+    "Contact Us": "اتصل بنا",
+    "What We Provide": "ما نقدمه",
+    "Digital Print &amp; Branding": "الطباعة الرقمية والعلامات التجارية",
+    "Copyright © 2026 LeapEvent. All Rights Reserved.": "جميع الحقوق محفوظة © 2026 لشركة LeapEvent.",
+    "Let's Talk": "لنتحدث"
+  }
 }

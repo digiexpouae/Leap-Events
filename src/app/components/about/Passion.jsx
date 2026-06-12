@@ -82,28 +82,29 @@ export default function PassionPrecisionSection() {
     
 
         {/* Left label — changes with active stat */}
-        <div className="absolute left-6 md:left-16 top-1/2 -translate-y-1/2 max-w-[200px]">
-        
-             <FadeUp>  <p
-            key={`label-${activeIndex}`}
-            className="text-[#0b1220] font-bold leading-[1.05] text-2xl md:text-3xl whitespace-pre-line animate-[fadeUp_0.5s_ease-out_both]"
-          >
-            {active.label}
-          </p>
-          </FadeUp>
-        </div>
+      {/* Label + description — one map, both fade together per active stat */}
+{STATS.map((s, i) => {
+  const isActive = i === activeIndex;
+  return (
+    <div
+      key={s.number}
+      aria-hidden={!isActive}
+      className={`transition-opacity duration-[100ms] ease-out ${
+        isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
+    >
+      {/* Left label */}
+      <p className="absolute left-6 md:left-16 top-1/2 -translate-y-1/2 max-w-[200px] text-[#0b1220] font-bold leading-[1.05] text-2xl md:text-3xl whitespace-pre-line">
+        {s.label}
+      </p>
 
-        {/* Right description — changes with active stat */}
-        <div className="absolute right-6 md:right-16 top-1/2 -translate-y-1/2 max-w-[180px]">
-        <FadeUp>
-          <p
-            key={`desc-${activeIndex}`}
-            className="text-[#0b1220]/80 text-sm md:text-base leading-snug animate-[fadeUp_0.5s_ease-out_both]"
-          >
-            {active.description}
-          </p>
-          </FadeUp>
-        </div>
+      {/* Right description */}
+      <p className="absolute right-6 md:right-16 top-1/2 -translate-y-1/2 max-w-[180px] text-[#0b1220]/80 text-sm md:text-base leading-snug">
+        {s.description}
+      </p>
+    </div>
+  );
+})}
 
         {/* CENTER stack of numbers + image card */}
         <div className="absolute inset-0 grid place-items-center">

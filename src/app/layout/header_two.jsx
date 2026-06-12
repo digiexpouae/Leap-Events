@@ -8,12 +8,13 @@ export default function Header() {
 
   return (
     <>  
-    <div className='fixed -top-px -left-px z-[999999] flex'>
+  
+  
+   <header className="block fixed w-full h-[82px] z-[99] flex items-stretch ">
+      <div className='fixed -top-px -left-px z-[999999] flex'>
         <DiagonalMenu />
 
     </div>
-  
-   <header className="block fixed w-full h-[82px] z-[99] flex items-stretch ">
 
       {/* ── LEFT: menu button block ─────────────────────────────── */}
       {/*

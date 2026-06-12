@@ -186,7 +186,7 @@ export default function GetInTouch({ className }) {
                             className="w-full py-3 bg-primary rounded-full font-bold text-white text-sm sm:text-base tracking-tighter  transition-all duration-300 hover:scale-[1.02] hover:shadow-xl active:scale-[0.98] cursor-pointer"
 
                         >
-                            Explore More
+                          Submit
                         </button>
                     </div>
 

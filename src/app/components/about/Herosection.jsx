@@ -42,12 +42,14 @@ svgRef.current?.setAttribute('viewBox', viewBox)
   const rect = placeholderRef.current.getBoundingClientRect();
   const sectionRect = sectionRef.current.getBoundingClientRect();
 const bottomDistance = sectionRect.bottom - rect.bottom;
-   gsap.set(".hero-thumb", {
+ 
+
+  gsap.set(".hero-thumb", {
     left: rect.left - sectionRect.left +4,
     width: rect.width,
     height: rect.height,
     bottom:bottomDistance
-  });
+  })
 
  const bbox = pathRef.current.getBBox()
     const cx = bbox.x + bbox.width / 2
@@ -142,7 +144,7 @@ tl2.to(".hero-tagline", { opacity: 1, ease: "power2.in" },"<")
 );
 
   return (
-    <section ref={sectionRef} className="relative h-screen overflow-hidden bg-white">
+    <section ref={sectionRef} dir="ltr" className="relative h-screen overflow-hidden bg-white">
        <div className="absolute left-0 top-0 z-10 mx-auto max-w-7xl px-6 translate-y-30 md:px-12">
         <p className="hero-tagline w-[190px] md:w-[420px] text-xs md:text-lg opacity-0 font-semibold uppercase leading-relaxed tracking-tight text-gray-800">
           Crafting unforgettable events

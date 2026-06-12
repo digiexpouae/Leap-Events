@@ -47,11 +47,11 @@ export default function BuiltOnCraft() {
 
         {/* Cards Grid */}
     <FadeUp>
-        <div className="grid grid-cols-1 gap-8 md:gap-4 md:gap-y-8  md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:gap-4 md:gap-y-8  md:grid-cols-2 lg:grid-cols-3 ">
           {cards.map((card) => (
             <div
               key={card.number}
-              className={`relative flex min-h-72 flex-col justify-between md:translate-x-10 md:w-[90%] rounded-2xl p-6 md:min-h-[420px] ${
+              className={`relative flex min-h-72 flex-col justify-between  md:w-[90%] rounded-2xl p-6 md:min-h-[420px] ${
                 card.primary
                   ? "bg-[var(--color-primary)] text-white"
                   : "bg-white text-black"

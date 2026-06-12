@@ -32,8 +32,8 @@ export default function LeadersSection() {
 
         {/* Heading */}
         <h2 className="text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight leading-tight">
-          The Leaders <br />
-          Behind
+          <span>The Leaders <br />
+          Behind </span> {""}
           <span className="text-[#4da6ff]"> Leap Events</span>
         </h2>
         <p className="mt-3 text-sm text-white max-w-lg mx-auto">

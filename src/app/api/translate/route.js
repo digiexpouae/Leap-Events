@@ -13,9 +13,10 @@ export async function POST(request) {
       : texts.split(',').map(t => t.trim()).filter(Boolean);
 
     // ✅ Guard: block if too many texts
-    const MAX_TEXTS = 70;
+    console.log("Text array",textsArray)
+    const MAX_TEXTS = 105;
     if (textsArray.length > MAX_TEXTS) {
-      console.warn(`⛔ Blocked: ${textsArray.length} texts exceeds limit of ${MAX_TEXTS}`);
+      console.warn(`Blocked: ${textsArray.length} texts exceeds limit of ${MAX_TEXTS}`);
       return NextResponse.json(
         { success: false, error: `Too many texts: ${textsArray.length}. Max allowed is ${MAX_TEXTS}.` },
         { status: 400 }
@@ -23,10 +24,10 @@ export async function POST(request) {
     }
 
     // ✅ Guard: block if too many characters per request
-    const MAX_CHARS = 2000;
+    const MAX_CHARS = 4000;
     const totalChars = textsArray.join('').length;
     if (totalChars > MAX_CHARS) {
-      console.warn(`⛔ Blocked: ${totalChars} characters exceeds limit of ${MAX_CHARS}`);
+      console.warn(`Blocked: ${totalChars} characters exceeds limit of ${MAX_CHARS}`);
       return NextResponse.json(
         { success: false, error: `Too many characters: ${totalChars}. Max allowed is ${MAX_CHARS}.` },
         { status: 400 }
@@ -66,7 +67,7 @@ export async function POST(request) {
           q: textsArray,   // ← fixed: was `texts`, now `textsArray`
           source: 'en',
           target: targetLang,
-          format: 'text'
+          format: 'html'
         })
       }
     );
@@ -106,6 +107,13 @@ export async function POST(request) {
     const allTranslations = data.data.translations.map(
       t => t.translatedText
     );
+const TranslationWithKeys={}
+
+textsArray.forEach((ele,i) => 
+  TranslationWithKeys[ele]=allTranslations[i]
+);
+
+    
 
     console.log(`✅ Got ${allTranslations.length} translations`);
 
@@ -125,7 +133,7 @@ export async function POST(request) {
       lang: targetLang,
       savedAt: new Date().toISOString(),
       indexMap,
-      translations: allTranslations
+      translations: TranslationWithKeys
     }, null, 2));
 
     console.log(`✅ Saved: ${page}_${targetLang}.json`);

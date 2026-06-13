@@ -12,13 +12,13 @@ const quickLinks = [
     { label: "Contact Us", href: "/contact" },
 ];
 
-const services = [
-    "Corporate Events",
-    "Mall Decor & Activation",
+const services = [{name:    "Corporate Events",link:"/services"
+},
+  {name:"Mall Decor & Activation" ,link:"/services"},
     // "Wedding",
-    "Digital Print & Branding",
-    "Exhibition",
-    "Entertainment",
+    {name:"Digital Print & Branding",link:"/services"},
+    {name:"Exhibition", link:"/services"},
+    {name:"Entertainment",link:"/services"},
 ];
 
 export default function Footer() {
@@ -136,11 +136,11 @@ export default function Footer() {
                             </motion.h4>
                             <ul className="flex flex-col gap-3.5">
                                 {services.map((service) => (
-                                    <motion.li key={service}
+                                    <motion.li key={service.name}
                                         variants={itemVariants}
                                     >
                                         <span className="text-white text-sm sm:text-base hover:text-white transition-colors duration-200 cursor-pointer">
-                                            {service}
+                                        <Link href={service.link}>    {service.name}</Link>
                                         </span>
                                     </motion.li>
                                 ))}

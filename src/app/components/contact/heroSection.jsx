@@ -2,17 +2,14 @@
 
 import { useState } from "react";
 
-/**
- * ContactSection — "HAVE A PROJECT IN MIND?"
- *
- * Tech: Next.js (App Router) + Tailwind CSS
- *
- * Layout:
- * - Two-column on md+ (heading/description left, form right)
- * - Single column on mobile (heading first, then form)
- * - Pill-shaped inputs with soft borders
- * - Floating circular logo badge on the right edge (decorative, hidden on small screens)
- */
+const departments = [
+  "Corporate Events",
+  "Family Festivals",
+  "Students Festival",
+  "Tech Festival",
+  "Other",
+];
+
 export default function ContactSection() {
   const [form, setForm] = useState({
     name: "",
@@ -23,14 +20,62 @@ export default function ContactSection() {
     comments: "",
   });
 
+  const [status, setStatus] = useState("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Wire up to your API / server action here
-    console.log("Form submitted:", form);
+
+    if (!form.email) {
+      setErrorMsg("Email is required.");
+      setStatus("error");
+      return;
+    }
+
+    setStatus("loading");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: form.name,
+          email: form.email,
+          phone: form.phone,
+          message: [
+            form.company ? `Company: ${form.company}` : "",
+            form.department ? `Department: ${form.department}` : "",
+            form.comments ? `Comments: ${form.comments}` : "",
+          ]
+            .filter(Boolean)
+            .join("\n"),
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.message || "Something went wrong.");
+      }
+
+      setStatus("success");
+      setForm({
+        name: "",
+        phone: "",
+        company: "",
+        email: "",
+        department: "",
+        comments: "",
+      });
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(err.message || "Failed to send. Please try again.");
+    }
   };
 
   const inputBase =
@@ -40,8 +85,7 @@ export default function ContactSection() {
     <section className="relative w-full overflow-hidden bg-white py-34">
       <div className="mx-auto max-w-5xl px-6 md:px-10">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:gap-24">
-          {/* LEFT — Heading + description */}
-          <div className="flex flex-col ">
+          <div className="flex flex-col">
             <h2 className="text-3xl font-bold uppercase leading-tight tracking-tight text-slate-900 sm:text-4xl">
               Have a project
               <br />
@@ -54,10 +98,18 @@ export default function ContactSection() {
             </p>
           </div>
 
-          {/* RIGHT — Form */}
           <div className="relative">
-            {/* Floating logo badge (decorative) */}
-         
+            {status === "success" && (
+              <p className="mb-4 text-center font-medium text-green-600">
+                ✅ Your message was sent successfully!
+              </p>
+            )}
+
+            {status === "error" && (
+              <p className="mb-4 text-center font-medium text-red-500">
+                ⚠️ {errorMsg}
+              </p>
+            )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
@@ -96,7 +148,6 @@ export default function ContactSection() {
                 className={inputBase}
               />
 
-              {/* Custom select with chevron */}
               <div className="relative">
                 <select
                   name="department"
@@ -109,12 +160,13 @@ export default function ContactSection() {
                   <option value="" disabled>
                     Select Department
                   </option>
-                  <option value="events">Events</option>
-                  <option value="production">Production</option>
-                  <option value="design">Design</option>
-                  <option value="marketing">Marketing</option>
-                  <option value="other">Other</option>
+                  {departments.map((d) => (
+                    <option key={d} value={d}>
+                      {d}
+                    </option>
+                  ))}
                 </select>
+
                 <svg
                   className="pointer-events-none absolute right-5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
                   viewBox="0 0 20 20"
@@ -140,9 +192,10 @@ export default function ContactSection() {
               <div className="flex justify-center pt-4">
                 <button
                   type="submit"
-                  className="rounded-full bg-[var(--color-primary)] px-10 py-3 text-sm font-semibold text-white cursor-pointer transition hover:from-blue-600 hover:bg-[var(--color-primary)]/40 active:scale-[0.98]"
+                  disabled={status === "loading"}
+                  className="rounded-full bg-[var(--color-primary)] px-10 py-3 text-sm font-semibold text-white transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  Explore More
+                  {status === "loading" ? "Sending…" : "Submit"}
                 </button>
               </div>
             </form>

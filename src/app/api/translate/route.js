@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 
 export async function POST(request) {
-  const { texts, targetLang, hash, page, indexMap } = await request.json();
+  const { texts, targetLang, hash, page, indexMap, forceFresh } = await request.json();
 
   try {
     const textsArray = Array.isArray(texts)
@@ -13,7 +13,7 @@ export async function POST(request) {
       : texts.split(',').map(t => t.trim()).filter(Boolean);
 
     // ✅ Guard: block if too many texts
-    console.log("Text array",textsArray)
+    console.log("Text array", textsArray);
     const MAX_TEXTS = 105;
     if (textsArray.length > MAX_TEXTS) {
       console.warn(`Blocked: ${textsArray.length} texts exceeds limit of ${MAX_TEXTS}`);
@@ -42,7 +42,7 @@ export async function POST(request) {
     if (fs.existsSync(usageFile)) {
       usage = JSON.parse(fs.readFileSync(usageFile, 'utf-8'));
       if (usage.month !== new Date().getMonth()) {
-        usage = { month: new Date().getMonth(), chars: 0 }; // reset every month
+        usage = { month: new Date().getMonth(), chars: 0 };
       }
     }
 
@@ -64,7 +64,7 @@ export async function POST(request) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          q: textsArray,   // ← fixed: was `texts`, now `textsArray`
+          q: textsArray,
           source: 'en',
           target: targetLang,
           format: 'html'
@@ -73,20 +73,19 @@ export async function POST(request) {
     );
 
     const data = await response.json();
-    console.log('🔍 Google response:', JSON.stringify(data)); // ← debug log
+    console.log('🔍 Google response:', JSON.stringify(data));
 
     if (data?.error?.code === 403) {
       console.log('⚠️ Rate limit — waiting 5s and retrying...');
       await delay(5000);
 
-      // retry once
       const retry = await fetch(
         `https://translation.googleapis.com/language/translate/v2?key=${process.env.GOOGLE_CLOUD_TRANSLATION_API}`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            q: textsArray,  // ← fixed here too
+            q: textsArray,
             source: 'en',
             target: targetLang,
             format: 'text'
@@ -104,16 +103,12 @@ export async function POST(request) {
       throw new Error('Google Translate error: ' + JSON.stringify(data));
     }
 
-    const allTranslations = data.data.translations.map(
-      t => t.translatedText
+    const allTranslations = data.data.translations.map(t => t.translatedText);
+
+    const TranslationWithKeys = {};
+    textsArray.forEach((ele, i) => 
+      TranslationWithKeys[ele] = allTranslations[i]
     );
-const TranslationWithKeys={}
-
-textsArray.forEach((ele,i) => 
-  TranslationWithKeys[ele]=allTranslations[i]
-);
-
-    
 
     console.log(`✅ Got ${allTranslations.length} translations`);
 
@@ -127,13 +122,33 @@ textsArray.forEach((ele,i) =>
     fs.mkdirSync(folder, { recursive: true });
 
     const filePath = path.join(folder, `${page}_${targetLang}.json`);
+
+    // ✅ Load existing translations if file exists
+    let existingTranslations = {};
+    if (fs.existsSync(filePath)) {
+      const existing = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+      existingTranslations = existing.translations || {};
+    }
+
+    // ✅ If forceFresh, delete old cache to ensure fresh data
+    if (forceFresh && fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath);
+      existingTranslations = {};
+    }
+
+    // ✅ Merge: keep old translations + add new ones
+    const mergedTranslations = {
+      ...existingTranslations,
+      ...TranslationWithKeys
+    };
+
     fs.writeFileSync(filePath, JSON.stringify({
       hash,
       page,
       lang: targetLang,
       savedAt: new Date().toISOString(),
       indexMap,
-      translations: TranslationWithKeys
+      translations: mergedTranslations
     }, null, 2));
 
     console.log(`✅ Saved: ${page}_${targetLang}.json`);

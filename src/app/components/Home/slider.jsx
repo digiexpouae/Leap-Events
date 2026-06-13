@@ -71,6 +71,17 @@ function VideoModal({ project, onClose }) {
           style={{ width: "100%", display: "block", maxHeight: "80vh" }}
         /> */}
 
+{(isMobile) && (
+  <button
+    type="button"
+    className="absolute inset-0 z-20 flex items-center justify-center"
+    onClick={handlePlay}
+  >
+    <div className="flex h-16 w-16 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-sm">
+      {PLAY_CURSOR}
+    </div>
+  </button>
+)}
         <iframe
   width="100%"
   height="480"

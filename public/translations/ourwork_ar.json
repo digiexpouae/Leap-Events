@@ -1,8 +1,8 @@
 {
-  "hash": "35d60ddc88522834508891a2dd8c43b69ac642dfe2f4e621b97be051968e4570",
+  "hash": "a9e7b3eb8d54ec9d55b8a7d3c13d821d573e7845c09ac2c77387bc1c68aeef85",
   "page": "ourwork",
   "lang": "ar",
-  "savedAt": "2026-06-11T19:01:03.628Z",
+  "savedAt": "2026-06-13T07:22:00.992Z",
   "translations": {
     "MENU": "قائمة طعام",
     "Arabic": "عربي",
@@ -40,6 +40,10 @@
     "Digital Print &amp; Branding": "الطباعة الرقمية والعلامات التجارية",
     "Exhibition": "معرض",
     "Entertainment": "ترفيه",
-    "Copyright © 2026 LeapEvent. All Rights Reserved.": "جميع الحقوق محفوظة © 2026 لشركة LeapEvent."
+    "Copyright © 2026 LeapEvent. All Rights Reserved.": "جميع الحقوق محفوظة © 2026 لشركة LeapEvent.",
+    "HOME": "بيت",
+    "ABOUT": "عن",
+    "SERVICES": "خدمات",
+    "CONTACT": "اتصال"
   }
 }

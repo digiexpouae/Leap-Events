@@ -1,8 +1,8 @@
 {
-  "hash": "7afdde14ae9d29297a424b48c5580be51402768670ea99d52cf6cd2b1d01f2d5",
+  "hash": "46db5ed55329d90e4c806cc4c742d996f435f3af40b6b4f5a1561f7d3637f491",
   "page": "contact",
   "lang": "ar",
-  "savedAt": "2026-06-12T12:06:55.236Z",
+  "savedAt": "2026-06-13T07:22:14.429Z",
   "translations": {
     "MENU": "قائمة طعام",
     "Arabic": "عربي",
@@ -25,6 +25,11 @@
     "Exhibition": "معرض",
     "Entertainment": "ترفيه",
     "Copyright © 2026 LeapEvent. All Rights Reserved.": "جميع الحقوق محفوظة © 2026 لشركة LeapEvent.",
-    "Let's Talk": "لنتحدث"
+    "Let's Talk": "لنتحدث",
+    "HOME": "بيت",
+    "ABOUT": "عن",
+    "SERVICES": "خدمات",
+    "WORK": "عمل",
+    "CONTACT": "اتصال"
   }
 }

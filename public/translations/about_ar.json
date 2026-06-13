@@ -1,8 +1,8 @@
 {
-  "hash": "cb6a564fab03601b26ec748866e9641b92d8016b585968725961323d379e5146",
+  "hash": "3164da0ca20c9e482926ebecd7d03cd47bd07d574b5000120012e638fa2c056a",
   "page": "about",
   "lang": "ar",
-  "savedAt": "2026-06-11T19:34:17.091Z",
+  "savedAt": "2026-06-13T07:20:53.949Z",
   "translations": {
     "MENU": "قائمة طعام",
     "Arabic": "عربي",
@@ -36,7 +36,6 @@
     "AWARDS": "الجوائز",
     "Get In Touch": "تواصل معنا",
     "Explore More": "استكشف المزيد",
-    "Let's Talk": "لنتحدث",
     "We are organization of eclectic team of enthusiast with decade and more dedicated to event industries.": "نحن منظمة تضم فريقاً متنوعاً من المتحمسين الذين كرسوا أنفسهم لقطاع تنظيم الفعاليات لأكثر من عقد من الزمان.",
     "Submit": "يُقدِّم",
     "Quick Links": "روابط سريعة",
@@ -51,6 +50,15 @@
     "Digital Print &amp; Branding": "الطباعة الرقمية والعلامات التجارية",
     "Exhibition": "معرض",
     "Entertainment": "ترفيه",
-    "Copyright © 2026 LeapEvent. All Rights Reserved.": "جميع الحقوق محفوظة © 2026 لشركة LeapEvent."
+    "Copyright © 2026 LeapEvent. All Rights Reserved.": "جميع الحقوق محفوظة © 2026 لشركة LeapEvent.",
+    "Let's Talk": "لنتحدث",
+    "HOME": "بيت",
+    "ABOUT": "عن",
+    "SERVICES": "خدمات",
+    "WORK": "عمل",
+    "CONTACT": "اتصال",
+    "Original text": "النص الأصلي",
+    "Rate this translation": "قيّم هذه الترجمة",
+    "Your feedback will be used to help improve Google Translate": "سيتم استخدام ملاحظاتك للمساعدة في تحسين ترجمة جوجل"
   }
 }

@@ -13,7 +13,7 @@ function tagElements(elements) {
   });
 }
 
-export default function TranslateButtons() {
+export default function TranslateButtons({isMenuOpen }) {
   const originalTextsRef = useRef(null);
   const [currentLang, setCurrentLang] = useState('en');
   const pathname = usePathname(); // 🔹 fires on every navigation
@@ -73,6 +73,7 @@ const {updateDir} =useDirection()
       if (sourceKey && translationsPayload[sourceKey]) {
         // innerHTML preserves layout breaks and text stylings perfectly
         el.innerHTML = translationsPayload[sourceKey];
+        console.log("   el.innerHTML",   el.innerHTML," translationsPayload[sourceKey]", translationsPayload[sourceKey])
       }
     });
 
@@ -142,6 +143,7 @@ updateDir(newDir)
       if (Array.isArray(cached.translations)) {
         lookupMap = {};
         textsToTranslate.forEach((sourceText, index) => {
+          console.log("sourceText",sourceText,index)
           lookupMap[sourceText] = cached.translations[index];
         });
       }
@@ -185,7 +187,7 @@ updateDir(newDir)
       translatePage(savedLang);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]); // 🔹 Fires seamlessly on navigation layout refreshes
+  }, [pathname,isMenuOpen]); // 🔹 Fires seamlessly on navigation layout refreshes
 
   return (
     <div className="flex flex-col py-4 md:py-0">

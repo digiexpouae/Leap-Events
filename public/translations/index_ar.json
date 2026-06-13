@@ -1,8 +1,8 @@
 {
-  "hash": "82272a46a71b343bc99969ed9d66a54817a2829e7ff8327883485958ae86ceb1",
+  "hash": "c84edda81e0279764119c502afd912cb13d3ee2a705df58d15c96bc9ce513b4b",
   "page": "index",
   "lang": "ar",
-  "savedAt": "2026-06-12T13:15:54.929Z",
+  "savedAt": "2026-06-13T06:59:30.093Z",
   "translations": {
     "MENU": "قائمة طعام",
     "Arabic": "عربي",
@@ -43,8 +43,9 @@
     "How far in advance should I book your services?": "كم المدة التي يجب أن أحجز فيها خدماتكم مسبقاً؟",
     "Do you manage events outside your city or country?": "هل تدير فعاليات خارج مدينتك أو بلدك؟",
     "Get In Touch": "تواصل معنا",
-    "Submit": "يُقدِّم",
+    "Explore More": "استكشف المزيد",
     "We are organization of eclectic team of enthusiast with decade and more dedicated to event industries.": "نحن منظمة تضم فريقاً متنوعاً من المتحمسين الذين كرسوا أنفسهم لقطاع تنظيم الفعاليات لأكثر من عقد من الزمان.",
+    "Submit": "يُقدِّم",
     "Quick Links": "روابط سريعة",
     "Home": "بيت",
     "About": "عن",
@@ -53,6 +54,12 @@
     "What We Provide": "ما نقدمه",
     "Digital Print &amp; Branding": "الطباعة الرقمية والعلامات التجارية",
     "Copyright © 2026 LeapEvent. All Rights Reserved.": "جميع الحقوق محفوظة © 2026 لشركة LeapEvent.",
-    "Let's Talk": "لنتحدث"
+    "Let's Talk": "لنتحدث",
+    "HOME": "بيت",
+    "ABOUT": "عن",
+    "SERVICES": "خدمات",
+    "WORK": "عمل",
+    "CONTACT": "اتصال",
+    "souq ramadan": "سوق رمضان"
   }
 }

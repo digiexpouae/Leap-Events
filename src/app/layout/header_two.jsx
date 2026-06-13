@@ -3,16 +3,17 @@ import Link from 'next/link'
 import DiagonalMenu from '../common/menu'
 import Image from 'next/image'
 import TranslateButtons from '../components/Translate'
+import { useState } from 'react'
 export default function Header() {
 
-
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <>  
   
   
    <header className="block fixed w-full h-[82px] z-[99] flex items-stretch ">
       <div className='fixed -top-px -left-px z-[999999] flex'>
-        <DiagonalMenu />
+        <DiagonalMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
     </div>
 
@@ -44,7 +45,7 @@ export default function Header() {
 
       <div className='absolute  md:right-10 right-0 inset-y-0'>
                 {/* <div id="google_translate_element" style={{ display: 'none' }}></div> */}
-                <TranslateButtons />
+          <TranslateButtons isMenuOpen={isMenuOpen} />
 
       </div>
       </div>

@@ -10,14 +10,17 @@ const navs = [
 
 ]
 
-export default function DiagonalMenu() {
+export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
   const [open, setOpen] = useState(false)
 
   return (
     <>
       {/* ── MENU BUTTON ─────────────────────────────────────────── */}
       <button
-        onClick={() => setOpen(true)}
+        onClick={() =>{ setOpen(true)
+          setIsMenuOpen(true)
+        }
+        }
         aria-label="Open menu"
         className="group flex  cursor-pointer items-center gap-2.5 bg-[#5686DA] px-4 md:px-6 py-3.5"
         style={{
@@ -109,8 +112,8 @@ export default function DiagonalMenu() {
                     parent.addEventListener('mouseleave', () => (el.style.width = '0%'))
                   }}
                 />
-                <span className="inline-block transition-transform duration-300 group-hover/link:-translate-x-1.5">
-                  <span className="mr-2 align-super font-sans text-[11px] font-light tracking-[2px] text-white/40">
+                <span className="inline-block transition-transform duration-300  group-hover/link:-translate-x-1.5">
+                  <span className="mr-2 align-super font-sans text-[11px] font-light mx-2 tracking-[2px] text-white/40">
                     {num}
                   </span>
                   <span className="text-2xl md:text-4xl font-semibold tracking-wide transition-colors duration-300 group-hover/link:text-white/70 md:text-5xl">

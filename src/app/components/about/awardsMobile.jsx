@@ -83,7 +83,7 @@ export default function Awards() {
        
 
         {/* Bottom arrows */}
-        <div className="mt-5 flex justify-center gap-4">
+        <div className="mt-5 flex justify-center gap-4" dir="ltr">
           <button
             onClick={prev}
             disabled={index === 0}

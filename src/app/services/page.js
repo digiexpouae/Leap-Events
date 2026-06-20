@@ -36,6 +36,7 @@ const Services = () => {
      <SectionThree />
        <LeapEvent />
      <SectionFive />
+
        <FadeUp amount={0.1}>      <HoverSection /></FadeUp>
 
        <FadeUp>  <LogoMarquee /></FadeUp>

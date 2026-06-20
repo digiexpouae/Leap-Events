@@ -423,11 +423,11 @@ canvas {
   }
 }
 
-.chat-widget:hover {
+/* .chat-widget:hover { */
   /* transform: translateY(-3px); */
   /* backdrop-filter: blur(8px); */
   /* background: rgba(255, 255, 255, 0.1); */
-}
+/* } */
 
 .chat-widget-icon {
   width: 80px;
@@ -503,10 +503,10 @@ canvas {
 }
 
 .modal-logo {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   margin: 0 auto 20px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   overflow: hidden;
   /* border: 4px solid #2c5282; */
 }

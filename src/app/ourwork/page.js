@@ -22,14 +22,14 @@ const index = () => {
     const heading = "Our Work"
     
       const imageUrls = [
-    "/assets/Rectangle_136.png",
-    "/assets/Rectangle_137.png",
-    "/assets/Rectangle_138.png",
-    "/assets/Rectangle_139.png",
-    "/assets/Rectangle_136.png",
-    "/assets/Rectangle_137.png",
-    "/assets/Rectangle_138.png",
-    "/assets/Rectangle_139.png",
+    "/assets/ev-ferjan.webp",
+    "/assets/ev-international.webp",
+    "/assets/ev-gems.webp",
+    "/assets/ev-souq-ramdan.webp",
+   "/assets/ev-ferjan.webp",
+    "/assets/ev-international.webp",
+    "/assets/ev-gems.webp",
+    "/assets/ev-souq-ramdan.webp",
    
   ];
 

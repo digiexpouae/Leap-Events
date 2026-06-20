@@ -139,7 +139,7 @@ const Parallexanimation = () => {
                                     viewport={{ once: true }}
                                     transition={{ duration: 1, ease: "easeOut" }}
                               >
-                                    Explore More
+                                  Submit
                               </motion.button>
                         </div>
 

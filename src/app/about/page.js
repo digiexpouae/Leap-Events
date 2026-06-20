@@ -1,6 +1,7 @@
 import Header from '../layout/header'
 import Footer from '../layout/footer'
 import Herosection from '../components/about/Herosection'
+import AboutSection from '../components/Home/about'
 import SectionTwo from '../components/about/sectiontwo'
 import Sectionthree from '../components/about/Sectionthree'
 import Sectionfour from '../components/about/Sectionfour'
@@ -23,7 +24,7 @@ const about = () => {
         <div>
 
             <Herosection />
-            {/* <Herosection heading={"Our Story"} text={<> Our vision extends beyond the immediate thrill <br /> of the event to leave
+            {/* <AboutSection heading={"Our Story"} text={<> Our vision extends beyond the immediate thrill <br /> of the event to leave
                 a lasting imprint that <br /> propels our clients into the future</>} /> */}
         <BuiltOnCraft /> 
        <FadeUp><Leader /></FadeUp> 
@@ -56,7 +57,6 @@ const about = () => {
           </button>
         </div>
             </div>
-
           {/* <Team />/ */}
        
             {/* <SectionTwo /> */}

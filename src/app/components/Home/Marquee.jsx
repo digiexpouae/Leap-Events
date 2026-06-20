@@ -77,7 +77,7 @@ function LogoMarquee() {
 
   return (
     <div
-      className="relative overflow-hidden rounded-full bg-white shadow-xl py-2 md:py-6"
+      className="relative overflow-hidden  bg-white shadow-xl py-2 md:py-6"
       aria-label="Trusted partner logos"
       role="marquee"
     >
@@ -155,12 +155,12 @@ export default function TrustedByLeaders() {
       {/* Decorative "d" badge — top-right, matches screenshot */}
 
       {/* Heading */}
-      <h2 className="text-center text-white font-extrabold text-2xl md:text-5xl tracking-[0.25em] tracking-tight uppercase mb-8 px-4">
+      <h2 className="text-center text-white font-extrabold text-2xl md:text-5xl tracking-[0.25em] tracking-tight uppercase mb-12 md:mb-16 px-4">
         Trusted By Leaders
       </h2>
 
       {/* Marquee strip */}
-      <div className="mx-4 md:mx-16 lg:mx-24">
+      <div className="">
         <LogoMarquee />
   
       </div>

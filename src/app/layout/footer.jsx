@@ -12,10 +12,9 @@ const quickLinks = [
     { label: "Contact Us", href: "/contact" },
 ];
 
-const services = [{name:    "Corporate Events",link:"/services"
-},
+const services = [
+    {name:    "Corporate Events",link:"/services"},
   {name:"Mall Decor & Activation" ,link:"/services"},
-    // "Wedding",
     {name:"Digital Print & Branding",link:"/services"},
     {name:"Exhibition", link:"/services"},
     {name:"Entertainment",link:"/services"},
@@ -140,7 +139,7 @@ export default function Footer() {
                                         variants={itemVariants}
                                     >
                                         <span className="text-white text-sm sm:text-base hover:text-white transition-colors duration-200 cursor-pointer">
-                                        <Link href={service.link}>    {service.name}</Link>
+                                        <Link href={service.link}>{service.name}</Link>
                                         </span>
                                     </motion.li>
                                 ))}

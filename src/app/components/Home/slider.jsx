@@ -3,18 +3,37 @@
 import Image from "next/image";
 import { useState, useCallback, useEffect, useRef } from "react";
 
+// const projects = [
+//   { id: 1,  title: "FERJAN FESTIVAL",            mainImage: "/assets/ferjan-festival-logo.webp",       videoUrl: "https://youtu.be/pLuB9L6Dstk" },
+//   { id: 2,  title: "souq ramadan",               mainImage: "/assets/souq-ramadan-logo.webp",          videoUrl: "https://youtu.be/3uozDM8afj4" },
+//   { id: 3,  title: "university of dubai",        mainImage: "/assets/dubai-universtity-logo.webp",     videoUrl: "https://youtu.be/mZoRYVv_gZQ" },
+//   { id: 4,  title: "winter garden",              mainImage: "/assets/winter-garden.webp",              videoUrl: "https://www.youtube.com/watch?v=n3bINR1Sj7M" },
+//   { id: 5,  title: "international film festival",mainImage: "/assets/internationalfilmfestival.webp",  videoUrl: "https://www.youtube.com/watch?v=ocOUU6m_rys" },
+//   { id: 6,  title: "souq al fareej",               mainImage: "/assets/souqalfreej.webp",                videoUrl:"https://www.youtube.com/watch?v=SVv5c23FXSc" },
+//   { id: 7,  title: "summer rush",                mainImage: "/assets/summerrush.webp",                 videoUrl: "https://youtu.be/CmgtuBhJkoc" },
+//   { id: 8,  title: "gems school",                mainImage: "/assets/gemsachool.webp",                 videoUrl: "https://youtu.be/CmgtuBhJkoc" },
+//   { id: 9,  title: "mastermind",                 mainImage: "/assets/master-mind-logo.webp",           videoUrl: "https://youtu.be/EGftWEEc_uE" },
+//   { id: 10, title: "du",                         mainImage: "/assets/du.webp",                         videoUrl: "https://www.youtube.com/watch?v=1c3jOuOJr9A" },
+// ];
+
+
 const projects = [
-  { id: 1,  title: "FERJAN FESTIVAL",            mainImage: "/assets/ferjan-festival-logo.webp",       videoUrl: "https://youtu.be/pLuB9L6Dstk" },
-  { id: 2,  title: "souq ramadan",               mainImage: "/assets/souq-ramadan-logo.webp",          videoUrl: "https://youtu.be/3uozDM8afj4" },
-  { id: 3,  title: "university of dubai",        mainImage: "/assets/dubai-universtity-logo.webp",     videoUrl: "https://youtu.be/mZoRYVv_gZQ" },
-  { id: 4,  title: "winter garden",              mainImage: "/assets/winter-garden.webp",              videoUrl: "https://youtu.be/H1Wr7gjx-xs" },
-  { id: 5,  title: "international film festival",mainImage: "/assets/internationalfilmfestival.webp",  videoUrl: "https://www.youtube.com/watch?v=SVv5c23FXSc" },
-  { id: 6,  title: "souq al fareej",               mainImage: "/assets/souqalfreej.webp",                videoUrl:"https://www.youtube.com/watch?v=SVv5c23FXSc" },
-  { id: 7,  title: "summer rush",                mainImage: "/assets/summerrush.webp",                 videoUrl: "https://youtu.be/CmgtuBhJkoc" },
-  { id: 8,  title: "gems school",                mainImage: "/assets/gemsachool.webp",                 videoUrl: "https://youtu.be/CmgtuBhJkoc" },
-  { id: 9,  title: "mastermind",                 mainImage: "/assets/master-mind-logo.webp",           videoUrl: "https://youtu.be/EGftWEEc_uE" },
-  { id: 10, title: "du",                         mainImage: "/assets/du.webp",                         videoUrl: "https://youtu.be/nY2h7oHkpN0" },
+  {id: 1,  title: "FERJAN FESTIVAL",                    image:"/assets/w-ferjan-festival.webp", videoUrl: "https://youtu.be/VnZ5EkXupHQ"  },
+  {id: 2,  title: "SOUQ RAMADAN",                       image:"/assets/souq-ramadan.webp", videoUrl: "https://youtu.be/p0v3EM14Jv4" },
+  {id: 3,  title:   "WINTER GARDEN",                      image:"/assets/w-winter-garden.webp",  videoUrl: "https://youtu.be/Z02w0ts5FLI"   },
+  {id: 4,  title:  "SOUQ AL FAREEJ",                     image:"/assets/w-souq-al-freej.webp",   videoUrl: "https://youtu.be/Z02w0ts5FLI"},
+  {id: 5,  title: "SHARJAH INTERNATIONAL FILM FESTIVAL",image:"/assets/w-international-film-festival.webp", videoUrl: "https://youtu.be/TOl8VrXGkmY"   },
+  {id: 6,  title:  "UNIVERSITY OF DUBAI",              image:"/assets/w-dubai-universtity.webp",  videoUrl: "https://youtu.be/nDCbXoRmB_Q"  },
+  {id: 7,  title:   "GEMS GRADUATION EVENT", image:"/assets/w-gems-achool.webp", videoUrl: "https://youtu.be/j1ZwWgsQDN0"  },
+  {id: 8,  title: "du",            image:"/assets/w-du.webp",  videoUrl: "https://youtu.be/UrkUYgpevQE"   },
+  {id: 9, title:   "SUMMER RUSH",    image:"/assets/summer-rush.webp",  videoUrl: "https://youtu.be/nY2h7oHkpN0"  },
+  { id: 10,  title: "Master Mind",                 image: "/assets/master-mind.webp",           videoUrl: "https://youtu.be/IPpvPcetJL8" },
+
 ];
+
+
+
+
 
 const TOTAL         = projects.length;
 const AUTO_INTERVAL = 3000;
@@ -91,7 +110,9 @@ function VideoModal({ project, onClose }) {
           background: "linear-gradient(to top, rgba(0,0,0,0.7), transparent)",
           pointerEvents: "none",
         }}>
-          <p style={{ margin: 0, color: "#fff", fontSize: "20px", fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+          <p 
+          className=" text-sm md:text-[20px]"
+          style={{ margin: 0, color: "#fff",fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.05em" }}>
             {project.title}
           </p>
         </div>
@@ -362,14 +383,22 @@ export default function ProjectSlider() {
                   >
                     <div className="w-full h-full relative">
                       <Image
-                        src={ele.mainImage}
+                        src={ele.image}
                         alt={ele.title}
                         width={600}
                         height={400}
                         draggable={false}
                         className="w-full h-full object-cover pointer-events-none select-none"
                       />
-                      <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-50"}`} />
+                      {isMobile &&
+                        (<div className="absolute inset-0 z-30 flex items-center justify-center "
+                
+                 ><span className=" h-[30%] w-[20%] transition-transform duration-300 hover:scale-110" style={{backgroundImage:`url("/assets/play-icon.svg")`,
+                  backgroundSize:"cover",backgroundPosition:'center'}}></span></div>
+                   
+                 )}
+                  <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-50"}`} />
+               
                     </div>
 
                     {/* Next hint */}

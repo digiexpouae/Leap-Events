@@ -147,15 +147,16 @@ const handleFirstModalSubmit = async (e) => {
       {/* Floating Button */}
       <div className="chat-widget " onClick={() => setIsFirstModalOpen(true)}>
         <div className="chat-widget-icon">
-          <Image src="/assets/bot.png" alt="AI Assistant"
-          className="ai-logo object-cover" 
-          width={80}
-          height={80}
+          <Image src="/assets/leap-icon.webp" alt="AI Assistant"
+          className="ai-logo object-cover object-center" 
+          width={120}
+          height={120}
           />
         </div>
         <div>
           <div className="chat-widget-image">
-            <Image src="/assets/bot.png" alt="AI Assistant" width={20} height={20} />
+            <Image src="/assets/leap-icon.webp" alt="AI Assistant"
+             width={20} height={20} />
           </div>
           <div className='flex items-center'>
             <div>
@@ -176,9 +177,9 @@ const handleFirstModalSubmit = async (e) => {
               setIsFirstModalOpen(false);
             }}>×</button>
             <div className="modal-logo">
-              <Image src="/assets/bot.png" alt="AI Assistant"
-         width={120}
-         height={120}
+              <Image src="/assets/leap-icon.webp" alt="AI Assistant"
+         width={80}
+         height={80}
 className="w-full h-auto"               
               />
             </div>
@@ -261,7 +262,7 @@ className="w-full h-auto"
           <div className="modal-content chat-modal" onClick={e => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-4">
               <div className={`modal-logo cursor-pointer ${conversationState.isListening ? 'animate-pulse' : ''}`} onClick={handleImageClick}>
-                <img src="/assets/ai-bot.png" alt="AI Assistant" className={`w-12 h-12 ${conversationState.isListening ? 'ring-2 ring-purple-500 rounded-full' : ''}`} />
+                <div className={`w-12 h-12 ${conversationState.isListening ? 'ring-2 ring-purple-500 rounded-full' : ''}`}  />
               </div>
               <div className="flex items-center gap-4">
                 <div className={`p-2 rounded-full ${conversationState.isListening ? 'bg-red-500' : 'bg-green-500'} text-white`}>

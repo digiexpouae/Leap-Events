@@ -1,9 +1,8 @@
 'use client'
-import { useEffect, useRef, useState } from "react";
+import { cache, useEffect, useRef, useState, useTransition } from "react";
 import { usePathname } from "next/navigation";
 import { useDirection } from "./ContextProvider";
-// 📑 Helper to tag elements with their original raw English innerHTML source string.
-// This attribute remains completely constant and safe from Google Translate mutation.
+
 function tagElements(elements) {
   elements.forEach((el) => {
     if (!el.dataset.i18nSource) {
@@ -16,6 +15,7 @@ function tagElements(elements) {
 export default function TranslateButtons({isMenuOpen }) {
   const originalTextsRef = useRef(null);
   const [currentLang, setCurrentLang] = useState('en');
+    const [isPending, startTransition] = useTransition(); 
   const pathname = usePathname(); // 🔹 fires on every navigation
 const {updateDir} =useDirection() 
   function getPageKey() {
@@ -78,8 +78,8 @@ const {updateDir} =useDirection()
     });
 
 const target= lang=== "ar"? "rtl":"ltr"
-console.log("target",target)
 document.body.setAttribute('dir', target);
+document.body.style.textAlign = lang === "ar" ? "right" : "left";
 const newDir=target
 updateDir(newDir)
   }
@@ -134,29 +134,39 @@ updateDir(newDir)
     const page = getPageKey();
     const currentHash = await generateHash(textsToTranslate.join('|'));
     const cached = await getPageCache(page, targetLang);
-
-    // 🏎️ Handling the Cached JSON File
-    if (cached) {
-      // If your JSON file cache already provides an exact dictionary map: { "Hello World": "مرحبا بالعالم" }
-      // Use it directly. If it provides a flat array, map it down first:
-      let lookupMap;
-      if (Array.isArray(cached.translations)) {
-        lookupMap = {};
-        textsToTranslate.forEach((sourceText, index) => {
-          console.log("sourceText",sourceText,index)
-          lookupMap[sourceText] = cached.translations[index];
-        });
-      }
+    console.log("texttotranslate",textsToTranslate)
+const existingKeys=Object.keys(cached.translations);
+console.log("existing",existingKeys);
+const newKey=textsToTranslate.filter((ele,index)=>{
+  return !existingKeys.includes(ele)
+})
+console.log("new",newKey);
+if (cached?.translations && Object.keys(cached.translations).length > 0 || newKey.length <= 0 && NODE_ENV=="production") {
+       // If your JSON file cache already provides an exact dictionary map: { "Hello World": "مرحبا بالعالم" }
+       // Use it directly. If it provides a flat array, map it down first:
+       let lookupMap;
+       if (Array.isArray(cached.translations)) {
+         lookupMap = {};
+         textsToTranslate.forEach((sourceText, index) => {
+           console.log("sourceText",sourceText,index)
+           lookupMap[sourceText] = cached.translations[index];
+         });
+       }
       else {
   lookupMap = cached.translations || {};   // new keyed format
 }
-      
       applyTranslations(lookupMap, targetLang);
-      return;
+  return;
     }
+    // If we're in production, do NOT call the API
+if (process.env.NODE_ENV === 'production') {
+  console.warn('Production mode: skipping translation API call, using cache only.');
+  // Optionally, you can still try to use cache again here if it wasn't available before:
+  // If you have some fallback cache logic, put it here.
+  return;
+}
 
-    // 🌐 Active Live Google API Gateway Fetch Requests Fallback
-    try {
+try {
       const response = await fetch('/api/translate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -164,15 +174,14 @@ updateDir(newDir)
         body: JSON.stringify({ texts: textsToTranslate, targetLang, hash: currentHash, page })
       });
       const data = await response.json();
+      console.log("Data",data);
       if (!data.success) throw new Error(data.error);
-      
-      // Zipping raw array strings output back from Google into an aligned object dictionary map
-      const customTranslationsPayload = {};
-      textsToTranslate.forEach((sourceText, index) => {
-        customTranslationsPayload[sourceText] = data.translations[index];
-      });
+      let lookupMap;
 
-      applyTranslations(customTranslationsPayload, targetLang);
+      lookupMap = data.alltranslation.translations || {};   // new keyed format
+
+
+      applyTranslations(lookupMap, targetLang)
     } catch (err) {
       console.error('Translation failed', err);
     }
@@ -184,10 +193,12 @@ updateDir(newDir)
     setCurrentLang(savedLang);
 
     if (savedLang !== 'en') {
-      translatePage(savedLang);
+      // 🔹 Wrap inside startTransition to wait until Next.js elements are fully interactive
+      startTransition(() => {
+        translatePage(savedLang);
+      });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname,isMenuOpen]); // 🔹 Fires seamlessly on navigation layout refreshes
+  }, [pathname]); //// 🔹 Fires seamlessly on navigation layout refreshes
 
   return (
     <div className="flex flex-col py-4 md:py-0">

@@ -2,12 +2,12 @@ import Image from "next/image";
 
 const leaders = [
   {
-    name: "Ahmad Issam Sammour",
+    name: "Ahmad Sammour",
     role: "CEO",
-    image: "/assets/ahmed-3.webp", // Replace with actual image path
+    image: "/assets/ceo.png", // Replace with actual image path
   },
   {
-    name: "Mohammed Bahaa Edin Boshra",
+    name: "Mohammed Bahaa",
     role: "Managing Director",
     image: "/assets/baha-2.jpg", // Replace with actual image path
   },

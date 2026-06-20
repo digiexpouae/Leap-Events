@@ -5,15 +5,16 @@ import Image from "next/image";
 import { useState } from "react";
 
 const works = [
-  { title: "FERJAN FESTIVAL",                    image: "/assets/e-1.png", videoUrl: "https://youtu.be/pLuB9L6Dstk"  },
-  { title: "souq ramadan",                       image: "/assets/e-2.png", videoUrl: "https://youtu.be/3uozDM8afj4" },
-  { title: "winter garden",                      image: "/assets/e-9.png",  videoUrl: "https://youtu.be/H1Wr7gjx-xs"   },
-  { title: "souq al fareej",                      image: "/assets/e-4.png", videoUrl: "/assets/leap.mp4"   },
-  { title: "SHARJAH INTERNATIONAL FILM FESTIVAL",image: "/assets/e-3.png", videoUrl: "https://www.youtube.com/watch?v=SVv5c23FXSc"   },
-  { title: "university of dubai",                image: "/assets/e-5.png",  videoUrl: "https://youtu.be/mZoRYVv_gZQ"  },
-  { title: "Gems Graduation Event",              image: "/assets/e-6.png", videoUrl: "https://youtu.be/CmgtuBhJkoc"  },
-  { title: "du",                                 image: "/assets/e-7.png",  videoUrl: "https://youtu.be/nY2h7oHkpN0"   },
-  { title: "summer rush",                        image: "/assets/e-8.png", videoUrl: "/assets/leap.mp4"  },
+  { title: "FERJAN FESTIVAL",                    image: "/assets/w-ferjan-festival.webp", videoUrl: "https://youtu.be/VnZ5EkXupHQ"  },
+  { title: "SOUQ RAMADAN",                       image: "/assets/souq-ramadan.webp", videoUrl: "https://youtu.be/p0v3EM14Jv4" },
+  { title:   "WINTER GARDEN",                      image: "/assets/w-winter-garden.webp",  videoUrl: "https://youtu.be/Z02w0ts5FLI"   },
+  { title:  "SOUQ AL FAREEJ",                     image: "/assets/w-souq-al-freej.webp",  videoUrl: "https://youtu.be/Z02w0ts5FLI"     },
+  { title: "SHARJAH INTERNATIONAL FILM FESTIVAL",image: "/assets/w-international-film-festival.webp", videoUrl: "https://youtu.be/TOl8VrXGkmY"   },
+  { title:  "UNIVERSITY OF DUBAI",              image: "/assets/w-dubai-universtity.webp",  videoUrl: "https://youtu.be/nDCbXoRmB_Q"  },
+  { title:   "GEMS GRADUATION EVENT",
+             image: "/assets/w-gems-achool.webp", videoUrl: "https://youtu.be/j1ZwWgsQDN0"  },
+  { title: "du",                                 image: "/assets/w-du.webp",  videoUrl: "https://youtu.be/UrkUYgpevQE"   },
+  { title:   "SUMMER RUSH",                     image: "/assets/summer-rush.webp", videoUrl: "https://youtu.be/UrkUYgpevQE"  },
 ];
 
 const PER_GROUP = 3;
@@ -101,7 +102,7 @@ function WorkCard({ title, image, videoUrl, className = "" }) {
         {/* Title */}
         <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-          <h3 className="relative text-white text-sm md:text-base font-bold tracking-tighter uppercase">
+          <h3 className="relative text-white text-sm md:text-base font-bold tracking-tighter ">
             {title}
           </h3>
         </div>

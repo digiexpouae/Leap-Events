@@ -54,10 +54,11 @@ export default function FAQSection() {
                                     <button
                                         onClick={() => toggle(id)}
                                         aria-expanded={isOpen}
-                                        className="w-full flex items-center  border-t  border-black justify-between py-5 px-2 text-left transition-colors duration-200 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+                                        className="w-full flex  items-center gap-4 border-t  border-black justify-between py-5 px-2 text-left transition-colors duration-200 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
                                     >
-                                        <span className="text-lg sm:text-3xl  text-black pr-6 leading-snug">
+                                        <span className="text-lg sm:text-3xl text-start text-black leading-snug">
                                             {question}
+                                            
                                         </span>
 
                                         {/* Icon: spins 360° then shows + or - */}

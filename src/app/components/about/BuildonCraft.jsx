@@ -51,25 +51,21 @@ export default function BuiltOnCraft() {
           {cards.map((card) => (
             <div
               key={card.number}
-              className={`relative flex min-h-72 flex-col justify-between  md:w-[90%] rounded-2xl p-6 md:min-h-[420px] ${
-                card.primary
-                  ? "bg-[var(--color-primary)] text-white"
-                  : "bg-white text-black"
+              className={`relative flex min-h-72 flex-col justify-between  md:w-[90%] rounded-2xl p-6 md:min-h-[420px] bg-cover bg-center  text-white ${card.primary? " bg-[url('/assets/one.png')] "
+                  : card.number == "2" ? "bg-[url('/assets/two.png')]":"bg-[url('/assets/three.png')]"
               }`}
             >
               {/* Top: number + description */}
               <div className="flex items-center justify-between gap-4">
                 <span
-                  className={`text-7xl font-bold leading-none md:text-9xl ${
-                    card.primary ? "text-white" : "text-gray-900"
-                  }`}
+                  className={`text-7xl font-bold leading-none md:text-9xl 
+                   
+                  `}
                 >
                   {card.number}
                 </span>
                 <p
-                  className={`max-w-[10rem] text-[12px] leading-[1.2] ${
-                    card.primary ? "text-white/80" : "text-black"
-                  }`}
+                  className={`max-w-[10rem] text-[12px] leading-[1.2]`}
                 >
                   {card.description}
                 </p>
@@ -77,9 +73,7 @@ export default function BuiltOnCraft() {
 
               {/* Bottom: title */}
               <p
-                className={`text-2xl text-left font-bold uppercase tracking-tighter ${
-                  card.primary ? "text-white" : "text-gray-900"
-                }`}
+                className={`text-2xl text-left font-bold uppercase tracking-tighter `}
               >
                 {card.title}
               </p>

@@ -159,7 +159,7 @@ export default function SpacesBuiltToMove() {
             Spaces built
             to move
           </h2>
-          <p className=" text-sm md:translate-x-100 md:mt-4">
+          <p className=" text-sm w-full flex  justify-center md:mt-4">
             From concept design to final build, we create environments that
             engage audiences, <br /> reinforce your message, and turn every event into
             a lasting impression.

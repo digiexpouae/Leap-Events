@@ -20,11 +20,11 @@ export default function RootLayout({ children }) {
 <script src="https://elfsightcdn.com/platform.js" async></script>
 
         <script src="https://elfsightcdn.com/platform.js" strategy="lazyOnload" />
-        <script
+        {/* <script
           src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
           strategy="lazyOnload"
-        />
-        <script id="google-translate-init" strategy="lazyOnload">
+        /> */}
+        {/* <script id="google-translate-init" strategy="lazyOnload">
           {`
             function googleTranslateElementInit() {
               new google.translate.TranslateElement({
@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
               }, 'google_translate_element');
             }
           `}
-        </script>
+        </script> */}
         </head>
       <body
         className={`antialiased`}

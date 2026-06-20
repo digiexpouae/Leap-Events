@@ -78,6 +78,7 @@ function VideoModal({ work, onClose }) {
 }
 
 // ── Work Card ─────────────────────────────────────────────────────────────────
+
 function WorkCard({ title, image, videoUrl, className = "" }) {
   const [open, setOpen] = useState(false);
 
@@ -97,12 +98,22 @@ function WorkCard({ title, image, videoUrl, className = "" }) {
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
         />
 
-        {/* Play hint on hover */}
-    
+        {/* Play icon overlay - always visible */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/30" />
+          <Image
+            src={'/assets/play-icon.svg'}
+            alt="Play"
+            className="relative w-15 h-15 drop-shadow-lg"
+            width={15}
+            height={15}
+          />
+        </div>
+
         {/* Title */}
         <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-          <h3 className="relative text-white text-sm md:text-base font-bold tracking-tighter ">
+          <h3 className="relative text-white text-sm md:text-base font-bold tracking-tighter">
             {title}
           </h3>
         </div>
@@ -110,7 +121,6 @@ function WorkCard({ title, image, videoUrl, className = "" }) {
     </>
   );
 }
-
 // ── Work Group ────────────────────────────────────────────────────────────────
 function WorkGroup({ items, heroOnLeft }) {
   const [hero, a, b] = items;

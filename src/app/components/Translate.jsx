@@ -200,22 +200,28 @@ try {
     }
   }, [pathname]); //// 🔹 Fires seamlessly on navigation layout refreshes
 
-  return (
-    <div className="flex flex-col py-4 md:py-0">
-      <button onClick={() => translatePage('ar')} className="cursor-pointer"
-        style={{ padding: "5px 14px", borderRadius: "999px", fontSize: "13px",
-          fontWeight: 500, border: "none",
-          background: currentLang === 'ar' ? "#5686DA" : "transparent",
-          color: currentLang === 'ar' ? "#fff" : "#5686DA", transition: "all 0.2s" }}>
-        Arabic
-      </button>
-      <button onClick={() => translatePage('en')} className="cursor-pointer"
-        style={{ padding: "5px 14px", borderRadius: "999px", fontSize: "13px",
-          fontWeight: 500, border: "none",
-          background: currentLang === 'en' ? "#5686DA" : "transparent",
-          color: currentLang === 'en' ? "#fff" : "#5686DA", transition: "all 0.2s" }}>
-        English
-      </button>
-    </div>
-  );
+    return (
+  <div className="flex items-center gap-1 p-1 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-lg">
+    <button 
+      onClick={() => translatePage('ar')} 
+      className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
+        currentLang === 'ar' 
+          ? "bg-[#5686DA] text-white shadow-sm" 
+          : "text-black "
+      }`}
+    >
+      AR
+    </button>
+    <button 
+      onClick={() => translatePage('en')} 
+      className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
+        currentLang === 'en' 
+          ? "bg-[#5686DA] text-white shadow-sm" 
+          : "text-black "
+      }`}
+    >
+      EN
+    </button>
+  </div>
+);
 }

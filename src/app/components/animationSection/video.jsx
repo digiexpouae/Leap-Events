@@ -1,107 +1,168 @@
 "use client"
-import { useEffect, useRef, useMemo } from 'react'
-import { Canvas, useFrame, extend,useThree } from '@react-three/fiber'
-
+import { useEffect, useRef, useMemo, useState } from 'react'
+import { Canvas, useFrame, extend, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
-import { OrbitControls } from '@react-three/drei'
-import { geometry } from 'maath' // Auto-installed with Drei
+import { geometry } from 'maath'
 
-
-function VideoMesh({rotateRef}) {
+function VideoMesh({ rotateRef, ref3 }) {
   const meshRef = useRef()
+  const [texture, setTexture] = useState(null)
+  const [isVisible, setIsVisible] = useState(false)
+  const materialRef = useRef()
   extend({ RoundedPlaneGeometry: geometry.RoundedPlaneGeometry })
 
-  // 1. Create the video element with a URL string, not an import
+  const posterTexture = useMemo(() => {
+    const loader = new THREE.TextureLoader()
+    const tex = loader.load('/assets/placeholder.JPG')
+    tex.colorSpace = THREE.SRGBColorSpace
+    tex.minFilter = THREE.LinearFilter
+    tex.magFilter = THREE.LinearFilter
+    tex.generateMipmaps = false
+    return tex
+  }, [])
+
   const videoEl = useMemo(() => {
     const v = document.createElement('video')
-    v.src = '/assets/leap_showreel.mp4'   // path relative to /public
+    v.src = '/assets/leap_showreel_optimized.mp4'
     v.crossOrigin = 'anonymous'
     v.loop = true
     v.muted = true
-
-    v.style.borderRadius = '24px'
     v.playsInline = true
-    v.play()
+    v.preload = 'metadata'
+    v.setAttribute('playsinline', 'true')
+    v.setAttribute('webkit-playsinline', 'true')
     return v
   }, [])
 
-  // 2. Create VideoTexture from the DOM element, not the file
-  const texture = useMemo(() => {
-    const t = new THREE.VideoTexture(videoEl)
-    t.colorSpace = THREE.SRGBColorSpace
-    return t
+  // Load video on mount (don't play yet)
+  useEffect(() => {
+    const onLoaded = () => {
+      const tex = new THREE.VideoTexture(videoEl)
+      tex.colorSpace = THREE.SRGBColorSpace
+      tex.minFilter = THREE.LinearFilter
+      tex.magFilter = THREE.LinearFilter
+      tex.generateMipmaps = false
+      tex.needsUpdate = true
+      setTexture(tex)
+      // Play only when visible
+      if (isVisible) {
+        videoEl.play().catch(() => {})
+      }
+    }
+
+    videoEl.onloadedmetadata = onLoaded
+    videoEl.load()
+
+    return () => {
+      videoEl.pause()
+      videoEl.src = ''
+      videoEl.load()
+      if (texture) texture.dispose()
+    }
   }, [videoEl])
 
-  // 3. Animate inside useFrame (never outside Canvas)
-  useFrame((state) => {
-    if (!meshRef.current ) return;
-    // state.pointer coordinates range from -1 to +1
-    const { x, y } = state.pointer
+  // Play/pause based on visibility
+  useEffect(() => {
+    if (isVisible && texture) {
+      videoEl.play().catch(() => {})
+    } else if (!isVisible) {
+      videoEl.pause()
+    }
+  }, [isVisible, texture])
 
-    if (!rotateRef?.current) {
-    meshRef.current.rotation.x += (0 - meshRef.current.rotation.x) * 0.05
-    meshRef.current.rotation.y += (0 - meshRef.current.rotation.y) * 0.05
-    return
+  // IntersectionObserver with safety check
+useEffect(() => {
+  if (!ref3.current) return
+
+  const el = ref3.current
+  const video = el.querySelector('video')
+  let played = false
+
+  const checkOpacity = () => {
+    const opacity = parseFloat(window.getComputedStyle(el).opacity)
+
+    if (opacity === 1 && !played) {
+      played = true
+      setIsVisible(true)
+      if (video) video.play()
+    }
+
+    // Continue checking until opacity is 1
+    if (opacity < 1) {
+      requestAnimationFrame(checkOpacity)
+    }
   }
 
+  checkOpacity()
 
-    // Smoothly interpolate the camera position toward the mouse position
-    // Multiply by a small decimal (e.g., 0.5) to keep the rotation "slight"
-   const isMobile = window.innerWidth < 768
+  return () => {
+    // Cleanup if component unmounts
+  }
+}, [ref3])
+  useEffect(() => {
+    if (materialRef.current) {
+      materialRef.current.needsUpdate = true
+    }
+  }, [texture])
 
-const targetRotationX = -y * (isMobile ? 0.02 : 0.03)
-const targetRotationY = x * (isMobile ? 0.02 : 0.03)
+  useFrame((state) => {
+    if (!meshRef.current) return
+    const { x, y } = state.pointer
+    const isMobile = window.innerWidth < 768
+    const targetRotationX = -y * (isMobile ? 0.02 : 0.03)
+    const targetRotationY = x * (isMobile ? 0.02 : 0.03)
 
-    // Smoothly interpolate (lerp) the object's rotation
+    if (!rotateRef?.current) {
+      meshRef.current.rotation.x += (0 - meshRef.current.rotation.x) * 0.05
+      meshRef.current.rotation.y += (0 - meshRef.current.rotation.y) * 0.05
+      return
+    }
+
     meshRef.current.rotation.x += (targetRotationX - meshRef.current.rotation.x) * 0.05
-    meshRef.current.rotation.y += (targetRotationY - meshRef.current.rotation.y)
-    // Ensure the camera continues looking at the center of the scene
-    state.camera.lookAt(0, 0, 0)
+    meshRef.current.rotation.y += (targetRotationY - meshRef.current.rotation.y) * 0.05
   })
 
-  
   return (
-    // ... inside your component:
     <mesh ref={meshRef}>
-      <roundedPlaneGeometry   args={[16,9, 0.5]}  />
-      <meshBasicMaterial map={texture} side={THREE.DoubleSide} />
+      <roundedPlaneGeometry args={[16, 9, 0.5]} />
+      <meshBasicMaterial 
+        ref={materialRef}
+        map={texture || posterTexture} 
+        side={THREE.DoubleSide} 
+        toneMapped={false} 
+      />
     </mesh>
-
   )
 }
+
 function CameraController({ fovRef }) {
   const { camera } = useThree()
-
   useFrame(() => {
     if (!fovRef?.current) return
-    camera.fov += (fovRef.current - camera.fov) * 0.05  // smooth lerp
-    camera.updateProjectionMatrix()   
-               // required after fov change
+    camera.fov += (fovRef.current - camera.fov) * 0.05
+    camera.updateProjectionMatrix()
   })
-
   return null
 }
 
-export default function VideoScene({ fovRef, canvasWrapperRef,rotateRef  }) {
+export default function VideoScene({ fovRef, canvasWrapperRef, rotateRef ,ref3}) {
   return (
-   <div
-  ref={canvasWrapperRef}
-className="scale-x-95 scale-40 md:scale-[0.6]"
-  style={{
-    width: '100%',                  // final size, set once
-    height: '100%',
-        // starts visually small
-    transformOrigin: '50% 50%',     // grow from center
-    willChange: 'transform',
-  }}// smaller than parent
->
+    <div
+      ref={canvasWrapperRef}
+      className="scale-x-95 scale-40 md:scale-[0.6]"
+      style={{
+        width: '100%',
+        height: '100%',
+        transformOrigin: '50% 50%',
+        willChange: 'transform',
+      }}
+    >
       <Canvas
         camera={{ position: [0, 0, 7], fov: 75 }}
-        style={{ width: '100%', height: '100%' }}  // fill the wrapper
-   
-   >
+        style={{ width: '100%', height: '100%' }}
+      >
         <CameraController fovRef={fovRef} />
-        <VideoMesh rotateRef={rotateRef} />
+        <VideoMesh rotateRef={rotateRef} ref3={ref3} canvasWrapperRef={canvasWrapperRef} />
       </Canvas>
     </div>
   )

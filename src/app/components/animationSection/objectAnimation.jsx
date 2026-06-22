@@ -217,14 +217,14 @@ conversations and elevate ambitions.</h2>
         className='flex items-center justify-center'
       >
 
-        <Video rotateRef={rotateRef} fovRef={fovRef} canvasWrapperRef={canvasWrapperRef}  />
+        <Video rotateRef={rotateRef} fovRef={fovRef} ref3={ref3} canvasWrapperRef={canvasWrapperRef}  />
       </div>
     {/* {mobile} */}
 
 
   <div className='absolute top-28 left-1/2  hero-title -translate-x-1/2 md:hidden block '
   >
-      <h2 className='text-black font-bold text-xl  uppercase leading-tight tracking-tighter'>Step into
+      <h2 className='text-black font-bold  text-xl  uppercase leading-tight tracking-tighter'>Step into
 <br />the Spotlight</h2>
       </div>
      <div className='absolute left-1/2 hero-description  md:hidden block -translate-x-1/2     bottom-10 '>

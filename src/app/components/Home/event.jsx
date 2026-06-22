@@ -62,14 +62,14 @@ export default function CorporateEvents() {
     const data = [{
         title: 'Corporate Events', image: "/assets/Corporate_Events.jpg"
     },
-    { title: "Mall Decor & Activation", image: "/assets/MallDecor&Activation.jpg" },
+    { title: "Mall Decor Activation", image: "/assets/MallDecor&Activation.jpg" },
     // { title: "Wedding", image: "/assets/home/wedding.jpg" },
-    { title: 'Exhibition', image: "/assets/Exhibition.jpg" },
+    { title: 'Exhibitions', image: "/assets/Exhibition.jpg" },
 
     { title: 'Entertainment', image: "/assets/en.jpg" }
         ,
 
-          { title: 'Venue & Management', image: "/assets/ev-8.webp" },
+          { title: 'Venue Management', image: "/assets/ev-8.webp" },
     {title:"Marketing & Sponsorship",image:"/assets/ev-9.png"}
     ]
     return (

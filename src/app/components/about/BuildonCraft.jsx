@@ -31,8 +31,8 @@ export default function BuiltOnCraft() {
 
         {/* Header Row */}
         <FadeUp>
-        <div className="mb-12 flex flex-col gap-6 md:grid grid-cols-[1fr_2fr_1fr] md:items-start justify-between">
-          <p className="max-w-md text-sm leading-relaxed text-white/60  md:text-left text-center">
+        <div className="mb-12 flex flex-col gap-6 md:grid grid-cols-[1fr_2fr_1fr] md:items-end justify-between">
+          <p className="max-w-md text-sm leading-tight text-white/60  md:text-left text-center">
             Great events aren&apos;t accidents. They&apos;re the result of clear
             thinking, careful planning, and a team that takes ownership of every
             stage. Here&apos;s how we work.

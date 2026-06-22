@@ -198,7 +198,7 @@ tl2.to(".hero-tagline", { opacity: 1, ease: "power2.in" },"<")
 
 {/* ACTUAL thumb — absolute from start, positioned over placeholder */}
 <div className="hero-thumb absolute z-40  overflow-hidden rounded-xl shadow-xl">
-  <video src="/assets/leap_showreel.mp4" autoPlay muted loop playsInline
+  <video src="/assets/leap_showreel_optimized.mp4" autoPlay muted loop playsInline
     className="h-full w-full object-cover" />
 </div>
     </section>

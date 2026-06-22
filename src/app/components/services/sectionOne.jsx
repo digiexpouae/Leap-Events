@@ -197,7 +197,7 @@ y: () => -imageWrapRef.current.offsetTop,
       >
         <Image
           ref={imageRef}
-          src="/assets/45efd71d77f81afef70a94d74886303f02b7a161.jpg"
+          src="/assets/event_banner.webp"
           alt="Team collaboration"
           fill
           className="w-full h-full object-cover"

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-screen md:h-[220vh] min-h-[300px] overflow-hidden">
+    <section className="relative w-full h-screen md:h-[200vh] min-h-[300px] overflow-hidden">
       {/* Background image */}
       <Image
         src="/assets/banner.webp"
@@ -32,9 +32,9 @@ export default function Hero() {
         <h1 className="max-w-5xl text-center font-bold uppercase tracking-tighter text-white leading-[1.1] text-2xl sm:text-3xl md:text-4xl lg:text-6xl">
           Crafting Unforgettable
           <br />
-          Experiences from Ambitious
+          Experiences from 
           <br />
-          Briefs.
+          Ambitious Briefs.
         </h1>
       </div>
       </FadeUp>

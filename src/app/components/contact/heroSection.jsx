@@ -128,6 +128,7 @@ export default function ContactSection() {
                 onChange={handleChange}
                 placeholder="Phone Number"
                 className={inputBase}
+                dir="auto"
               />
 
               <input

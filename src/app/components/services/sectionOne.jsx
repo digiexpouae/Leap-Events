@@ -117,8 +117,11 @@ tl = gsap.timeline({
          x:"-50%",
          duration:0.8
     })
+   
+   
      .to  (imageWrapRef.current,{
-y: () => -imageWrapRef.current.offsetTop,      
+// y: () => -imageWrapRef.current.offsetTop,
+top:0,      
     width: "100vw",
       height: "100vh",
       borderRadius: 0,

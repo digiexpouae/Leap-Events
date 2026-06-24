@@ -19,6 +19,7 @@ import Marquee from './components/Home/Marquee'
 import FAQ from './components/Home/FAQ'
 import Nav from './components/Home/nav'
 import FadeUp from "./common/Transition";
+
 export default function Home() {
 
   return (

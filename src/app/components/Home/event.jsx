@@ -66,7 +66,7 @@ export default function CorporateEvents() {
     // { title: "Wedding", image: "/assets/home/wedding.jpg" },
     { title: 'Exhibitions', image: "/assets/exhib-resize.webp" },
 
-    { title: 'Entertainment', image: "/assets/en-resized.webp" }
+    { title: 'Entertainment show', image: "/assets/en-resized.webp" }
         ,
 
           { title: 'Venue Management', image: "/assets/ven-reisze.webp" },

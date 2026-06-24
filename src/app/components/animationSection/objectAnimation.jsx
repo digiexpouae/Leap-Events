@@ -1,6 +1,6 @@
 "use client"
 import { useRef, useEffect, useLayoutEffect, useState } from 'react'
-import gsap from 'gsap'
+import {gsap} from 'gsap'
 import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin'
 import Video from "./video"
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -17,8 +17,12 @@ export default function Scene() {
   const canvasWrapperRef=useRef(null)
   const containerRef=useRef(null)
   const rotateRef = useRef(true)
-
+const mob_ref=useRef(null)
     
+  const [isdesktop, setIsdesktop] = useState(
+  () => typeof window !== 'undefined' ? window.innerWidth >= 768 : false
+);
+
 
     
  useGSAP(() => {
@@ -94,7 +98,11 @@ ease: 'power2.out',
         .to(".hero-title", { opacity: 1 ,y:0})
      .to(".hero-description", { opacity: 1 ,y:0})
       .to(ref3.current, { opacity: 1 })
-
+        const mm = gsap.matchMedia()
+            mm.add('(max-width: 768px)', () => {
+               tl.to(mob_ref.current, { opacity: 1 })
+            })
+    mm.add('(min-width: 768px)', () => {
     tl2 = gsap.timeline({
       defaults: { ease: 'power3.out' },
       scrollTrigger: {
@@ -111,12 +119,12 @@ ease: 'power2.out',
       }
     })
 
-    const mm = gsap.matchMedia()
-    mm.add('(max-width: 767px)', () => {
-      tl2.fromTo(fovRef, { current: 95 }, { current: 55, ease: 'power2.out' })
-        .to(canvasWrapperRef.current, { scale: 1, ease: 'power2.out' }, 0)
-    })
-    mm.add('(min-width: 768px)', () => {
+  
+    // mm.add('(max-width: 767px)', () => {
+    //   tl2.fromTo(fovRef, { current: 95 }, { current: 55, ease: 'power2.out' })
+    //     .to(canvasWrapperRef.current, { scale: 1, ease: 'power2.out' }, 0)
+    // })
+
       tl2.fromTo(fovRef, { current: 75 }, { current: 55, ease: 'power2.out' })
         .to(canvasWrapperRef.current, { scale: 1, ease: 'power2.out' }, 0)
     })
@@ -195,7 +203,9 @@ ease: 'power2.out',
         {/* <div  className="relative w-full h-full" ref={containerRef}> */}
           <div className='absolute hero-title hidden md:block opacity-0  md:left-12  md:top-1/2 md:translate-y-[150%]'
        >
-      <h2 className=' md:text-white font-bold md:text-xl uppercase leading-tight tracking-tighter'>Step into
+      <h2 className=' md:text-white font-bold md:text-xl uppercase leading-tight tracking-tighter'
+     
+      >Step into
 <br />the Spotlight</h2>
       </div>
      <div className='absolute hidden md:block hero-description opacity-0 md:translate-x-[0] md:right-12  md:top-1/2 md:translate-y-[150%]'
@@ -205,7 +215,7 @@ that create memories, initiate <br />
 conversations and elevate ambitions.</h2>
       </div>
 
-
+{isdesktop &&
       <div
         ref={ref3}
         style={{
@@ -214,21 +224,35 @@ conversations and elevate ambitions.</h2>
           zIndex: 20,
           pointerEvents: 'auto', // override the parent's 'none' if you want video controls clickable
         }}
-        className='flex items-center justify-center'
+        className=' hidden md:flex items-center justify-center'
       >
 
         <Video rotateRef={rotateRef} fovRef={fovRef} ref3={ref3} canvasWrapperRef={canvasWrapperRef}  />
-      </div>
+      </div>}
     {/* {mobile} */}
+{/* ACTUAL thumb — absolute from start, positioned over placeholder */}
+{!isdesktop &&
+<div className=" md:hidden block absolute z-40  top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 overflow-hidden rounded-xl shadow-xl h-[210px] w-[330px] "
+ ref={mob_ref}
+ style={{opacity:0}}
+ >
+  <video src="/assets/leap_showreel_optimized.mp4" autoPlay muted loop playsInline
+    className="h-full w-full object-cover" 
+     />
+</div>
+}
 
 
-  <div className='absolute top-28 left-1/2  hero-title -translate-x-1/2 md:hidden block '
+  <div className='absolute top-1/5  hero-title w-full  md:hidden flex justify-center '
+   style={{opacity:0}}
   >
-      <h2 className='text-black font-bold  text-xl  uppercase leading-tight tracking-tighter'>Step into
+      <h2 className="text-black font-semibold  text-4xl text-center  leading-[1] tracking-tighter"
+      
+      >Step into
 <br />the Spotlight</h2>
       </div>
-     <div className='absolute left-1/2 hero-description  md:hidden block -translate-x-1/2     bottom-10 '>
-      <h2 className='text-white font-medium text-sm leading-[1] tracking-tighter'>we craft world-class spaces & events<br />
+     <div className='absolute  hero-description  md:hidden flex justify-center  w-full      bottom-30 '>
+      <h2 className='text-white font-medium text-sm leading-[1.3] text-center tracking-tighter'>we craft world-class spaces & events<br />
 that create memories, initiate <br />
 conversations and elevate ambitions.</h2>
       </div>

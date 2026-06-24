@@ -8,7 +8,7 @@ const works = [
   { title: "FERJAN FESTIVAL",                    image: "/assets/w-ferjan-festival.webp", videoUrl: "https://youtu.be/VnZ5EkXupHQ"  },
   { title: "SOUQ RAMADAN",                       image: "/assets/souq-ramadan.webp", videoUrl: "https://youtu.be/p0v3EM14Jv4" },
   { title:   "WINTER GARDEN",                      image: "/assets/w-winter-garden.webp",  videoUrl: "https://youtu.be/Z02w0ts5FLI"   },
-  { title:  "SOUQ AL FAREEJ",                     image: "/assets/w-souq-al-freej.webp",  videoUrl: "https://youtu.be/Z02w0ts5FLI"     },
+  { title:"SOUQ AL FAREEJ",                     image: "/assets/w-souq-al-freej.webp",  videoUrl: "https://youtu.be/Z02w0ts5FLI"     },
   { title: "SHARJAH INTERNATIONAL FILM FESTIVAL",image: "/assets/w-international-film-festival.webp", videoUrl: "https://youtu.be/TOl8VrXGkmY"   },
   { title:  "UNIVERSITY OF DUBAI",              image: "/assets/w-dubai-universtity.webp",  videoUrl: "https://youtu.be/nDCbXoRmB_Q"  },
   { title:   "GEMS GRADUATION EVENT",
@@ -79,7 +79,7 @@ function VideoModal({ work, onClose }) {
 
 // ── Work Card ─────────────────────────────────────────────────────────────────
 
-function WorkCard({ title, image, videoUrl, className = "" }) {
+function WorkCard({ title, image, videoUrl, className = "" ,img_positioning=""}) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -95,7 +95,7 @@ function WorkCard({ title, image, videoUrl, className = "" }) {
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+          className={`object-cover transition-transform duration-700 ease-out group-hover:scale-110 ${img_positioning}`}
         />
 
         {/* Play icon overlay - always visible */}
@@ -122,8 +122,9 @@ function WorkCard({ title, image, videoUrl, className = "" }) {
   );
 }
 // ── Work Group ────────────────────────────────────────────────────────────────
-function WorkGroup({ items, heroOnLeft }) {
+function WorkGroup({ items, heroOnLeft,img_positioning }) {
   const [hero, a, b] = items;
+   const getPos = (item) => item.title === "SOUQ AL FAREEJ" ? "object-center" : "object-[right_0%]";
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 min-h-[500px]">
@@ -131,11 +132,16 @@ function WorkGroup({ items, heroOnLeft }) {
         <WorkCard
           {...hero}
           className={`md:row-span-2 aspect-[4/3] md:aspect-auto ${heroOnLeft ? "md:order-1" : "md:order-2"}`}
+            img_positioning={getPos(hero)}  
         />
       )}
       <div className={`flex flex-col gap-5 md:gap-6 ${heroOnLeft ? "md:order-2" : "md:order-1"}`}>
-        {a && <WorkCard {...a} className="aspect-[16/9] md:aspect-[4/2] md:flex-1" />}
-        {b && <WorkCard {...b} className="aspect-[16/9] md:aspect-[4/2] md:flex-1" />}
+        {a && <WorkCard {...a} className="aspect-[16/9] md:aspect-[4/2] md:flex-1"         
+         img_positioning={getPos(a)}  
+ />}
+        {b && <WorkCard {...b} className="aspect-[16/9] md:aspect-[4/2] md:flex-1"    
+                img_positioning={getPos(b)}  
+ />}
       </div>
     </div>
   );
@@ -161,7 +167,8 @@ export default function WorkSection() {
         <FadeUp amount={0.1}>
           <div className="flex flex-col gap-10 md:gap-16">
             {groups.map((items, i) => (
-              <WorkGroup key={i} items={items} heroOnLeft={i % 2 === 0} />
+              <WorkGroup key={i} items={items} heroOnLeft={i % 2 === 0}
+              />
             ))}
           </div>
         </FadeUp>

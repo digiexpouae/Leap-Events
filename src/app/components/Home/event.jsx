@@ -60,17 +60,17 @@ export default function CorporateEvents() {
 
     })
     const data = [{
-        title: 'Corporate Events', image: "/assets/Corporate_Events.jpg"
+        title: 'Corporate Events', image: "/assets/corporate-resize.webp"
     },
-    { title: "Mall Decor Activation", image: "/assets/MallDecor&Activation.jpg" },
+    { title: "Mall Decor Activation", image: "/assets/mall-decor.webp" },
     // { title: "Wedding", image: "/assets/home/wedding.jpg" },
-    { title: 'Exhibitions', image: "/assets/Exhibition.jpg" },
+    { title: 'Exhibitions', image: "/assets/exhib-resize.webp" },
 
-    { title: 'Entertainment', image: "/assets/en.jpg" }
+    { title: 'Entertainment', image: "/assets/en-resized.webp" }
         ,
 
-          { title: 'Venue Management', image: "/assets/ev-8.webp" },
-    {title:"Marketing & Sponsorship",image:"/assets/ev-9.png"}
+          { title: 'Venue Management', image: "/assets/ven-reisze.webp" },
+    {title:"Marketing & Sponsorship",image:"/assets/marketing-res.webp"}
     ]
     return (
 
@@ -167,6 +167,7 @@ function EventCard({
                     src={image}
                     alt={title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 

@@ -56,7 +56,7 @@ export default function Awards() {
         </h2>
 
         {/* Slider track */}
-        <div className="overflow-hidden">
+        <div className="overflow-hidden" dir="ltr">
          <ul
   className="flex gap-3 transition-transform duration-500 ease-in-out"
   style={{ transform: `translateX(calc(-${index} * (100% + 0.75rem)))` }}

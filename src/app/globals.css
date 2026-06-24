@@ -418,9 +418,9 @@ canvas {
 
 @media (max-width:786px) {
   .chat-widget {
-    right: 20px;
+    right: 5px;
     bottom: 0px;
-    padding: 5px 5px;
+    padding: 5px 0px;
   }
 }
 

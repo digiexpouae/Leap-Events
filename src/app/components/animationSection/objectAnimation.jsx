@@ -251,7 +251,7 @@ conversations and elevate ambitions.</h2>
       >Step into
 <br />the Spotlight</h2>
       </div>
-     <div className='absolute  hero-description  md:hidden flex justify-center  w-full      bottom-30 '>
+     <div className='absolute  hero-description  md:hidden flex justify-center  w-full      bottom-14 '>
       <h2 className='text-white font-medium text-sm leading-[1.3] text-center tracking-tighter'>we craft world-class spaces & events<br />
 that create memories, initiate <br />
 conversations and elevate ambitions.</h2>

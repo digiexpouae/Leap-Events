@@ -30,23 +30,20 @@ useLayoutEffect(() => {
 //     })
 let tl2;
 let tl;
+let ctx;
 
-    const ctx = gsap.context(() => {
-if (!placeholderRef.current || !imageWrapRef.current || !sectionRef.current) return;          gsap.set(imageWrapRef.current, { x: 0, y: 0 });        // reset transform first
+
+   ctx = gsap.context(() => {
+if (!placeholderRef.current || !imageWrapRef.current || !sectionRef.current) return;      
+
 
   const rect = placeholderRef.current.getBoundingClientRect();
-  const sectionRect = sectionRef.current.getBoundingClientRect();
 const wrapRect = imageWrapRef.current.getBoundingClientRect(); // ← use this instead of sectionRect
 
-const placeholderRect=placeholderRef.current.getBoundingClientRect();
-console.log("placeholderRect",placeholderRect.top)
-console.log("direction",dir)
-const startY = imageWrapRef.current.offsetTop;
-const startY2=sectionRef.current.offsetTop ;
-console.log("startY",startY,startY2)
+
+
 gsap.set(imageWrapRef.current,{
-     x: rect.left - wrapRect.left,   // delta from wrap's current position to placeholder
-  // y: rect.top - wrapRect.top,
+     x: rect.left - wrapRect.left, 
     width: rect.width,
     height: rect.height,
     opacity:0,
@@ -65,8 +62,15 @@ gsap.set(imageWrapRef.current,{
 
     tl2=gsap.timeline({})
      
-  // Remove the initial gsap.set(imageWrapRef.current, {x: ..., width: ...}) from the top.
-// Instead, let ScrollTrigger manage it inside onRefresh:
+  tl2.to(  imageWrapRef.current,{
+        y:0,
+      opacity:1
+     })
+     tl2.to(          [headingRef.current, descRef.current, logoRef.current, topLinesRef.current],{
+      y:0,
+      opacity:1
+     }
+)
 
 tl = gsap.timeline({
   scrollTrigger: {
@@ -78,39 +82,9 @@ tl = gsap.timeline({
     anticipatePin: 1,
     invalidateOnRefresh: true, // FLUSHES old math on layout shifts/resizes
     
-//     onRefresh: () => {
-//       // 1. Clear inline styles so we can measure the natural layout again
-//       gsap.set(imageWrapRef.current, { clearProps: "all" });
-      
-//       // 2. Recalculate coordinates based on the new RTL/LTR layout
-//       const rect = placeholderRef.current.getBoundingClientRect();
-//       const wrapRect = imageWrapRef.current.getBoundingClientRect();
-//       console.log("rect.left - wrapRect.left",rect.left - wrapRect.left)
-//       // 3. Set the new initial position
-//       gsap.set(imageWrapRef.current, {
-//          x:()=>{
-//       const isRTL = getComputedStyle(sectionRef.current).direction === 'rtl';
-// console.log("rtl",isRTL,isRTL && placeholderRef.current.offsetLeft)
-//           isRTL? -placeholderRef.current.offsetLeft:placeholderRef.current.offsetLeft},
-//          width: rect.width,
-//          height: rect.height,
-//          opacity: 1,
-//       });
-//     }
   },
 });
  
-     tl2.to(  imageWrapRef.current,{
-        y:0,
-      opacity:1
-     })
-     tl2.to(          [headingRef.current, descRef.current, logoRef.current, topLinesRef.current],{
-      y:0,
-      opacity:1
-     }
-)
-
-
 
     tl.to(imageWrapRef.current,{
          left:"50%",    
@@ -120,8 +94,7 @@ tl = gsap.timeline({
    
    
      .to  (imageWrapRef.current,{
-// y: () => -imageWrapRef.current.offsetTop,
-top:0,      
+y: () => -imageWrapRef.current.offsetTop,
     width: "100vw",
       height: "100vh",
       borderRadius: 0,
@@ -144,15 +117,14 @@ top:0,
     },);
  
     return () => {
-       ScrollTrigger.getAll()
-    .filter(t => t.trigger === sectionRef.current)
-    .forEach(t => t.kill()); // release pin FIRST
-  tl?.kill();
-  tl2?.kill();
+     if (imageWrapRef.current) {
+    gsap.set(imageWrapRef.current, { clearProps: "all" });
+  }
   ctx.revert(); 
+    window.scrollTo({ top: 0, behavior: "instant" });
+
     }
   }, [dir]);
-
 
   return (
     <section

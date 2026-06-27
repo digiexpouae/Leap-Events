@@ -134,13 +134,10 @@ updateDir(newDir)
     const page = getPageKey();
     const currentHash = await generateHash(textsToTranslate.join('|'));
     const cached = await getPageCache(page, targetLang);
-    console.log("texttotranslate",textsToTranslate)
 const existingKeys=Object.keys(cached.translations);
-console.log("existing",existingKeys);
 const newKey=textsToTranslate.filter((ele,index)=>{
   return !existingKeys.includes(ele)
 })
-console.log("new",newKey);
 if (cached?.translations && Object.keys(cached.translations).length > 0 || newKey.length <= 0 && NODE_ENV=="production") {
        // If your JSON file cache already provides an exact dictionary map: { "Hello World": "مرحبا بالعالم" }
        // Use it directly. If it provides a flat array, map it down first:

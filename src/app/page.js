@@ -44,7 +44,7 @@ export default function Home() {
 
 
           {/* <FadeUp>  <VoicesOfLegacy />     </FadeUp>  */}
-         <FadeUp>   <FAQ />     </ FadeUp> 
+         {/* <FadeUp>   <FAQ />     </ FadeUp>  */}
       {/* <LogoMarquee /> */}
             <FadeUp>  <Form />        </FadeUp> 
     </>

@@ -12,7 +12,7 @@ export default function Header() {
   
   
    <header className="block fixed w-full h-[82px] z-[99] flex items-stretch ">
-      <div className='fixed -top-px -left-px z-[999999] flex'>
+      <div className='fixed top-1 left-1 w-2/3 md:w-1/3 lg:w-1/5 z-[999999] flex'>
         <DiagonalMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
     </div>
@@ -30,7 +30,7 @@ export default function Header() {
           className="absolute  inset-y-0 left-1/2 w-[260px] -translate-x-1/2"
      
         />
-        <Link href="/">
+        {/* <Link href="/">
       <Image 
       src={"/assets/logo.svg"}
       alt="logo"
@@ -38,16 +38,17 @@ export default function Header() {
       height={60}
       className=' translate-y-[4px] md:translate-y-[10px]'
       />
-      </Link>
+      </Link> */}
 
 
 
-
-      <div className='absolute  md:right-10 right-0 inset-y-0'>
-                {/* <div id="google_translate_element" style={{ display: 'none' }}></div> */}
-          <TranslateButtons isMenuOpen={isMenuOpen} />
-
-      </div>
+{/* translation button removing temporarily */}
+      {/* <div className='absolute  md:right-10 right-0 inset-y-0'> */}
+           
+          {/* <TranslateButtons isMenuOpen={isMenuOpen} /> */}
+{/* google translate */}
+     {/* <div id="google_translate_element" style={{ display: 'none' }}></div> */}
+      {/* </div> */}
       </div>
 
 

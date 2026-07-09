@@ -3,12 +3,12 @@ import Image from "next/image";
 const leaders = [
   {
     name: "Ahmad Sammour",
-    role: "CEO",
+    role: "CEO-FOUNDER",
     image: "/assets/ceo.png", // Replace with actual image path
   },
   {
-    name: "Mohammed Bahaa",
-    role: "Managing Director",
+    name: "MOHAMED BAHAA ELDIN",
+    role: "MANAGING DIRECTOR-FOUNDER",
     image: "/assets/baha-2.jpg", // Replace with actual image path
   },
 ];
@@ -45,10 +45,10 @@ export default function LeadersSection() {
           {leaders.map(({ name, role, image }) => (
             <div
               key={name}
-              className=" overflow-hidden border rounded-4xl border-white"
+              className="flex flex-col overflow-hidden border  rounded-4xl border-white"
             >
               {/* Photo */}
-              <div className="relative aspect-square w-full ">
+              <div className="relative aspect-square w-full shrink-0">
                 <Image
                   src={image}
                   alt={name}
@@ -59,8 +59,8 @@ export default function LeadersSection() {
               </div>
 
               {/* Name & role */}
-              <div className=" px-14 bg-[#1C2568] border-t border-white py-4">
-                <p className="text-white font-semibold text-lg tracking-tighter md:text-4xl text-center uppercase leading-tight">
+              <div className=" flex-grow px-4 bg-[#1C2568] border-t flex flex-col  items-center justify-center border-white py-6">
+                <p className="text-white font-semibold text-lg tracking-tighter md:text-3xl text-center uppercase leading-tight">
                   {name}
                 </p>
                 <p className="mt-1 text-base md:text-lg font-semibold text-[#3D80FA] tracking-tighter  uppercase">

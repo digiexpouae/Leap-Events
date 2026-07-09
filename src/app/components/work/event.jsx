@@ -8,7 +8,7 @@ const works = [
   { title: "FERJAN FESTIVAL",                    image: "/assets/w-ferjan-festival.webp", videoUrl: "https://youtu.be/VnZ5EkXupHQ"  },
   { title: "SOUQ RAMADAN",                       image: "/assets/souq-ramadan.webp", videoUrl: "https://youtu.be/p0v3EM14Jv4" },
   { title:   "WINTER GARDEN",                      image: "/assets/w-winter-garden.webp",  videoUrl: "https://youtu.be/Z02w0ts5FLI"   },
-  { title:"SOUQ AL FAREEJ",                     image: "/assets/w-souq-al-freej.webp",  videoUrl: "https://youtu.be/Z02w0ts5FLI"     },
+  { title:"CITY CENTRE AL ZAHIA",                     image: "/assets/w-souq-al-freej.webp",  videoUrl: "https://youtu.be/Z02w0ts5FLI"     },
   { title: "SHARJAH INTERNATIONAL FILM FESTIVAL",image: "/assets/w-international-film-festival.webp", videoUrl: "https://youtu.be/TOl8VrXGkmY"   },
   { title:  "UNIVERSITY OF DUBAI",              image: "/assets/w-dubai-universtity.webp",  videoUrl: "https://youtu.be/nDCbXoRmB_Q"  },
   { title:   "GEMS GRADUATION EVENT",
@@ -124,18 +124,18 @@ function WorkCard({ title, image, videoUrl, className = "" ,img_positioning=""})
 // ── Work Group ────────────────────────────────────────────────────────────────
 function WorkGroup({ items, heroOnLeft,img_positioning }) {
   const [hero, a, b] = items;
-   const getPos = (item) => item.title === "SOUQ AL FAREEJ" ? "object-center" : "object-[right_0%]";
+   const getPos = (item) => item.title === "CITY CENTRE AL ZAHIA" ? "object-center" : "object-[right_0%]";
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 min-h-[500px]">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6 min-h-[500px] ">
       {hero && (
         <WorkCard
           {...hero}
-          className={`md:row-span-2 aspect-[4/3] md:aspect-auto ${heroOnLeft ? "md:order-1" : "md:order-2"}`}
+          className={` aspect-[4/3]  md:aspect-auto ${heroOnLeft ? "md:order-1" : "md:order-2"}`}
             img_positioning={getPos(hero)}  
         />
       )}
-      <div className={`flex flex-col gap-5 md:gap-6 ${heroOnLeft ? "md:order-2" : "md:order-1"}`}>
+      <div className={` flex flex-col gap-5 h-full md:gap-6 ${heroOnLeft ? "md:order-2" : "md:order-1"}`}>
         {a && <WorkCard {...a} className="aspect-[16/9] md:aspect-[4/2] md:flex-1"         
          img_positioning={getPos(a)}  
  />}
@@ -160,12 +160,12 @@ export default function WorkSection() {
 
         <FadeUp>
           <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-black mb-10 md:mb-14">
-            WORK
+            PROJECTS
           </h2>
         </FadeUp>
 
         <FadeUp amount={0.1}>
-          <div className="flex flex-col gap-10 md:gap-16">
+          <div className="flex flex-col gap-4 md:gap-8 ">
             {groups.map((items, i) => (
               <WorkGroup key={i} items={items} heroOnLeft={i % 2 === 0}
               />

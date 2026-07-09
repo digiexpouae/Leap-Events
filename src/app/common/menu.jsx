@@ -1,11 +1,12 @@
 'use client'
+import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
-
 const navs = [
   { num: '01', name: 'HOME',     link: '/'         },
   { num: '02', name: 'ABOUT',    link: '/about'    },
   { num: '03', name: 'SERVICES', link: '/services' },
-  { num: '04', name: 'WORK',     link: '/ourwork'  },
+  { num: '04', name: 'PROJECT',     link: '/ourwork'  },
   { num: '05', name: 'CONTACT',     link: '/contact'  },
 
 ]
@@ -17,14 +18,11 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
     <>
       {/* ── MENU BUTTON ─────────────────────────────────────────── */}
       <button
-        onClick={() =>{ setOpen(true)
-          setIsMenuOpen(true)
-        }
-        }
+      
         aria-label="Open menu"
-        className="group flex  cursor-pointer items-center gap-2.5 bg-[#5686DA] px-4 md:px-6 py-3.5"
+        className="group flex  cursor-pointer items-center  w-full h-[80px] gap-2.5 bg-[#5686DA] px-4 md:px-6 py-3.5"
         style={{
-          borderBottomRightRadius: '10px',
+          borderRadius: '10px',
           opacity: open ? 0 : 1,
           pointerEvents: open ? 'none' : 'auto',
           transitionProperty: 'opacity',
@@ -33,6 +31,11 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
           transitionDelay: open ? '0ms' : '700ms',
         }}
       >
+        <div className='flex gap-2'
+          onClick={() =>{ setOpen(true)
+          setIsMenuOpen(true)
+        }
+        }>
         <div className="flex flex-col gap-[4px]">
           <span className="block h-[1.5px] w-[18px] bg-white transition-all" />
           <span className="block h-[1.5px] w-[18px] bg-white transition-all duration-200 group-hover:w-3" />
@@ -40,7 +43,19 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
         </div>
         <span className="text-[10px] tracking-[3px] text-white transition-transform duration-300 group-hover:translate-x-0.5">
           MENU
-        </span>
+      
+    </span>  </div> 
+    <div className=' w-full h-full flex justify-end'>
+           <Link href="/" className=' h-full'>
+      <Image 
+      src={"/assets/logo-white.svg"}
+     
+      width={80}
+      height={60}
+      className=' shrink-0'
+      />
+      </Link> 
+      </div>
       </button>
 
       {/* ── OVERLAY ─────────────────────────────────────────────── */}
@@ -94,7 +109,7 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
           </button>
 
           {/* Nav — bottom right */}
-          <nav className="absolute  flex flex-col h-full items-center justify-center  md:translate-y-1/6  right-5 lg:right-10 text-right">
+          <nav className="absolute  flex flex-col h-full  justify-center  md:translate-y-1/6  right-5">
             {navs.map(({ num, name, link }) => (
               <a
                 key={name}
@@ -113,9 +128,7 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
                   }}
                 />
                 <span className="inline-block transition-transform duration-300  group-hover/link:-translate-x-1.5">
-                  <span className="mr-2 align-super font-sans text-[11px] font-light mx-2 tracking-[2px] text-white/40">
-                    {num}
-                  </span>
+                 
                   <span className="text-2xl md:text-4xl font-semibold tracking-wide transition-colors duration-300 group-hover/link:text-white/70 md:text-5xl">
                     {name}
                   </span>

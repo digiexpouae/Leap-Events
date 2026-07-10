@@ -14,7 +14,7 @@ const handleRowClick = (i) => {
 
   const SERVICES = [
   {
-    title: "Creative Strategy and Concept Development",
+    title: "Technology-Driven Business Growth ",
     image:
       "/assets/creative.jpg",
     bullets: [
@@ -26,7 +26,7 @@ const handleRowClick = (i) => {
     ],
   },
   {
-    title: "Spatial and Experiential Design",
+    title: "Strong Brand Connection & Expansion",
     image:
       "/assets/Spatial_and_Experiential_Design.jpg",
     bullets: [
@@ -40,7 +40,7 @@ const handleRowClick = (i) => {
     ],
   },
   {
-    title: "Technical Production and Execution",
+    title: "Brand Connection & Human Engagement",
     image:
       "/assets/Technical_Production_and_Execution.jpg",
     bullets: [
@@ -56,7 +56,7 @@ const handleRowClick = (i) => {
     ],
   },
   {
-    title: "Venue and Management",
+    title: "Major events ",
     image:
       "/assets/Venue_and_Management.jpg",
     bullets: [
@@ -64,7 +64,7 @@ const handleRowClick = (i) => {
     ],
   },
   {
-    title: "Event Operations and Safety",
+    title: "Minor events",
     image:
       "/assets/Event_Operations_and_Safety.jpg",
     bullets: [
@@ -72,7 +72,7 @@ const handleRowClick = (i) => {
     ],
   },
   {
-    title: "Marketing and Sponsorship",
+    title: "Cultural events",
     image:
       "/assets/Marketing_and_Sponsorship.jpg",
     bullets: [
@@ -80,7 +80,7 @@ const handleRowClick = (i) => {
     ],
   },
   {
-    title: "Innovative Properties",
+    title: "Community events",
     image:
       "/assets/Innovative_Properties.jpg",
     bullets: [
@@ -88,7 +88,7 @@ const handleRowClick = (i) => {
     ],
   },
   {
-    title: "Experience and Entertainment Management",
+    title: "Mall activation ",
     image:
       "/assets/Experience_and_Entertainment_Management.jpg",
     bullets: [
@@ -100,6 +100,18 @@ const handleRowClick = (i) => {
 ];
   return (
     <div className='md:hidden block  w-full px-6  py-16'>
+
+
+              <div className="flex flex-col gap-6 md:items-start md:justify-between py-8">
+                <h2 className="text-3xl font-bold uppercase tracking-tight text-slate-900 sm:text-5xl ">
+                 Leap events,
+                  the standard of <br /> the extraordinary
+                </h2>
+                <p className=" text-sm w-full flex  justify-center md:mt-4">
+                 Redefining event experiences through bold creativity, immersive storytelling,<br /> and future-forward execution that goes beyond conventional expectations. 
+      
+                </p>
+              </div>
           <ul>
             {SERVICES.map((member, i) => {
               const isActive = activeIndex === i;

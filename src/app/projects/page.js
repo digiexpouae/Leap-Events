@@ -42,7 +42,7 @@ const index = () => {
             <div className='h-screen relative w-full flex flex-col items-center justify-between py-34 lg:py-24 xl:py-34 overflow-hidden '>
               <div className='max-w-5xl mx-auto uppercase flex items-center justify-center  '>
                 <h2 className='text-5xl  xl:text-7xl text-black font-bold'>
-                    Events
+                    PROJECTS
                 </h2>
 
               </div>

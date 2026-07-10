@@ -22,7 +22,7 @@ const LOGOS = [
   {
     id: 3,
     name: "Majid Al Futtaim",
-    logo: '/assets/logo-10.png'
+    logo: '/assets/du-logo.png'
   },
   {
     id: 4,
@@ -63,11 +63,23 @@ const LOGOS = [
   }, {
     id: 12,
     logo: '/assets/logo6.png'
-  }, {
+  },
+
+ {
     id: 13,
-    logo: '/assets/logo7.svg'
-  }
+    logo: '/assets/dubai-publicpark.png'
+  },
+ {
+    id: 14,
+    logo: '/assets/vox.png'
+  },
+   {
+    id: 15,
+    logo: '/assets/sharjah_internal-removebg-preview-2.png'
+  },
+  
 ];
+
 
 // ─── Marquee ──────────────────────────────────────────────────────────────────
 // Renders 3× the logo list so the seam is always off-screen.

@@ -38,9 +38,7 @@ const AWARDS = [
    {
  src: "/assets/aw-10.webp",   alt: "aw-10",
   },
-   {
- src: "/assets/aw-11.webp",   alt: "aw-11",
-  },
+
 ]
 export default function Awards() {
   const [index, setIndex] = useState(0)

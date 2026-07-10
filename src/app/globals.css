@@ -399,6 +399,7 @@ canvas {
 .chat-widget {
   position: fixed;
   bottom: 50px;
+z-index: 99;
   right: 20px;
   /* background: #0E1527; */
   color: #ffffff;
@@ -407,7 +408,7 @@ canvas {
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  z-index: 1000;
+
   transition: all 0.3s ease;
   border: none;
   /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); */

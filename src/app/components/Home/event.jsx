@@ -60,17 +60,22 @@ export default function CorporateEvents() {
 
     })
     const data = [{
-        title: 'Corporate Events', image: "/assets/corporate-resize.webp"
+        title: 'Major events ', image: "/assets/corporate-resize.webp"
     },
-    { title: "Mall Decor Activation", image: "/assets/mall-decor.webp" },
+    { title: "Minor events ", image: "/assets/mall-decor.webp" },
     // { title: "Wedding", image: "/assets/home/wedding.jpg" },
-    { title: 'Exhibitions', image: "/assets/exhib-resize.webp" },
+    { title: 'Cultural events ', image: "/assets/exhib-resize.webp" },
 
-    { title: 'Entertainment show', image: "/assets/en-resized.webp" }
+    { title: 'Community events ', image: "/assets/en-resized.webp" }
         ,
 
-          { title: 'Venue Management', image: "/assets/ven-reisze.webp" },
-    {title:"Marketing & Sponsorship",image:"/assets/marketing-res.webp"}
+          { title: 'Mall activation ', image: "/assets/ven-reisze.webp" },
+    {title:"Exhibition Stall",image:"/assets/marketing-res.webp"},
+        {title:"Educational Events ",image:"/assets/marketing-res.webp"},
+            {title:"Road Shows ",image:"/assets/marketing-res.webp"},
+
+
+
     ]
     return (
 

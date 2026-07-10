@@ -33,7 +33,7 @@ const about = () => {
              {/* Heading */}
      <FadeUp>
         <div className=" md:top-16  md:flex justify-center px-6 md:block hidden">
-          <h2 className="text-center font-bold tracking-tight text-[#0b1220] text-3xl md:text-5xl leading-[1.05]">
+          <h2 className="text-center font-bold tracking-tight text-[#363737] text-3xl md:text-5xl leading-[1.05]">
             WHERE PASSION
             <br />
             MEETS PRECISION
@@ -70,7 +70,7 @@ const about = () => {
 
                 <div className="flex nd:flex-col sm:flex-row px-4 md:px-16 items-center justify-center gap-4 mb-8 sm:mb-10">
                     <h2
-                        className={`font-black uppercase  text-[clamp(1.8rem,5vw,3rem)]  text-black`}
+                        className={`font-black uppercase  text-[clamp(1.8rem,5vw,3rem)]  text-[#363737]`}
                         style={{ letterSpacing: "-0.01em", lineHeight: 1.05 }}
                     >Collaborations
                     </h2>

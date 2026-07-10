@@ -45,7 +45,7 @@ export default function Awards() {
   return (
     <section className=" px-4 py-16 md:py-24  hidden   md:block">
       <div className="mx-auto max-w-5xl">
-        <h2 className="mb-12 text-center text-4xl  font-bold tracking-tight text-slate-900 md:mb-16 md:text-5xl">
+        <h2 className="mb-12 text-center text-4xl  font-bold tracking-tight text-[#363737] md:mb-16 md:text-5xl">
           AWARDS
         </h2>
 <div className="flex flex-col md:gap-6 justify-center">

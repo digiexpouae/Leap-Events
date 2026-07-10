@@ -49,7 +49,7 @@ export default function Awards() {
   return (
     <section className=" px-4 py-12 md:hidden block">
       <div className="mx-auto  max-w-[260px]">
-        <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-black">
+        <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-[#363737]">
           AWARDS
         </h2>
 

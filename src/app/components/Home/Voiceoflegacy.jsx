@@ -43,7 +43,7 @@ export default function VoicesOfLegacy() {
       <div className="max-w-5xl mx-auto px-5 sm:px-8 lg:px-12">
 
         <h2
-          className="text-center font-bold uppercase text-[clamp(2rem,7vw,4.5rem)] text-gray-900 mb-10 sm:mb-14"
+          className="text-center font-bold uppercase text-[clamp(2rem,7vw,4.5rem)] text-[#363737] mb-10 sm:mb-14"
           style={{ letterSpacing: "-0.01em", lineHeight: 1.0 }}
         >
           Voices Of Legacy
@@ -63,7 +63,7 @@ export default function VoicesOfLegacy() {
               }}
             >
               <p
-                className="relative z-10 text-gray-800 tracking-tighter font-medium text-[clamp(1rem,2.5vw,3rem)] mb-8 sm:mb-10 max-w-3xl"
+                className="relative z-10 text-[#363737] tracking-tighter font-medium text-[clamp(1rem,2.5vw,3rem)] mb-8 sm:mb-10 max-w-3xl"
                 style={{ lineHeight: "1.65" }}
               >
                 {t.quote}

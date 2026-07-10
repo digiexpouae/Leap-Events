@@ -20,11 +20,11 @@ export default function AboutSection() {
         <div className="flex flex-col justify-between  h-[280px] items-start lg:ml-16">
           
 
-          <h2 className="md:text-4xl font-extrabold uppercase tracking-tight text-black text-3xl">
+          <h2 className="md:text-4xl font-extrabold uppercase tracking-tight text-[#363737] text-3xl">
             About Us
           </h2>
 
-          <p className="mt-4 max-w-md md:text-2xl  md:leading-7 sm:text-base">
+          <p className="mt-4 text-[#363737]  max-w-md md:text-2xl  md:leading-7 sm:text-base">
             We are a passionate team with over a decade of experience in the
             event industry, delivering exceptional events through expertise,
             innovation, and mdern technology.

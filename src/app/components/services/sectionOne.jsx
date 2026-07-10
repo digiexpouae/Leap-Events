@@ -179,7 +179,7 @@ y: () => -imageWrapRef.current.offsetTop,
         />
         </div>
           <div ref={descRef} className="md:w-72 opacity-0 md:mt-32 lg:mt-48">
-            <p className="text-black text-sm leading-relaxed">
+            <p className="text-[#363737] text-sm leading-relaxed">
              We are a progressive event agency built by a passionate team of enthusiasts, helping you achieve better outcomes
  
 

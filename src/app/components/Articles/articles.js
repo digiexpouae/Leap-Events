@@ -73,7 +73,7 @@ export default function BlogSection() {
                         ))}
                     </div>
                 ) : (
-                    <p className="text-center py-16 text-gray-400 text-sm">
+                    <p className="text-center py-16 text-[#363737] text-sm">
                         No articles found for this category.
                     </p>
                 )}
@@ -109,7 +109,7 @@ function ArticleCard({ article }) {
                 <h3 className="text-lg md:text-2xl font-black uppercase leading-tight text-[#0a0a2e]">
                     {article.title}
                 </h3>
-                <button className="shrink-0 bg-transparent text-black text-md border border-[#5686DA]  px-4 py-1.5 rounded-full whitespace-nowrap hover:opacity-90 cursor-pointer transition-opacity focus:outline-none">
+                <button className="shrink-0 bg-transparent text-[#363737] text-md border border-[#5686DA]  px-4 py-1.5 rounded-full whitespace-nowrap hover:opacity-90 cursor-pointer transition-opacity focus:outline-none">
                     Learn More
                 </button>
             </div>

@@ -91,7 +91,7 @@ export default function TeamSection() {
         {/* Floating brand icon (hidden on mobile) */}
          <FadeUp> 
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-black leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#363737] leading-tight">
             WHAT SETS US APART?
             <br />
             THE TEAM

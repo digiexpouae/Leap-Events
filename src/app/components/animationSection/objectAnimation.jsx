@@ -210,7 +210,7 @@ ease: 'power2.out',
       </div>
      <div className='absolute hidden md:block hero-description opacity-0 md:translate-x-[0] md:right-12  md:top-1/2 md:translate-y-[150%]'
    >
-      <h2 className='md:text-black/80 font-medium text-sm md:text-base leading-[1] tracking-tighter'>we craft world-class spaces & events<br />
+      <h2 className='md:text-[#363737]/80 font-medium text-sm md:text-base leading-[1] tracking-tighter'>we craft world-class spaces & events<br />
 that create memories, initiate <br />
 conversations and elevate ambitions.</h2>
       </div>
@@ -246,7 +246,7 @@ conversations and elevate ambitions.</h2>
   <div className='absolute top-1/5  hero-title w-full  md:hidden flex justify-center '
    style={{opacity:0}}
   >
-      <h2 className="text-black font-semibold  text-4xl text-center  leading-[1] tracking-tighter"
+      <h2 className="text-[#363737] font-semibold  text-4xl text-center  leading-[1] tracking-tighter"
       
       >Step into
 <br />the Spotlight</h2>

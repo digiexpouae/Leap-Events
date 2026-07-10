@@ -30,11 +30,10 @@ export default function Hero() {
        <FadeUp> 
       <div className="flex items-start justify-center h-full px-6 pt-16 sm:pt-20 md:pt-24">
         <h1 className="max-w-5xl text-center font-bold uppercase tracking-tighter text-white leading-[1.1] text-2xl sm:text-3xl md:text-4xl lg:text-6xl">
-          Crafting Unforgettable
-          <br />
-          Experiences from 
-          <br />
-          Ambitious Briefs.
+End-to-end event <br />
+solutions from concept to execution         
+    {/* <br />
+          Ambitious Briefs. */}
         </h1>
       </div>
       </FadeUp>

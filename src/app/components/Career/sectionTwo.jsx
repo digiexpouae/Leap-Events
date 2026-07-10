@@ -16,7 +16,7 @@ export default function CareerHeroSection({
 
                 {/* Description + CTA row */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-                    <p className="text-gray text-base md:text-3xl tracking-tighter ">
+                    <p className="text-[#363737] text-base md:text-3xl tracking-tighter ">
                         {description}
                     </p>
                     <Link

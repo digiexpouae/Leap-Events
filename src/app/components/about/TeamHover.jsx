@@ -122,10 +122,10 @@ export default function TeamSectionHover() {
         {/* Right: Name / Designation list */}
         <div className="flex-1">
           <div className="mb-2 flex justify-between border-b border-black/15 pb-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-gray-900">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#363737]">
               Name
             </span>
-            <span className="text-xs font-bold uppercase tracking-widest text-gray-900">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#363737]">
               Designation
             </span>
           </div>
@@ -167,14 +167,14 @@ export default function TeamSectionHover() {
                   >
                     <span
                       className={`text-lg font-semibold transition-colors w-2/3 duration-200 uppercase ${
-                        isActive ? "text-blue-500" : "text-gray-400"
+                        isActive ? "text-blue-500" : "text-[#363737]"
                       }`}
                     >
                       {member.name}
                     </span>
                     <span
                       className={`text-sm transition-colors w-1/3 text-center duration-200 ${
-                        isActive ? "text-blue-500" : "text-gray-400"
+                        isActive ? "text-blue-500" : "text-[#363737]"
                       }`}
                     >
                       {member.role}

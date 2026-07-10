@@ -103,7 +103,7 @@ export default function WhereLeagciesBegin() {
 
                     <div className="lg:w-2/3 ">
                         {/* Body text */}
-                        <p className="text-[clamp(1rem,2vw,2rem)] tracking-tight  leading-[1.2] text-gray-600 max-w-prose"
+                        <p className="text-[clamp(1rem,2vw,2rem)] tracking-tight  leading-[1.2] text-[#363737] max-w-prose"
 
                             ref={bodyRef}
 

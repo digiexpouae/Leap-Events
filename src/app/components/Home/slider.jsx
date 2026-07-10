@@ -330,7 +330,7 @@ export default function ProjectSlider() {
 
             {/* Left header */}
             <div className="pt-4 relative z-30 shrink-0">
-              <p className="text-[26px] leading-tight font-bold text-black max-w-[180px]">
+              <p className="text-[26px] leading-tight font-bold text-[#363737] max-w-[180px]">
                 Projects you might also be interested in
               </p>
             </div>

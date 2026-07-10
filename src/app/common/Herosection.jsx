@@ -5,7 +5,7 @@ export default function OurStorySection({ heading, text, className }) {
 
                 {/* Vision paragraph — right half */}
                 <div className="flex justify-end mb-6 md:mb-8">
-                    <p className="w-full md:w-2/3  flex md:justify-end  text-[25px] tracking-tighter leading-[1.2] text-gray  "  >
+                    <p className="w-full md:w-2/3  flex md:justify-end  text-[25px] tracking-tighter leading-[1.2] text-[#363737]  "  >
                         {text}
                     </p>
                 </div>
@@ -23,7 +23,7 @@ export default function OurStorySection({ heading, text, className }) {
 
                 {/* Vision paragraph — right half */}
                 <div className="flex justify-end mb-6 md:mb-8">
-                    <p className="w-full md:w-2/3  flex md:justify-end  text-[25px] tracking-tighter leading-[1.2] text-gray  "  >
+                    <p className="w-full md:w-2/3  flex md:justify-end  text-[25px] tracking-tighter leading-[1.2] text-[#363737]  "  >
                         {text}
                     </p>
                 </div>

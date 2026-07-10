@@ -270,7 +270,7 @@ export default function Navbar() {
                         <Link
                             href="/contact"
                             onClick={() => setIsOpen(false)}
-                            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full text-sm font-semibold text-black bg-white hover:opacity-90 active:scale-95 transition-all"
+                            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full text-sm font-semibold text-[#363737] bg-white hover:opacity-90 active:scale-95 transition-all"
                         >
                             Contact Us
                             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

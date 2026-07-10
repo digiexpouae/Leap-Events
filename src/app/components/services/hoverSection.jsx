@@ -103,11 +103,11 @@ const handleRowClick = (i) => {
 
 
               <div className="flex flex-col gap-6 md:items-start md:justify-between py-8">
-                <h2 className="text-3xl font-bold uppercase tracking-tight text-slate-900 sm:text-5xl ">
+                <h2 className="text-3xl font-bold uppercase tracking-tight text-[#363737] sm:text-5xl ">
                  Leap events,
                   the standard of <br /> the extraordinary
                 </h2>
-                <p className=" text-sm w-full flex  justify-center md:mt-4">
+                <p className=" text-sm w-full flex text-[#363737]  justify-center md:mt-4 text-[#363737]">
                  Redefining event experiences through bold creativity, immersive storytelling,<br /> and future-forward execution that goes beyond conventional expectations. 
       
                 </p>
@@ -149,14 +149,14 @@ const handleRowClick = (i) => {
                   >
                     <span
                       className={`text-base font-semibold transition-colors w-2/3 duration-200 uppercase ${
-                        isActive ? "text-blue-500" : "text-gray-400"
+                        isActive ? "text-blue-500" : "text-[#363737]"
                       }`}
                     >
                       {member.title}
                     </span>
                     <span
                       className={`text-[8px] transition-colors w-1/3 text-center duration-200 ${
-                        isActive ? "text-blue-500" : "text-gray-400"
+                        isActive ? "text-blue-500" : "text-[#363737]"
                       }`}
                     >
                       {member.bullets}

@@ -120,7 +120,7 @@ export default function SustainableEventsSection() {
                         LEAPEVENTS CONTRIBUTION
                         <br /> TO SUSTAINABLE EVENTS
                     </h2>
-                    <p className="text-2xl tracking-tighter text-gray leading-[1.2]">
+                    <p className="text-2xl tracking-tighter text-[#363737] leading-[1.2]">
                         LAPA fully applies international best practices in main event
                         production to reduce environmental impact while maintaining creative
                         excellence.

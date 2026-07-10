@@ -33,7 +33,7 @@ export default function PortfolioFilterSection({
                             className={`px-4 py-2 rounded-full border text-base md:text-lg tracking-tighter font-medium transition-colors duration-200 cursor-pointer  border-[var(--color-primary)] 
                 ${active === tab
                                     ? "bg-[color:var(--color-heading)] text-white"
-                                    : "bg-transparent text-black hover:text-[color:var(--color-heading)]"
+                                    : "bg-transparent text-[#363737] hover:text-[color:var(--color-heading)]"
                                 }`}
                         >
                             {tab}

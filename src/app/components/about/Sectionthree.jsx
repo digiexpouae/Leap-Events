@@ -54,7 +54,7 @@ export default function OurCultureSection() {
                             >
                                 {title}
                             </h3>
-                            <p className="text-gray-700 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
+                            <p className="text-[#363737] text-sm md:text-base leading-relaxed max-w-sm mx-auto">
                                 {description}
                             </p>
                         </div>
@@ -68,7 +68,7 @@ export default function OurCultureSection() {
                     >
                         COLLABORATIVE ENVIRONMENT
                     </h3>
-                    <p className="text-gray-700 text-sm md:text-base leading-relaxed max-w-sm mx-auto">
+                    <p className="text-[#363737] text-sm md:text-base leading-relaxed max-w-sm mx-auto">
                         Celebrating teamwork, we craft experiences
                         <br />
                         that resonate on a global stage

@@ -75,8 +75,8 @@ export default function Footer() {
                             {/* Tagline */}
                             <motion.p className="text-white text-sm sm:text-base "
                                 variants={itemVariants}>
-                                We are organization of eclectic team of enthusiast with decade and
-                                more dedicated to event industries.
+                               We Build Experiences That Make People Pause, Explore, and Remember. 
+
                             </motion.p>
 
                             {/* Email subscribe */}

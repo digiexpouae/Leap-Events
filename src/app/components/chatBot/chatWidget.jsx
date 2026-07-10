@@ -202,20 +202,20 @@ className="w-full h-auto"
                     className="country-code country min-w-[80px] bg-[#FFFFFF33] text-white border border-[rgba(255,255,255,0.1)] rounded-lg px-1 py-2 focus:outline-none focus:ring-2 focus:ring-[#4a90e2] focus:border-transparent"
                     style={{ WebkitAppearance: 'none' }}
                   >
-                  <option value="+971" className="text-black"> +971</option>
-<option value="+92" className="text-black">  +92 </option>
-<option value="+91" className="text-black">  +91 </option>
-<option value="+966" className="text-black"> +966 </option>
-<option value="+965" className="text-black"> +965 </option>
-<option value="+974" className="text-black"> +974 </option>
-<option value="+968" className="text-black"> +968 </option>
-<option value="+973" className="text-black"> +973 </option>
-<option value="+880" className="text-black"> +880 </option>
-<option value="+20" className="text-black">  +20 </option>
-<option value="+60" className="text-black">  +60 </option>
-<option value="+63" className="text-black">  +63 </option>
-<option value="+62" className="text-black">  +62 </option>
-<option value="+65" className="text-black">  +65 </option>
+                  <option value="+971" className="text-[#363737]"> +971</option>
+<option value="+92" className="text-[#363737]">  +92 </option>
+<option value="+91" className="text-[#363737]">  +91 </option>
+<option value="+966" className="text-[#363737]"> +966 </option>
+<option value="+965" className="text-[#363737]"> +965 </option>
+<option value="+974" className="text-[#363737]"> +974 </option>
+<option value="+968" className="text-[#363737]"> +968 </option>
+<option value="+973" className="text-[#363737]"> +973 </option>
+<option value="+880" className="text-[#363737]"> +880 </option>
+<option value="+20" className="text-[#363737]">  +20 </option>
+<option value="+60" className="text-[#363737]">  +60 </option>
+<option value="+63" className="text-[#363737]">  +63 </option>
+<option value="+62" className="text-[#363737]">  +62 </option>
+<option value="+65" className="text-[#363737]">  +65 </option>
 
                   </select>
                   <input
@@ -231,7 +231,7 @@ className="w-full h-auto"
               </div>
         <button type="submit" 
 
-        className="w-full text-black py-2 rounded-3xl submit-button bg-(--color-primary)  hover:bg-(--color-primary)/60 cursor-pointer"
+        className="w-full text-[#363737] py-2 rounded-3xl submit-button bg-(--color-primary)  hover:bg-(--color-primary)/60 cursor-pointer"
       
       >              <div className="flex items-center justify-center gap-2">
                         {/* <img

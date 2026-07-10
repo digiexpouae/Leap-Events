@@ -159,7 +159,7 @@ export default function WorkSection() {
       <div className="max-w-6xl mx-auto">
 
         <FadeUp>
-          <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-black mb-10 md:mb-14">
+          <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#363737] mb-10 md:mb-14">
             PROJECTS
           </h2>
         </FadeUp>

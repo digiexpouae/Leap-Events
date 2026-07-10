@@ -99,7 +99,7 @@ export default function GetInTouch({ className }) {
 
                 {/* Heading */}
                 <motion.h2
-                    className="text-center font-black uppercase font-bold text-[clamp(2rem,6vw,3.8rem)] text-gray-900 tracking-tight mb-10 sm:mb-12"
+                    className="text-center font-black uppercase font-bold text-[clamp(2rem,6vw,3.8rem)] text-[#363737] tracking-tight mb-10 sm:mb-12"
                     initial={{ y: 30 }}
                     whileInView={{ y: 0 }}
                     viewport={{ once: true }}
@@ -139,7 +139,7 @@ export default function GetInTouch({ className }) {
                         placeholder="Name"
                         value={form.name}
                         onChange={handleChange}
-                        className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-gray-700 placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
+                        className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-[#363737] placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
                         style={{
                             border: "1.5px solid rgba(86,134,218,0.25)",
                             "--tw-ring-color": "rgba(86,134,218,0.35)",
@@ -153,7 +153,7 @@ export default function GetInTouch({ className }) {
                         placeholder="Phone Number"
                         value={form.phone}
                         onChange={handleChange}
-                        className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-gray-700 placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
+                        className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-[#363737] placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
                         style={{
                             border: "1.5px solid rgba(86,134,218,0.25)",
                             "--tw-ring-color": "rgba(86,134,218,0.35)",
@@ -167,7 +167,7 @@ export default function GetInTouch({ className }) {
                         placeholder="Company Name"
                         value={form.company}
                         onChange={handleChange}
-                        className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-gray-700 placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
+                        className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-[#363737] placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
                         style={{
                             border: "1.5px solid rgba(86,134,218,0.25)",
                             "--tw-ring-color": "rgba(86,134,218,0.35)",
@@ -181,7 +181,7 @@ export default function GetInTouch({ className }) {
                         placeholder="Email"
                         value={form.email}
                         onChange={handleChange}
-                        className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-gray-700 placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
+                        className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-[#363737] placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
                         style={{
                             border: "1.5px solid rgba(86,134,218,0.25)",
                             "--tw-ring-color": "rgba(86,134,218,0.35)",
@@ -195,7 +195,7 @@ export default function GetInTouch({ className }) {
                         placeholder="Comments"
                         value={form.comments}
                         onChange={handleChange}
-                        className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-gray-700 placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
+                        className="w-full px-5 py-3.5 rounded-full bg-white border text-sm text-[#363737] placeholder-gray-400 outline-none transition-all duration-200 focus:ring-2"
                         style={{
                             border: "1.5px solid rgba(86,134,218,0.25)",
                             "--tw-ring-color": "rgba(86,134,218,0.35)",
@@ -219,7 +219,7 @@ export default function GetInTouch({ className }) {
                                 Select Department
                             </option>
                             {departments.map((d) => (
-                                <option key={d} value={d} className="text-gray-700">
+                                <option key={d} value={d} className="text-[#363737]">
                                     {d}
                                 </option>
                             ))}

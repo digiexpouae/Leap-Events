@@ -17,7 +17,7 @@ export default function FAQSection() {
     return (
         <section className="min-h-screen bg-white flex items-center justify-center px-6 py-20 font-sans">
             <div className="w-full max-w-5xl ">
-                <h2 className="text-2xl sm:text-4xl font-bold text-black uppercase leading-tight tracking-tight mb-14">
+                <h2 className="text-2xl sm:text-4xl font-bold text-[#363737] uppercase leading-tight tracking-tight mb-14">
                     The Questions You
                     <br />
                     You Might Be Asking
@@ -56,7 +56,7 @@ export default function FAQSection() {
                                         aria-expanded={isOpen}
                                         className="w-full flex  items-center gap-4 border-t  border-black justify-between py-5 px-2 text-left transition-colors duration-200 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
                                     >
-                                        <span className="text-lg sm:text-3xl text-start text-black leading-snug">
+                                        <span className="text-lg sm:text-3xl text-start text-[#363737] leading-snug">
                                             {question}
                                             
                                         </span>
@@ -92,7 +92,7 @@ export default function FAQSection() {
                                     <div
                                         className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-40 pb-4" : "max-h-0"}`}
                                     >
-                                        <p className="px-2 text-sm text-gray-500 leading-relaxed">
+                                        <p className="px-2 text-sm text-[#363737]500 leading-relaxed">
                                             We&apos;re here to help. Reach out to our team and we&apos;ll get back to you
                                             as soon as possible with all the details you need.
                                         </p>

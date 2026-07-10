@@ -82,7 +82,7 @@ export default function HeroSection() {
 
                     {/* Headline */}
                     <h1
-                        className="font-black uppercase leading-none text-[clamp(2.5rem,8vw,6rem)] text-gray-900"
+                        className="font-black uppercase leading-none text-[clamp(2.5rem,8vw,6rem)] text-[#363737]"
                         style={{ letterSpacing: "-0.01em", lineHeight: "1.05" }}
                     >
 

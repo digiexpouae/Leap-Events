@@ -204,7 +204,7 @@ try {
       className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
         currentLang === 'ar' 
           ? "bg-[#5686DA] text-white shadow-sm" 
-          : "text-black "
+          : "text-[#363737] "
       }`}
     >
       AR
@@ -214,7 +214,7 @@ try {
       className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 ${
         currentLang === 'en' 
           ? "bg-[#5686DA] text-white shadow-sm" 
-          : "text-black "
+          : "text-[#363737] "
       }`}
     >
       EN

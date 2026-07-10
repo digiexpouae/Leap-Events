@@ -45,9 +45,9 @@ export default function ApplyNowSection() {
     }
 
     const inputClass =
-        "w-full  rounded-full px-5 py-3 text-sm text-gray-700 placeholder-gray-400 border border-gray-400 focus:outline-none focus:border-[color:var(--color-heading)] transition-colors";
+        "w-full  rounded-full px-5 py-3 text-sm text-[#363737] placeholder-gray-400 border border-gray-400 focus:outline-none focus:border-[color:var(--color-heading)] transition-colors";
 
-    const labelClass = "block text-sm font-medium text-gray-700 mb-1.5";
+    const labelClass = "block text-sm font-medium text-[#363737] mb-1.5";
 
     return (
         <section className="w-full bg-white px-6 md:px-16 lg:px-24 py-16 md:py-24">
@@ -134,7 +134,7 @@ export default function ApplyNowSection() {
                                 name="preferredRole"
                                 value={form.preferredRole}
                                 onChange={handleChange}
-                                className="w-full rounded-full px-5 py-3 text-sm text-gray-700  border border-gray-400 focus:outline-none focus:border-[color:var(--color-heading)] transition-colors appearance-none cursor-pointer"
+                                className="w-full rounded-full px-5 py-3 text-sm text-[#363737]  border border-gray-400 focus:outline-none focus:border-[color:var(--color-heading)] transition-colors appearance-none cursor-pointer"
                             >
                                 <option value="" disabled>Select</option>
                                 {preferredRoles.map((role) => (
@@ -142,7 +142,7 @@ export default function ApplyNowSection() {
                                 ))}
                             </select>
                             <svg
-                                className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 w-4 h-4"
+                                className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-[#363737] w-4 h-4"
                                 viewBox="0 0 16 16" fill="none"
                             >
                                 <path d="M4 6l4 4 4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -192,10 +192,10 @@ export default function ApplyNowSection() {
                         <div>
                             <label className={labelClass}>CV / Resume</label>
                             <label className="relative flex items-center  rounded-full px-5 py-3  border border-gray-400 hover:border-[color:var(--color-heading)] transition-colors cursor-pointer">
-                                <span className="text-sm text-gray-400 flex-1 truncate">
+                                <span className="text-sm text-[#363737]400 flex-1 truncate">
                                     {cvName || "Attach"}
                                 </span>
-                                <svg className="w-4 h-4 text-gray-400 flex-shrink-0" viewBox="0 0 16 16" fill="none">
+                                <svg className="w-4 h-4 text-[#363737]400 flex-shrink-0" viewBox="0 0 16 16" fill="none">
                                     <path d="M8 2v9M5 8l3 3 3-3M3 13h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
                                 <input

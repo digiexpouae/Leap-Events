@@ -166,11 +166,11 @@ export default function SpacesBuiltToMove() {
         {/* Heading + intro */}
           <FadeUp>
         <div className="flex flex-col gap-6 md:items-start md:justify-between">
-          <h2 className="text-4xl font-bold uppercase tracking-tight text-slate-900 sm:text-5xl ">
+          <h2 className="text-4xl font-bold uppercase tracking-tight text-[#363737] sm:text-5xl ">
            Leap events,
             the standard of <br /> the extraordinary
           </h2>
-          <p className=" text-sm w-full flex  justify-center md:mt-4">
+          <p className=" text-sm w-full flex text-[#363737]  justify-center md:mt-4">
            Redefining event experiences through bold creativity, immersive storytelling,<br /> and future-forward execution that goes beyond conventional expectations. 
 
           </p>
@@ -212,7 +212,7 @@ export default function SpacesBuiltToMove() {
                   data-index={i}
                   className={` text-lg transition-all duration-300 py-8  md:text-base  ${
                     isActive
-                      ? "font-bold opacity-100"
+                      ? "font-bold  text-[#363737] opacity-100"
                       : "font-medium text-slate-400 opacity-50"
                   }`}
                 >
@@ -229,7 +229,7 @@ export default function SpacesBuiltToMove() {
                 {SERVICES.map((s, i) => (
                   <ul
                     key={s.title}
-                    className="absolute inset-0 space-y-2 text-xs leading-tighter  transition-opacity duration-300 "
+                    className="absolute inset-0 space-y-2 text-xs leading-tighter  text-[#363737] transition-opacity duration-300 "
                     style={{
                       opacity: i === activeIndex ? 1 : 0,
                       pointerEvents: i === activeIndex ? "auto" : "none",

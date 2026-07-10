@@ -86,12 +86,12 @@ export default function ContactSection() {
       <div className="mx-auto max-w-5xl px-6 md:px-10">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16 lg:gap-24">
           <div className="flex flex-col">
-            <h2 className="text-3xl font-bold uppercase leading-tight tracking-tight text-slate-900 sm:text-4xl">
+            <h2 className="text-3xl font-bold uppercase leading-tight tracking-tight text-[#363737] sm:text-4xl">
               Have a project
               <br />
               in mind?
             </h2>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-black">
+            <p className="mt-6 max-w-md text-base leading-relaxed text-[#363737]">
               Your vision deserves a partner who listens, understands, and
               brings your ideas to life. Together, we create impactful
               experiences through bold ideas and flawless execution.
@@ -155,7 +155,7 @@ export default function ContactSection() {
                   value={form.department}
                   onChange={handleChange}
                   className={`${inputBase} appearance-none pr-12 ${
-                    form.department === "" ? "text-slate-400" : "text-slate-700"
+                    form.department === "" ? "text-[#363737]" : "text-slate-700"
                   }`}
                 >
                   <option value="" disabled>
@@ -169,7 +169,7 @@ export default function ContactSection() {
                 </select>
 
                 <svg
-                  className="pointer-events-none absolute right-5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
+                  className="pointer-events-none absolute right-5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#363737]"
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >

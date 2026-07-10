@@ -94,7 +94,7 @@ export default function PassionPrecisionSection() {
       }`}
     >
       {/* Left label */}
-      <p className="absolute left-6 md:left-16 top-1/2 -translate-y-1/2 max-w-[200px] text-[#0b1220] font-bold leading-[1.05] text-2xl md:text-3xl whitespace-pre-line">
+      <p className="absolute left-6 md:left-16 top-1/2 -translate-y-1/2 max-w-[200px]  text-[#363737]  font-bold leading-[1.05] text-2xl md:text-3xl whitespace-pre-line">
         {s.label}
       </p>
 

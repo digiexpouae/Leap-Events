@@ -121,7 +121,7 @@ export default function LeapEventsStats() {
         {/* Heading */}
         <h2
           data-heading
-          className="mb-12 text-3xl font-bold uppercase leading-tighter tracking-tight text-slate-900 sm:text-4xl md:text-5xl"
+          className="mb-12 text-3xl font-bold uppercase leading-tighter tracking-tight text-[#363737] sm:text-4xl md:text-5xl"
         >
           Leap
           <br />
@@ -156,7 +156,7 @@ export default function LeapEventsStats() {
                   data-stat-row
                   className="flex items-center leading-[2] justify-between gap-6 py-5 sm:py-6"
                 >
-                  <span className="text-4xl font-bold text-slate-900 sm:text-5xl md:text-6xl">
+                  <span className="text-4xl font-bold text-[#363737] sm:text-5xl md:text-6xl">
                     {stat.value}
                   </span>
                   <span className="text-sm sm:text-xl tracking-tighter font-medium">

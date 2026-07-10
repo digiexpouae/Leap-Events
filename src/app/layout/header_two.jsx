@@ -11,8 +11,8 @@ export default function Header() {
     <>  
   
   
-   <header className="block fixed w-full h-[82px] z-[99] flex items-stretch ">
-      <div className='fixed top-1 left-1 w-2/3 md:w-1/3 lg:w-1/5 z-[999999] flex'>
+   <header className="fixed w-full h-[82px] z-[999] top-2 left-1 flex items-stretch justify-center ">
+      <div className='w-full z-[999] flex '>
         <DiagonalMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
     </div>

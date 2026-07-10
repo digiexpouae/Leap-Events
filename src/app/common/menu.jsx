@@ -6,7 +6,7 @@ const navs = [
   { num: '01', name: 'HOME',     link: '/'         },
   { num: '02', name: 'ABOUT',    link: '/about'    },
   { num: '03', name: 'SERVICES', link: '/services' },
-  { num: '04', name: 'PROJECT',     link: '/ourwork'  },
+  { num: '04', name: 'PROJECT',     link: '/projects'  },
   { num: '05', name: 'CONTACT',     link: '/contact'  },
 
 ]
@@ -20,7 +20,8 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
       <button
       
         aria-label="Open menu"
-        className="group flex  cursor-pointer items-center  w-full h-[80px] gap-2.5 bg-[#5686DA] px-4 md:px-6 py-3.5"
+        className="group flex  cursor-pointer items-center  w-1/2 md:w-1/4 h-[80px] gap-2.5        bg-[#5686DA]
+ px-4 md:px-6 py-3.5"
         style={{
           borderRadius: '10px',
           opacity: open ? 0 : 1,
@@ -41,10 +42,11 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
           <span className="block h-[1.5px] w-[18px] bg-white transition-all duration-200 group-hover:w-3" />
           <span className="block h-[1.5px] w-[18px] bg-white transition-all" />
         </div>
-        <span className="text-[10px] tracking-[3px] text-white transition-transform duration-300 group-hover:translate-x-0.5">
+        {/* <span className="text-[10px] tracking-[3px] text-white transition-transform duration-300 group-hover:translate-x-0.5">
           MENU
       
-    </span>  </div> 
+    </span>  */}
+     </div> 
     <div className=' w-full h-full flex justify-end'>
            <Link href="/" className=' h-full'>
       <Image 
@@ -60,7 +62,7 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
 
       {/* ── OVERLAY ─────────────────────────────────────────────── */}
       <div
-        className={`fixed inset-0 z-20 ${open ? 'visible' : 'invisible'}`}
+        className={`fixed inset-0  ${open ? 'visible z-[999]' : 'invisible'}`}
         style={{
           background: 'rgba(0,10,40,0.82)',
           transitionProperty: 'visibility',
@@ -109,7 +111,8 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
           </button>
 
           {/* Nav — bottom right */}
-          <nav className="absolute  flex flex-col h-full  justify-center  md:translate-y-1/6  right-5">
+          <nav className="absolute  flex flex-col h-full  justify-center    right-5">
+            <div className='translate-y-1/3'>
             {navs.map(({ num, name, link }) => (
               <a
                 key={name}
@@ -135,6 +138,7 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
                 </span>
               </a>
             ))}
+            </div>
           </nav>
 
           {/* Social row — bottom left */}

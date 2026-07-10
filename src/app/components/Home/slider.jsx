@@ -14,7 +14,7 @@ const projects = [
   {id: 6,  title:  "UNIVERSITY OF DUBAI",              image:"/assets/w-dubai-universtity.webp",  videoUrl: "https://youtu.be/nDCbXoRmB_Q"  },
   {id: 7,  title:   "GEMS GRADUATION EVENT", image:"/assets/w-gems-achool.webp", videoUrl: "https://youtu.be/j1ZwWgsQDN0"  },
   {id: 8,  title: "du",            image:"/assets/w-du.webp",  videoUrl: "https://youtu.be/UrkUYgpevQE"   },
-  {id: 9, title:   "SUMMER RUSH",    image:"/assets/summer-rush.webp",  videoUrl: "https://youtu.be/nY2h7oHkpN0"  },
+  // {id: 9, title:   "SUMMER RUSH",    image:"/assets/summer-rush.webp",  videoUrl: "https://youtu.be/nY2h7oHkpN0"  },
   // { id: 10,  title: "Master Mind",                 image: "/assets/master-mind.webp",           videoUrl: "https://youtu.be/IPpvPcetJL8" },
 
 ];

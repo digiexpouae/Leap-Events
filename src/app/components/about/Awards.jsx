@@ -53,7 +53,7 @@ export default function Awards() {
           {AWARDS.slice(0,8).map((award) => (
             <li
               key={award.alt}
-              className="group  overflow-hidden rounded-2xl  w-[calc(100%-1.5rem)]   bg-white shadow-md ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="group  overflow-hidden rounded-2xl h-72    bg-white shadow-md ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               <Image 
                 src={award.src}
@@ -67,11 +67,11 @@ export default function Awards() {
           ))}
         </ul>
         <div className="w-full flex items-center justify-center">
-          <ul className="grid grid-cols-2 grid md:grid-cols-3  md:gap-6  w-full lg:w-[75%] items-center justify-center">
+          <ul className="grid grid-cols-2 h-full md:gap-6  w-full md:w-1/2 items-center justify-center">
           {AWARDS.slice(8,11).map((award) => (
             <li
               key={award.alt}
-              className="group  w-[calc(100%-1.5rem)]  overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="group  h-72 overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               <Image 
                 src={award.src}

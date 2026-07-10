@@ -34,7 +34,7 @@ const Services = () => {
 
 <SectionOne />
      <SectionThree />
-       <LeapEvent />
+       {/* <LeapEvent /> */}
      <SectionFive />
 
        <FadeUp amount={0.1}>      <HoverSection /></FadeUp>

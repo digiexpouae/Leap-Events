@@ -62,7 +62,7 @@ export default function HeroEventsSection() {
             viewport={{ once: false, amount: 0.3 }}
             className="text-white font-bold uppercase  tracking-tight will-change-transform"
             style={{
-              fontSize: "clamp(3rem, 13vw,  10rem)",
+              fontSize: "clamp(3rem, 13vw,  9rem)",
               letterSpacing: "-0.04em",
             }}
           >
@@ -80,11 +80,11 @@ export default function HeroEventsSection() {
               viewport={{ once: false, amount: 0.3 }}
               className="text-white font-bold uppercase  leading-[1.2] tracking-tight will-change-transform"
               style={{
-                fontSize: "clamp(3rem, 12vw,  10rem)",
+                fontSize: "clamp(3rem, 12vw,  9rem)",
                 letterSpacing: "-0.04em",
               }}
             >
-              BRING
+              Build 
             </motion.div>
           </div>
 
@@ -106,20 +106,21 @@ export default function HeroEventsSection() {
         </div>
 
         {/* Row 3: EVENTS + "12 years of experience" */}
-        <div className="flex items-end  gap-4 md:gap-8  w-full ">
-          <div className="overflow-hidden w-[70%]">
+        <div className="flex  flex-col md:flex-row  md:items-end  gap-4 md:gap-8  w-full ">
+          <div className="overflow-hidden  order-2 md:order-1  ">
+            
             <motion.div
               variants={rowVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: false, amount: 0.3 }}
-              className="text-[#5b8bf5] font-bold uppercase  tracking-tight will-change-transform"
+              className="text-[#5b8bf5] font-bold uppercase tracking-tight will-change-transform"
               style={{
-                fontSize: "clamp(3rem, 12vw,  10rem)",
+                fontSize: "clamp(2.5rem, 12vw,  9rem)",
                 letterSpacing: "-0.04em",
               }}
             >
-              EVENTS
+              meaningful 
             </motion.div>
           </div>
 
@@ -128,7 +129,7 @@ export default function HeroEventsSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.4 }}
-            className="block text-white/80 text-sm  w-[30%] lg:text-base leading-tight md:w-1/3 text-center pb-6 lg:pb-10"
+            className=" md:block text-white/80 text-sm  order-1 md:order-2  lg:text-base leading-tight  text-right md:text-center pb-6 lg:pb-10"
           >
             <p>12 years</p>
             <p>of experience</p>
@@ -144,11 +145,11 @@ export default function HeroEventsSection() {
             viewport={{ once: false, amount: 0.3 }}
             className="text-white font-bold uppercase  tracking-tight will-change-transform"
             style={{
-              fontSize: "clamp(3rem, 12vw, 10rem)",
+              fontSize: "clamp(2.5rem, 12vw, 9rem)",
               letterSpacing: "-0.04em",
             }}
           >
-            TO LIFE
+            experiences
           </motion.div>
               {/* <div className="absolute inset-0 z-10 "> */}
         <motion.div

@@ -25,92 +25,103 @@ import { useEffect, useRef, useState } from "react";
  * - No GSAP, no ScrollTrigger — pure CSS transitions + a single observer.
  */
 
-const SERVICES = [
+  const SERVICES = [
   {
-    title: "Creative Strategy and Concept Development",
+    title: "Creating Immersive Brand Experiences",
     image:
       "/assets/creative.jpg",
     bullets: [
-      "Creative Strategy",
-      "Branding Services",
-      "Graphic Design and Art Direction",
-      "Content Creation",
-      "Photo, Video and Animation",
+      "Interactive and experiential event environments",
+      "High-impact visual storytelling ","Dynamic LED, lighting, and digital content integration",
+      "Technology-driven customer journeys",
+      "Instagrammable and shareable moments ",
     ],
   },
   {
-    title: "Spatial and Experiential Design",
+    title: "Customer Engagement Strategy",
     image:
       "/assets/Spatial_and_Experiential_Design.jpg",
     bullets: [
-'Spatial Design',
-'Experiential Design',
-'Interior Design',
-'3d design services',
-'Multi-Sensory Experiences',
-'Augmented Reality',
-'Interactive Experiences',
+'Connecting with Diverse Audiences',
+'Family-friendly activations',
+'Youth-focused entertainment experiences ',
+'Enterprise networking environments',
+'Personalized engagement activities ',
+'Social media integrated experiences ',
     ],
   },
   {
-    title: "Technical Production and Execution",
+    title: "Market-Ready Event Solutions",
     image:
       "/assets/Technical_Production_and_Execution.jpg",
     bullets: [
      
-'AV, Staging and Fabrication',
-'Synchronized Audio to Video',
-'Computer-aide ddesign (CAD)',
-'3D Projections services',
-'Robotics services',
-'Drone Show Production',
-'Motion Tracking Technology',
-'Data Visualization and Creative Coding'
-    ],
-  },
-  {
-    title: "Venue and Management",
-    image:
-      "/assets/Venue_and_Management.jpg",
-    bullets: [
-     "Venue Sourcing and Management", "Temporary Structures", "Food and beverage", "Signage services", "Ticketing services", "Permits and Permissions", "Hostesses services",
-    ],
-  },
-  {
-    title: "Event Operations and Safety",
-    image:
-      "/assets/Event_Operations_and_Safety.jpg",
-    bullets: [
-      "Security and Protocol", "Health and Safety", "Entertainment services", "Traffic Management"
-    ],
-  },
-  {
-    title: "Marketing and Sponsorship",
-    image:
-      "/assets/Marketing_and_Sponsorship.jpg",
-    bullets: [
-     "Marketing Strategy and Campaign Management", "Sponsorship Acquisition and Management", "Public Relations and Media Outreach", "Digital Marketing and Social Media Promotion", "Content Creation and Brand Storytelling",
-    ],
-  },
-  {
-    title: "Innovative Properties",
-    image:
-      "/assets/Innovative_Properties.jpg",
-    bullets: [
-     "Brand Activation and Engagement Campaigns", "Interactive and Immersive Experiences", "Digital and Virtual Event Solutions", "Custom Event Properties for Unique Audience Engagement",
-    ],
-  },
-  {
-    title: "Experience and Entertainment Management",
-    image:
-      "/assets/Experience_and_Entertainment_Management.jpg",
-    bullets: [
-    "Content Curation", "Food and Beverage Curation", "Stage and Production Management", "Exhibition and Vendor Management", "Entertainment and Talent Booking",
-
+'Building Scalable & High-Impact Events ',
+'Modular and adaptable event systems ',
+'Fast deployment and efficient operations ',
+'Scalable infrastructure for different event sizes ',
+'Cost-effective and sustainable solutions',
+'Strong operational and technical planning ',
 
     ],
   },
-];
+  {
+    title: "Future Ready Event Infrastructure",
+    image: "/assets/Venue_and_Management.jpg",
+    bullets: [
+      "Modular event structures",
+      "Smart LED integrations",
+      "Efficient power and connectivity systems",
+      "Sustainable and reusable setups",
+      "Hybrid event capabilities"
+    ],
+  },
+  {
+    title: "Enhancing Audience Engagement",
+    image: "/assets/Event_Operations_and_Safety.jpg",
+    bullets: [
+      "AI-powered activations",
+      "Smart kiosks",
+      "Gamification AR/VR experiences",
+      "Real-time engagement systems",
+      "Interactive digital screens"
+    ],
+  },
+  {
+    title: "Creative Strategy",
+    image: "/assets/Marketing_and_Sponsorship.jpg",
+    bullets: [
+      "Three creative repetitions",
+      "Brand guardian review",
+      "2D / 3D design",
+      "Content requirements",
+      "Experience flow"
+    ],
+  },
+  {
+    title: "Enhancing Brand Visibility",
+    image: "/assets/Innovative_Properties.jpg",
+    bullets: [
+      "Premium event branding",
+      "High-visibility activation zones",
+      "Innovative stage and environment design",
+      "Strategic audience flow and engagement planning",
+      "Strong media and content opportunities"
+    ],
+  },
+  {
+    title: "Digital And Social Engagement",
+    image: "/assets/Experience_and_Entertainment_Management.jpg",
+    bullets: [
+      "Extending Event Impact Beyond the Venue",
+      "Live social media engagement",
+      "Shareable content moments",
+      "Influencer and creator integration",
+      "Interactive digital campaigns",
+      "Real-time audience participation"
+    ],
+  }
+]
 
 export default function SpacesBuiltToMove() {
   const itemsRef = useRef([]);
@@ -155,14 +166,13 @@ export default function SpacesBuiltToMove() {
         {/* Heading + intro */}
           <FadeUp>
         <div className="flex flex-col gap-6 md:items-start md:justify-between">
-          <h2 className="text-4xl font-bold uppercase tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
-            Spaces built
-            to move
+          <h2 className="text-4xl font-bold uppercase tracking-tight text-slate-900 sm:text-5xl ">
+           Leap events,
+            the standard of <br /> the extraordinary
           </h2>
           <p className=" text-sm w-full flex  justify-center md:mt-4">
-            From concept design to final build, we create environments that
-            engage audiences, <br /> reinforce your message, and turn every event into
-            a lasting impression.
+           Redefining event experiences through bold creativity, immersive storytelling,<br /> and future-forward execution that goes beyond conventional expectations. 
+
           </p>
         </div>
         </FadeUp>

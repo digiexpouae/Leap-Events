@@ -6,7 +6,7 @@ const navs = [
   { num: '01', name: 'HOME',     link: '/'         },
   { num: '02', name: 'ABOUT',    link: '/about'    },
   { num: '03', name: 'SERVICES', link: '/services' },
-  { num: '04', name: 'PROJECT',     link: '/projects'  },
+  { num: '04', name: 'PROJECTS',     link: '/projects'  },
   { num: '05', name: 'CONTACT',     link: '/contact'  },
 
 ]
@@ -20,8 +20,8 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
       <button
       
         aria-label="Open menu"
-        className="group flex  cursor-pointer items-center  w-1/2 md:w-1/4 h-[80px] gap-2.5        bg-[#5686DA]
- px-4 md:px-6 py-3.5"
+        className="group flex  cursor-pointer items-center   h-[80px] gap-2.5   bg-[#5686DA]
+ px-4 md:px-8 py-3.5"
         style={{
           borderRadius: '10px',
           opacity: open ? 0 : 1,
@@ -32,11 +32,14 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
           transitionDelay: open ? '0ms' : '700ms',
         }}
       >
-        <div className='flex gap-2'
-          onClick={() =>{ setOpen(true)
+
+<div className='px-4' onClick={() =>{ setOpen(true)
           setIsMenuOpen(true)
         }
         }>
+
+        <div className='flex gap-2'
+          >
         <div className="flex flex-col gap-[4px]">
           <span className="block h-[1.5px] w-[18px] bg-white transition-all" />
           <span className="block h-[1.5px] w-[18px] bg-white transition-all duration-200 group-hover:w-3" />
@@ -47,6 +50,7 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
       
     </span>  */}
      </div> 
+     </div>
     <div className=' w-full h-full flex justify-end'>
            <Link href="/" className=' h-full'>
       <Image 

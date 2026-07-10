@@ -33,7 +33,7 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
         }}
       >
 
-<div className='px-4' onClick={() =>{ setOpen(true)
+<div className='px-4 h-full flex items-center justify-center' onClick={() =>{ setOpen(true)
           setIsMenuOpen(true)
         }
         }>

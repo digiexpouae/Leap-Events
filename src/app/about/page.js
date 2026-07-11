@@ -27,7 +27,7 @@ const about = () => {
             {/* <AboutSection heading={"Our Story"} text={<> Our vision extends beyond the immediate thrill <br /> of the event to leave
                 a lasting imprint that <br /> propels our clients into the future</>} /> */}
         <BuiltOnCraft /> 
-       <FadeUp><Leader /></FadeUp> 
+       <Leader />
            {/* <OurTeam />      */}
 <div className="bg-[#d6efff]  py-16 flex flex-col justify-between gap-10 hidden  md:block">
              {/* Heading */}
@@ -57,30 +57,10 @@ const about = () => {
           </button>
         </div>
             </div>
-          {/* <Team />/ */}
+        
        
-            {/* <SectionTwo /> */}
-            {/* <Sectionthree /> */}
-            {/* <Sectionfour /> */}
-            {/* <Logomarquee /> */}
-            {/* <div
-                className="relative w-full z-50 bg-primary-gradient pt-12 sm:pt-16 lg:pt-20  "
-            >
 
-
-                <div className="flex nd:flex-col sm:flex-row px-4 md:px-16 items-center justify-center gap-4 mb-8 sm:mb-10">
-                    <h2
-                        className={`font-black uppercase  text-[clamp(1.8rem,5vw,3rem)]  text-[#363737]`}
-                        style={{ letterSpacing: "-0.01em", lineHeight: 1.05 }}
-                    >Collaborations
-                    </h2>
-
-
-                </div>
-                <Event />
-            </div> */}
-
-       <FadeUp> <Awards /></FadeUp>
+        <Awards />
           <FadeUp> <AwardMobile /></FadeUp>
           <FadeUp>    <Form /></FadeUp>
 

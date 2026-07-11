@@ -12,89 +12,77 @@ const handleRowClick = (i) => {
     setMobileOpenIndex((prev) => (prev === i ? null : i));
   };
 
-  const SERVICES = [
+const SERVICES = [
   {
-    title: "Technology-Driven Business Growth ",
-    image:
-      "/assets/creative.jpg",
+    title: "Cultural Events",
+    image: "/assets/creative.jpg",
     bullets: [
-      "Creative Strategy",
-      "Branding Services",
-      "Graphic Design and Art Direction",
-      "Content Creation",
-      "Photo, Video and Animation",
+      "Authentic cultural experiences",
+      "Heritage-inspired event concepts",
+      "Traditional performances and entertainment",
+      "Community-focused celebrations",
+      "Immersive themed environments",
+      "End-to-end event management",
     ],
   },
   {
-    title: "Strong Brand Connection & Expansion",
-    image:
-      "/assets/Spatial_and_Experiential_Design.jpg",
+    title: "Community Events",
+    image: "/assets/Spatial_and_Experiential_Design.jpg",
     bullets: [
-'Spatial Design',
-'Experiential Design',
-'Interior Design',
-'3d design services',
-'Multi-Sensory Experiences',
-'Augmented Reality',
-'Interactive Experiences',
+      "Family-friendly experiences",
+      "Interactive community activations",
+      "Engaging entertainment programs",
+      "Inclusive audience participation",
+      "Safe and seamless event execution",
+      "Memorable neighborhood celebrations",
     ],
   },
   {
-    title: "Brand Connection & Human Engagement",
-    image:
-      "/assets/Technical_Production_and_Execution.jpg",
+    title: "Mall Activations",
+    image: "/assets/Technical_Production_and_Execution.jpg",
     bullets: [
-     
-'AV, Staging and Fabrication',
-'Synchronized Audio to Video',
-'Computer-aide ddesign (CAD)',
-'3D Projections services',
-'Robotics services',
-'Drone Show Production',
-'Motion Tracking Technology',
-'Data Visualization and Creative Coding'
+      "High-footfall brand activations",
+      "Interactive customer experiences",
+      "Seasonal retail campaigns",
+      "Product launch activations",
+      "Shopper engagement solutions",
+      "Measurable brand visibility",
     ],
   },
   {
-    title: "Major events ",
-    image:
-      "/assets/Venue_and_Management.jpg",
+    title: "Exhibition Stall",
+    image: "/assets/Venue_and_Management.jpg",
     bullets: [
-     "Venue Sourcing and Management", "Temporary Structures", "Food and beverage", "Signage services", "Ticketing services", "Permits and Permissions", "Hostesses services",
+      "Custom exhibition stand design",
+      "Premium booth fabrication",
+      "Interactive product displays",
+      "Brand-focused visitor experiences",
+      "End-to-end installation services",
+      "Functional and impactful layouts",
     ],
   },
   {
-    title: "Minor events",
-    image:
-      "/assets/Event_Operations_and_Safety.jpg",
+    title: "Educational Events",
+    image: "/assets/Event_Operations_and_Safety.jpg",
     bullets: [
-      "Security and Protocol", "Health and Safety", "Entertainment services", "Traffic Management"
+      "Interactive learning experiences",
+      "Student engagement activities",
+      "Educational workshops and exhibitions",
+      "STEM and innovation programs",
+      "Creative knowledge-sharing environments",
+      "Seamless event coordination",
     ],
   },
   {
-    title: "Cultural events",
-    image:
-      "/assets/Marketing_and_Sponsorship.jpg",
+    title: "Road Shows",
+    image: "/assets/Marketing_and_Sponsorship.jpg",
     bullets: [
-     "Marketing Strategy and Campaign Management", "Sponsorship Acquisition and Management", "Public Relations and Media Outreach", "Digital Marketing and Social Media Promotion", "Content Creation and Brand Storytelling",
-    ],
-  },
-  {
-    title: "Community events",
-    image:
-      "/assets/Innovative_Properties.jpg",
-    bullets: [
-     "Brand Activation and Engagement Campaigns", "Interactive and Immersive Experiences", "Digital and Virtual Event Solutions", "Custom Event Properties for Unique Audience Engagement",
-    ],
-  },
-  {
-    title: "Mall activation ",
-    image:
-      "/assets/Experience_and_Entertainment_Management.jpg",
-    bullets: [
-    "Content Curation", "Food and Beverage Curation", "Stage and Production Management", "Exhibition and Vendor Management", "Entertainment and Talent Booking",
-
-
+      "Mobile brand activations",
+      "Multi-location campaign execution",
+      "High-impact promotional experiences",
+      "Audience engagement on the move",
+      "Fast setup and operations",
+      "Maximum brand reach and visibility",
     ],
   },
 ];

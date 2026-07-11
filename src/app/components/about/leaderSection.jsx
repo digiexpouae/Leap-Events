@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import FadeUp from "@/app/common/Transition";
 const leaders = [
   {
     name: "Ahmad Sammour",
@@ -31,18 +31,23 @@ export default function LeadersSection() {
       
 
         {/* Heading */}
+        <FadeUp>
         <h2 className="text-3xl sm:text-5xl font-bold text-white uppercase tracking-tight leading-tight">
           <span>The Leaders <br />
           Behind </span> {""}
           <span className="text-[#4da6ff]"> Leap Events</span>
         </h2>
+        </FadeUp>
+           <FadeUp>
         <p className="mt-3 text-sm text-white max-w-lg mx-auto">
           Meet the visionaries who turn bold ideas into unforgettable experiences.
         </p>
+        </FadeUp>
 
         {/* Cards */}
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-16">
-          {leaders.map(({ name, role, image }) => (
+          {leaders.map(({ name, role, image },index) => (
+               <FadeUp key={index} delay={index*0.2}>
             <div
               key={name}
               className="flex flex-col overflow-hidden border  rounded-4xl border-white"
@@ -68,6 +73,7 @@ export default function LeadersSection() {
                 </p>
               </div>
             </div>
+            </FadeUp>
           ))}
         </div>
       </div>

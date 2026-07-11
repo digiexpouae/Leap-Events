@@ -1,3 +1,4 @@
+"use client"
 import FadeUp from "@/app/common/Transition";
 
 const cards = [
@@ -46,9 +47,10 @@ export default function BuiltOnCraft() {
         </div></FadeUp>
 
         {/* Cards Grid */}
-    <FadeUp>
         <div className="grid grid-cols-1 gap-8 md:gap-4 md:gap-y-8  md:grid-cols-2 lg:grid-cols-3 ">
-          {cards.map((card) => (
+          {cards.map((card,index) => (
+                <FadeUp key={card.number} delay={index * 0.2}>
+
             <div
               key={card.number}
               className={`relative flex min-h-72 flex-col justify-between  md:w-[90%] rounded-2xl p-6 md:min-h-[420px] bg-cover bg-center  text-white ${card.primary? " bg-[url('/assets/one.png')] "
@@ -78,9 +80,10 @@ export default function BuiltOnCraft() {
                 {card.title}
               </p>
             </div>
+            </FadeUp>
+
           ))}
         </div>
-</FadeUp>
       </div>
     </section>
   );

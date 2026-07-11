@@ -4,104 +4,80 @@ import FadeUp from "@/app/common/Transition";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-
-  const SERVICES = [
+const SERVICES = [
   {
-    title: "Cultural Events ",
-    image:
-      "/assets/creative.jpg",
+    title: "Cultural Events",
+    image: "/assets/creative.jpg",
     bullets: [
-      "Interactive and experiential event environments",
-      "High-impact visual storytelling ","Dynamic LED, lighting, and digital content integration",
-      "Technology-driven customer journeys",
-      "Instagrammable and shareable moments ",
+      "Authentic cultural experiences",
+      "Heritage-inspired event concepts",
+      "Traditional performances and entertainment",
+      "Community-focused celebrations",
+      "Immersive themed environments",
+      "End-to-end event management",
     ],
   },
   {
     title: "Community Events",
-    image:
-      "/assets/Spatial_and_Experiential_Design.jpg",
+    image: "/assets/Spatial_and_Experiential_Design.jpg",
     bullets: [
-'Connecting with Diverse Audiences',
-'Family-friendly activations',
-'Youth-focused entertainment experiences ',
-'Enterprise networking environments',
-'Personalized engagement activities ',
-'Social media integrated experiences ',
+      "Family-friendly experiences",
+      "Interactive community activations",
+      "Engaging entertainment programs",
+      "Inclusive audience participation",
+      "Safe and seamless event execution",
+      "Memorable neighborhood celebrations",
     ],
   },
   {
-    title: "Mall Activations ",
-    image:
-      "/assets/Technical_Production_and_Execution.jpg",
+    title: "Mall Activations",
+    image: "/assets/Technical_Production_and_Execution.jpg",
     bullets: [
-     
-'Building Scalable & High-Impact Events ',
-'Modular and adaptable event systems ',
-'Fast deployment and efficient operations ',
-'Scalable infrastructure for different event sizes ',
-'Cost-effective and sustainable solutions',
-'Strong operational and technical planning ',
-
+      "High-footfall brand activations",
+      "Interactive customer experiences",
+      "Seasonal retail campaigns",
+      "Product launch activations",
+      "Shopper engagement solutions",
+      "Measurable brand visibility",
     ],
   },
   {
-    title: "Exhibition Stall ",
+    title: "Exhibition Stall",
     image: "/assets/Venue_and_Management.jpg",
     bullets: [
-      "Modular event structures",
-      "Smart LED integrations",
-      "Efficient power and connectivity systems",
-      "Sustainable and reusable setups",
-      "Hybrid event capabilities"
+      "Custom exhibition stand design",
+      "Premium booth fabrication",
+      "Interactive product displays",
+      "Brand-focused visitor experiences",
+      "End-to-end installation services",
+      "Functional and impactful layouts",
     ],
   },
   {
-    title: "Educational Events ",
+    title: "Educational Events",
     image: "/assets/Event_Operations_and_Safety.jpg",
     bullets: [
-      "AI-powered activations",
-      "Smart kiosks",
-      "Gamification AR/VR experiences",
-      "Real-time engagement systems",
-      "Interactive digital screens"
+      "Interactive learning experiences",
+      "Student engagement activities",
+      "Educational workshops and exhibitions",
+      "STEM and innovation programs",
+      "Creative knowledge-sharing environments",
+      "Seamless event coordination",
     ],
   },
   {
     title: "Road Shows",
     image: "/assets/Marketing_and_Sponsorship.jpg",
     bullets: [
-      "Three creative repetitions",
-      "Brand guardian review",
-      "2D / 3D design",
-      "Content requirements",
-      "Experience flow"
+      "Mobile brand activations",
+      "Multi-location campaign execution",
+      "High-impact promotional experiences",
+      "Audience engagement on the move",
+      "Fast setup and operations",
+      "Maximum brand reach and visibility",
     ],
   },
-  // {
-  //   title: "Enhancing Brand Visibility",
-  //   image: "/assets/Innovative_Properties.jpg",
-  //   bullets: [
-  //     "Premium event branding",
-  //     "High-visibility activation zones",
-  //     "Innovative stage and environment design",
-  //     "Strategic audience flow and engagement planning",
-  //     "Strong media and content opportunities"
-  //   ],
-  // },
-  // {
-  //   title: "Digital And Social Engagement",
-  //   image: "/assets/Experience_and_Entertainment_Management.jpg",
-  //   bullets: [
-  //     "Extending Event Impact Beyond the Venue",
-  //     "Live social media engagement",
-  //     "Shareable content moments",
-  //     "Influencer and creator integration",
-  //     "Interactive digital campaigns",
-  //     "Real-time audience participation"
-  //   ],
-  // }
-]
+];
 
 export default function SpacesBuiltToMove() {
   const itemsRef = useRef([]);

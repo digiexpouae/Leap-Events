@@ -20,8 +20,8 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
       <button
       
         aria-label="Open menu"
-        className="group flex  cursor-pointer items-center   h-[80px] gap-2.5   bg-[#5686DA]
- px-4 md:px-8 py-3.5"
+        className=" flex  cursor-pointer items-center   h-[70px] gap-2.5   bg-[#5686DA]
+ px-4 py-3.5"
         style={{
           borderRadius: '10px',
           opacity: open ? 0 : 1,
@@ -33,12 +33,12 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
         }}
       >
 
-<div className='px-4 h-full flex items-center justify-center' onClick={() =>{ setOpen(true)
+<div className='px-2 h-full flex items-center justify-center' onClick={() =>{ setOpen(true)
           setIsMenuOpen(true)
         }
         }>
 
-        <div className='flex gap-2'
+        <div className='flex gap-2 group'
           >
         <div className="flex flex-col gap-[4px]">
           <span className="block h-[1.5px] w-[18px] bg-white transition-all" />
@@ -56,7 +56,7 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
       <Image 
       src={"/assets/logo-white.svg"}
      
-      width={80}
+      width={70}
       height={60}
       className=' shrink-0'
       />

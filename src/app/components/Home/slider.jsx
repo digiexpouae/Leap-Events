@@ -237,8 +237,7 @@ export default function ProjectSlider() {
   useEffect(() => {
     if (activeVideo) clearInterval(autoTimer.current);
     else resetAutoTimer();
-  }, [activeVideo]); // eslint-disable-line
-
+  }, [activeVideo]); 
   // ── Mouse drag ──────────────────────────────────────────────────────────────
   const onMouseMove = useCallback((e) => {
     if (dragStartX.current === null) return;
@@ -457,11 +456,11 @@ export default function ProjectSlider() {
 
                     {/* Title */}
                     {isActive && (
-                      <div className="absolute bottom-8 left-8 right-8 text-white">
-                        <h2 className={`text-[20px] md:text-[26px] ${ele.title == "du" ? "lowercase" : "uppercase"} leading-tight font-medium max-w-[520px]`}>
+                      <div className="absolute bottom-2 md:bottom-8 left-8 right-8 text-white">
+                        <h2 className={`text-sm md:text-[26px] ${ele.title == "du" ? "lowercase" : "uppercase"} leading-tight font-medium max-w-[520px]`}>
                           {ele.title}
                         </h2>
-                           <p className="mt-2 inline-flex rounded-full bg-black/20 px-3 py-1 text-base font-medium text-white"
+                           <p className="mt-2 inline-flex rounded-full bg-black/20 px-3 py-1 text-xs md:text-base font-medium text-white"
                        style={{
   backdropFilter: "blur(14px)",
   WebkitBackdropFilter: "blur(14px)",

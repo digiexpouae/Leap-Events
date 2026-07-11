@@ -59,11 +59,8 @@ export default function CorporateEvents() {
 
 
     })
-    const data = [{
-        title: 'Major events ', image: "/assets/corporate-resize.webp"
-    },
-    { title: "Minor events ", image: "/assets/mall-decor.webp" },
-    // { title: "Wedding", image: "/assets/home/wedding.jpg" },
+    const data = [
+   
     { title: 'Cultural events ', image: "/assets/exhib-resize.webp" },
 
     { title: 'Community events ', image: "/assets/en-resized.webp" }
@@ -73,7 +70,6 @@ export default function CorporateEvents() {
     {title:"Exhibition Stall",image:"/assets/marketing-res.webp"},
         {title:"Educational Events ",image:"/assets/marketing-res.webp"},
             {title:"Road Shows ",image:"/assets/marketing-res.webp"},
-
 
 
     ]

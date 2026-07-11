@@ -1,7 +1,6 @@
 "use client"
 import Image from "next/image"
 import { useState, useCallback } from "react"
-
 const AWARDS = [
   {
     src: "/assets/aw-1.webp"
@@ -21,13 +20,14 @@ const AWARDS = [
     alt: "Global Achievement Trophy",
   },
   {
- src: "/assets/aw-5.webp",    alt: "Film Festival Reel Award",
+ src: "/assets/aw-5.webp",
+ alt: "Film Festival Reel Award",
   },
   {
  src: "/assets/aw-6.webp",    alt: "Crystal Drop Award",
   },
   {
- src: "/assets/aw-7.webp",    alt: "Dubai Civil Defense Recognition",
+ src: "/assets/award.webp",    alt: "Dubai Civil Defense Recognition",
   },
   {
  src: "/assets/aw-8.webp",    alt: "Certificate of Appreciation",

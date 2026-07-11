@@ -4,30 +4,10 @@ import FadeUp from "@/app/common/Transition";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
-/**
- * SpacesBuiltToMove
- *
- * Tech: Next.js (App Router) + Tailwind CSS + IntersectionObserver API
- *
- * Behavior:
- * - Right column scrolls naturally; left column is `sticky` so the image
- *   stays in view while the user reads through the service list.
- * - A single IntersectionObserver watches every service block. The block
- *   closest to the configured "active line" (middle of viewport) becomes active.
- * - Active service: bold, full-opacity. Inactive: dimmed.
- * - The left image cross-fades to match the active index.
- * - The right-side sub-bullet list swaps to the active service's bullets.
- *
- * Performance:
- * - One observer, not N. Threshold tuned so callbacks are cheap.
- * - State only updates when the active index actually changes.
- * - Images all rendered once and toggled via opacity (GPU-accelerated, no remount).
- * - No GSAP, no ScrollTrigger — pure CSS transitions + a single observer.
- */
 
   const SERVICES = [
   {
-    title: "Creating Immersive Brand Experiences",
+    title: "Cultural Events ",
     image:
       "/assets/creative.jpg",
     bullets: [
@@ -38,7 +18,7 @@ import { useEffect, useRef, useState } from "react";
     ],
   },
   {
-    title: "Customer Engagement Strategy",
+    title: "Community Events",
     image:
       "/assets/Spatial_and_Experiential_Design.jpg",
     bullets: [
@@ -51,7 +31,7 @@ import { useEffect, useRef, useState } from "react";
     ],
   },
   {
-    title: "Market-Ready Event Solutions",
+    title: "Mall Activations ",
     image:
       "/assets/Technical_Production_and_Execution.jpg",
     bullets: [
@@ -66,7 +46,7 @@ import { useEffect, useRef, useState } from "react";
     ],
   },
   {
-    title: "Future Ready Event Infrastructure",
+    title: "Exhibition Stall ",
     image: "/assets/Venue_and_Management.jpg",
     bullets: [
       "Modular event structures",
@@ -77,7 +57,7 @@ import { useEffect, useRef, useState } from "react";
     ],
   },
   {
-    title: "Enhancing Audience Engagement",
+    title: "Educational Events ",
     image: "/assets/Event_Operations_and_Safety.jpg",
     bullets: [
       "AI-powered activations",
@@ -88,7 +68,7 @@ import { useEffect, useRef, useState } from "react";
     ],
   },
   {
-    title: "Creative Strategy",
+    title: "Road Shows",
     image: "/assets/Marketing_and_Sponsorship.jpg",
     bullets: [
       "Three creative repetitions",
@@ -98,29 +78,29 @@ import { useEffect, useRef, useState } from "react";
       "Experience flow"
     ],
   },
-  {
-    title: "Enhancing Brand Visibility",
-    image: "/assets/Innovative_Properties.jpg",
-    bullets: [
-      "Premium event branding",
-      "High-visibility activation zones",
-      "Innovative stage and environment design",
-      "Strategic audience flow and engagement planning",
-      "Strong media and content opportunities"
-    ],
-  },
-  {
-    title: "Digital And Social Engagement",
-    image: "/assets/Experience_and_Entertainment_Management.jpg",
-    bullets: [
-      "Extending Event Impact Beyond the Venue",
-      "Live social media engagement",
-      "Shareable content moments",
-      "Influencer and creator integration",
-      "Interactive digital campaigns",
-      "Real-time audience participation"
-    ],
-  }
+  // {
+  //   title: "Enhancing Brand Visibility",
+  //   image: "/assets/Innovative_Properties.jpg",
+  //   bullets: [
+  //     "Premium event branding",
+  //     "High-visibility activation zones",
+  //     "Innovative stage and environment design",
+  //     "Strategic audience flow and engagement planning",
+  //     "Strong media and content opportunities"
+  //   ],
+  // },
+  // {
+  //   title: "Digital And Social Engagement",
+  //   image: "/assets/Experience_and_Entertainment_Management.jpg",
+  //   bullets: [
+  //     "Extending Event Impact Beyond the Venue",
+  //     "Live social media engagement",
+  //     "Shareable content moments",
+  //     "Influencer and creator integration",
+  //     "Interactive digital campaigns",
+  //     "Real-time audience participation"
+  //   ],
+  // }
 ]
 
 export default function SpacesBuiltToMove() {

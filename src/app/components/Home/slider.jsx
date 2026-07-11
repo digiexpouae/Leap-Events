@@ -6,14 +6,14 @@ import { useState, useCallback, useEffect, useRef } from "react";
 
 
 const projects = [
-  {id: 1,  title: "FERJAN FESTIVAL",                    image:"/assets/w-ferjan-festival.webp", videoUrl: "https://youtu.be/VnZ5EkXupHQ"  },
-  {id: 2,  title: "SOUQ RAMADAN",                       image:"/assets/souq-ramadan.webp", videoUrl: "https://youtu.be/p0v3EM14Jv4" },
-  {id: 3,  title:   "WINTER GARDEN",                      image:"/assets/w-winter-garden.webp",  videoUrl: "https://youtu.be/Z02w0ts5FLI"   },
-  {id: 4,  title:  "CITY CENTRE AL ZAHIA",                     image:"/assets/w-souq-al-freej.webp",   videoUrl: "https://youtu.be/Z02w0ts5FLI"},
-  {id: 5,  title: "SHARJAH INTERNATIONAL FILM FESTIVAL",image:"/assets/w-international-film-festival.webp", videoUrl: "https://youtu.be/TOl8VrXGkmY"   },
-  {id: 6,  title:  "UNIVERSITY OF DUBAI",              image:"/assets/w-dubai-universtity.webp",  videoUrl: "https://youtu.be/nDCbXoRmB_Q"  },
-  {id: 7,  title:   "GEMS GRADUATION EVENT", image:"/assets/w-gems-achool.webp", videoUrl: "https://youtu.be/j1ZwWgsQDN0"  },
-  {id: 8,  title: "du",            image:"/assets/w-du.webp",  videoUrl: "https://youtu.be/UrkUYgpevQE"   },
+  {id: 1,  title: "FERJAN FESTIVAL | 2025",                    image:"/assets/w-ferjan-festival.webp", videoUrl: "https://youtu.be/VnZ5EkXupHQ"  },
+  {id: 2,  title: "SOUQ RAMADAN | 2025",                       image:"/assets/souq-ramadan.webp", videoUrl: "https://youtu.be/p0v3EM14Jv4" },
+  // {id: 3,  title:   "WINTER GARDEN",                      image:"/assets/w-winter-garden.webp",  videoUrl: "https://youtu.be/Z02w0ts5FLI"   },
+  {id: 4,  title:  "CITY CENTRE AL ZAHIA | 2024",                     image:"/assets/city-al-zahia.webp",   videoUrl: "https://youtu.be/Z02w0ts5FLI"},
+  {id: 5,  title: "SHARJAH INTERNATIONAL FILM FESTIVAL || 2025",image:"/assets/w-international-film-festival.webp", videoUrl: "https://youtu.be/TOl8VrXGkmY"   },
+  {id: 6,  title:  "UNIVERSITY OF DUBAI | 2024",              image:"/assets/w-dubai-universtity.webp",  videoUrl: "https://youtu.be/nDCbXoRmB_Q"  },
+  {id: 7,  title:   "GEMS GRADUATION EVENT | 2024", image:"/assets/w-gems-achool.webp", videoUrl: "https://youtu.be/j1ZwWgsQDN0"  },
+  {id: 8,  title: "du | 2024",            image:"/assets/w-du.webp",  videoUrl: "https://youtu.be/UrkUYgpevQE"   },
   // {id: 9, title:   "SUMMER RUSH",    image:"/assets/summer-rush.webp",  videoUrl: "https://youtu.be/nY2h7oHkpN0"  },
   // { id: 10,  title: "Master Mind",                 image: "/assets/master-mind.webp",           videoUrl: "https://youtu.be/IPpvPcetJL8" },
 
@@ -419,7 +419,7 @@ export default function ProjectSlider() {
                     {/* Title */}
                     {isActive && (
                       <div className="absolute bottom-8 left-8 right-8 text-white">
-                        <h2 className={`text-[20px] md:text-[26px] ${ele.id === 10 ? "lowercase" : "uppercase"} leading-tight font-medium max-w-[520px]`}>
+                        <h2 className={`text-[20px] md:text-[26px] ${ele.title == "du | 2024" ? "lowercase" : "uppercase"} leading-tight font-medium max-w-[520px]`}>
                           {ele.title}
                         </h2>
                       </div>

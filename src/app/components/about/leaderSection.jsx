@@ -4,7 +4,7 @@ const leaders = [
   {
     name: "Ahmad Sammour",
     role: "CEO-FOUNDER",
-    image: "/assets/ceo_leap.webp", // Replace with actual image path
+    image: "/assets/ahmed-2.webp", // Replace with actual image path
   },
   {
     name: "MOHAMED BAHAA ELDIN",

@@ -105,7 +105,7 @@ const handleRowClick = (i) => {
               <div className="flex flex-col gap-6 md:items-start md:justify-between py-8">
                 <h2 className="text-3xl font-bold uppercase tracking-tight text-[#363737] sm:text-5xl ">
                  Leap events,
-                  the standard of <br /> the extraordinary
+                  the standard of the <br />  extraordinary
                 </h2>
                 <p className=" text-sm w-full flex text-[#363737]  justify-center md:mt-4 text-[#363737]">
                  Redefining event experiences through bold creativity, immersive storytelling,<br /> and future-forward execution that goes beyond conventional expectations. 

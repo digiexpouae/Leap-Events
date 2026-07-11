@@ -56,7 +56,7 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
       <Image 
       src={"/assets/logo-white.svg"}
      
-      width={70}
+      width={80}
       height={60}
       className=' shrink-0'
       />

@@ -20,8 +20,8 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
       <button
       
         aria-label="Open menu"
-        className=" flex  cursor-pointer items-center   h-[70px] gap-2.5   bg-[#5686DA]
- px-4 py-3.5"
+        className=" flex  cursor-pointer items-center   h-[70px] md:gap-2.5   bg-[#5686DA]
+ px-2 md:px-4 py-3.5"
         style={{
           borderRadius: '10px',
           opacity: open ? 0 : 1,

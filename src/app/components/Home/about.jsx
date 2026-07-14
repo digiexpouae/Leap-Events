@@ -27,7 +27,7 @@ export default function AboutSection() {
           <p className="mt-4 text-[#363737]  max-w-md md:text-2xl  md:leading-7 sm:text-base">
             We are a passionate team with over a decade of experience in the
             event industry, delivering exceptional events through expertise,
-            innovation, and mdern technology.
+            innovation, and modern technology.
           </p>
         
           <Link  className="mt-6 rounded-full bg-[#5686DA] px-3 py-2 text-sm font-medium text-white transition hover:bg-[#5686DA]/50"

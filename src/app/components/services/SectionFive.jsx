@@ -167,10 +167,10 @@ export default function SpacesBuiltToMove() {
                   key={s.title}
                   ref={(el) => (itemsRef.current[i] = el)}
                   data-index={i}
-                  className={` text-lg transition-all duration-300 py-8  md:text-base  ${
+                  className={` text-lg transition-all duration-300 py-8 font-bold md:text-base  ${
                     isActive
-                      ? "font-bold  text-[#363737] opacity-100"
-                      : "font-medium text-slate-400 opacity-50"
+                      ? "  text-[#363737] opacity-100"
+                      : "text-slate-400 opacity-50"
                   }`}
                 >
                   {s.title}

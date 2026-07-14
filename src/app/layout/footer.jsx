@@ -13,11 +13,12 @@ const quickLinks = [
 ];
 
 const services = [
-    {name:    "Corporate Events",link:"/services"},
-  {name:"Mall Decor & Activation" ,link:"/services"},
-    {name:"Digital Print & Branding",link:"/services"},
-    {name:"Exhibition", link:"/services"},
-    {name:"Entertainment",link:"/services"},
+  { name: "Cultural Events", link: "/services" },
+  { name: "Community Events", link: "/services" },
+  { name: "Mall Activations", link: "/services" },
+  { name: "Exhibition Stall", link: "/services" },
+  { name: "Educational Events", link: "/services" },
+  { name: "Road Shows", link: "/services" },
 ];
 
 export default function Footer() {

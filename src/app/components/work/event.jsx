@@ -54,15 +54,16 @@ const works = [
     image: "/assets/w-du.webp",
     videoUrl: "https://youtu.be/UrkUYgpevQE",
   },
-    {
-         id: 9, 
-      title:   "SUMMER RUSH",  
-      year: "2023",          
-       image: "/assets/summer-rush.webp", 
-      videoUrl: "#"  
-    },
+   {
+    id: 9,
+        title: "GEMS GRADUATION EVENT",
+    year: "2026",
+       image: "/assets/resize.webp",
+    videoUrl: "https://youtu.be/JveubxCXNWk",
+  },
 
 ];
+
 
 
 const PER_GROUP = 3;

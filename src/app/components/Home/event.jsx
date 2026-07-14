@@ -61,15 +61,15 @@ export default function CorporateEvents() {
     })
     const data = [
    
-    { title: 'Cultural events ', image: "/assets/exhib-resize.webp" },
+    { title: 'Cultural events ', image: "/assets/ev-1.webp" },
 
-    { title: 'Community events ', image: "/assets/en-resized.webp" }
+    { title: 'Community events ', image: "/assets/ev-4.webp" }
         ,
 
-          { title: 'Mall activation ', image: "/assets/ven-reisze.webp" },
-    {title:"Exhibition Stall",image:"/assets/marketing-res.webp"},
-        {title:"Educational Events ",image:"/assets/marketing-res.webp"},
-            {title:"Road Shows ",image:"/assets/marketing-res.webp"},
+          { title: 'Mall activation ', image: "/assets/ev-3.webp" },
+    {title:"Exhibition Stall",image:"/assets/ev-6.webp"},
+        {title:"Educational Events ",image:"/assets/ev-2.webp"},
+            {title:"Road Shows ",image:"/assets/ev-5.webp"},
 
 
     ]

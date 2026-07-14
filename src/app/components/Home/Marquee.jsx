@@ -77,6 +77,11 @@ const LOGOS = [
     id: 15,
     logo: '/assets/sharjah_internal-removebg-preview-2.png'
   },
+
+   {
+    id: 16,
+    logo: '/assets/srtip-logo.png'
+  },
   
 ];
 

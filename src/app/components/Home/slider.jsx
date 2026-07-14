@@ -54,6 +54,13 @@ const projects = [
     image: "/assets/w-du.webp",
     videoUrl: "https://youtu.be/UrkUYgpevQE",
   },
+   {
+    id: 9,
+        title: "GEMS GRADUATION EVENT",
+    year: "2026",
+       image: "/assets/gems-resized-2026.webp",
+    videoUrl: "https://youtu.be/JveubxCXNWk",
+  },
 ];
 
 

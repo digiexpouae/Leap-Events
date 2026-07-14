@@ -4,10 +4,11 @@ import FadeUp from "@/app/common/Transition";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
+
 const SERVICES = [
   {
     title: "Cultural Events",
-    image: "/assets/creative.jpg",
+ image: "/assets/ev-1.webp" ,
     bullets: [
       "Authentic cultural experiences",
       "Heritage-inspired event concepts",
@@ -19,7 +20,7 @@ const SERVICES = [
   },
   {
     title: "Community Events",
-    image: "/assets/Spatial_and_Experiential_Design.jpg",
+    image: "/assets/ev-4.webp",
     bullets: [
       "Family-friendly experiences",
       "Interactive community activations",
@@ -31,7 +32,7 @@ const SERVICES = [
   },
   {
     title: "Mall Activations",
-    image: "/assets/Technical_Production_and_Execution.jpg",
+   image: "/assets/ev-3.webp",
     bullets: [
       "High-footfall brand activations",
       "Interactive customer experiences",
@@ -43,7 +44,7 @@ const SERVICES = [
   },
   {
     title: "Exhibition Stall",
-    image: "/assets/Venue_and_Management.jpg",
+image:"/assets/ev-6.webp",
     bullets: [
       "Custom exhibition stand design",
       "Premium booth fabrication",
@@ -55,7 +56,7 @@ const SERVICES = [
   },
   {
     title: "Educational Events",
-    image: "/assets/Event_Operations_and_Safety.jpg",
+image:"/assets/ev-2.webp",
     bullets: [
       "Interactive learning experiences",
       "Student engagement activities",
@@ -67,7 +68,7 @@ const SERVICES = [
   },
   {
     title: "Road Shows",
-    image: "/assets/Marketing_and_Sponsorship.jpg",
+   image:"/assets/ev-5.webp",
     bullets: [
       "Mobile brand activations",
       "Multi-location campaign execution",

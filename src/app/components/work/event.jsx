@@ -14,7 +14,7 @@ const works = [
   },
   {
     id: 2,
-    title: "SOUQ RAMADAN",
+    title: "RAMADAN SOUQ",
     year: "2025",
     image: "/assets/souq-ramadan.webp",
     videoUrl: "https://youtu.be/p0v3EM14Jv4",

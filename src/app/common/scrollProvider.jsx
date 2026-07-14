@@ -18,7 +18,7 @@ export default function SmoothScrollProvider({ children }) {
                 lerp: 0.06,
                 // touchMultiplier: 2,
                 syncTouch: true,
-                syncTouchLerp: 0.08,    // ← easing when finger lifts (momentum)
+                syncTouchLerp: 0.075,    // ← easing when finger lifts (momentum)
 
                 // smoothTouch: true,
             });

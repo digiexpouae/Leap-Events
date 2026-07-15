@@ -27,7 +27,7 @@ const SERVICES = [
   },
   {
     title: "Community Events",
-    image: "/assets/ev-4.webp",
+    image: "/assets/e-w-ferjan-festival-resized.webp",
     bullets: [
       "Family-friendly experiences",
       "Interactive community activations",
@@ -63,7 +63,7 @@ image:"/assets/ev-6.webp",
   },
   {
     title: "Educational Events",
-image:"/assets/ev-2.webp",
+image:"/assets/e-w-dubai-universtity.webp",
     bullets: [
       "Interactive learning experiences",
       "Student engagement activities",
@@ -123,7 +123,7 @@ image:"/assets/ev-2.webp",
                         alt={member.title}
                         fill 
                         sizes="192px"
-  className={`object-cover  ${i== 9 ?"object-center" :"object-top"}`}
+  className={`object-cover  ${member.title == "Community Events" ? "object-[100%_0%]":member.title == "Educational Events"  ? "object-[100%_0%]":"object-center"}`}
                         draggable={false}
                       />
                     </div>

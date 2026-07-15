@@ -24,7 +24,7 @@ const services = [
 
 const socialLinks = [
   { name: "Facebook", href: "https://facebook.com/", icon: "/assets/icons8-facebook.svg" },
-  { name: "Instagram", href: "https://instagram.com/", icon: "/assets/icons8-instagram.svg" },
+  { name: "Instagram", href: "https://www.instagram.com/leapeventsdubai/", icon: "/assets/icons8-instagram.svg" },
   { name: "LinkedIn", href: "https://linkedin.com/", icon: "/assets/icons8-linkedin.svg" },
 
 ];

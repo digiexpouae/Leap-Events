@@ -63,12 +63,14 @@ export default function CorporateEvents() {
    
     { title: 'Cultural events ', image: "/assets/ev-1.webp" },
 
-    { title: 'Community events ', image: "/assets/ferjan-services.jpeg", }
+    { title: 'Community events ',     image: "/assets/ferjan-services.webp",
+}
         ,
 
           { title: 'Mall activation ', image: "/assets/ev-3.webp" },
     {title:"Exhibition Stall",image:"/assets/ev-6.webp"},
-        {title:"Educational Events ",    image: "/assets/university-services.jpeg",},
+        {title:"Educational Events ",    image:"/assets/university-services.webp",
+},
             {title:"Road Shows ",image:"/assets/ev-5.webp"},
 
 

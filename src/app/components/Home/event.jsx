@@ -63,12 +63,12 @@ export default function CorporateEvents() {
    
     { title: 'Cultural events ', image: "/assets/ev-1.webp" },
 
-    { title: 'Community events ', image: "/assets/ev-4.webp" }
+    { title: 'Community events ', image: "/assets/e-w-ferjan-festival-resized.webp", }
         ,
 
           { title: 'Mall activation ', image: "/assets/ev-3.webp" },
     {title:"Exhibition Stall",image:"/assets/ev-6.webp"},
-        {title:"Educational Events ",image:"/assets/ev-2.webp"},
+        {title:"Educational Events ",    image: "/assets/e-w-dubai-universtity.webp",},
             {title:"Road Shows ",image:"/assets/ev-5.webp"},
 
 
@@ -169,7 +169,7 @@ function EventCard({
                     alt={title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover object-[center_top] transition-transform duration-500 group-hover:scale-105"
                 />
 
 

@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from 'framer-motion'
+
 const quickLinks = [
    { label: "Home", href: "/" },
     { label: "About", href: "/about" },
@@ -21,8 +22,20 @@ const services = [
   { name: "Road Shows", link: "/services" },
 ];
 
+const socialLinks = [
+  { name: "Facebook", href: "https://facebook.com/", icon: "/assets/icons8-facebook.svg" },
+  { name: "Instagram", href: "https://instagram.com/", icon: "/assets/icons8-instagram.svg" },
+  { name: "LinkedIn", href: "https://linkedin.com/", icon: "/assets/icons8-linkedin.svg" },
+
+];
+
+
+
+
 export default function Footer() {
     const [email, setEmail] = useState("");
+
+    
 
     const handleSubmit = () => {
         console.log("Subscribe:", email);
@@ -42,7 +55,7 @@ export default function Footer() {
         ,
         visible: {
             y: 0, opacity: 1, transition: {
-                duration: 0.5
+                duration: 0.2
             }
         }
     }
@@ -99,6 +112,22 @@ export default function Footer() {
                                     Submit
                                 </button>
                             </motion.div>
+
+                            {/* Social icons */}
+       <motion.div className="flex items-center gap-4" variants={itemVariants}>
+  {socialLinks.map(({ name, href, icon }) => (
+    <Link
+      key={name}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={name}
+      className="flex items-center justify-center p-2 rounded-full border border-white/40 cursor-pointer transition-colors duration-200 bg-white hover:border-white"
+    >
+      <Image src={icon} alt={name} width={24} height={24} className="pointer-events-none" />
+    </Link>
+  ))}
+</motion.div>
                         </div>
 
                         {/* ── Col 2: Quick Links ── */}

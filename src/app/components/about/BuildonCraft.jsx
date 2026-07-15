@@ -67,7 +67,7 @@ export default function BuiltOnCraft() {
                   {card.number}
                 </span>
                 <p
-                  className={`max-w-[10rem] text-[12px] leading-[1.2]`}
+                  className={`max-w-[15rem] text-[12px] leading-[1] md:leading-[1.2]`}
                 >
                   {card.description}
                 </p>

@@ -13,14 +13,14 @@ const cards = [
     number: "2",
     title: "ROOTED IN THE REGION",
     description:
-      "Ten-plus years of delivering across Dubai, Sharjah, Ajman, and beyond gives us the local knowledge most agencies lack.",
+      "A decade of delivery across Dubai, Sharjah, Ajman, and beyond. We know the local landscape inside out—so you don't have to.",
     primary: false,
   },
   {
     number: "3",
     title: "BUILT TO DELIVER",
     description:
-      "Our own workshops, printing facilities, and technical capabilities mean we don't just plan we produce, install, and run the show.",
+      "We don’t just plan the vision; we bring it to life. Supported by our own production workshops, printing facilities, and technical expertise, we handle everything from creation to live execution.",
     primary: false,
   },
 ];

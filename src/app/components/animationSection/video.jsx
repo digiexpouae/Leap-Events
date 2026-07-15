@@ -35,32 +35,52 @@ function VideoMesh({ rotateRef, ref3 }) {
   }, [])
 
   // Load video on mount (don't play yet)
-  useEffect(() => {
-    const onLoaded = () => {
-      const tex = new THREE.VideoTexture(videoEl)
-      tex.colorSpace = THREE.SRGBColorSpace
-      tex.minFilter = THREE.LinearFilter
-      tex.magFilter = THREE.LinearFilter
-      tex.generateMipmaps = false
-      tex.needsUpdate = true
-      setTexture(tex)
-      // Play only when visible
-      if (isVisible) {
-        videoEl.play().catch(() => {})
-      }
-    }
+useEffect(() => {
+  console.log('%c[Poster] Showing placeholder now', 'color: orange')
 
-    videoEl.onloadedmetadata = onLoaded
+  const idleCallback = window.requestIdleCallback 
+    ? window.requestIdleCallback(() => {
+        console.log('%c[Idle] Browser is idle — starting video.load() now', 'color: cyan')
+        videoEl.load()
+      })
+    : setTimeout(() => {
+        console.log('%c[Timeout Fallback] Starting video.load() now', 'color: cyan')
+        videoEl.load()
+      }, 2000)
+
+  const onLoaded = () => {
+    console.log('%c[Video] Metadata loaded — creating texture, swapping poster → video', 'color: lightgreen')
+
+    const tex = new THREE.VideoTexture(videoEl)
+    tex.colorSpace = THREE.SRGBColorSpace
+    tex.minFilter = THREE.LinearFilter
+    tex.magFilter = THREE.LinearFilter
+    tex.generateMipmaps = false
+    tex.needsUpdate = true
+    setTexture(tex)
+
+    if (isVisible) {
+      videoEl.play()
+        .then(() => console.log('%c[Video] Playing now', 'color: lightgreen; font-weight: bold'))
+        .catch((err) => console.log('[Video] Play failed/blocked:', err))
+    }
+  }
+
+  videoEl.onloadedmetadata = onLoaded
+
+  return () => {
+    console.log('%c[Cleanup] Component unmounting, cancelling pending load + disposing video', 'color: red')
+    if (window.cancelIdleCallback) {
+      window.cancelIdleCallback(idleCallback)
+    } else {
+      clearTimeout(idleCallback)
+    }
+    videoEl.pause()
+    videoEl.src = ''
     videoEl.load()
-
-    return () => {
-      videoEl.pause()
-      videoEl.src = ''
-      videoEl.load()
-      if (texture) texture.dispose()
-    }
-  }, [videoEl])
-
+    if (texture) texture.dispose()
+  }
+}, [videoEl])
   // Play/pause based on visibility
   useEffect(() => {
     if (isVisible && texture) {

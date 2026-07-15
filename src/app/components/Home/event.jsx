@@ -63,12 +63,12 @@ export default function CorporateEvents() {
    
     { title: 'Cultural events ', image: "/assets/ev-1.webp" },
 
-    { title: 'Community events ', image: "/assets/e-w-ferjan-festival-resized.webp", }
+    { title: 'Community events ', image: "/assets/ferjan-services.jpeg", }
         ,
 
           { title: 'Mall activation ', image: "/assets/ev-3.webp" },
     {title:"Exhibition Stall",image:"/assets/ev-6.webp"},
-        {title:"Educational Events ",    image: "/assets/e-w-dubai-universtity.webp",},
+        {title:"Educational Events ",    image: "/assets/university-services.jpeg",},
             {title:"Road Shows ",image:"/assets/ev-5.webp"},
 
 

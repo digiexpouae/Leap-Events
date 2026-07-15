@@ -20,7 +20,7 @@ const SERVICES = [
   },
   {
     title: "Community Events",
-    image: "/assets/e-w-ferjan-festival.webp",
+    image: "/assets/ferjan-services.webp",
     bullets: [
       "Family-friendly experiences",
       "Interactive community activations",
@@ -56,7 +56,7 @@ image:"/assets/ev-6.webp",
   },
   {
     title: "Educational Events",
-image:"/assets/e-w-dubai-universtity.webp",
+image:"/assets/university-services.webp",
     bullets: [
       "Interactive learning experiences",
       "Student engagement activities",
@@ -146,7 +146,7 @@ export default function SpacesBuiltToMove() {
                     alt={s.title}
                     draggable={false}
                     fill
-                    className={`absolute inset-0 h-full w-full object-cover ${s.title == "Community Events" ? "object-[90%_0%]":s.title == "Educational Events"  ? "object-[90%_0%]":"object-center"} transition-all duration-500 ease-out`}
+                    className={`absolute inset-0 h-full w-full object-cover ${s.title == "Educational Events"  ? "object-[80%_0%]":"object-[25%_0%]"} transition-all duration-500 ease-out`}
                     style={{
                       opacity: i === activeIndex ? 1 : 0,
                       transform:

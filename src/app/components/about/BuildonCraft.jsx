@@ -6,7 +6,7 @@ const cards = [
     number: "1",
     title: "ONE TEAM, ONE ROOF",
     description:
-      "Creative, design, production and delivery all sit in-house. Faster decisions, tighter control, no hand-offs.",
+      "Our fully integrated, in-house capabilities span from concept to delivery.Because we manage every stage of the process under one roof, we guarantee faster turnaround times, maximum quality control, and a seamless, hassle-free partnership.",
     primary: true,
   },
   {

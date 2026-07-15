@@ -114,7 +114,7 @@ image:"/assets/e-w-dubai-universtity.webp",
                     }`}
                   >
                     <div
-                      className={`relative mx-auto my-3 h-48 w-48 overflow-hidden rounded-2xl transition-transform duration-500 ease-out ${
+                      className={`relative mx-auto my-3 h-48 w-64 overflow-hidden rounded-2xl transition-transform duration-500 ease-out ${
                         isMobileOpen ? "translate-y-0" : "translate-y-full"
                       }`}
                     >

@@ -7,13 +7,19 @@ import { geometry } from 'maath'
 function VideoMesh({ rotateRef, ref3 }) {
   const meshRef = useRef()
   const [texture, setTexture] = useState(null)
+  const [videoReady, setVideoReady] = useState(false) // 👈 explicit readiness flag
   const [isVisible, setIsVisible] = useState(false)
   const materialRef = useRef()
   extend({ RoundedPlaneGeometry: geometry.RoundedPlaneGeometry })
 
   const posterTexture = useMemo(() => {
     const loader = new THREE.TextureLoader()
-    const tex = loader.load('/assets/placeholder.JPG')
+    const tex = loader.load(
+      '/assets/placeholder-compressed.webp',
+      () => console.log('%c[Poster] Image loaded successfully', 'color: orange'),
+      undefined,
+      (err) => console.error('%c[Poster] FAILED to load:', 'color: red', err)
+    )
     tex.colorSpace = THREE.SRGBColorSpace
     tex.minFilter = THREE.LinearFilter
     tex.magFilter = THREE.LinearFilter
@@ -35,95 +41,97 @@ function VideoMesh({ rotateRef, ref3 }) {
   }, [])
 
   // Load video on mount (don't play yet)
-useEffect(() => {
-  console.log('%c[Poster] Showing placeholder now', 'color: orange')
+  useEffect(() => {
+    console.log('%c[Poster] Showing placeholder now', 'color: orange')
 
-  const idleCallback = window.requestIdleCallback 
-    ? window.requestIdleCallback(() => {
-        console.log('%c[Idle] Browser is idle — starting video.load() now', 'color: cyan')
-        videoEl.load()
-      })
-    : setTimeout(() => {
-        console.log('%c[Timeout Fallback] Starting video.load() now', 'color: cyan')
-        videoEl.load()
-      }, 2000)
+    const idleCallback = window.requestIdleCallback
+      ? window.requestIdleCallback(() => {
+          console.log('%c[Idle] Browser is idle — starting video.load() now', 'color: cyan')
+          videoEl.load()
+        })
+      : setTimeout(() => {
+          console.log('%c[Timeout Fallback] Starting video.load() now', 'color: cyan')
+          videoEl.load()
+        }, 2000)
 
-  const onLoaded = () => {
-    console.log('%c[Video] Metadata loaded — creating texture, swapping poster → video', 'color: lightgreen')
+    const onLoaded = () => {
+      console.log('%c[Video] Metadata loaded — creating texture, swapping poster → video', 'color: lightgreen')
 
-    const tex = new THREE.VideoTexture(videoEl)
-    tex.colorSpace = THREE.SRGBColorSpace
-    tex.minFilter = THREE.LinearFilter
-    tex.magFilter = THREE.LinearFilter
-    tex.generateMipmaps = false
-    tex.needsUpdate = true
-    setTexture(tex)
+      const tex = new THREE.VideoTexture(videoEl)
+      tex.colorSpace = THREE.SRGBColorSpace
+      tex.minFilter = THREE.LinearFilter
+      tex.magFilter = THREE.LinearFilter
+      tex.generateMipmaps = false
+      tex.needsUpdate = true
+      setTexture(tex)
+      setVideoReady(true) // 👈 mark video as genuinely ready
 
-    if (isVisible) {
-      videoEl.play()
-        .then(() => console.log('%c[Video] Playing now', 'color: lightgreen; font-weight: bold'))
-        .catch((err) => console.log('[Video] Play failed/blocked:', err))
+      if (isVisible) {
+        videoEl.play()
+          .then(() => console.log('%c[Video] Playing now', 'color: lightgreen; font-weight: bold'))
+          .catch((err) => console.log('[Video] Play failed/blocked:', err))
+      }
     }
-  }
 
-  videoEl.onloadedmetadata = onLoaded
+    videoEl.onloadedmetadata = onLoaded
 
-  return () => {
-    console.log('%c[Cleanup] Component unmounting, cancelling pending load + disposing video', 'color: red')
-    if (window.cancelIdleCallback) {
-      window.cancelIdleCallback(idleCallback)
-    } else {
-      clearTimeout(idleCallback)
+    return () => {
+      console.log('%c[Cleanup] Component unmounting, cancelling pending load + disposing video', 'color: red')
+      if (window.cancelIdleCallback) {
+        window.cancelIdleCallback(idleCallback)
+      } else {
+        clearTimeout(idleCallback)
+      }
+      videoEl.pause()
+      videoEl.src = ''
+      videoEl.load()
+      if (texture) texture.dispose()
     }
-    videoEl.pause()
-    videoEl.src = ''
-    videoEl.load()
-    if (texture) texture.dispose()
-  }
-}, [videoEl])
+  }, [videoEl])
+
   // Play/pause based on visibility
   useEffect(() => {
-    if (isVisible && texture) {
+    if (isVisible && videoReady) {
       videoEl.play().catch(() => {})
     } else if (!isVisible) {
       videoEl.pause()
     }
-  }, [isVisible, texture])
+  }, [isVisible, videoReady])
 
   // IntersectionObserver with safety check
-useEffect(() => {
-  if (!ref3.current) return
+  useEffect(() => {
+    if (!ref3.current) return
 
-  const el = ref3.current
-  const video = el.querySelector('video')
-  let played = false
+    const el = ref3.current
+    const video = el.querySelector('video')
+    let played = false
 
-  const checkOpacity = () => {
-    const opacity = parseFloat(window.getComputedStyle(el).opacity)
+    const checkOpacity = () => {
+      const opacity = parseFloat(window.getComputedStyle(el).opacity)
 
-    if (opacity === 1 && !played) {
-      played = true
-      setIsVisible(true)
-      if (video) video.play()
+      if (opacity === 1 && !played) {
+        played = true
+        setIsVisible(true)
+        if (video) video.play()
+      }
+
+      if (opacity < 1) {
+        requestAnimationFrame(checkOpacity)
+      }
     }
 
-    // Continue checking until opacity is 1
-    if (opacity < 1) {
-      requestAnimationFrame(checkOpacity)
+    checkOpacity()
+
+    return () => {
+      // Cleanup if component unmounts
     }
-  }
+  }, [ref3])
 
-  checkOpacity()
-
-  return () => {
-    // Cleanup if component unmounts
-  }
-}, [ref3])
   useEffect(() => {
     if (materialRef.current) {
       materialRef.current.needsUpdate = true
     }
-  }, [texture])
+  }, [texture, posterTexture])
 
   useFrame((state) => {
     if (!meshRef.current) return
@@ -142,14 +150,17 @@ useEffect(() => {
     meshRef.current.rotation.y += (targetRotationY - meshRef.current.rotation.y) * 0.05
   })
 
+  // 👇 Explicit, deterministic choice — no race condition
+  const activeMap = videoReady && texture ? texture : posterTexture
+
   return (
     <mesh ref={meshRef}>
       <roundedPlaneGeometry args={[16, 9, 0.5]} />
-      <meshBasicMaterial 
+      <meshBasicMaterial
         ref={materialRef}
-        map={texture || posterTexture} 
-        side={THREE.DoubleSide} 
-        toneMapped={false} 
+        map={activeMap}
+        side={THREE.DoubleSide}
+        toneMapped={false}
       />
     </mesh>
   )
@@ -165,7 +176,7 @@ function CameraController({ fovRef }) {
   return null
 }
 
-export default function VideoScene({ fovRef, canvasWrapperRef, rotateRef ,ref3}) {
+export default function VideoScene({ fovRef, canvasWrapperRef, rotateRef, ref3 }) {
   return (
     <div
       ref={canvasWrapperRef}

@@ -23,9 +23,9 @@ const services = [
 ];
 
 const socialLinks = [
-  { name: "Facebook", href: "https://facebook.com/", icon: "/assets/icons8-facebook.svg" },
+  { name: "Facebook", href: "https://www.facebook.com/leapeventsdubai", icon: "/assets/icons8-facebook.svg" },
   { name: "Instagram", href: "https://www.instagram.com/leapeventsdubai/", icon: "/assets/icons8-instagram.svg" },
-  { name: "LinkedIn", href: "https://linkedin.com/", icon: "/assets/icons8-linkedin.svg" },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/leapeventsdubai/", icon: "/assets/icons8-linkedin.svg" },
 
 ];
 

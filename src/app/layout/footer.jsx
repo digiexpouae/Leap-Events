@@ -29,7 +29,7 @@ const socialLinks = [
 
 ];
 
-
+const MotionLink = motion(Link);
 
 
 export default function Footer() {
@@ -114,9 +114,9 @@ export default function Footer() {
                             </motion.div>
 
                             {/* Social icons */}
-       <motion.div className="flex items-center gap-4" variants={itemVariants}>
+       <motion.div className="flex items-center gap-4" >
   {socialLinks.map(({ name, href, icon }) => (
-    <Link
+    <MotionLink variants={itemVariants}
       key={name}
       href={href}
       target="_blank"
@@ -125,7 +125,8 @@ export default function Footer() {
       className="flex items-center justify-center p-2 rounded-full border border-white/40 cursor-pointer transition-colors duration-200 bg-white hover:border-white"
     >
       <Image src={icon} alt={name} width={24} height={24} className="pointer-events-none" />
-    </Link>
+    
+        </MotionLink>
   ))}
 </motion.div>
                         </div>

@@ -26,6 +26,7 @@ const socialLinks = [
   { name: "Facebook", href: "https://www.facebook.com/leapeventsdubai", icon: "/assets/icons8-facebook.svg" },
   { name: "Instagram", href: "https://www.instagram.com/leapeventsdubai/", icon: "/assets/icons8-instagram.svg" },
   { name: "LinkedIn", href: "https://www.linkedin.com/in/leapeventsdubai/", icon: "/assets/icons8-linkedin.svg" },
+  { name: "Youtube", href: "https://www.youtube.com/@leapeventmanagement6489", icon: "/assets/svg-youtube.svg" },
 
 ];
 

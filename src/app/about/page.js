@@ -29,9 +29,9 @@ const about = () => {
         <BuiltOnCraft /> 
        <Leader />
            {/* <OurTeam />      */}
-<div className="bg-[#d6efff]  py-16 flex flex-col justify-between gap-10 hidden  md:block">
+{/* <div className="bg-[#d6efff]  py-16 flex flex-col justify-between gap-10 hidden  md:block">
              {/* Heading */}
-     <FadeUp>
+     {/* <FadeUp>
         <div className=" md:top-16  md:flex justify-center px-6 md:block hidden">
           <h2 className="text-center font-bold tracking-tight text-[#363737] text-3xl md:text-5xl leading-[1.05]">
             WHERE PASSION
@@ -39,12 +39,11 @@ const about = () => {
             MEETS PRECISION
           </h2>
         </div>
-        </FadeUp>
+        </FadeUp> */}
 
         
-          <Precision />
-          {/* <ProgressSlider /> */}
-         <div className=" flex justify-center">
+          {/* <Precision />
+         {/* <div className=" flex justify-center">
           <button
             type="button"
             className="rounded-full bg-[#6c8cff] cursor-pointer text-white text-sm md:text-base
@@ -56,8 +55,7 @@ const about = () => {
          <Link href={"/contact"}> Get to know us</Link>   
           </button>
         </div>
-            </div>
-        
+            </div>  */}
        
 
         <Awards />

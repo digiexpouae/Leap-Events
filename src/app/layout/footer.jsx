@@ -206,6 +206,7 @@ src={"/assets/leap.png"}
     </div>
 </div>
 
+{/*  */}
             </motion.footer >
         </section>
     );

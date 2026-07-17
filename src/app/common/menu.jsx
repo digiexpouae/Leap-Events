@@ -17,11 +17,13 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
   return (
     <>
       {/* ── MENU BUTTON ─────────────────────────────────────────── */}
-      <button
-      
+      {/* FIX 2: changed outer wrapper from <button> to <div role="button">
+          so the nested <Link> (an <a>) is no longer invalid inside a <button>. */}
+      <div
+        role="button"
+        tabIndex={0}
         aria-label="Open menu"
-        className=" flex  cursor-pointer items-center   h-[70px] md:gap-2.5   bg-[#5686DA]
- px-2 md:px-4 py-3.5"
+        className="flex cursor-pointer items-center h-[70px] md:gap-2.5 bg-[#5686DA] px-2 md:px-4 py-3.5"
         style={{
           borderRadius: '10px',
           opacity: open ? 0 : 1,
@@ -62,7 +64,7 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
       />
       </Link> 
       </div>
-      </button>
+      </div>
 
       {/* ── OVERLAY ─────────────────────────────────────────────── */}
       <div
@@ -76,10 +78,15 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
         }}
       >
         {/* Diagonal sweep */}
+        {/* FIX 1: added pointer-events-none. On iOS Safari, clip-path does not
+            reliably exclude the clipped-away area from hit-testing, so the full
+            SVG bounding box (even the "invisible" part) was intercepting taps
+            on the ABOUT / SERVICES links that sit near its edge. This is purely
+            decorative, so it should never capture touches/clicks anyway. */}
         <svg
           viewBox="0 0 1948 1088"
           preserveAspectRatio="none"
-          className="absolute inset-0 h-full w-full transition-[clip-path] duration-[900ms] ease-[cubic-bezier(.77,0,.175,1)]"
+          className="absolute inset-0 h-full w-full pointer-events-none transition-[clip-path] duration-[900ms] ease-[cubic-bezier(.77,0,.175,1)]"
           style={{ clipPath: open ? 'inset(0 0% 0 0)' : 'inset(0 100% 0 0)' }}
         >
           <path d="M390 0H0V120L1410 1088H1948L1962 280L80 0Z" fill="#5686DA" />
@@ -118,21 +125,19 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
           <nav className="absolute  flex flex-col h-full  justify-center    right-5">
             <div className='translate-y-1/3'>
             {navs.map(({ num, name, link }) => (
-              <a
+              // FIX 3: removed the manual ref-based mouseenter/mouseleave JS listeners
+              // (they don't fire reliably on iOS touch, and were re-attaching new
+              // listeners on every render, leaking memory) and replaced with a plain
+              // CSS group-hover underline, matching the pattern already used elsewhere
+              // in this file.
+              <Link
                 key={name}
                 href={link}
                 className="group/link relative block overflow-hidden py-1.5 text-white no-underline"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
                 <span
-                  className="absolute bottom-1.5 right-0 block h-px bg-white/50"
-                  style={{ width: '0%', transition: 'width 500ms ease' }}
-                  ref={el => {
-                    if (!el) return
-                    const parent = el.closest('a')
-                    parent.addEventListener('mouseenter', () => (el.style.width = '100%'))
-                    parent.addEventListener('mouseleave', () => (el.style.width = '0%'))
-                  }}
+                  className="absolute bottom-1.5 right-0 block h-px w-0 bg-white/50 transition-all duration-500 ease-out group-hover/link:w-full"
                 />
                 <span className="inline-block transition-transform duration-300  group-hover/link:-translate-x-1.5">
                  
@@ -140,7 +145,7 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
                     {name}
                   </span>
                 </span>
-              </a>
+              </Link>
             ))}
             </div>
           </nav>

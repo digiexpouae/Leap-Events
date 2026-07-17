@@ -1,7 +1,8 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 const navs = [
   { num: '01', name: 'HOME',     link: '/'         },
   { num: '02', name: 'ABOUT',    link: '/about'    },
@@ -13,6 +14,15 @@ const navs = [
 
 export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+
+  useEffect(() => {
+  if (open) {
+    setOpen(false)
+
+    setIsMenuOpen?.(false)
+  }
+}, [pathname]) 
 
   return (
     <>

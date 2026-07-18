@@ -3,7 +3,7 @@ import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from 'framer-motion'
 export default function CorporateEvents() {
     const container = useRef()
@@ -61,20 +61,41 @@ export default function CorporateEvents() {
     })
     const data = [
    
-    { title: 'Cultural events ', image: "/assets/ev-1.webp" },
+    { title: 'Cultural events ', image: "/assets/ev-1.webp" ,mobile_img:"/assets/ev-1_450x253.webp"},
 
     { title: 'Community events ',     image: "/assets/ferjan-services.webp",
+        mobile_img:"/assets/ferjan-services_450x253.webp"
 }
         ,
 
-          { title: 'Mall activation ', image: "/assets/ev-3.webp" },
-    {title:"Exhibition Stall",image:"/assets/ev-6.webp"},
+          { title: 'Mall activation ', image: "/assets/ev-3.webp" ,
+            mobile_img:"/assets/ev-3_450x253.webp"
+
+            
+          },
+    {title:"Exhibition Stall",image:"/assets/ev-6.webp",
+mobile_img:"/assets/ev-6_450x253.webp"
+
+
+    },
         {title:"Educational Events ",    image:"/assets/university-services.webp",
+        mobile_img:"/assets/university-services_450x253.webp"
 },
-            {title:"Road Shows ",image:"/assets/ev-5.webp"},
+            {title:"Road Shows ",image:"/assets/ev-5.webp"
+,mobile_img:"/assets/ev-5_450x253.webp"
+
+            },
 
 
     ]
+
+  const [isMobile, setIsMobile]       = useState(false);
+
+ useEffect(() => {
+    if (window.innerWidth < 768) setIsMobile(true);
+  }, []);
+
+
     return (
 
         <section
@@ -115,7 +136,7 @@ export default function CorporateEvents() {
             // ✅ overflow-hidden only on inner box — clips cards cleanly
             >
                 {data.map((elem, index) => (
-                    <EventCard key={index} title={elem.title} image={elem.image} />
+                    <EventCard key={index} isMobile={isMobile} title={elem.title} mobile_img={elem.mobile_img} image={elem.image} />
                 ))}
             </div>
         </section>
@@ -125,6 +146,8 @@ export default function CorporateEvents() {
 function EventCard({
     title,
     image,
+    mobile_img,
+    isMobile,
     placeholder,
 }) {
 
@@ -167,7 +190,7 @@ function EventCard({
 
       
                 <Image
-                    src={image}
+                    src={isMobile?mobile_img:image}
                     alt={title}
                     fill
                     sizes="(max-width: 768px) 327px, 640px"

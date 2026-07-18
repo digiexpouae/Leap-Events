@@ -122,6 +122,7 @@ image:"/assets/university-services.webp",
                         src={member.image}
                         alt={member.title}
                         fill 
+                        loading='lazy'
                         sizes="192px"
   className={`object-cover  ${member.title == "Community Events" ? "object-[20%_0%]":member.title == "Educational Events"  ? "object-[100%_0%]":"object-center"}`}
                         draggable={false}

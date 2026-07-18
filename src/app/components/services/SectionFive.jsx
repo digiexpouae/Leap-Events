@@ -145,6 +145,7 @@ export default function SpacesBuiltToMove() {
                     src={s.image}
                     alt={s.title}
                     draggable={false}
+                    loading="lazy"
                     fill
                     className={`absolute inset-0 h-full w-full object-cover ${s.title == "Educational Events"  ? "object-[80%_0%]":"object-[25%_0%]"} transition-all duration-500 ease-out`}
                     style={{

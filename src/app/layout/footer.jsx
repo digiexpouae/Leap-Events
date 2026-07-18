@@ -66,7 +66,17 @@ export default function Footer() {
     return (
         <section >
 
-            <div className="w-full overflow-hidden"><Image src={'/assets/globe2.png'} alt="globe" width={1920} height={800} /></div>
+<div className="w-full overflow-hidden">
+  <Image 
+    src={'/assets/globe2.png'} 
+    alt="globe" 
+    width={1920} 
+    height={800}
+    sizes="(max-width: 768px) 100vw, 1920px"
+    quality={75}
+    loading="lazy"
+  />
+</div>
             <motion.footer
                 className="w-full h-auto relative "
                 style={{ background: "var(--color-bg-secondary, #0a1628)" }}

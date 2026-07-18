@@ -11,6 +11,7 @@ const projects = [
     year: "2025",
     image: "/assets/w-ferjan-festival.webp",
     videoUrl: "https://youtu.be/VnZ5EkXupHQ",
+    mobile_img:"/assets/w-ferjan-festival_mobile.webp"
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const projects = [
     year: "2025",
     image: "/assets/souq-ramadan.webp",
     videoUrl: "https://youtu.be/p0v3EM14Jv4",
+    mobile_img:"/assets/souq-ramadan_480x320.webp"
   },
   {
     id: 4,
@@ -25,6 +27,7 @@ const projects = [
     year: "2024",
     image: "/assets/city-al-zahia.webp",
     videoUrl: "https://youtu.be/Z02w0ts5FLI",
+        mobile_img:"/assets/city-al-zahia_1_480x320.webp"
   },
   {
     id: 5,
@@ -32,6 +35,7 @@ const projects = [
     year: "2025",
     image: "/assets/w-international-film-festival.webp",
     videoUrl: "https://youtu.be/TOl8VrXGkmY",
+        mobile_img:"/assets/w-international-film-festival_1_1_480x320.webp"
   },
   {
     id: 6,
@@ -39,6 +43,7 @@ const projects = [
     year: "2024",
     image: "/assets/w-dubai-universtity.webp",
     videoUrl: "https://youtu.be/nDCbXoRmB_Q",
+        mobile_img:"/assets/w-dubai-universtity_mobile.webp"
   },
   {
     id: 7,
@@ -46,6 +51,7 @@ const projects = [
     year: "2024",
     image: "/assets/w-gems-achool.webp",
     videoUrl: "https://youtu.be/j1ZwWgsQDN0",
+        mobile_img:"/assets/w-gems-achool_mobile.webp"
   },
   {
     id: 8,
@@ -53,6 +59,7 @@ const projects = [
     year: "2024",
     image: "/assets/w-du.webp",
     videoUrl: "https://youtu.be/UrkUYgpevQE",
+        mobile_img:"/assets/w-du_1_480x320.webp"
   },
    {
     id: 9,
@@ -60,6 +67,7 @@ const projects = [
     year: "2026",
        image: "/assets/gems-resized-2026.webp",
     videoUrl: "https://youtu.be/JveubxCXNWk",
+        mobile_img:"/assets/gems-resized-2026_480x320.webp"
   },
 ];
 
@@ -416,11 +424,13 @@ export default function ProjectSlider() {
                   >
                     <div className="w-full h-full relative">
                       <Image
-                        src={ele.image}
+                        src={isMobile? ele.mobile_img:ele.image}
                         alt={ele.title}
                         width={600}
                         height={400}
                         draggable={false}
+                        loading="lazy"
+                        sizes="(min-width: 768px) 600px, 100vw"
                         className="w-full h-full object-cover pointer-events-none select-none"
                       />
                       {isMobile &&

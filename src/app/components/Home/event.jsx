@@ -170,7 +170,9 @@ function EventCard({
                     src={image}
                     alt={title}
                     fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
+                    sizes="(max-width: 768px) 327px, 640px"
+                    loading="lazy"
+
                     className="object-cover object-[center_top] transition-transform duration-500 group-hover:scale-105"
                 />
 

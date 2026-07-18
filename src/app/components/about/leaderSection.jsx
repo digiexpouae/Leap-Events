@@ -4,12 +4,15 @@ const leaders = [
   {
     name: "Ahmad Sammour",
     role: "CEO-FOUNDER",
-    image: "/assets/ahmed-2.webp", // Replace with actual image path
+    image: "/assets/ahmed-2.webp",
+    mobile_image: "/assets/ahmed-mobile.webp",
+    // Replace with actual image path
   },
   {
     name: "MOHAMED BAHAA ELDIN",
     role: "MANAGING DIRECTOR-FOUNDER",
     image: "/assets/baha-2.jpg", // Replace with actual image path
+     mobile_image: "/assets/baha-mobile.webp",
   },
 ];
 
@@ -26,7 +29,7 @@ export default function LeadersSection() {
       {/* Radial glow */}
       <div className="absolute inset-0 pointer-events-none" />
 
-      <div className="relative max-w-5xl px-6 md:px-0 mx-auto text-center">
+      <div className="relative max-w-5xl px-6  lg:px-0 mx-auto text-center">
         {/* Logo icon */}
       
 
@@ -45,21 +48,30 @@ export default function LeadersSection() {
         </FadeUp>
 
         {/* Cards */}
-        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-16">
-          {leaders.map(({ name, role, image },index) => (
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-16">
+          {leaders.map(({ name, role, image ,mobile_image},index) => (
                <FadeUp key={index} delay={index*0.2}>
             <div
               key={name}
               className="flex flex-col overflow-hidden border  rounded-4xl border-white"
             >
               {/* Photo */}
-              <div className="relative aspect-square w-full shrink-0">
+              <div className="  md:block hidden relative aspect-square w-full shrink-0">
                 <Image
                   src={image}
                   alt={name}
                   fill
                   className="object-cover object-top"
-                  sizes="(max-width: 640px) 100vw, 50vw"
+                  sizes="(min-width: 1024px) 50vw, 80vw"
+                />
+              </div>
+              <div className="  md:hidden block relative aspect-square w-full shrink-0">
+                <Image
+                  src={mobile_image}
+                  alt={name}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 640px) 100vw, 35vw"
                 />
               </div>
 

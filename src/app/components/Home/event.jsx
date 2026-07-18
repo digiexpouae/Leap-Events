@@ -187,18 +187,31 @@ function EventCard({
                 viewport={{ once: true }}
                 transition={{ duration: 1 }}
             >
+<div className=" hidden md:block relative h-full w-full">
 
-      
-                <Image
-                    src={isMobile?mobile_img:image}
+ <Image
+                    src={image}
                     alt={title}
                     fill
-                    sizes="(max-width: 768px) 327px, 640px"
+                    sizes="(min-width: 1024px) 38vw, 42vw"
                     loading="lazy"
 
                     className="object-cover object-[center_top] transition-transform duration-500 group-hover:scale-105"
                 />
 
+</div>
+<div className=" md:hidden block relative h-full w-full">
+      
+                <Image
+                    src={mobile_img}
+                    alt={title}
+                    fill
+                sizes="(min-width: 640px) 48vw, calc(100vw - 32px)"
+                    loading="lazy"
+
+                    className="object-cover object-[center_top] transition-transform duration-500 group-hover:scale-105"
+                />
+</div>
 
                 {/* Warm golden overlay hint — mimics the event lighting in the design */}
                 <div

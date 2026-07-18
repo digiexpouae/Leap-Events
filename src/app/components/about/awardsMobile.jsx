@@ -70,6 +70,7 @@ export default function Awards() {
                   width={300}
                   height={300}
                   loading="lazy"
+                  sizes="(max-width:768px) 70vw"
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               </li>

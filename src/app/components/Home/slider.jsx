@@ -377,7 +377,7 @@ export default function ProjectSlider() {
         <VideoModal project={activeVideo} onClose={() => setActiveVideo(null)} />
       )}
 
-      <section className="w-full bg-white py-18 px-4 sm:px-8 lg:px-16 overflow-hidden">
+      <section className="w-full bg-white py-18 px-4 md:px-8 lg:px-16 overflow-hidden">
         <div className="max-w-5xl mx-auto ">
           <div className="flex lg:flex-row flex-col gap-12 items-start w-full">
 
@@ -404,6 +404,7 @@ export default function ProjectSlider() {
                     onTouchMove={onTouchMove}
                     onTouchEnd={onTouchEnd}
                     onClick={() => handleCardClick(ele, offset)}
+               
                     style={{
                       position:     "absolute",
                       top:          0,
@@ -422,17 +423,21 @@ export default function ProjectSlider() {
                         : isNext ? "pointer" : "default",
                     }}
                   >
-                    <div className="w-full h-full relative">
+    <div className="md:hidden block w-full h-full relative">
                       <Image
-                        src={isMobile? ele.mobile_img:ele.image}
+                        src={ele.mobile_img}
                         alt={ele.title}
                         width={600}
                         height={400}
                         draggable={false}
                         loading="lazy"
-                        sizes="(min-width: 768px) 600px, 100vw"
+                         sizes="(max-width: 640px) 80vw, 100vw" // 🚀 Cleaned up fallback
+
                         className="w-full h-full object-cover pointer-events-none select-none"
                       />
+
+
+                      
                       {isMobile &&
                         (<div className="absolute inset-0 z-30 flex items-center justify-center "
                 
@@ -440,6 +445,25 @@ export default function ProjectSlider() {
                   backgroundSize:"cover",backgroundPosition:'center'}}></span></div>
                    
                  )}
+                  <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-50"}`} />
+               
+                    </div>
+
+ <div className="md:block hidden  w-full h-full relative">
+                      <Image
+                        src={ele.image}
+                        alt={ele.title}
+                        width={440}
+                        height={300}
+                        draggable={false}
+                        loading="lazy"
+                        sizes="(min-width:1024px) 60vw, 80vw"
+                        className="w-full h-full object-cover pointer-events-none select-none"
+                      />
+
+
+                      
+                  
                   <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-50"}`} />
                
                     </div>

@@ -69,7 +69,7 @@ export default function Awards() {
             <FadeUp key={index} delay={award.id*0.2}>
             <li
               key={award.alt}
-              className="group  overflow-hidden rounded-2xl h-72    bg-white shadow-md ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+              className="group  overflow-hidden rounded-2xl h-54 lg:h-72    bg-white shadow-md ring-1 ring-black/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
             >
               <Image 
                 src={award.src}
@@ -77,6 +77,7 @@ export default function Awards() {
                 width={300}
                 height={300}
                 loading="lazy"
+                sizes="(min-width:1024px) 25vw, 25vw"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </li>

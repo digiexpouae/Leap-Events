@@ -119,6 +119,9 @@ function LogoMarquee() {
               alt={elem.name ?? "Partner logo"}
               width={120}
               height={48}
+            sizes="120px" 
+    loading="lazy"           // keep lazy — it's below the fold
+
               className="object-contain w-full h-full"  // scales inside the box
             />
           </div>
@@ -140,6 +143,9 @@ function LogoMarquee() {
               alt={elem.name ?? "Partner logo"}
               width={120}
               height={48}
+               sizes="120px"     
+               loading="lazy"           // keep lazy — it's below the fold
+
               className="object-contain w-full h-full"  // scales inside the box
             />
           </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from 'framer-motion'
@@ -37,6 +37,7 @@ export default function Footer() {
     const [email, setEmail] = useState("");
 
     
+ 
 
     const handleSubmit = () => {
         console.log("Subscribe:", email);
@@ -65,18 +66,36 @@ export default function Footer() {
 
     return (
         <section >
-
 <div className="w-full overflow-hidden">
-  <Image 
-    src={'/assets/globe2.png'} 
-    alt="globe" 
-    width={1920} 
-    height={800}
-    sizes="(max-width: 768px) 100vw, 1920px"
-    quality={75}
-    loading="lazy"
-  />
+  {/* Mobile Block: Sharp aspect ratio, small file, zero server stretching */}
+  <div className="block md:hidden">
+    <Image 
+      src="/assets/globe2-mobile.webp" 
+      alt="globe mobile" 
+      width={400} // Set this to the true width of your mobile file
+      height={400} // Set this to the true height of your mobile file
+      className="w-full h-auto"
+      sizes="100vw"
+      quality={75}
+      loading="lazy"
+    />
+  </div>
+
+  {/* Desktop Block */}
+  <div className="hidden md:block">
+    <Image 
+      src="/assets/globe2.png" 
+      alt="globe desktop" 
+      width={1920} 
+      height={800}
+      className="w-full h-auto"
+      sizes="100vw"
+      quality={75}
+      loading="lazy"
+    />
+  </div>
 </div>
+
             <motion.footer
                 className="w-full h-auto relative "
                 style={{ background: "var(--color-bg-secondary, #0a1628)" }}

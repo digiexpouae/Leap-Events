@@ -193,7 +193,8 @@ const INITIAL_PATH =isMobile? "M191.373 289.817L319.121 -62L495.047 60.88C408.66
 {/* Showreel video — hidden until the intro reveal ends, then fades in on every breakpoint. Scroll-zoom only applies on desktop. */}
 <div className=" absolute inset-0 z-40 hidden md:flex items-center h-full w-full justify-center pointer-events-none"
 >
-  <div className="hero-video relative overflow-hidden h-full  w-auto aspect-[16/9] shadow-xl">
+  <div className="hero-video relative overflow-hidden h-full  w-full  shadow-xl"
+   style={{opacity:0}}>
     <video
       ref={videoRef}
       src="/assets/leap_showreel_optimized.mp4"

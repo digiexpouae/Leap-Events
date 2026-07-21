@@ -20,19 +20,40 @@ const index = () => {
         "Festivals",
     ];
     const heading = "Our Work"
-    
-      const imageUrls = [
-    "/assets/ev-ferjan.webp",
-    "/assets/ev-international.webp",
-    "/assets/ev-gems.webp",
-    "/assets/ev-souq-ramdan.webp",
-   "/assets/ev-ferjan.webp",
-    "/assets/ev-international.webp",
-    "/assets/ev-gems.webp",
-    "/assets/ev-souq-ramdan.webp",
-   
-  ];
-
+  const imageUrls = [
+  {
+    image: "/assets/ev-ferjan.webp",
+     video: "https://youtu.be/VnZ5EkXupHQ" // Another festival-type event
+  },
+  {
+    image: "/assets/ev-international.webp",
+    video: "https://youtu.be/nDCbXoRmB_Q", // Sharjah International Film Festival
+  },
+  {
+    image: "/assets/ev-gems.webp",
+    video: "https://youtu.be/j1ZwWgsQDN0", // GEMS Graduation Event 2024
+  },
+  {
+    image: "/assets/ev-souq-ramdan.webp",
+    video: "https://youtu.be/p0v3EM14Jv4", // Ramadan Souq
+  },
+  {
+    image: "/assets/ev-ferjan.webp",
+     video: "https://youtu.be/VnZ5EkXupHQ" // Another festival-type event
+  },
+  {
+    image: "/assets/ev-international.webp",
+    video: "https://youtu.be/nDCbXoRmB_Q", // City Centre Al Zahia (corporate/venue)
+  },
+  {
+    image: "/assets/ev-gems.webp",
+    video: "https://youtu.be/j1ZwWgsQDN0", // GEMS Graduation Event 2026
+  },
+  {
+    image: "/assets/ev-souq-ramdan.webp",
+    video: "https://youtu.be/VnZ5EkXupHQ", // Another festival-style event
+  },
+];
     const text = "EXPLORE OUR CURATED PORTFOLIO OF PAST EVENTS THAT HAVE NOT ONLY MET BUT EXCEEDED EXPECTATIONS, LEAVING LASTING IMPRESSIONS AND CRAFTING ENDURING LEGACIES"
     return (
 
@@ -42,7 +63,7 @@ const index = () => {
             <div className='h-screen relative w-full flex flex-col items-center justify-between py-34 lg:py-24 xl:py-34 overflow-hidden '>
               <div className='max-w-5xl mx-auto uppercase flex items-center justify-center  '>
                 <h2 className='text-5xl  xl:text-7xl text-[#363737] font-bold'>
-                    PROJECTS
+                    HIGHLIGHTS
                 </h2>
 
               </div>

@@ -1,0 +1,36 @@
+﻿# Node & Next.js Core Caches
+node_modules/
+.next/
+.turbo/
+out/
+build/
+dist/
+
+# Configuration Lockfiles
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+.eslintcache
+
+# Sensitive Environment files
+.env*.local
+.env
+
+# Media Asset Directories (Huge Token Sinks)
+public/images/
+public/assets/
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.gif
+*.ico
+*.mp4
+
+# Version Control & Log outputs
+.git/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

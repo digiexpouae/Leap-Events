@@ -217,7 +217,7 @@ export default function WorkSection() {
 
         <FadeUp>
           <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[#363737] mb-10 md:mb-14">
-            PROJECTS
+           PROJECTS
           </h2>
         </FadeUp>
 

@@ -11,6 +11,7 @@ const quickLinks = [
     { label: "What We Do", href: "/about" },
     { label: "Projects", href: "/projects" },
     { label: "Contact Us", href: "/contact" },
+    { label: "Brand Guideline", href: "/files/BRANDING%20GUIDELINES%20.pdf" },
 ];
 
 const services = [
@@ -177,6 +178,7 @@ export default function Footer() {
                                         <Link
                                             href={link.href}
                                             className="text-white text-sm sm:text-base hover:text-white transition-colors duration-200"
+                                            {...(link.href.endsWith(".pdf") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                                         >
                                             {link.label}
                                         </Link>

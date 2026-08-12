@@ -12,13 +12,13 @@ export const metadata = {
   icons: {
     icon: [
       {
-        url: "/favico.ico", // <--- Updated file name here
+        url: "/favicon.ico", // <--- Updated file name here
         sizes: "96x96",
         type: "image/png",
       },
     ],
-    shortcut: "/favico.ico",
-    apple: "/favico.ico",
+    shortcut: "/favicon.ico",
+    apple: "/favicon.ico",
   },
 };
 

@@ -127,7 +127,8 @@ export default function EventBriefForm() {
   ];
 
   return (
-    <main className="min-h-screen relative bg-white text-black flex flex-col font-sans overflow-hidden ">
+    // data-lenis-prevent: let the browser scroll the form natively, so Lenis smooth-scroll doesn't fight the mobile keyboard
+    <main data-lenis-prevent className="min-h-screen relative bg-white text-black flex flex-col font-sans overflow-hidden ">
       {/* Form Body Container */}
       <div className="h-full w-full flex-1 flex flex-col overflow-hidden">
         {/* STEP 1: Welcome / Intro */}
@@ -1478,7 +1479,7 @@ export default function EventBriefForm() {
                             placeholder={field.placeholder}
                             className="w-full bg-transparent border-b border-white/80 py-1 text-sm text-white placeholder:text-white/70 outline-none focus:border-white"
                           />
-                          <FieldError message={errors[field.key]} className="font-medium text-yellow-200" />
+                          <FieldError message={errors[field.key]} className="font-medium text-red-200" />
                         </span>
                       </label>
                     ))}

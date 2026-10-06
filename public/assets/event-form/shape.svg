@@ -1,0 +1,24 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1152 648" width="1152" height="648">
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m1152 0v648h-298.88l-196.86-167.67 67.57-196.72-64.14-69.71-58.57-213.9z"/>
+		</clipPath>
+	</defs>
+	<style>
+		.s0 { fill: #5685d6 } 
+		.s1 { fill: none;stroke: #ffffff;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2 } 
+	</style>
+	<g>
+		<g>
+			<g>
+				<g id="Clip-Path" clip-path="url(#cp1)">
+					<g>
+					</g>
+				</g>
+			</g>
+			<path class="s0" d="m659.69 213.9l-193.64-213.83c3.43 1.83 135.07-0.07 135.07-0.07z"/>
+			<path fill-rule="evenodd" class="s0" d="m853.12 648h-410l185.14-83.39 28-84.28z"/>
+			<path fill-rule="evenodd" class="s1" d="m298.55 420.83h19.14l-6.43-6.43 6.43 6.43-6.29 6.28"/>
+		</g>
+	</g>
+</svg>

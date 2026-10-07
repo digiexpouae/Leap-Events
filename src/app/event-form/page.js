@@ -11,7 +11,7 @@ const FieldError = ({ message, className = "text-red-600" }) =>
   message ? <p className={`mt-1.5 text-sm ${className}`}>{message}</p> : null;
 
 export default function EventBriefForm() {
-  const [step, setStep] = useState(6);
+  const [step, setStep] = useState(1);
   const totalSteps = 10;
 
   // Form State
@@ -127,8 +127,8 @@ export default function EventBriefForm() {
   ];
 
   return (
-    // data-lenis-prevent: let the browser scroll the form natively, so Lenis smooth-scroll doesn't fight the mobile keyboard
-    <main data-lenis-prevent className="min-h-screen relative bg-white text-black flex flex-col font-sans overflow-hidden ">
+    // data-lenis-prevent-touch: touch scrolling stays native (so Lenis doesn't fight the mobile keyboard); mouse-wheel scrolling on desktop is still smoothed by Lenis
+    <main data-lenis-prevent-touch className="min-h-screen relative bg-white text-black flex flex-col font-sans overflow-hidden ">
       {/* Form Body Container */}
       <div className="h-full w-full flex-1 flex flex-col overflow-hidden">
         {/* STEP 1: Welcome / Intro */}

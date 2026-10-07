@@ -11,7 +11,7 @@ const FieldError = ({ message, className = "text-red-600" }) =>
   message ? <p className={`mt-1.5 text-sm ${className}`}>{message}</p> : null;
 
 export default function EventBriefForm() {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(6);
   const totalSteps = 10;
 
   // Form State
@@ -951,14 +951,17 @@ export default function EventBriefForm() {
             {/* Mobile / tablet: photo corner + blue accents */}
             <div className="pointer-events-none absolute top-0 right-0 h-28 sm:h-40 w-[58%] z-0 lg:hidden" aria-hidden="true">
               <div
-                className="absolute inset-0 bg-cover bg-center"
+                className="absolute inset-0 "
                 style={{
-                  backgroundImage: "url(/assets/w-dubai-universtity.webp)",
+                  backgroundImage: "url(/assets/event-form/step-6.webp)",
                   clipPath: "polygon(38% 0, 100% 0, 100% 100%)",
+                    backgroundSize: "150%",          // zoom in so there's room to move
+
+  backgroundPosition: "20% 100%",
                 }}
               ></div>
               <div
-                className="absolute inset-0 bg-[#5686DA]"
+                className="absolute inset-0  bg-[#5686DA]"
                 style={{ clipPath: "polygon(18% 0, 38% 0, 100% 100%)" }}
               ></div>
             </div>
@@ -1125,7 +1128,7 @@ export default function EventBriefForm() {
               <div
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
-                  backgroundImage: "url(/assets/w-dubai-universtity.webp)",
+                  backgroundImage: "url(/assets/event-form/step-7.webp)",
                   clipPath: "polygon(38% 0, 100% 0, 100% 100%)",
                 }}
               ></div>

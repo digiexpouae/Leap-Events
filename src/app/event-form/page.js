@@ -73,10 +73,10 @@ export default function EventBriefForm() {
     if (step < totalSteps) setStep(step + 1);
   };
 
-  // const prevStep = () => {
-  //   setShowErrors(false);
-  //   if (step > 1) setStep(step - 1);
-  // };
+  const prevStep = () => {
+    setShowErrors(false);
+    if (step > 1) setStep(step - 1);
+  };
 
   const handleSubmit = async () => {
     // Re-check every step; jump to the first one that still has errors
@@ -410,12 +410,12 @@ export default function EventBriefForm() {
                   You can select more than one option where relevant.
                 </p>
                 <div className="flex items-center gap-3 self-end sm:self-auto">
-                  {/* <button
+                  <button
                     onClick={prevStep}
                     className="text-neutral-600 px-5 py-3 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-neutral-100 transition cursor-pointer"
                   >
                     <Image src="/assets/event-form/Icon.svg" alt="" width={16} height={12} className="rotate-180 brightness-0 opacity-60" /> Back
-                  </button> */}
+                  </button>
                   <button
                     onClick={nextStep}
                     className="bg-[#5686DA] text-white px-10 py-4 rounded-full text-lg font-semibold flex items-center gap-4 shadow-lg shadow-[#5686DA]/30 hover:bg-[#4874c2] transition cursor-pointer"
@@ -576,12 +576,12 @@ export default function EventBriefForm() {
                 You can select more than one option where relevant.
               </p>
               <div className="flex items-center gap-3 self-end sm:self-auto">
-                {/* <button
+                <button
                   onClick={prevStep}
                   className="text-neutral-600 px-5 py-3 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-neutral-100 transition cursor-pointer"
                 >
                   <Image src="/assets/event-form/Icon.svg" alt="" width={16} height={12} className="rotate-180 brightness-0 opacity-60" /> Back
-                </button> */}
+                </button>
                 <button
                   onClick={nextStep}
                   className="bg-[#5686DA] text-white px-10 py-4 rounded-full text-lg font-semibold flex items-center gap-4 shadow-lg shadow-[#5686DA]/30 hover:bg-[#4874c2] transition cursor-pointer"
@@ -728,12 +728,12 @@ export default function EventBriefForm() {
                   
                 </p>
                 <div className="flex items-center gap-3 self-end sm:self-auto">
-                  {/* <button
+                  <button
                     onClick={prevStep}
                     className="text-neutral-600 px-5 py-3 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-neutral-100 transition cursor-pointer"
                   >
                     <Image src="/assets/event-form/Icon.svg" alt="" width={16} height={12} className="rotate-180 brightness-0 opacity-60" /> Back
-                  </button> */}
+                  </button>
                   <button
                     onClick={nextStep}
                     className="bg-[#5686DA] text-white px-10 py-4 rounded-full text-lg font-semibold flex items-center gap-4 shadow-lg shadow-[#5686DA]/30 hover:bg-[#4874c2] transition cursor-pointer"
@@ -792,7 +792,7 @@ export default function EventBriefForm() {
               aria-hidden="true"
             ></div>
 
-            <div className="relative z-10 max-w-5xl w-full">
+            <div className="relative z-10 max-w-6xl w-full">
               <div className="flex items-center gap-3">
                 <span className="text-sm sm:text-base uppercase tracking-wide font-bold text-neutral-900">
                   Location and Audience
@@ -904,12 +904,12 @@ export default function EventBriefForm() {
                   You can select more than one option where relevant.
                 </p>
                 <div className="flex items-center gap-3 self-end sm:self-auto">
-                  {/* <button
+                  <button
                     onClick={prevStep}
                     className="text-neutral-600 px-5 py-3 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-neutral-100 transition cursor-pointer"
                   >
                     <Image src="/assets/event-form/Icon.svg" alt="" width={16} height={12} className="rotate-180 brightness-0 opacity-60" /> Back
-                  </button> */}
+                  </button>
                   <button
                     onClick={nextStep}
                     className="bg-[#5686DA] text-white px-10 py-4 rounded-full text-lg font-semibold flex items-center gap-4 shadow-lg shadow-[#5686DA]/30 hover:bg-[#4874c2] transition cursor-pointer"
@@ -971,7 +971,7 @@ export default function EventBriefForm() {
               aria-hidden="true"
             ></div>
 
-            <div className="relative z-10 max-w-5xl w-full">
+            <div className="relative z-10 max-w-6xl w-full">
               <div className="flex items-center gap-3">
                 <span className="text-sm sm:text-base uppercase tracking-wide font-bold text-neutral-900">
                   Food and Beverage
@@ -1079,12 +1079,12 @@ export default function EventBriefForm() {
                   You can select more than one option where relevant.
                 </p>
                 <div className="flex items-center gap-3 self-end sm:self-auto">
-                  {/* <button
+                  <button
                     onClick={prevStep}
                     className="text-neutral-600 px-5 py-3 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-neutral-100 transition cursor-pointer"
                   >
                     <Image src="/assets/event-form/Icon.svg" alt="" width={16} height={12} className="rotate-180 brightness-0 opacity-60" /> Back
-                  </button> */}
+                  </button>
                   <button
                     onClick={nextStep}
                     className="bg-[#5686DA] text-white px-10 py-4 rounded-full text-lg font-semibold flex items-center gap-4 shadow-lg shadow-[#5686DA]/30 hover:bg-[#4874c2] transition cursor-pointer"
@@ -1157,7 +1157,7 @@ export default function EventBriefForm() {
                 Select as many as needed. We can recommend the final mix and running order.
               </p>
 
-              <div className="mt-6 grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 lg:max-w-5xl">
+              <div className="mt-6 grid grid-cols-1 min-[420px]:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4 lg:max-w-6xl">
                 {[
                   { label: "No entertainment", icon: "Icons-7(10).svg" },
                   { label: "DJ / music", icon: "Icons-7(12).svg" },
@@ -1215,12 +1215,12 @@ export default function EventBriefForm() {
                   You can select more than one option where relevant.
                 </p>
                 <div className="flex items-center gap-3 self-end sm:self-auto">
-                  {/* <button
+                  <button
                     onClick={prevStep}
                     className="text-neutral-600 px-5 py-3 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-neutral-100 transition cursor-pointer"
                   >
                     <Image src="/assets/event-form/Icon.svg" alt="" width={16} height={12} className="rotate-180 brightness-0 opacity-60" /> Back
-                  </button> */}
+                  </button>
                   <button
                     onClick={nextStep}
                     className="bg-[#5686DA] text-white px-10 py-4 rounded-full text-lg font-semibold flex items-center gap-4 shadow-lg shadow-[#5686DA]/30 hover:bg-[#4874c2] transition cursor-pointer"
@@ -1348,12 +1348,12 @@ export default function EventBriefForm() {
                   You can select more than one option where relevant.
                 </p>
                 <div className="flex items-center gap-3 self-end sm:self-auto">
-                  {/* <button
+                  <button
                     onClick={prevStep}
                     className="text-neutral-600 px-5 py-3 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-neutral-100 transition cursor-pointer"
                   >
                     <Image src="/assets/event-form/Icon.svg" alt="" width={16} height={12} className="rotate-180 brightness-0 opacity-60" /> Back
-                  </button> */}
+                  </button>
                   <button
                     onClick={nextStep}
                     className="bg-[#5686DA] text-white px-8 sm:px-10 py-4 rounded-full text-lg font-semibold flex items-center gap-4 shadow-lg shadow-[#5686DA]/30 hover:bg-[#4874c2] transition cursor-pointer"
@@ -1504,12 +1504,12 @@ export default function EventBriefForm() {
                 <p className="text-base sm:text-lg font-semibold uppercase text-neutral-900">
                   Thank you - We are excited to create this with you.
                 </p>
-                {/* <button
+                <button
                   onClick={prevStep}
                   className="self-end sm:self-auto text-neutral-600 px-5 py-3 rounded-full text-sm font-medium flex items-center gap-2 hover:bg-neutral-100 transition cursor-pointer"
                 >
                   <Image src="/assets/event-form/Icon.svg" alt="" width={16} height={12} className="rotate-180 brightness-0 opacity-60" /> Back
-                </button> */}
+                </button>
               </div>
             </div>
           </div>

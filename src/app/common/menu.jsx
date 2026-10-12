@@ -33,7 +33,7 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
         role="button"
         tabIndex={0}
         aria-label="Open menu"
-        className="flex cursor-pointer items-center h-[70px] md:gap-2.5 bg-[#5686DA] px-2 md:px-4 py-3.5"
+        className={`flex cursor-pointer items-center h-[70px] md:gap-2.5 ${pathname === '/event-form' ? 'bg-white/30 backdrop-blur-md' :'bg-[#5686DA]'} px-2 md:px-4 py-3.5`}
         style={{
           borderRadius: '10px',
           opacity: open ? 0 : 1,
@@ -53,9 +53,9 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
         <div className='flex gap-2 group'
           >
         <div className="flex flex-col gap-[4px]">
-          <span className="block h-[1.5px] w-[18px] bg-white transition-all" />
-          <span className="block h-[1.5px] w-[18px] bg-white transition-all duration-200 group-hover:w-3" />
-          <span className="block h-[1.5px] w-[18px] bg-white transition-all" />
+          <span className={`block h-[2px] w-[18px] ${pathname === '/event-form' ? 'bg-(--color-primary)' : 'bg-white'} transition-all`} />
+          <span className={`block h-[2px] w-[18px] ${pathname === '/event-form' ? 'bg-(--color-primary)' : 'bg-white'} transition-all duration-200 group-hover:w-3`} />
+          <span className={`block h-[2px] w-[18px] ${pathname === '/event-form' ? 'bg-(--color-primary)' : 'bg-white'} transition-all`} />
         </div>
         {/* <span className="text-[10px] tracking-[3px] text-white transition-transform duration-300 group-hover:translate-x-0.5">
           MENU
@@ -64,15 +64,22 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
      </div> 
      </div>
     <div className=' w-full h-full flex justify-end'>
-           <Link href="/" className=' h-full'>
-      <Image 
-      src={"/assets/logo-white.svg"}
-     alt={"logo-white"}
+           <Link href="/" className=' h-full relative block'>
+      <Image
+      src="/assets/logo-white.svg"
+      alt="logo-white"
       width={80}
       height={60}
-      className=' shrink-0'
+      className={`shrink-0 transition-opacity duration-500 ease-in-out ${pathname === '/event-form' ? 'opacity-0' : 'opacity-100'}`}
       />
-      </Link> 
+      <Image
+      src="/assets/event-form/Leap-logo.png"
+      alt="logo"
+      width={80}
+      height={60}
+      className={`absolute top-0 left-0 shrink-0 transition-opacity duration-500 ease-in-out ${pathname === '/event-form' ? 'opacity-100' : 'opacity-0'}`}
+      />
+      </Link>
       </div>
       </div>
 

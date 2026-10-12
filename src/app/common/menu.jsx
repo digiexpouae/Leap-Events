@@ -73,7 +73,7 @@ export default function DiagonalMenu({setIsMenuOpen,isMenuOpen}) {
       className={`shrink-0 transition-opacity duration-500 ease-in-out ${pathname === '/event-form' ? 'opacity-0' : 'opacity-100'}`}
       />
       <Image
-      src="/assets/event-form/Leap-logo.png"
+      src="/assets/event-form/leap-logo.png"
       alt="logo"
       width={80}
       height={60}

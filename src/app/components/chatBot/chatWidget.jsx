@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { useConversation } from '@elevenlabs/react';
 import { Mic, MicOff } from 'lucide-react';
@@ -13,6 +13,8 @@ const ChatWidget = () => {
     phone: ''
   });
   const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const lastLeadSent = useRef('');
 
   const [conversationState, setConversationState] = useState({
     status: 'disconnected',
@@ -108,13 +110,35 @@ const ChatWidget = () => {
 
 const handleFirstModalSubmit = async (e) => {
   e.preventDefault();
+  if (isSubmitting) return;
   if (validateForm()) {
+    setIsSubmitting(true);
+
+    // Email the lead to the team once per set of details; don't block the chat if it fails
+    const lead = {
+      fullName: formData.name,
+      email: formData.email,
+      phone: `${formData.countryCode || '+971'} ${formData.phone}`,
+      message: 'Started a chat on the website (chat widget lead).',
+    };
+    const leadKey = JSON.stringify(lead);
+    if (lastLeadSent.current !== leadKey) {
+      lastLeadSent.current = leadKey;
+      fetch('/api/agent', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: leadKey,
+      }).catch((err) => console.error('Lead email failed:', err));
+    }
+
     try {
       await navigator.mediaDevices.getUserMedia({ audio: true });
       setConversationState(prev => ({ ...prev, hasPermission: true }));
       setIsFirstModalOpen(false);
       setIsSecondModalOpen(true); // triggers useEffect to start conversation
+      setIsSubmitting(false);
     } catch (error) {
+      setIsSubmitting(false);
       console.error('Error accessing microphone:', error);
 
       if (error.name === "NotAllowedError") {
@@ -198,7 +222,9 @@ className="w-full h-auto"
               </div>
                <div className="form-group">
                 <div className="flex gap-1 w-full">
-                  <select 
+                  <select
+                    name="countryCode"
+                    onChange={handleInputChange}
                     className="country-code country min-w-[80px] bg-[#FFFFFF33] text-white border border-[rgba(255,255,255,0.1)] rounded-lg px-1 py-2 focus:outline-none focus:ring-2 focus:ring-[#4a90e2] focus:border-transparent"
                     style={{ WebkitAppearance: 'none' }}
                   >
@@ -229,17 +255,18 @@ className="w-full h-auto"
                   />
                 </div>
               </div>
-        <button type="submit" 
+        <button type="submit"
+        disabled={isSubmitting}
 
-        className="w-full text-[#363737] py-2 rounded-3xl submit-button bg-(--color-primary)  hover:bg-(--color-primary)/60 cursor-pointer"
-      
+        className="w-full text-[#363737] py-2 rounded-3xl submit-button bg-(--color-primary)  hover:bg-(--color-primary)/60 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
+
       >              <div className="flex items-center justify-center gap-2">
                         {/* <img
                           src="/assets/ai-bot.png"
                           alt=""
                           className="w-5 h-5"
                         /> */}
-                        <span className='text-white '>Connect to AI Assistant</span>
+                        <span className='text-white '>{isSubmitting ? 'Connecting...' : 'Connect to AI Assistant'}</span>
                       </div>
                     </button>
             </form>

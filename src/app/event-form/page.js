@@ -1646,7 +1646,7 @@ export default function EventBriefForm() {
                 <span className="text-base font-semibold uppercase text-[#5686DA]">Scan to Connect</span>
                 <div className="mt-3 w-full aspect-square max-w-[260px] lg:max-w-none lg:w-[86%] p-2 flex items-center justify-center">
                   <Image
-                    src="/assets/event-form/QR%20COde.svg"
+                    src="/assets/event-form/Linktree_Leap_Qr_Code.png"
                     alt="QR code to contact Leap Events"
                     width={340}
                     height={340}
